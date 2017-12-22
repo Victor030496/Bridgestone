@@ -1,0 +1,394 @@
+<%-- 
+    Document   : Registrar2
+    Created on : 02/10/2017, 08:59:42 PM
+    Author     : Luis Bogantes
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+          <%@ include file="Imports.jspf" %>  
+        <title>Inventario de activos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" title="Bridgestone" type="text/css" href="CSS/bootstrap.min.css">
+        <link rel="stylesheet" title="Bridgestone" type="text/css" href="CSS/estilos.css">
+        <link rel="stylesheet" title="Bridgestone" type="text/css" href="CSS/registrarse.css">
+        <script type="text/javascript" src="JS/bootstrap.min.js"></script>
+        <script type="text/javascript" src="JS/jquery-3.2.0.min.js"></script>
+        <script type="text/javascript" src="JS/jquery.nivo.slider.js"></script>
+   
+       <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css" rel="stylesheet">
+        
+    </head>
+    <body>
+        
+        
+                <header>
+           
+        <div class = "container-fluid">     
+          <div id="links" style="height:125px;  margin-right: 10px; margin-left: 1px; display: inline-flex; align-items: center; justify-content: end; float:left;">    
+
+                 <div style="width: 400px; height:75px; background-image: url(imagenes/logo.jpg); background-repeat: no-repeat; background-size:cover;">              </div>  
+  
+   </div > 
+ </div >            
+           
+         
+        </header>
+        
+        
+        
+                     <div class="container-fluid" style="width: 1360px; height:600px; background-image: url(imagenes/prin2.jpg); background-repeat: no-repeat; background-size:cover;">
+
+        
+                             <div class = "">
+         <nav class = " navbar navbar-default   navbar-static-top   ">
+             <div class = "container-fluid">
+                 <div class = "navbar-header">
+                     <button type="button" class = "navbar-toggle collapse"  data-toggle="collapse" data-target = "#navbar-1">
+                         <span class = "sr-only" >Menu</span>
+                         <span class = "icon-bar" ></span>
+                         <span class = "icon-bar"></span>
+                         <span class = "icon-bar"></span>
+                     </button>
+                     <a href="index.html" class = "navbar-brand">Activos de IT</a>
+                     
+                 </div>
+                 
+                 <div class = "collapse navbar-collapse" id = "navbar-1">
+                     
+                     <ul class="nav navbar-nav">
+                         <li><a href="Inventario.jsp ">Inventario </a></li>
+                         <li><a href=" "> prestamo </a></li>
+                          <li><a href=" ">devolucion  </a></li>
+                          <li><a href="RegistrarUsuario.jsp">Registrar Usuarios  </a></li>
+                   
+                     </ul> 
+                     
+                     <ul class="nav navbar-nav  navbar-right" >
+                         <li><a href=" Login.jsp ">Cerrar Sesion  </a></li>
+                         
+                     </ul>
+                 </div>
+                 
+                 
+                 
+                 
+             </div>
+         
+         </nav>
+         </div>
+        
+        
+        
+            
+        
+
+            <form role="form" onsubmit="return false;" id="userForm" class="form-horizontal">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="usuario-tab">
+                        <div class="form-group">
+                            <label class="control-label col-xs-3 col-sm-4 col-md-3"><span class="glyphicon glyphicon-user"></span>&nbsp Identificacion</label>
+                            <div class="col-xs-7 col-sm-5 col-md-5" title="Este espacio solo acepta 15 digitos numericos maximo">
+                                <input type="text" class="form-control input_ced" id="identificacion" name="usuarioTab" size="15" maxlength="15" placeholder="ej:1125565445"/>
+                                <span style="color: black ; font-size: 12pt ;font-family:Impact"  id="num2"></span>
+                            </div>
+                        </div>
+                        
+                         <div class="form-group">
+                            <label class="control-label col-xs-3 col-sm-4 col-md-3"><span class="glyphicon glyphicon-user"></span>&nbsp Nombre</label>
+                            <div class="col-xs-7 col-sm-5 col-md-5">
+                                <input type="text" class="form-control " id="nombre" name="usuarioTab"/>
+                            </div>
+                        </div>
+
+                        
+                         <div class="form-group">
+                            <label class="control-label col-xs-3 col-sm-4 col-md-3"><span class="glyphicon glyphicon-user"></span>&nbsp Apellido</label>
+                            <div class="col-xs-7 col-sm-5 col-md-5">
+                                <input type="text" class="form-control" id="apellido" name="usuarioTab"/>
+                            </div>
+                        </div>
+                        
+                        
+                           <div class="form-group">
+                            <label class="control-label col-xs-3 col-sm-4 col-md-3"><span class="glyphicon glyphicon-phone-alt"></span>&nbsp Telefono</label>
+                            <div class="col-xs-7 col-sm-5 col-md-5" title="Este espacio solo acepta 15 digitos numericos maximo">
+                                <input type="text" class="form-control input_tel" id="telefono" name="usuarioTab" size="15" maxlength="15" placeholder="ej:87458956"/>
+                                 <span style="color: black ; font-size: 12pt ;font-family:Impact"  id="num1"></span>
+                            </div>
+                        </div>
+                        
+                          <div class="form-group">
+                            <label class="control-label col-xs-3 col-sm-4 col-md-3"><span class="glyphicon glyphicon-envelope"></span>&nbsp Correo electronico</label>
+                            <div class="col-xs-7 col-sm-5 col-md-5">
+                               
+                                <input type="email" class="form-control" id="correo" aria-describedby="emailHelp" placeholder="Ejemplo@mail.com">
+                                 <span style="color: black ; font-size: 12pt ;font-family:Impact"  id="emailOK"></span>
+  </div>
+                            </div>
+                        </div>
+      
+                        <div class="form-group btnMargin">
+                            <div class="col-xs-3 col-sm-4 col-md-3"></div>
+                               <div class="col-xs-7 col-sm-5 col-md-5">
+                               <div style=" display: inline-flex; align-items: center; justify-content: end; float:left;">
+                                <button type="submit" class="btn btn btn-primary" id="enviarTab" onclick="">Finalizar</button>
+                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                               
+                          
+                               </div>
+                                   
+                                         <div style=" display: inline-flex; align-items: center; justify-content: end; float:left;">
+                             
+                                <button type="submit" class="btn btn-success" id="enviarTab" onclick="irTabla();">Ver usuarios &nbsp;</button>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                               
+                            </div>
+                             
+                                  <div style=" display: inline-flex; align-items: center; justify-content: end; float:left;">
+                             
+                                <button type="submit" class="btn btn-danger" id="enviarTab" onclick="salir();">Salir &nbsp;</button>
+                            </div>
+                            </div>
+                        </div>
+
+            
+                    </div>
+
+               
+                   
+                </div>
+            </form>
+      
+        </div>
+        
+        
+        
+        
+        
+        
+          <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        
+    </body>
+    
+    
+    
+    
+    
+        
+           <script> // Model
+  function Model() {
+    this.Model();
+  }
+  
+  Model.prototype={
+	Model: function(){
+        }
+  };
+</script>
+
+<script> // Controller
+  function Controller(model,view) {
+    this.Controller(model,view);
+  }
+  
+  Controller.prototype={
+	Controller: function(model,view){
+		this.model=model;
+		this.view=view;
+	},
+        login: function(){
+            
+            var view = this.view;
+              var id = document.getElementById("identificacion");
+              if(id.value != null  || id.value.length != 0){
+        //usuario = new Usuario(document.getElementById("usuario").value, document.getElementById("contrasena").value, 0);
+         this.model.usua = JSON.parse( sessionStorage.getItem("Usuario"),JsonUtils.revive);
+      ///   window.alert("usuario registrado como : "+ this.model.usua.id);
+       trabajador = new Trabajador(this.model.usua.id, this.model.usua.clave, 0,document.getElementById("identificacion").value,document.getElementById("nombre").value,document.getElementById("apellido").value,
+       document.getElementById("telefono").value,document.getElementById("correo").value
+                );
+            Proxy.registrarCliente(trabajador,
+                function(resultado){
+                    switch(resultado){
+                        case 0: // usuario no existe
+                            document.location = "/Bridgestone/Principal.jsp";
+                            break;
+                        case 1: // cliente
+                             window.alert("usuario registrado como : "+ this.model.usua.id);
+                           // document.location = "/Bridgestone/Principal.jsp";
+                           
+                            break;
+                        case 2: // manager
+                            //         var tabla = document.getElementById("tab");
+
+                          //  document.location = "/Bridgestone/Principal.jsp";
+                            break;
+                    }
+                });
+                
+        }
+        }
+  };
+</script>
+<script> // View
+  var model;
+  var controller;
+	function pageLoad(event){ 
+ 
+		model=new Model();  
+		controller = new Controller(model,window);
+                var fo = document.getElementById("enviarTab");
+                fo.addEventListener("click",doValidate);               
+                
+	}
+     //valida el numero de telefono 
+        jQuery(document).ready(function() {
+    jQuery('.input_tel').keypress(function(tecla) {
+         valido = document.getElementById('num1');
+        if(tecla.charCode < 48 || tecla.charCode > 57){
+            
+             valido.innerText = "Solo puede ingresar numeros!!";
+             //valido.innerText = "";
+            return false;}
+        else  valido.innerText = "";
+        
+    });
+    
+    
+    
+    
+    //valida la identificacion
+});
+      jQuery(document).ready(function() {
+    jQuery('.input_ced').keypress(function(tecla) {
+        valido = document.getElementById('num2');
+        if((tecla.charCode < 48 || tecla.charCode > 57)){ 
+            
+             valido.innerText = "Solo puede ingresar numeros!!";
+            // valido.innerText = "";
+            return false;}
+        else  valido.innerText = "";
+    });
+});
+//valida el correo
+document.getElementById('correo').addEventListener('input', function() {
+    campo = event.target;
+    valido = document.getElementById('emailOK');
+        
+    emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+    //Se muestra un texto a modo de ejemplo, luego va a ser un icono
+    if (emailRegex.test(campo.value)) {
+      
+      valido.innerText = "Valido";
+    } else {
+        valido.innerText = "Formato incorrecto! ej:Raul@mail.com";
+        //alert("La dirección de email es incorrecta!.");
+    }
+});
+
+
+
+
+
+
+
+      function doValidate(event){
+
+  var id = document.getElementById("identificacion");
+  var nom = document.getElementById("nombre");
+  var ap = document.getElementById("apellido"); 
+  var tel = document.getElementById("telefono");
+  var cor = document.getElementById("correo");   
+  
+  var error = false;
+
+
+	id.classList.remove("invalid");
+        nom.classList.remove("invalid");
+        ap.classList.remove("invalid");
+        tel.classList.remove("invalid");
+        cor.classList.remove("invalid");
+   if(id.value == null  || id.value.length == 0){
+       id.classList.add("invalid");
+	 error = true;
+}
+
+   if(nom.value == null  || nom.value.length == 0){
+     nom.classList.add("invalid");
+	 error = true;
+}
+
+
+   if(ap.value == null  || ap.value.length == 0){
+     ap.classList.add("invalid");
+	 error = true;
+}
+
+
+   if(tel.value == null  || tel.value.length == 0){
+     tel.classList.add("invalid");
+	 error = true;
+}
+
+
+   if(cor.value == null  || cor.value.length == 0){
+     cor.classList.add("invalid");
+	 error = true;
+}
+
+
+
+	if (error){
+	event.preventDefault();
+       window.alert("Faltan campos que rellenar! ");
+        document.location = "/Bridgestone/Registrar2.jsp";
+	}else{
+            
+            
+            controller.login();
+        }
+
+}
+        
+        
+        
+        
+        
+        function showErrorMessage(){
+            window.alert("Usuario incorrecto...");
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        function salir(){
+       document.location = "/Bridgestone/Principal.jsp";
+        
+     }
+     
+     
+        function irTabla(){
+       document.location = "/Bridgestone/ListadoUsuarios.jsp";
+        
+     }   
+        
+        
+        
+	document.addEventListener("DOMContentLoaded",pageLoad);
+</script>        
+</html>

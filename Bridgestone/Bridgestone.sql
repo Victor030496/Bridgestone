@@ -1,0 +1,59 @@
+CREATE DATABASE Bridgestone;
+use Bridgestone;
+
+
+create table Usuario (
+  id varchar(20) not null primary key,
+  clave varchar(20),
+  tipo integer
+);
+
+
+create table Trabajador (
+ id  varchar(20) not null primary key,
+ clave varchar(20),
+ tipo integer,
+ identificacion varchar(30),
+ nombre varchar(30),
+ apellido varchar(30),
+ telefono varchar(30),
+ correo varchar(30)
+);
+
+alter table Trabajador
+  add constraint foreign key (id) references  Usuario (id);
+
+
+create table Contrato(
+   
+   codigoContrato varchar(15),
+   fechaInicio Date,
+   fechaVencimiento Date,
+
+   constraint PK_Contrato primary key(codigoContrato)
+);
+
+
+create table Activo(
+
+	numeroDeSerie varchar(15),
+	fechaDeEntrada Date,
+	descripción varchar(20),
+	codigoContratoLeasing varchar(10),
+	constraint PK_Activo primary key(numeroDeSerie)
+);
+
+ALTER TABLE Activo ADD Foreign Key (codigoContratoLeasing) REFERENCES Contrato(codigoContrato);
+
+
+
+
+
+
+
+
+
+  
+  insert into Usuario (id,clave,tipo) values ('LuisO19','LuisO19', 2);
+  insert into Usuario (id,clave,tipo) values ('1','1', 2);
+  

@@ -1,0 +1,62 @@
+header{
+	background : black;
+
+    
+}
+
+#encabezado{
+    
+   background-image : url(logo.jpg);
+    background-size :cover;
+    width: 50 px;
+    height: 50 px;
+    
+}
+
+body{
+    
+    background-color: #c3c6cc;
+    
+    
+}
+
+#nav{
+    background-color: #dbdbdb;
+
+}
+
+
+#bla{
+    
+    color :#ba6062;
+}
+
+#letraUs{
+    
+    color: white;
+    
+}
+
+
+
+.info{
+ display:none;
+ color: red;
+ 
+}
+.contenedor_input:hover .info{ display:block}
+
+#contratos{
+    
+    float:left;
+    
+}
+
+
+#comprobante{
+    
+    float:left;
+    
+    
+    
+}
