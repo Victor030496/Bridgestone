@@ -295,7 +295,8 @@
 
   var usu = document.getElementById("serie");
   var pas = document.getElementById("datepicker");
-  var pas2 = document.getElementById("des"); 
+  var pas2 = document.getElementById("des");
+  //var con=document.getElementById("contrats");
   var error = false;
 
 
