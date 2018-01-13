@@ -34,18 +34,26 @@ create table Contrato(
 );
 
 
+create table Comprobante(
+
+   numeroDeComprobante varchar(15),
+   constraint PK_Activo primary key(numeroDeComprobante)
+
+);
+
+
 create table Activo(
 
 	numeroDeSerie varchar(15),
 	fechaDeEntrada Date,
 	descripción varchar(20),
 	codigoContratoLeasing varchar(10),
+	numeroComprobante varchar(15),
 	constraint PK_Activo primary key(numeroDeSerie)
 );
 
 ALTER TABLE Activo ADD Foreign Key (codigoContratoLeasing) REFERENCES Contrato(codigoContrato);
-
-
+ALTER TABLE Activo ADD Foreign Key (numeroComprobante) REFERENCES Comprobante(numeroDeComprobante);
 
 
 
