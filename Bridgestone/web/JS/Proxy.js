@@ -137,3 +137,27 @@ Proxy.getUsuarios = function(callBack){
     console.log("salimos del registrar contrato");
     AJAX_req.send("active="+jsonText);   
 };
+
+
+
+
+    Proxy.eliminarUsuario= function(user,callBack){
+     console.log("entramos al eliminar usuario");
+     console.log(user);
+    jsonText = JSON.stringify(user,JsonUtils.replacer);
+    console.log("se parseo el Usuario a json");
+    var AJAX_req = new XMLHttpRequest();
+    url="/Bridgestone/BridgestoneService?action=eliminarUsuario";
+    AJAX_req.open( "POST", url, true );
+    AJAX_req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    AJAX_req.onreadystatechange = function(){
+        if( AJAX_req.readyState === 4 && AJAX_req.status === 200 ){
+     
+            var object = 222;
+            console.log("El servlet ahora retorno un "+object);
+            callBack(object);
+        }
+    };
+    console.log("salimos del eliminar Usuario");
+    AJAX_req.send("user="+jsonText);   
+};

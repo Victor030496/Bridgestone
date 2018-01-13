@@ -152,10 +152,51 @@
        }      
       ); 
 	},
-        login: function(){
-            
-          
+        login: function(id){
+        ///   hacer metodo con el proxy para eliminar
+     
+        user = new Usuario(id,"hello",1);
+        //window.alert("Activo registrado como : "+ document.getElementById("des").value);
+       
+        Proxy.eliminarUsuario(user,
+                function(contrat){
+                    if(contrat === 222){
+                       window.alert("Eliminado exitoso");
+                  }
+                     
+                     document.location = "/Bridgestone/ListadoUsuarios.jsp";
+                            
+                    
+                });
+        ///alert(id);
+         
         }
+        
+        
+        /*,
+        login2: function(id){
+     
+        user = new Usuario(id,"hello",1);
+        //window.alert("Activo registrado como : "+ document.getElementById("des").value);
+       
+        Proxy.eliminarUsuario(user,
+                function(contrat){
+                    if(contrat === 222){
+                       window.alert("Eliminado exitoso");
+                  }
+                     
+                     document.location = "/Bridgestone/ListadoUsuarios.jsp";
+                            
+                    
+                });
+        ///alert(id);
+         
+        }
+        */
+        
+        
+        
+        
   };
 </script>
 <script> // View
@@ -170,7 +211,8 @@
 	}
         
               function salir(){
- document.location = "/Bridgestone/RegistrarUsuario.jsp";
+ 
+        document.location = "/Bridgestone/RegistrarUsuario.jsp";
         
      }
         
@@ -210,14 +252,16 @@
        img= document.createElement("img");
        img.src="imagenes/edit.png";
        img.title="Editar";
-       img.addEventListener("click", function(e){doQuery(per);});
+       var ide2 = model.usuarios[i].id;
+       img.addEventListener("click", function(e){doQuery(ide2);});
        td.appendChild(img);
        tr.appendChild(td);
        td= document.createElement("td");
        img= document.createElement("img");
        img.src="imagenes/delete.png";
        img.title="Eliminar";
-       img.addEventListener("click", function(e){doDelete(per);});
+       var ide = model.usuarios[i].id;
+       img.addEventListener("click", function(e){doDelete(ide);});
        td.appendChild(img);
        tr.appendChild(td); 
          
@@ -227,8 +271,29 @@
      }
             
         }
-      
-     
+        
+        function doDelete(id){
+            
+        //var persona = model.usuarios.find(function(x){return x.id==per.id; });
+        
+        //if(persona.value == null  ){//|| persona.value.length == 0
+        
+            controller.login(id);
+            
+            
+        }
+        
+        
+        function doQuery(id){
+            
+        //var persona = model.usuarios.find(function(x){return x.id==per.id; });
+        
+        //if(persona.value == null  ){//|| persona.value.length == 0
+        
+            controller.login2(id);
+            
+            
+        }
         
         
         

@@ -65,6 +65,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
          
              case "trabajadorListAll":
                 trabajadores = model.getTrabajadores();
+                //System.out.println(trabajadores.get(0));
                 json = gson.toJson(trabajadores);
                 System.out.println("enviando datoooos");
                // System.out.println(model.getTrabajadores().get(0).toString());
@@ -129,7 +130,16 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                     System.out.println("Registrando activo" + cc.getNumeroDeSerie()+ cc.getDescripcion());
                     int aux3 = model.guardaActivo(cc);
                     System.out.println("retorno "+aux3);
-                break;     
+                break; 
+                
+                    case "eliminarUsuario":
+                    json = request.getParameter("user");
+                    System.out.println(json);
+                    Usuario u = gson.fromJson(json, Usuario.class);
+                    System.out.println("Eliminando usuario" + u.getId()+ u.getClave());
+                    int aux4 = model.eliminaUsuario(u);
+                    System.out.println("retorno "+aux4);
+                break; 
                     
                
                     

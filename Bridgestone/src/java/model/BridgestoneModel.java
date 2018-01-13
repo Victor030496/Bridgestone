@@ -42,6 +42,7 @@ static {
             sql=String.format(sql,usuario.id,usuario.clave);
             
             ResultSet rs =  datos.executeQuery(sql);
+            
             if (rs.next()) {
                 return toUser(rs);
             }
@@ -95,11 +96,13 @@ static {
             String sql="select * "+
                     "from Trabajador  p  "; // sino sirve pasar trabajador a minuscula//
             ResultSet rs =  datos.executeQuery(sql);
-             System.out.println("exitoooooo");
+             System.out.println("exitooooooooooooooooooooooooooo");
+             
             while (rs.next()) {
                 trabajadores.add(toTrabajador(rs));
                 System.out.println("insertando");
             }
+            //System.out.println("posicion" +trabajadores.get(0));
         } catch (SQLException ex) {
         }
         // System.out.println(ciudades.get(0).toString());
@@ -148,6 +151,16 @@ static {
         obj.setTelefono(rs.getString("telefono"));
         obj.setCorreo(rs.getString("correo"));
    
+        System.out.println(obj.getId());
+        System.out.println(obj.getClave());
+        System.out.println(obj.getTipo());
+        System.out.println(obj.getIdentificacion());
+        System.out.println(obj.getNombre());
+        System.out.println(obj.getApellido());
+        System.out.println(obj.getTelefono());
+        System.out.println(obj.getCorreo());
+        
+       
         return obj;
     }
     
@@ -198,6 +211,37 @@ static {
    }      
 
 
+            
+            
+            public static int eliminaUsuario(Usuario c)throws Exception{
+       System.out.println("Usuario que vamos a eliminar"+ c.getId());
+       
+       
+       String sql="delete from "+
+                    "Trabajador "+
+                    "where id = '%s'";
+            
+       
+       
+       String sql2="delete from "+
+                    "Usuario  "+
+                    "where id = '%s'";
+            
+       sql=String.format(sql,c.id);
+       sql2=String.format(sql2,c.id);    
+       
+       int aux = datos.executeUpdate(sql);
+       int aux2 = datos.executeUpdate(sql2);
+       
+       
+       if(aux ==0 && aux2 ==0){
+       
+        throw new Exception("No se pudo eliminar");
+       
+       }
+ 
+   return 22;
+   }
 
 
 

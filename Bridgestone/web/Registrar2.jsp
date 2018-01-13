@@ -198,7 +198,7 @@
 </script>
 
 <script> // Controller
-  function Controller(model,view) {
+  function Controller(model,view){
     this.Controller(model,view);
   }
   
