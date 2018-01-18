@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Activo;
 import model.BridgestoneModel;
+import model.Comprobante;
 import model.Contrato;
 import model.Jsonable;
 import model.Trabajador;
@@ -51,7 +52,8 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
             RuntimeTypeAdapterFactory<Jsonable> rta = RuntimeTypeAdapterFactory.of(Jsonable.class,"_class")
             .registerSubtype(Trabajador.class,"Trabajador") 
             .registerSubtype(Contrato.class,"Contrato")
-            .registerSubtype(Activo.class,"Activo")         
+            .registerSubtype(Activo.class,"Activo")
+            .registerSubtype(Comprobante.class,"Comprobante") 
             .registerSubtype(Usuario.class,"Usuario");//IMPORTANTE HACER CAMBIOS CUANDO META CLASE USUARIO , TIQUETE ECT....//
             
         Gson gson = new GsonBuilder().registerTypeAdapterFactory(rta).setDateFormat("dd/MM/yyyy").create();
@@ -140,6 +142,16 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                     int aux4 = model.eliminaUsuario(u);
                     System.out.println("retorno "+aux4);
                 break; 
+                
+                
+                case "registrarComprobante":
+                    json = request.getParameter("comprobant");
+                    System.out.println(json);
+                    Comprobante co = gson.fromJson(json, Comprobante.class);
+                    System.out.println("Registrando Comprobante" + co.getComprobante() );
+                    int aux11 = model.guardaComprobante(co);
+                    System.out.println("retorno "+aux11);
+                break;
                     
                
                     

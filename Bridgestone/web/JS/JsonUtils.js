@@ -17,6 +17,10 @@ JsonUtils.revive = function(k,v){
           if (v instanceof Object && v._class == 'Activo') {
 		return Activo.from(v);
 	} 
+        
+        if (v instanceof Object && v._class == 'Comprobante') {
+		return Comprobante.from(v);
+	} 
 	  
 	  return v;
 	
@@ -34,14 +38,16 @@ JsonUtils.replacer = function(k,v){
 		return Trabajador.to(v);
 	}
 
-        
-       
-              if (v instanceof Contrato) {
+        if (v instanceof Contrato) {
 		return Contrato.to(v);
 	}
         
      if (v instanceof Activo) {
 		return Activo.to(v);
+	}
+        
+         if (v instanceof Comprobante) {
+		return Comprobante.to(v);
 	}
 
 	

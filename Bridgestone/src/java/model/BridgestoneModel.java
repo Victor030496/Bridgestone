@@ -242,6 +242,23 @@ static {
  
    return 22;
    }
+            
+            
+            public static int guardaComprobante(Comprobante c)throws Exception{
+       System.out.println("Comprobante que vamos a guardar"+ c.numeroDeComprobante);
+       String sql="insert into Comprobante(numeroDeComprobante)"
+                + "values('%s')";
+
+       sql=String.format(sql,c.numeroDeComprobante);
+       int aux = datos.executeUpdate(sql);
+       if(aux ==0){
+       
+        throw new Exception("Comprobante no existe");
+       
+       }
+ 
+   return 1;
+   }
 
 
 

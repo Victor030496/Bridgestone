@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
           <%@ include file="Imports.jspf" %>  
-        <title>Registrar Contrato Por Leasing</title>
+        <title>Registrar Comprobante</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" title="Bridgestone" type="text/css" href="CSS/bootstrap.min.css">
@@ -37,7 +37,7 @@
         <div class = "container-fluid">     
           <div id="links" style="height:125px;  margin-right: 10px; margin-left: 1px; display: inline-flex; align-items: center; justify-content: end; float:left;">    
 
-                 <div style="width: 400px; height:75px; background-image: url(imagenes/logo.jpg); background-repeat: no-repeat; background-size:cover;">              </div>  
+                 <div style="width: 400px; height:75px; background-image: url(imagenes/logo.jpg); background-repeat: no-repeat; background-size:cover;"> </div>  
    </div > 
  </div >               
         </header>
@@ -106,7 +106,7 @@
         
         
         
-              <h2>Registro de contratos por Leasing</h2>
+              <h2>Registro de Comprobantes</h2>
   <br> <br>
         
         
@@ -119,40 +119,15 @@
                         
                     <div class="form-group">
 
-                            <label class="control-label col-xs-3 col-sm-4 col-md-3"> <span class="glyphicon glyphicon-barcode"></span>&nbsp Codigo de Contrato</label>
-                           <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="El codigo de contrato es alfanumerico con no mas de 12 caracteres">
+                            <label class="control-label col-xs-3 col-sm-4 col-md-3"> <span class="glyphicon glyphicon-barcode"></span>&nbsp Numero de Comprobante</label>
+                           <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="Numero de Comprobante">
 
-                                  <input type="text" class="form-control" id="codContrato" name="usuarioTab" maxlength="12"/>
+                                  <input type="text" class="form-control" id="numComprobante" name="numComprobante" maxlength="12"/>
 
                         </div>
                              </div>
                         
-                        <div class="form-group">
-
-                            <label class="control-label col-xs-3 col-sm-4 col-md-3"> <span class="glyphicon glyphicon-calendar"></span>&nbsp Fecha de inicio del contrato</label>
-                             
-                            <div class="col-xs-7 col-sm-5 col-md-5">
-                                  <input type="text" id="datepicker">
-                                
-               
-                                  
-                    </div>
-                        </div>
-
-                     
-                        
-                        <div class="form-group">
-
-                            <label class="control-label col-xs-3 col-sm-4 col-md-3"> <span class="glyphicon glyphicon-calendar"></span>&nbsp Fecha de vencimiento del contrato</label>
-                             <div class="col-xs-7 col-sm-5 col-md-5">
-                                  <input type="text" id="datepicker2">
-                                
-               
-                                  
-                      </div>
-                        </div>       
-                
-                
+                       
                        <br>
                      
                         
@@ -160,7 +135,7 @@
                             <div class="col-xs-3 col-sm-4 col-md-3"></div>
                             <div class="col-xs-7 col-sm-5 col-md-5">
                                   <div style=" display: inline-flex; align-items: center; justify-content: end; float:left;">
-                                <button type="button" class="btn  btn-primary" id="siguiente1" onclick="controller.login();">Guardar</button>
+                                <button type="button" class="btn  btn-primary" id="siguiente1" onclick="controller.loginn();">Guardar</button>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -169,12 +144,12 @@
                                   </div>
                                 
                                 
-                                                            <div style=" display: inline-flex; align-items: center; justify-content: end; float:left;">
+                                     <!--                       <div style=" display: inline-flex; align-items: center; justify-content: end; float:left;">
                              
                                 <button type="submit" class="btn btn-success" id="enviarTab" onclick="irTabla();">Ver Contratos &nbsp;</button>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            </div>
+                            </div>-->
                             
                                     <div style=" display: inline-flex; align-items: center; justify-content: end; float:left;">
                              
@@ -209,6 +184,7 @@
         <script type="text/javascript" src="JS/jquery.js"></script>     
 <script type="text/javascript" src="JS/jquery-ui.min.js"></script>  
 
+<!--
 <script>
     
     $("#datepicker").datepicker();
@@ -216,8 +192,7 @@
 <script>
     
     $("#datepicker2").datepicker();
-</script>
-
+</script>-->
   
    
           <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -255,26 +230,25 @@
 		this.model=model;
 		this.view=view;
 	},
-        login: function(){
+        loginn: function(){
             
-             var view = this.view;
+            var view = this.view;
        
-            //usuario = new Usuario(document.getElementById("usuario").value, document.getElementById("contrasena").value, 0);
-  
+            //usuario = new Usuario(document.getElementById("usuario").value, document.getElementById("contrasena").value, 0); 
+        comprobante = new Comprobante(document.getElementById("numComprobante").value);
+
+        //window.alert("comrpobante registrado como : "+ comprobante);
         
-        contrato = new Contrato(document.getElementById("codContrato").value,document.getElementById("datepicker").value,document.getElementById("datepicker2").value);
-            Proxy.registrarContrato(contrato,
-                function(contrat){
-                    if(contrat == 1){
-                      // window.alert("Registro exitoso");
+        Proxy.registrarCompro(comprobante,
+                function(comprobant){
+                    if(comprobant == 33){
+                       window.alert("Registro exitoso");
                   }
                    
                      //window.alert("Contrato registrado como : "+ document.getElementById("codContrato").value);
-                     document.location = "/Bridgestone/prue.jsp";
-                            
-                    
+                     document.location = "/Bridgestone/RegistrarComprobante.jsp";
+    
                 });
-   
 
         }
   };
@@ -297,43 +271,24 @@
         
      function doValidate(event){
 
-  var usu = document.getElementById("codContrato");
-  var pas = document.getElementById("datepicker");
-  var pas2 = document.getElementById("datepicker2"); 
+  var usu = document.getElementById("numComprobante");
   var error = false;
 
 
 	usu.classList.remove("invalid");
-        pas.classList.remove("invalid");
-        pas2.classList.remove("invalid");
+        
    if(usu.value == null  || usu.value.length == 0){
        usu.classList.add("invalid");
 	 error = true;
 }
 
-   if(pas.value == null  || pas.value.length == 0 || pas.value == pas2.value){
-     pas.classList.add("invalid");
-	 error = true;
-          if(pas.value == pas2.value && pas.value == null ){
-              window.alert("Las fechas no pueden ser iguales!");
-             
-         }
-}
-
-
-   if(pas2.value == null  || pas2.value.length == 0){
-     pas2.classList.add("invalid");
-	 error = true;
-}
-
-
 
 	if (error){
 	event.preventDefault();
         //window.alert("Hay espacios en blanco");
-        document.location = "/Bridgestone/prue.jsp";
+        document.location = "/Bridgestone/RegistrarComprobante.jsp";
 	}else{
-            window.alert("Registro exitoso");
+            //window.alert("Registro exitoso");
         }
 
 }
@@ -351,16 +306,17 @@
      } 
         
         
-        
+     /*   
         
         
          function siguiente(){
       document.location = "/Bridgestone/Registrar2.jsp";
-  }
+  }*/
 	document.addEventListener("DOMContentLoaded",pageLoad);
 </script>
     
     
     
 </html>
+
 

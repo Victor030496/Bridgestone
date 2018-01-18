@@ -88,7 +88,7 @@
              <button type="button" class="btn btn-primary btn-lg btn-block" onclick="irRegistrarLeasing();">Registrar contratos de Leasing</button>
 
 
- <button type="button" class="btn btn-success btn-lg btn-block">Registrar comprobante de compra</button>
+ <button type="button" class="btn btn-success btn-lg btn-block"  onclick="irRegistrarComprobanteCompra();">Registrar comprobante de compra</button>
   
  <button type="button" class="btn btn-warning btn-lg btn-block" onclick="irRegistrarActivoLeasing();">Registrar Activos con contrato Leasing</button>
 
@@ -164,6 +164,13 @@
             function irListadoActivoLeasing(){
          
          document.location = "/Bridgestone/ListadoActivosLeasing.jsp";
+         
+         
+     }  
+     
+     function irRegistrarComprobanteCompra(){
+         
+         document.location = "/Bridgestone/RegistrarComprobante.jsp";
          
          
      }  

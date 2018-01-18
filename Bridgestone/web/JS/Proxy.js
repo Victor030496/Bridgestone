@@ -116,6 +116,28 @@ Proxy.getUsuarios = function(callBack){
     AJAX_req.send("contrat="+jsonText);   
 };
     
+    
+     Proxy.registrarCompro= function(comprobante,callBack){
+     
+     console.log("entramos al registrar comprobante");
+     console.log(comprobante);
+    jsonText = JSON.stringify(comprobante,JsonUtils.replacer);
+    console.log("se parseo el comprobante a json");
+    var AJAX_req = new XMLHttpRequest();
+    url="/Bridgestone/BridgestoneService?action=registrarComprobante";
+    AJAX_req.open( "POST", url, true );
+    AJAX_req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    AJAX_req.onreadystatechange = function(){
+        if( AJAX_req.readyState === 4 && AJAX_req.status === 200 ){
+     
+            var object = 33;
+            console.log("El servlet ahora retorno un "+object);
+            callBack(object);
+        }
+    };
+    console.log("salimos del registrar comprobante");
+    AJAX_req.send("comprobant="+jsonText);   
+};
 
         Proxy.registrarActivo= function(contrat,callBack){
      console.log("entramos al registrar activo");
