@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%-- 
     Document   : Inventario
     Created on : 21/10/2017, 06:17:43 AM
@@ -184,6 +185,3 @@
     
     
     
-    
-        
-</html>
