@@ -62,6 +62,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
         System.out.println(accion);
         List<Trabajador> trabajadores;
         List<Contrato> contratos;
+        List<Comprobante> comprobantes;
 
         switch(accion){
          
@@ -82,7 +83,17 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                  System.out.println(model.getContratos().get(0).toString());
                 out.write(json);
                 System.out.println("enviadosssss");
-                break;     
+                break; 
+                
+                
+             case "comprobantesListAll":
+                comprobantes = model.getComprobantes();
+                json = gson.toJson(comprobantes);
+                System.out.println("enviando datoooos");
+                 System.out.println(model.getComprobantes().get(0).toString());
+                out.write(json);
+                System.out.println("enviadosssss");
+                break; 
         
                  
                  

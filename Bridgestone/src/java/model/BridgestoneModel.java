@@ -135,7 +135,31 @@ static {
          
          return contratos;
 
-}   
+}  
+     
+     
+     
+     public List<Comprobante>getComprobantes() throws Exception{
+          System.out.println("entro al getComprobantes");
+         List<Comprobante> comprobantes;
+         comprobantes= new ArrayList();
+         try {
+            String sql="select * "+
+                    "from Comprobante  p  "; // sino sirve pasar trabajador a minuscula//
+            ResultSet rs =  datos.executeQuery(sql);
+             System.out.println("exitiooo");
+            while (rs.next()) {
+                comprobantes.add(toComprobante(rs));
+                System.out.println("insertando");
+            }
+        } catch (SQLException ex) {
+        }
+        // System.out.println(ciudades.get(0).toString());
+         
+         
+         return comprobantes;
+
+}  
 
     
     
@@ -172,6 +196,13 @@ static {
         obj.setFechaVencimiento(rs.getDate("fechaVencimiento"));
 
    
+        return obj;
+    }
+        
+        
+        private static Comprobante toComprobante(ResultSet rs) throws Exception{
+       Comprobante obj= new Comprobante();
+        obj.setComprobante(rs.getInt("numeroDeComprobante"));
         return obj;
     }
     

@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <%-- 
     Document   : Inventario
     Created on : 21/10/2017, 06:17:43 AM
@@ -96,6 +96,8 @@
  <button type="button" class="btn btn-info btn-lg btn-block">Registrar Activos con comprobante de compra</button>
   
  <button type="button" class="btn btn-danger btn-lg btn-block" onclick="irListadoActivoLeasing(); ">Listado de Activos</button>
+ 
+  <button type="button" class="btn btn-lg btn-lg btn-block" onclick="irListadoComprobante(); ">Listado de Comprobantes</button>
  <br><br>
   <a href="Principal.jsp "><button type="button" class="btn btn-default" >Atras</button></a>   
     </div>
@@ -174,7 +176,14 @@
          document.location = "/Bridgestone/RegistrarComprobante.jsp";
          
          
-     }  
+     } 
+     
+     function irListadoComprobante(){
+         
+         document.location = "/Bridgestone/ListadoComprobantes.jsp";
+         
+         
+     } 
         
         
 	document.addEventListener("DOMContentLoaded",pageLoad);
