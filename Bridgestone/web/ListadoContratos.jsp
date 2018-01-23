@@ -224,7 +224,7 @@
         
         
                       function salir(){
- document.location = "/Bridgestone/prue.jsp";
+ document.location = "/Bridgestone/RegistrarContratoLeasing.jsp";
         
      }
         
