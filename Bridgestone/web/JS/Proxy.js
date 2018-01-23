@@ -205,3 +205,47 @@ Proxy.getUsuarios = function(callBack){
     console.log("salimos del eliminar Usuario");
     AJAX_req.send("user="+jsonText);   
 };
+
+
+    Proxy.eliminarComprobante= function(comprobant,callBack){
+     console.log("entramos al eliminar comprobante");
+     console.log(comprobant);
+    jsonText = JSON.stringify(comprobant,JsonUtils.replacer);
+    console.log("se parseo el Comprobante a json");
+    var AJAX_req = new XMLHttpRequest();
+    url="/Bridgestone/BridgestoneService?action=eliminarComprobante";
+    AJAX_req.open( "POST", url, true );
+    AJAX_req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    AJAX_req.onreadystatechange = function(){
+        if( AJAX_req.readyState === 4 && AJAX_req.status === 200 ){
+     
+            var object = 19;
+            console.log("El servlet ahora retorno un "+object);
+            callBack(object);
+        }
+    };
+    console.log("salimos del eliminar Comprobante");
+    AJAX_req.send("comprobant="+jsonText);   
+};
+
+
+   Proxy.eliminarContrato= function(contrat,callBack){
+     console.log("entramos al eliminar contrato");
+     console.log(contrat);
+    jsonText = JSON.stringify(contrat,JsonUtils.replacer);
+    console.log("se parseo el contrato a json");
+    var AJAX_req = new XMLHttpRequest();
+    url="/Bridgestone/BridgestoneService?action=eliminarContrato";
+    AJAX_req.open( "POST", url, true );
+    AJAX_req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    AJAX_req.onreadystatechange = function(){
+        if( AJAX_req.readyState === 4 && AJAX_req.status === 200 ){
+     
+            var object = 10;
+            console.log("El servlet ahora retorno un "+object);
+            callBack(object);
+        }
+    };
+    console.log("salimos del eliminar contrato");
+    AJAX_req.send("contrat="+jsonText);   
+};

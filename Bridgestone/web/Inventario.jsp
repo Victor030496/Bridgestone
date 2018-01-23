@@ -98,7 +98,12 @@
  <button type="button" class="btn btn-danger btn-lg btn-block" onclick="irListadoActivoLeasing(); ">Listado de Activos</button>
  
   <button type="button" class="btn btn-lg btn-lg btn-block" onclick="irListadoComprobante(); ">Listado de Comprobantes</button>
- <br><br>
+ 
+  <button type="button" class="btn btn-success btn-lg btn-block" onclick="irListadoContratos(); ">Listado de Contratos</button>
+ 
+  
+  
+  <br><br>
   <a href="Principal.jsp "><button type="button" class="btn btn-default" >Atras</button></a>   
     </div>
   
@@ -181,6 +186,13 @@
      function irListadoComprobante(){
          
          document.location = "/Bridgestone/ListadoComprobantes.jsp";
+         
+         
+     } 
+     
+     function irListadoContratos(){
+         
+         document.location = "/Bridgestone/ListadoContratos.jsp";
          
          
      } 

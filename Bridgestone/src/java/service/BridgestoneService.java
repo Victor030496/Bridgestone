@@ -144,6 +144,16 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                     int aux3 = model.guardaActivo(cc);
                     System.out.println("retorno "+aux3);
                 break; 
+                 
+                
+                    case "registrarComprobante":
+                    json = request.getParameter("comprobant");
+                    System.out.println(json);
+                    Comprobante co = gson.fromJson(json, Comprobante.class);
+                    System.out.println("Registrando Comprobante" + co.getComprobante() );
+                    int aux11 = model.guardaComprobante(co);
+                    System.out.println("retorno "+aux11);
+                break;
                 
                     case "eliminarUsuario":
                     json = request.getParameter("user");
@@ -154,15 +164,26 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                     System.out.println("retorno "+aux4);
                 break; 
                 
-                
-                case "registrarComprobante":
+                case "eliminarComprobante":
                     json = request.getParameter("comprobant");
                     System.out.println(json);
-                    Comprobante co = gson.fromJson(json, Comprobante.class);
-                    System.out.println("Registrando Comprobante" + co.getComprobante() );
-                    int aux11 = model.guardaComprobante(co);
-                    System.out.println("retorno "+aux11);
+                    Comprobante cb = gson.fromJson(json, Comprobante.class);
+                    System.out.println("Eliminando comprobante" + cb.getComprobante());
+                    int aux5 = model.eliminaComprobante(cb);
+                    System.out.println("retorno "+aux5);
                 break;
+                
+                case "eliminarContrato":
+                    json = request.getParameter("contrat");
+                    System.out.println(json);
+                    Contrato ce = gson.fromJson(json, Contrato.class);
+                    System.out.println("Eliminando Contrato" + ce.getCodigoContrato());
+                    int aux43 = model.eliminaContrato(ce);
+                    System.out.println("retorno "+aux43);
+                break;
+                
+                
+                
                     
                
                     

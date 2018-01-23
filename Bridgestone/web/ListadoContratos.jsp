@@ -1,7 +1,7 @@
-<%-- 
+<%-- prueba
     Document   : ListadoContratos
-    Created on : 24/10/2017, 04:26:19 AM
-    Author     : Luis Bogantes
+    Created on : Oct 24, 2017, 4:08:07 PM
+    Author     : victo
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,8 +9,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-          <%@ include file="Imports.jspf" %>  
-        <title>Listado de usuarios</title>
+           <%@ include file="Imports.jspf" %>  
+        <title>Listado de Contratos</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" title="Bridgestone" type="text/css" href="CSS/bootstrap.min.css">
@@ -27,7 +27,7 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css" rel="stylesheet">
     </head>
     <body>
-       
+               
           <header>
            
         <div class = "container-fluid">     
@@ -39,10 +39,9 @@
         </header>
         
         
-                 <div class="container-fluid" style="width: 1360px; height:630px; background-image: url(imagenes/prin2.jpg); background-repeat: no-repeat; background-size:cover;">
+                         <div class="container-fluid" style="width: 1360px; height:530px; background-image: url(imagenes/prin2.jpg); background-repeat: no-repeat; background-size:cover;">
 
-        
-                             <div class = "">
+                     <div class = "">
          <nav class = " navbar navbar-default   navbar-static-top   ">
              <div class = "container-fluid">
                  <div class = "navbar-header">
@@ -69,7 +68,7 @@
                      </ul> 
                      
                      <ul class="nav navbar-nav  navbar-right" >
-                         <li><a href=" Login.jsp">Cerrar Sesion  </a></li>
+                         <li><a href=" Login.jsp ">Cerrar Sesion  </a></li>
                          
                      </ul>
                  </div>
@@ -88,89 +87,54 @@
         
         
         
-            
-            
-            
-            
-            <div class="container">
-  <h2>Contratos registrados en el sistema</h2>
+        
+        
+        
+        
+        
+        
+        
+                 <div class="container-fluid" style="width: 1360px; height:530px; background-image: url(imagenes/prin2.jpg); background-repeat: no-repeat; background-size:cover;">
+
+                    <div class="container">
+  <h2>Comprobantes</h2>
     <br> <br>
-  
-  <table class="table" id="tabUsuarios">
+        
+     <table class="table" id="tabUsuarios">
     <thead>
       <tr>
-        <th class="success">Codigo del Contrato</th>
-        <th class="success">Fecha de inicio</th>
-        <th class="success">Fecha de vencimiento</th>
-        <th class="success">Editar</th>
+        <th class="success">Codigo de Contrato</th>
+        <th class="success">Fecha De Inicio del Contrato</th>
+        <th class="success">Fecha De Vencimiento del Contrato</th>
+         <th class="success">Editar</th>
         <th class="success">Eliminar</th>
       </tr>
     </thead>
+    <br><br>
+  
     <tbody id="listado">
     
-        
+       
         
         
     </tbody>
-  </table>
-</div>
-
-            
-            
-            
-     <div style=" display: inline-flex; align-items: center; justify-content: end; float:left;">
-     <button type="submit" class="btn btn-danger" id="enviarTab" onclick="salir();">Atras &nbsp;</button>
-                            </div>      
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+  </table>   
+    
+    
+    
+    
+    
+    
+        
         </div>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+       <a href="Inventario.jsp "><button type="button" class="btn btn-default" >Atras</button></a>                 
+        </div>
         
    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>        
-              
+                    
+        
     </body>
-    
-    
-    
-    
-    
     
     
     
@@ -205,8 +169,25 @@
        }      
       ); 
 	},
-        login: function(){
-            
+        login: function(cod){
+              ///   hacer metodo con el proxy para eliminar
+      
+        
+        contrat = new Contrato(cod,new Date(),new Date());
+        //window.alert("Activo registrado como : "+ document.getElementById("des").value);
+       
+        Proxy.eliminarContrato(contrat,
+                function(contrats){
+                    if(contrats === 10){
+                       window.alert("Eliminado exitoso");
+                  }
+                     
+                     document.location = "/Bridgestone/ListadoContratos.jsp";
+                            
+                    
+                });
+        ///alert(id);
+       
           
         }
   };
@@ -258,7 +239,8 @@
        img= document.createElement("img");
        img.src="imagenes/delete.png";
        img.title="Eliminar";
-       img.addEventListener("click", function(e){doDelete(per);});
+       var con = model.contratos[i].codigoContrato;
+       img.addEventListener("click", function(e){doDelete(con);});
        td.appendChild(img);
        tr.appendChild(td);
        
@@ -269,6 +251,18 @@
          
         
      }
+            
+        }
+        
+        
+         function doDelete(contr){
+            
+        //var persona = model.usuarios.find(function(x){return x.id==per.id; });
+        
+        //if(persona.value == null  ){//|| persona.value.length == 0
+        
+            controller.login(contr);
+            
             
         }
       

@@ -159,15 +159,31 @@
          Proxy.getComprobantes(function(result){
           
           model.comprobantes = result;
-          console.log(result[0].numeroDeComprobante);
-          console.log(result[1].numeroDeComprobante);
+          //console.log(result[0].numeroDeComprobante);
+          //console.log(result[1].numeroDeComprobante);
           view.showTabla(); 
        } 
 ); 
         
 	},
-        login: function(){
+        login: function(num){
             
+             comprobante = new Comprobante(num);
+        //window.alert("Activo registrado como : "+ document.getElementById("des").value);
+       
+        //console.log("Se va a meter al proxy eliminar Comrpobante" + comprobante);
+       
+        Proxy.eliminarComprobante(comprobante,
+                function(contrat){
+                    if(contrat === 19){
+                       window.alert("Eliminado exitoso");
+                  }
+                     
+                     document.location = "/Bridgestone/ListadoComprobantes.jsp";
+                            
+                    
+                });
+        ///alert(id);
           
         }
   };
@@ -215,12 +231,12 @@
        img= document.createElement("img");
        img.src="imagenes/delete.png";
        img.title="Eliminar";
-       img.addEventListener("click", function(e){doDelete(per);});
+       var num = model.comprobantes[i].numeroDeComprobante;
+       console.log(num);
+       img.addEventListener("click", function(e){doDelete(num);});
        td.appendChild(img);
        tr.appendChild(td);
-	
-         
-         
+       
          listado.appendChild(tr);
          
         
@@ -228,6 +244,18 @@
             
         }
       
+      
+      function doDelete(num){
+            
+        //var persona = model.usuarios.find(function(x){return x.id==per.id; });
+        
+        //if(persona.value == null  ){//|| persona.value.length == 0
+        
+            controller.login(num);
+            
+            console.log("En el do delete" + num);
+            
+        }
      
         
         

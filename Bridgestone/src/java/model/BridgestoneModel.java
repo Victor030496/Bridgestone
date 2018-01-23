@@ -54,13 +54,7 @@ static {
         return null;
    }
     
-          private static Usuario toUser(ResultSet rs) throws Exception{
-        Usuario obj= new Usuario();
-        obj.setId(rs.getString("id"));
-        obj.setClave(rs.getString("clave"));
-        obj.setTipo(rs.getInt("tipo"));
-        return obj;
-    }
+          
           
           
           
@@ -87,6 +81,56 @@ static {
    return 1;
    }
              
+               public static int guardaComprobante(Comprobante c)throws Exception{
+       System.out.println("Comprobante que vamos a guardar"+ c.numeroDeComprobante);
+       String sql="insert into Comprobante(numeroDeComprobante)"
+                + "values('%s')";
+
+       sql=String.format(sql,c.numeroDeComprobante);
+       int aux = datos.executeUpdate(sql);
+       if(aux ==0){
+       
+        throw new Exception("Comprobante no existe");
+       
+       }
+ 
+   return 1;
+   }
+             
+               
+   public static int guardaActivo(Activo c)throws Exception{
+       System.out.println("Activo que vamos a guardar"+ c.getNumeroDeSerie());
+       String sql="insert into Activo(numeroDeSerie,fechaDeEntrada,descripción ,codigoContratoLeasing)"
+                + "values('%s','%s','%s','%s')";
+
+       sql=String.format(sql,c.numeroDeSerie,c.fechaDeEntrada,c.descripción,c.codigoContratoLeasing);
+       int aux = datos.executeUpdate(sql);
+       if(aux ==0){
+       
+        throw new Exception("Activo no existe");
+       
+       }
+ 
+   return 1;
+   }  
+   
+   
+   
+    public static int guardaContrato(Contrato c)throws Exception{
+       System.out.println("Contrato que vamos a guardar"+ c.getCodigoContrato());
+       String sql="insert into Contrato(codigoContrato,fechaInicio,fechaVencimiento)"
+                + "values('%s','%s','%s')";
+
+       sql=String.format(sql,c.codigoContrato,c.fechaInicio,c.fechaVencimiento);
+       int aux = datos.executeUpdate(sql);
+       if(aux ==0){
+       
+        throw new Exception("Contrato no existe");
+       
+       }
+ 
+   return 1;
+   }
              
              
     public List<Trabajador>getTrabajadores() throws Exception{
@@ -161,6 +205,15 @@ static {
 
 }  
 
+     
+     
+     private static Usuario toUser(ResultSet rs) throws Exception{
+        Usuario obj= new Usuario();
+        obj.setId(rs.getString("id"));
+        obj.setClave(rs.getString("clave"));
+        obj.setTipo(rs.getInt("tipo"));
+        return obj;
+    }
     
     
     
@@ -206,46 +259,10 @@ static {
         return obj;
     }
     
-    
-        public static int guardaContrato(Contrato c)throws Exception{
-       System.out.println("Contrato que vamos a guardar"+ c.getCodigoContrato());
-       String sql="insert into Contrato(codigoContrato,fechaInicio,fechaVencimiento)"
-                + "values('%s','%s','%s')";
-
-       sql=String.format(sql,c.codigoContrato,c.fechaInicio,c.fechaVencimiento);
-       int aux = datos.executeUpdate(sql);
-       if(aux ==0){
-       
-        throw new Exception("Contrato no existe");
-       
-       }
- 
-   return 1;
-   }
-    
-
         
-            public static int guardaActivo(Activo c)throws Exception{
-       System.out.println("Activo que vamos a guardar"+ c.getNumeroDeSerie());
-       String sql="insert into Activo(numeroDeSerie,fechaDeEntrada,descripción ,codigoContratoLeasing)"
-                + "values('%s','%s','%s','%s')";
-
-       sql=String.format(sql,c.numeroDeSerie,c.fechaDeEntrada,c.descripción,c.codigoContratoLeasing);
-       int aux = datos.executeUpdate(sql);
-       if(aux ==0){
+       public static int eliminaUsuario(Usuario c)throws Exception{
        
-        throw new Exception("Activo no existe");
-       
-       }
- 
-   return 1;
-   }      
-
-
-            
-            
-            public static int eliminaUsuario(Usuario c)throws Exception{
-       System.out.println("Usuario que vamos a eliminar"+ c.getId());
+           System.out.println("Usuario que vamos a eliminar"+ c.getId());
        
        
        String sql="delete from "+
@@ -273,30 +290,68 @@ static {
  
    return 22;
    }
-            
-            
-            public static int guardaComprobante(Comprobante c)throws Exception{
-       System.out.println("Comprobante que vamos a guardar"+ c.numeroDeComprobante);
-       String sql="insert into Comprobante(numeroDeComprobante)"
-                + "values('%s')";
-
-       sql=String.format(sql,c.numeroDeComprobante);
-       int aux = datos.executeUpdate(sql);
-       if(aux ==0){
        
-        throw new Exception("Comprobante no existe");
+       
+       
+       
+        public static int eliminaComprobante(Comprobante c)throws Exception{
+       
+           System.out.println("Comprobante que vamos a eliminar"+ c.getComprobante());
+           
+       String sql="delete from "+
+                    "Activo "+
+                    "where numeroComprobante = '%s'";
+       String sql2="delete from "+
+                    "Comprobante  "+
+                    "where numeroDeComprobante = '%s'";
+            
+     
+       sql=String.format(sql,c.numeroDeComprobante);
+       sql2=String.format(sql2,c.numeroDeComprobante);    
+       
+       int aux = datos.executeUpdate(sql);
+       int aux2 = datos.executeUpdate(sql2);
+       
+       
+       if(aux ==0 && aux2 ==0){
+       
+        throw new Exception("No se pudo eliminar");
        
        }
  
-   return 1;
+   return 22;
    }
-
-
-
-
-
-
-
+        
+        
+        
+        
+        public static int eliminaContrato(Contrato c)throws Exception{
+       
+           System.out.println("Contrato que vamos a eliminar"+ c.getCodigoContrato());
+           
+       String sql="delete from "+
+                    "Activo "+
+                    "where codigoContratoLeasing = '%s'";
+       String sql2="delete from "+
+                    "Contrato  "+
+                    "where codigoContrato = '%s'";
+            
+     
+       sql=String.format(sql,c.codigoContrato);
+       sql2=String.format(sql2,c.codigoContrato);    
+       
+       int aux = datos.executeUpdate(sql);
+       int aux2 = datos.executeUpdate(sql2);
+       
+       
+       if(aux ==0 && aux2 ==0){
+       
+        throw new Exception("No se pudo eliminar");
+       
+       }
+ 
+   return 22;
+   }
 }
  
  
