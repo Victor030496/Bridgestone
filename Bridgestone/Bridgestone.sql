@@ -29,7 +29,7 @@ create table Contrato(
    codigoContrato varchar(15),
    fechaInicio Date,
    fechaVencimiento Date,
-
+   estado integer,
    constraint PK_Contrato primary key(codigoContrato)
 );
 
