@@ -118,10 +118,10 @@ static {
    
     public static int guardaContrato(Contrato c)throws Exception{
        System.out.println("Contrato que vamos a guardar"+ c.getCodigoContrato());
-       String sql="insert into Contrato(codigoContrato,fechaInicio,fechaVencimiento)"
-                + "values('%s','%s','%s')";
+       String sql="insert into Contrato(codigoContrato,fechaInicio,fechaVencimiento,estado)"
+                + "values('%s','%s','%s','%s')";
 
-       sql=String.format(sql,c.codigoContrato,c.fechaInicio,c.fechaVencimiento);
+       sql=String.format(sql,c.codigoContrato,c.fechaInicio,c.fechaVencimiento,c.estado);
        int aux = datos.executeUpdate(sql);
        if(aux ==0){
        
@@ -247,7 +247,7 @@ static {
         obj.setgetCodigoContrato(rs.getString("codigoContrato"));
         obj.setFechaInicio(rs.getDate("fechaInicio"));// aqui puede estar el erros//
         obj.setFechaVencimiento(rs.getDate("fechaVencimiento"));
-
+        obj.setEstado(rs.getInt("estado"));
    
         return obj;
     }
