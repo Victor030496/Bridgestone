@@ -159,7 +159,7 @@
     </tr>  
     
      <tr>
-         <th class="" id ="accesoP" ><a href="ListadoContratos.jsp">Ver Contratos <span class="glyphicon glyphicon-list-alt"></span></a></th>
+         <th class="" id ="accesoP" ><a href="ListadoContratosLeasing.jsp">Ver Contratos <span class="glyphicon glyphicon-list-alt"></span></a></th>
     </tr>  
         
      <tr>
