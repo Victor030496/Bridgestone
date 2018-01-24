@@ -226,6 +226,18 @@
                       </div>
                         </div>       
                 
+                        
+                        
+                          <div class="form-group">
+
+                            <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="glyphicon glyphicon-calendar"></span>&nbsp Estado</label>
+                             <div class="col-xs-7 col-sm-5 col-md-5">
+                                  <input type="text" id="datepicker2">
+                                
+               
+                                  
+                      </div>
+                        </div>       
                 
                        <br>
                      
