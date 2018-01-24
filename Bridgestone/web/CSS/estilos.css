@@ -4,6 +4,25 @@ header{
     
 }
 
+#accesoP{
+    
+    
+    color: white;
+}
+
+
+#acceso{
+    
+    
+    color: #dbdbdb;
+}
+
+#acceso2{
+    
+    
+    background-color: #dbdbdb;
+}
+
 #encabezado{
     
    background-image : url(logo.jpg);
