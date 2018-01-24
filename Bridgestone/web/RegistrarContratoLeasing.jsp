@@ -362,7 +362,7 @@
                 fo.addEventListener("click",doValidate);
 	}
         function showErrorMessage(){
-            window.alert("Contrato incorrecto...");
+            window.alert("Contrato mal ingresado...");
         }
         
         
