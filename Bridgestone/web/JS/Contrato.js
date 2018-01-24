@@ -5,19 +5,21 @@
  */
 
 
-  function Contrato(codigoContrato,fechaInicio,fechaVencimiento) {
-    this.Contrato(codigoContrato,fechaInicio,fechaVencimiento);
+  function Contrato(codigoContrato,fechaInicio,fechaVencimiento,estado) {
+    this.Contrato(codigoContrato,fechaInicio,fechaVencimiento,estado);
   }
   
   Contrato.prototype={
         codigoContrato:"",
         fechaInicio:"",
         fechaVencimiento:"",
+        estado:0,
 	
-	Contrato: function(codigoContrato,fechaInicio,fechaVencimiento){
+	Contrato: function(codigoContrato,fechaInicio,fechaVencimiento,estado){
                 this.codigoContrato= codigoContrato;
                 this.fechaInicio = fechaInicio;
                 this.fechaVencimiento = fechaVencimiento;
+                this.estado = estado;
 
 	},
 	toString:function(){
@@ -26,7 +28,7 @@
   }
   
   Contrato.from= function(plain){
-    contrat = new Contrato(plain.codigoContrato,plain.fechaInicio,plain.fechaVencimiento);
+    contrat = new Contrato(plain.codigoContrato,plain.fechaInicio,plain.fechaVencimiento,plain.estado);
 	return contrat;
   };
   
@@ -36,6 +38,7 @@
         codigoContrato:contrato.codigoContrato,
         fechaInicio:contrato.fechaInicio,
         fechaVencimiento: contrato.fechaVencimiento,
+        estado : contrato.estado,
  
     };	
   };
