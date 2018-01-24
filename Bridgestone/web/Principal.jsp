@@ -110,7 +110,7 @@
       <a role="menuitem" tabindex="-1" href="RegistrarContratoLeasing.jsp">Registrar Contrato de Leasing</a>
     </li>
     <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="prue.jsp">Registrar Comprobante de compra</a>
+      <a role="menuitem" tabindex="-1" href="RegistrarComprobante.jsp">Registrar Comprobante de compra</a>
     </li>    
      <li role="presentation" class="divider"></li>
     <li role="presentation">
