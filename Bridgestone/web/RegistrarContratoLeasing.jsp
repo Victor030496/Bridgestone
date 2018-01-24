@@ -230,9 +230,10 @@
                         
                           <div class="form-group">
 
-                            <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="glyphicon glyphicon-calendar"></span>&nbsp Estado</label>
+                            <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="glyphicon glyphicon-check"></span>&nbsp Estado</label>
                              <div class="col-xs-7 col-sm-5 col-md-5">
-                                  <input type="text" id="datepicker2">
+                                 <label class="radio-inline" id="acceso2"><input type="radio" name="optradio" id = "activee">Activo</label>
+                               <label class="radio-inline" id="acceso2"><input type="radio" name="optradio">Cerrado</label>  
                                 
                
                                   
@@ -343,10 +344,12 @@
             
              var view = this.view;
        
-            //usuario = new Usuario(document.getElementById("usuario").value, document.getElementById("contrasena").value, 0);
-  
-        
-        contrato = new Contrato(document.getElementById("codContrato").value,document.getElementById("datepicker").value,document.getElementById("datepicker2").value);
+             var act = document.getElementById("activee");
+             if(act.checked){
+             contrato = new Contrato(document.getElementById("codContrato").value,document.getElementById("datepicker").value,document.getElementById("datepicker2").value,1);
+             }else{
+                 contrato = new Contrato(document.getElementById("codContrato").value,document.getElementById("datepicker").value,document.getElementById("datepicker2").value,0);
+             }
             Proxy.registrarContrato(contrato,
                 function(contrat){
                     if(contrat == 1){
