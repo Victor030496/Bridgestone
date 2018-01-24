@@ -18,14 +18,15 @@ public class Contrato implements Serializable, Jsonable {
     String codigoContrato;
     Date fechaInicio;
     Date fechaVencimiento;
+    int estado;
     
     
-    
-    public Contrato(String codigoContrato,Date fechaInicio,Date fechaVencimiento){
+    public Contrato(String codigoContrato,Date fechaInicio,Date fechaVencimiento, int estado){
     
         this.codigoContrato = codigoContrato;
         this.fechaInicio = fechaInicio;
         this.fechaVencimiento = fechaVencimiento;
+        this.estado = estado;
 
     }
     
@@ -35,7 +36,7 @@ public class Contrato implements Serializable, Jsonable {
         codigoContrato = "";
         fechaInicio = new Date(6,10,2000);
         fechaVencimiento = new Date(2,03,2005);
-
+        estado=0;
     }
 
     
@@ -43,6 +44,14 @@ public class Contrato implements Serializable, Jsonable {
     
         return codigoContrato;
     
+    }
+
+    public void setEstado(int estado) {
+        this.estado = estado;
+    }
+
+    public int getEstado() {
+        return estado;
     }
     
     public Date getFechaInicio(){
