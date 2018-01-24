@@ -1,3 +1,4 @@
+
 <%-- 
     Document   : Inventario
     Created on : 21/10/2017, 06:17:43 AM
@@ -86,16 +87,23 @@
       <div class="container-fluid">
       
              <button type="button" class="btn btn-primary btn-lg btn-block" onclick="irRegistrarLeasing();">Registrar contratos de Leasing</button>
-<p>Victor tiene vagina</p>
 
- <button type="button" class="btn btn-success btn-lg btn-block">Registrar comprobante de sexo</button>
+
+ <button type="button" class="btn btn-success btn-lg btn-block"  onclick="irRegistrarComprobanteCompra();">Registrar comprobante de compra</button>
   
  <button type="button" class="btn btn-warning btn-lg btn-block" onclick="irRegistrarActivoLeasing();">Registrar Activos con contrato Leasing</button>
 
  <button type="button" class="btn btn-info btn-lg btn-block">Registrar Activos con comprobante de compra</button>
   
  <button type="button" class="btn btn-danger btn-lg btn-block" onclick="irListadoActivoLeasing(); ">Listado de Activos</button>
- <br><br>
+ 
+  <button type="button" class="btn btn-lg btn-lg btn-block" onclick="irListadoComprobante(); ">Listado de Comprobantes</button>
+ 
+  <button type="button" class="btn btn-success btn-lg btn-block" onclick="irListadoContratos(); ">Listado de Contratos</button>
+ 
+  
+  
+  <br><br>
   <a href="Principal.jsp "><button type="button" class="btn btn-default" >Atras</button></a>   
     </div>
   
@@ -167,6 +175,27 @@
          
          
      }  
+     
+     function irRegistrarComprobanteCompra(){
+         
+         document.location = "/Bridgestone/RegistrarComprobante.jsp";
+         
+         
+     } 
+     
+     function irListadoComprobante(){
+         
+         document.location = "/Bridgestone/ListadoComprobantes.jsp";
+         
+         
+     } 
+     
+     function irListadoContratos(){
+         
+         document.location = "/Bridgestone/ListadoContratos.jsp";
+         
+         
+     } 
         
         
 	document.addEventListener("DOMContentLoaded",pageLoad);
@@ -177,6 +206,3 @@
     
     
     
-    
-        
-</html>

@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Activo;
 import model.BridgestoneModel;
+import model.Comprobante;
 import model.Contrato;
 import model.Jsonable;
 import model.Trabajador;
@@ -51,7 +52,8 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
             RuntimeTypeAdapterFactory<Jsonable> rta = RuntimeTypeAdapterFactory.of(Jsonable.class,"_class")
             .registerSubtype(Trabajador.class,"Trabajador") 
             .registerSubtype(Contrato.class,"Contrato")
-            .registerSubtype(Activo.class,"Activo")         
+            .registerSubtype(Activo.class,"Activo")
+            .registerSubtype(Comprobante.class,"Comprobante") 
             .registerSubtype(Usuario.class,"Usuario");//IMPORTANTE HACER CAMBIOS CUANDO META CLASE USUARIO , TIQUETE ECT....//
             
         Gson gson = new GsonBuilder().registerTypeAdapterFactory(rta).setDateFormat("dd/MM/yyyy").create();
@@ -60,6 +62,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
         System.out.println(accion);
         List<Trabajador> trabajadores;
         List<Contrato> contratos;
+        List<Comprobante> comprobantes;
 
         switch(accion){
          
@@ -80,7 +83,17 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                  System.out.println(model.getContratos().get(0).toString());
                 out.write(json);
                 System.out.println("enviadosssss");
-                break;     
+                break; 
+                
+                
+             case "comprobantesListAll":
+                comprobantes = model.getComprobantes();
+                json = gson.toJson(comprobantes);
+                System.out.println("enviando datoooos");
+                 System.out.println(model.getComprobantes().get(0).toString());
+                out.write(json);
+                System.out.println("enviadosssss");
+                break; 
         
                  
                  
@@ -131,6 +144,16 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                     int aux3 = model.guardaActivo(cc);
                     System.out.println("retorno "+aux3);
                 break; 
+                 
+                
+                    case "registrarComprobante":
+                    json = request.getParameter("comprobant");
+                    System.out.println(json);
+                    Comprobante co = gson.fromJson(json, Comprobante.class);
+                    System.out.println("Registrando Comprobante" + co.getComprobante() );
+                    int aux11 = model.guardaComprobante(co);
+                    System.out.println("retorno "+aux11);
+                break;
                 
                     case "eliminarUsuario":
                     json = request.getParameter("user");
@@ -140,6 +163,27 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                     int aux4 = model.eliminaUsuario(u);
                     System.out.println("retorno "+aux4);
                 break; 
+                
+                case "eliminarComprobante":
+                    json = request.getParameter("comprobant");
+                    System.out.println(json);
+                    Comprobante cb = gson.fromJson(json, Comprobante.class);
+                    System.out.println("Eliminando comprobante" + cb.getComprobante());
+                    int aux5 = model.eliminaComprobante(cb);
+                    System.out.println("retorno "+aux5);
+                break;
+                
+                case "eliminarContrato":
+                    json = request.getParameter("contrat");
+                    System.out.println(json);
+                    Contrato ce = gson.fromJson(json, Contrato.class);
+                    System.out.println("Eliminando Contrato" + ce.getCodigoContrato());
+                    int aux43 = model.eliminaContrato(ce);
+                    System.out.println("retorno "+aux43);
+                break;
+                
+                
+                
                     
                
                     
