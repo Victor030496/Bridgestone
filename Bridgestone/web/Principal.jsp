@@ -95,7 +95,7 @@
                          <span class = "icon-bar"></span>
                          <span class = "icon-bar"></span>
                      </button>
-                     <a href="index.html" class = "navbar-brand">Home</a>
+                     <a href="Principal.jsp" class = "navbar-brand">Home</a>
                      
                  </div>
                  
@@ -117,13 +117,13 @@
       <a role="menuitem" tabindex="-1" href="ListadoContratos.jsp">Contratos de Leasing Registrados</a>
     </li>
     <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="ListadoContratos.jsp">Comprobantes de compra registrados</a>
+      <a role="menuitem" tabindex="-1" href="ListadoComprobantes.jsp">Comprobantes de compra registrados</a>
     </li>    
      <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="p.jsp">Registrar Activo por Leasing</a>
+      <a role="menuitem" tabindex="-1" href="RegistrarActivoLeasing.jsp">Registrar Activo por Leasing</a>
     </li>
     <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="ListadoContratos.jsp">Registrar Activo por Comprobante</a>
+      <a role="menuitem" tabindex="-1" href="#.jsp">Registrar Activo por Comprobante</a>
     </li>    
     
   </ul>
@@ -133,11 +133,11 @@
                                  <span class = "caret"></span>
                                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
     <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="prue.jsp">Nuevo Prestamo</a>
+      <a role="menuitem" tabindex="-1" href="#">Nuevo Prestamo</a>
     </li>
      <li role="presentation" class="divider"></li>
     <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="ListadoContratos.jsp">Prestamos Registrados</a>
+      <a role="menuitem" tabindex="-1" href="#">Prestamos Registrados</a>
     </li>
   </ul>
                              </a></li>
@@ -146,11 +146,11 @@
                                  <span class = "caret"></span>
                                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
     <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="prue.jsp">Registrar Devolucion</a>
+      <a role="menuitem" tabindex="-1" href="#">Registrar Devolucion</a>
     </li>
      <li role="presentation" class="divider"></li>
     <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="ListadoContratos.jsp">Devoluciones Registradas</a>
+      <a role="menuitem" tabindex="-1" href="#">Devoluciones Registradas</a>
     </li>
   </ul>
                              </a></li>
@@ -171,7 +171,7 @@
                      </ul> 
                      
                      <ul class="nav navbar-nav  navbar-right" >
-                         <li><a href=" "><img src="imagenes/cerrar.png" alt="" width="20" height="20"/>Cerrar Sesion </a></li>
+                         <li><a href="index.jsp"><img src="imagenes/cerrar.png" alt="" width="20" height="20"/>Cerrar Sesion </a></li>
                          
                      </ul>
                  </div>

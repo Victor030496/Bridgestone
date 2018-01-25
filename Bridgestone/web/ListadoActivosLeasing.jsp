@@ -47,24 +47,24 @@
                  <div class = "navbar-header">
                      <button type="button" class = "navbar-toggle collapse"  data-toggle="collapse" data-target = "#navbar-1">
                          <span class = "sr-only" >Menu</span>
-                         <span class = "icon-bar" ></span>
+                         <span class = "icon-bar"></span>
                          <span class = "icon-bar"></span>
                          <span class = "icon-bar"></span>
                      </button>
-                     <a href="index.html" class = "navbar-brand">Activos de IT</a>
+                     <a href="Principal.html" class = "navbar-brand">Activos de IT</a>
                      
                  </div>
                  
                  <div class = "collapse navbar-collapse" id = "navbar-1">
                      
                      <ul class="nav navbar-nav">
-                         <li><a href="Inventario.jsp ">Inventario </a></li>
-                         <li><a href=" "> Prestamo </a></li>
-                          <li><a href=" ">Devolucion  </a></li>
-                          <li><a href="RegistrarUsuario.jsp">Registrar Usuarios  </a></li>
-                         <li class = "dropdown"><a href=" " class = "dropdown-toggle" data-toggle="dropdown" role = "button">algo que ocupe desplegarse 
+                         <li><a href="Principal.jsp ">Home </a></li>
+                         <li><a href="#"> Prestamo </a></li>
+                          <li><a href="#">Devolucion  </a></li>
+                          <!--<li><a href="RegistrarUsuario.jsp">Registrar Usuarios  </a></li>-->
+                         <!--<li class = "dropdown"><a href=" " class = "dropdown-toggle" data-toggle="dropdown" role = "button">algo que ocupe desplegarse 
                                  <span class = "caret"></span>
-                             </a></li>
+                             </a></li>-->
                      </ul> 
                      
                      <ul class="nav navbar-nav  navbar-right" >
@@ -128,7 +128,7 @@
     
         
         </div>
-       <a href="RegistrarActivoLeasing.jsp "><button type="button" class="btn btn-default" >Atras</button></a>                 
+       <a href="Principal.jsp "><button type="button" class="btn btn-default" >Atras</button></a>                 
         </div>
         
    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>

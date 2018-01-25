@@ -58,20 +58,20 @@
                          <span class = "icon-bar"></span>
                          <span class = "icon-bar"></span>
                      </button>
-                     <a href="index.html" class = "navbar-brand">Activos de IT</a>
+                     <a href="Principal.jsp" class = "navbar-brand">Activos de IT</a>
                      
                  </div>
                  
                  <div class = "collapse navbar-collapse" id = "navbar-1">
                      
                      <ul class="nav navbar-nav">
-                         <li><a href="Inventario.jsp ">Inventario </a></li>
-                         <li><a href=" "> prestamo </a></li>
-                          <li><a href=" ">devolucion  </a></li>
-                          <li><a href="RegistrarUsuario.jsp">Registrar Usuarios  </a></li>
+                         <li><a href="Principal.jsp ">Home </a></li>
+                         <li><a href="#"> prestamo </a></li>
+                          <li><a href="#">devolucion  </a></li>
+                          <!--<li><a href="RegistrarUsuario.jsp">Registrar Usuarios  </a></li>
                          <li class = "dropdown"><a href=" " class = "dropdown-toggle" data-toggle="dropdown" role = "button">algo que ocupe desplegarse 
                                  <span class = "caret"></span>
-                             </a></li>
+                             </a></li>-->
                      </ul> 
                      
                      <ul class="nav navbar-nav  navbar-right" >
@@ -295,7 +295,7 @@
         
         
                 function salir(){
-       document.location = "/Bridgestone/Inventario.jsp";
+       document.location = "/Bridgestone/Principal.jsp";
        
         
      }

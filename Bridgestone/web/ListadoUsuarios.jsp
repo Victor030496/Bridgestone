@@ -212,7 +212,7 @@
         
               function salir(){
  
-        document.location = "/Bridgestone/RegistrarUsuario.jsp";
+        document.location = "/Bridgestone/Principal.jsp";
         
      }
         
