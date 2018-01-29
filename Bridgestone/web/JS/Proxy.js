@@ -249,3 +249,34 @@ Proxy.getUsuarios = function(callBack){
     console.log("salimos del eliminar contrato");
     AJAX_req.send("contrat="+jsonText);   
 };
+
+
+
+
+Proxy.modificarCompro= function(comprobantes,callBack){
+     
+     console.log("entramos al modificar comprobante");
+     console.log(comprobantes);
+     
+    var comprobants =  {     
+        nombre : 'Compro',
+        comprobantes:comprobantes
+    };
+    jsonText = JSON.stringify(comprobants);
+    console.log("se parseo el comprobante a json");
+    var AJAX_req = new XMLHttpRequest();
+    url="/Bridgestone/BridgestoneService?action=modificarComprobante";
+    AJAX_req.open( "POST", url, true );
+    AJAX_req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    AJAX_req.onreadystatechange = function(){
+        if( AJAX_req.readyState === 4 && AJAX_req.status === 200 ){
+     
+            var object = 33;
+            console.log("El servlet ahora retorno un "+object);
+            callBack(object);
+        }
+    };
+    console.log("salimos del modificar comprobante");
+    AJAX_req.send("comprobant="+jsonText);   
+};
+

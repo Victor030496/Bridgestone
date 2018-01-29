@@ -6,6 +6,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.typeadapters.RuntimeTypeAdapterFactory;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,7 +20,8 @@ import model.Contrato;
 import model.Jsonable;
 import model.Trabajador;
 import model.Usuario;
-
+import org.json.JSONObject;
+import org.json.JSONArray;
 /**
  *
  * @author Luis Bogantes
@@ -57,12 +59,14 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
             .registerSubtype(Usuario.class,"Usuario");//IMPORTANTE HACER CAMBIOS CUANDO META CLASE USUARIO , TIQUETE ECT....//
             
         Gson gson = new GsonBuilder().registerTypeAdapterFactory(rta).setDateFormat("dd/MM/yyyy").create();
+        
         String json;
+        String json2;
         String accion = request.getParameter("action");
         System.out.println(accion);
         List<Trabajador> trabajadores;
         List<Contrato> contratos;
-        List<Comprobante> comprobantes;
+        List<Comprobante> comprobantes = new ArrayList();
 
         switch(accion){
          
@@ -182,6 +186,26 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                     System.out.println("retorno "+aux43);
                 break;
                 
+                
+                case "modificarComprobante":
+                    json = request.getParameter("comprobant");
+                    System.out.println(json);
+                    JSONObject  ja = new JSONObject(json);
+                    JSONArray ji = new JSONArray();
+                    ji = ja.getJSONArray("comprobantes");
+                    System.out.println(ji);
+
+                    for (int i = 0; i < ji.length(); i++) {
+                    
+                        Comprobante compro = new Comprobante();
+                        compro.setComprobante(ji.getJSONObject(i).getInt("numeroDeComprobante"));
+                        comprobantes.add(compro);
+                  }           
+
+                    System.out.println(comprobantes);
+                    int aux22 = model.modificaComprobante(comprobantes.get(0), comprobantes.get(1));
+                    
+                break;
                 
                 
                     

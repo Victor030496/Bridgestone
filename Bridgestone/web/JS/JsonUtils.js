@@ -42,13 +42,17 @@ JsonUtils.replacer = function(k,v){
 		return Contrato.to(v);
 	}
         
-     if (v instanceof Activo) {
+         if (v instanceof Activo) {
 		return Activo.to(v);
 	}
         
          if (v instanceof Comprobante) {
 		return Comprobante.to(v);
 	}
+       
+        
+        
+        
 
 	
 	return v;

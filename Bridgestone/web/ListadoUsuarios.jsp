@@ -260,8 +260,11 @@
        img= document.createElement("img");
        img.src="imagenes/delete.png";
        img.title="Eliminar";
-       var ide = model.usuarios[i].id;
-       img.addEventListener("click", function(e){doDelete(ide);});
+       //var ide = model.usuarios[i].id;
+       //img.addEventListener("click", function(e){doDelete(ide);});
+       
+       img.id = model.usuarios[i].id;
+       img.addEventListener("click", doDelete);
        td.appendChild(img);
        tr.appendChild(td); 
          
@@ -272,13 +275,17 @@
             
         }
         
-        function doDelete(id){
+        function doDelete(event){
             
         //var persona = model.usuarios.find(function(x){return x.id==per.id; });
         
         //if(persona.value == null  ){//|| persona.value.length == 0
+          var aux = event.target.id;
         
-            controller.login(id);
+        
+            controller.login(aux);
+            
+            console.log("En el do delete" + num);
             
             
         }
@@ -290,7 +297,7 @@
         
         //if(persona.value == null  ){//|| persona.value.length == 0
         
-            controller.login2(id);
+            //controller.login2(id);
             
             
         }

@@ -352,8 +352,46 @@ static {
  
    return 22;
    }
+
+
+
+       public static int modificaComprobante(Comprobante actual, Comprobante aModificar)throws Exception{
+       System.out.println("Comprobante actual y el que vamos a modificar "+ actual.numeroDeComprobante + aModificar.numeroDeComprobante);
+       String sql="update Comprobante "+
+                    "set numeroDeComprobante  = '%s'"+
+                    "where numeroDeComprobante = '%s'";
+
+       //update Profesor set cedula = '1' where cedula = '123412'; 
+       
+       sql=String.format(sql,aModificar.numeroDeComprobante,actual.numeroDeComprobante);
+       int aux = datos.executeUpdate(sql);
+       if(aux ==0){
+       
+        throw new Exception("Comprobante no actualizado");
+       
+       }
+ 
+   return 1;
+   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
  
+
+
+
  
  
     
