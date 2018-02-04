@@ -6,7 +6,9 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.typeadapters.RuntimeTypeAdapterFactory;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -65,7 +67,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
         String accion = request.getParameter("action");
         System.out.println(accion);
         List<Trabajador> trabajadores;
-        List<Contrato> contratos;
+        List<Contrato> contratos = new ArrayList();;
         List<Comprobante> comprobantes = new ArrayList();
 
         switch(accion){
@@ -204,6 +206,61 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
 
                     System.out.println(comprobantes);
                     int aux22 = model.modificaComprobante(comprobantes.get(0), comprobantes.get(1));
+                    
+                break;
+                
+                
+                case "modificarContrato":
+                    json = request.getParameter("contrat");
+                    System.out.println(json);
+                    JSONObject  jo = new JSONObject(json);
+                    JSONArray ju = new JSONArray();
+                    ju = jo.getJSONArray("contratos");
+                    System.out.println(ju);
+
+                    for (int i = 0; i < ju.length(); i++) {
+                    
+                        Contrato contra = new Contrato();
+                        contra.setgetCodigoContrato(ju.getJSONObject(i).getString("codigoContrato"));
+                        
+//                        long lg = 0;
+//                        String Str = ju.getJSONObject(i).getString("fechaInicio");
+//                        System.out.println(Str);
+//                        lg = Long.parseLong(Str);
+                        
+                        SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+                        Date parsed = (Date) format.parse(ju.getJSONObject(i).getString("fechaInicio"));
+                        java.sql.Date sql = new java.sql.Date(parsed.getTime());
+                        
+                        contra.setFechaInicio(sql);
+                        //Date fechaIni = new Date(lg);
+                        //contra.setFechaInicio(fechaIni);
+                     System.out.println(sql);
+                        
+                        
+//                        long lo = 0;
+//                        String Stri = ju.getJSONObject(i).getString("fechaVencimiento");
+//                        System.out.println(Stri);
+//                        lo = Long.parseLong(Stri);
+                        
+                        SimpleDateFormat format2 = new SimpleDateFormat("MM/dd/yyyy");
+                        Date parsedd = (Date) format2.parse(ju.getJSONObject(i).getString("fechaVencimiento"));
+                        java.sql.Date sqll = new java.sql.Date(parsedd.getTime());
+                        
+                        contra.setFechaVencimiento(sqll);
+//                        Date fechaVenci = new Date(lo);
+//                        contra.setFechaVencimiento(fechaVenci);
+                        
+                        System.out.println(sqll);
+                        
+                        
+                        contra.setEstado(ju.getJSONObject(i).getInt("estado"));
+                        
+                        contratos.add(contra);
+                  }           
+
+                    System.out.println(contratos);
+                    int aux23 = model.modificaContrato(contratos.get(0), contratos.get(1));
                     
                 break;
                 

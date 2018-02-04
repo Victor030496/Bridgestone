@@ -76,6 +76,35 @@ body{
     
     float:left;
     
+     
+}
+
+#myModalFormulario{
+    
+    
+    color: white;
+    background-color: rgba(0,0,0,0.6);
+}
+
+#acceso2{
+    
+    color: white;
+    background-color: rgba(0,0,0,0);
+    
+}
+
+
+#datepickerr{
+    
+    color:black;
+    
+    
+}
+
+
+#datepickerr2{
+   color :black;
+    
     
     
 }

@@ -23,7 +23,7 @@
 
 	},
 	toString:function(){
-	  return this.numeroDeSerieActivo;
+	  return this.codigoContrato + this.fechaInicio +this.fechaVencimiento + this.estado;
 	}
   }
   

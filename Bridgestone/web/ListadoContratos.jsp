@@ -20,12 +20,16 @@
         <script type="text/javascript" src="JS/bootstrap.min.js"></script>
         <script type="text/javascript" src="JS/jquery-3.2.0.min.js"></script>
         <script type="text/javascript" src="JS/jquery.nivo.slider.js"></script>
-        <script type="text/javascript" src="JS/Trabajador.js"></script>
-   
+        
+        <script type="text/javascript" src="JS/jquery.js"></script>     
+        <script type="text/javascript" src="JS/jquery-ui.min.js"></script> 
+        
         
           <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css" rel="stylesheet">
+         <link rel="stylesheet" title="Bridgestone" type="text/css" href="CSS/jquery-ui.min.css">
+    
     </head>
     <body>
                
@@ -103,15 +107,15 @@
                                  
                             <div class="form-group" id="groupcodContrato">
                                 <div class="input-group">
-                               <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <input type="text" class="form-control" id="codContrato" name="usuarioTab" maxlength="12"/>
+                               <span class="input-group-addon"><i class="glyphicon glyphicon-paperclip"></i></span>
+                                <input type="text" class="form-control" id="codContrato" name="codContratoTab" placeholder="Codigo del Contrato" maxlength="12"/>
                                  </div>
                             </div>
 
                             <div class="form-group" id="groupInicio">
                                  <div class="input-group">
-                              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <input type="text" id="datepicker">
+                              <span class="input-group-lg"><i class="glyphicon glyphicon-calendar"></i></span>
+                                <input type="text"  id="datepickerr">
                             </div>
                                 </div>
            
@@ -120,16 +124,18 @@
                                  
                             <div class="form-group" id="groupVencimiento">
                                 <div class="input-group">
-                               <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <input type="text" id="datepicker2">
+                               <span class="input-group-lg"><i class="glyphicon glyphicon-calendar"></i></span>
+                                <input type="text" id="datepickerr2">
                                  </div>
                             </div>
 
                             <div class="form-group" id="groupModalidad">
                                  <div class="input-group">
-                              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <label class="radio-inline" id="acceso2"><input type="radio" name="optradio" id = "activee">Activo</label>
-                               <label class="radio-inline" id="acceso2"><input type="radio" name="optradio">Cerrado</label>  
+                              <span class="input-group-sm"><i class="glyphicon glyphicon-check"></i></span>
+                             
+                              <label class="radio-inline" id="acceso2"> &nbsp  <input type="radio" name="optRadio" class="form-control" id = "activee" name="codContratoTab" maxlength="12"/>Activo</label>
+                              &nbsp &nbsp &nbsp &nbsp 
+                              <label class="radio-inline" id="acceso2">  &nbsp  <input type="radio" name="optRadio" class="form-control" id = "cerrado" name="codContratoTab" maxlength="12"/>Cerrado</label>  
                             </div>
                                 </div>
                                       
@@ -138,6 +144,8 @@
                              
                                  </div>
                            
+                             &nbsp
+                             &nbsp
                             <div class="form-group"  style="margin-left: 38%">
                                 <input type="hidden" value="agregarContrato" id="contratoAction"/>
                                 <button type="submit" class="btn btn-primary" id="enviar" onclick="controller.editar()">Guardar</button>
@@ -167,6 +175,7 @@
         <th class="success">Codigo de Contrato</th>
         <th class="success">Fecha De Inicio del Contrato</th>
         <th class="success">Fecha De Vencimiento del Contrato</th>
+        <th class="success">Estado</th>
          <th class="success">Editar</th>
         <th class="success">Eliminar</th>
       </tr>
@@ -191,16 +200,15 @@
        <a href="Principal.jsp "><button type="button" class="btn btn-default" >Atras</button></a>                 
         </div>
      
- <script type="text/javascript" src="JS/jquery.js"></script>     
-<script type="text/javascript" src="JS/jquery-ui.min.js"></script>  
+  
 
   <script>
     
-    $("#datepicker").datepicker();
+    $("#datepickerr").datepicker();
 </script>
 <script>
     
-    $("#datepicker2").datepicker();
+    $("#datepickerr2").datepicker();
 </script>
 
 
@@ -241,7 +249,7 @@
           Proxy.getContratos(function(result){
           
           model.contratos = result;
-          console.log(result[0].id);
+          //console.log(result[0].id);
           view.showTabla();
         
        }      
@@ -251,7 +259,7 @@
               ///   hacer metodo con el proxy para eliminar
       
         
-        contrat = new Contrato(cod,new Date(),new Date());
+        contrat = new Contrato(cod,new Date(),new Date(),0);
         //window.alert("Activo registrado como : "+ document.getElementById("des").value);
        
         Proxy.eliminarContrato(contrat,
@@ -277,40 +285,42 @@
 
     },
         editar: function(){
-  
-  
-         
+ 
+ 
          var numero = document.getElementById("enviar").value;
          var numero2 = document.getElementById("codContrato").value;
-        
-        
-        
-         alert("El que está" + numero);
-         alert("El que quiero modificar " + numero2);
+         //alert("El que está" + numero);
+         //alert("El que quiero modificar " + numero2);
          
-        /*
-        comprobanteActual = new Comprobante(numero);
-        comprobanteAModificar = new Comprobante(numero2);
-        //var numero = document.getElementById("groupIDVehiculo");
+             var act = document.getElementById("activee");
+             if(act.checked){
+             contratoAModificar  = new Contrato(numero2,document.getElementById("datepickerr").value,document.getElementById("datepickerr2").value,1);
+             }else{
+                 contratoAModificar  = new Contrato(numero2,document.getElementById("datepickerr").value,document.getElementById("datepickerr2").value,0);
+             }
+
+             contratoActual = new Contrato(numero,"02/01/2018","01/01/2018",0);
+             
+             var contratos = [];
+             contratos[0] = contratoActual;
+             contratos[1] = contratoAModificar;
+          
+             //alert(contratos);
+             //alert(contratos[0].toString());
+             //alert(contratos[1].toString());
         
-        
-        var comprobantes = [];
-        comprobantes[0] = comprobanteActual;
-        comprobantes[1] = comprobanteAModificar;
-        
-         Proxy.modificarCompro(comprobantes,
-                function(comprobant){
-                    if(comprobant == 1){
-                       window.alert("Cambio exitoso");
+            Proxy.modificarContrato(contratos,
+                function(contrat){
+                    if(contrat == 1){
+                      window.alert("Modificación exitosa");
                   }
                    
                      //window.alert("Contrato registrado como : "+ document.getElementById("codContrato").value);
-                     document.location = "/Bridgestone/ListadoComprobantes.jsp";
-    
-    }
-
-        );
-       */ 
+                     document.location = "/Bridgestone/ListadoContratos.jsp";
+                            
+                    
+                });
+       
     
     }
   };
@@ -349,6 +359,17 @@
         
         td=document.createElement("td");
 	td.appendChild(document.createTextNode(model.contratos[i].fechaVencimiento));
+	tr.appendChild(td);
+        
+        td=document.createElement("td");
+        var est = model.contratos[i].estado;
+        
+        if(est === 1){
+	td.appendChild(document.createTextNode("Abierto"));
+    }
+    else{
+        td.appendChild(document.createTextNode("Cerrado"));
+    }
 	tr.appendChild(td);
 	
         td= document.createElement("td");
@@ -435,297 +456,3 @@
     
     
 </html>
-
-<!--
-
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-          <%@ include file="Imports.jspf" %>  
-        <title>Listado de usuarios</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" title="Bridgestone" type="text/css" href="CSS/bootstrap.min.css">
-        <link rel="stylesheet" title="Bridgestone" type="text/css" href="CSS/estilos.css">
-        <link rel="stylesheet" title="Bridgestone" type="text/css" href="CSS/registrarse.css">
-        <script type="text/javascript" src="JS/bootstrap.min.js"></script>
-        <script type="text/javascript" src="JS/jquery-3.2.0.min.js"></script>
-        <script type="text/javascript" src="JS/jquery.nivo.slider.js"></script>
-        <script type="text/javascript" src="JS/Trabajador.js"></script>
-   
-        
-          <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css" rel="stylesheet">
-    </head>
-    <body>
-       
-          <header>
-           
-        <div class = "container-fluid">     
-          <div id="links" style="height:125px;  margin-right: 10px; margin-left: 1px; display: inline-flex; align-items: center; justify-content: end; float:left;">    
-
-                 <div style="width: 400px; height:75px; background-image: url(imagenes/logo.jpg); background-repeat: no-repeat; background-size:cover;">              </div>  
-   </div > 
- </div >               
-        </header>
-        
-        
-                 <div class="container-fluid" style="width: 1360px; height:630px; background-image: url(imagenes/prin2.jpg); background-repeat: no-repeat; background-size:cover;">
-
-        
-                             <div class = "">
-         <nav class = " navbar navbar-default   navbar-static-top   ">
-             <div class = "container-fluid">
-                 <div class = "navbar-header">
-                     <button type="button" class = "navbar-toggle collapse"  data-toggle="collapse" data-target = "#navbar-1">
-                         <span class = "sr-only" >Menu</span>
-                         <span class = "icon-bar" ></span>
-                         <span class = "icon-bar"></span>
-                         <span class = "icon-bar"></span>
-                     </button>
-                     <a href="index.html" class = "navbar-brand">Activos de IT</a>
-                     
-                 </div>
-                 
-                 <div class = "collapse navbar-collapse" id = "navbar-1">
-                     
-                     <ul class="nav navbar-nav">
-                         <li><a href="Inventario.jsp ">Inventario </a></li>
-                         <li><a href=" "> Prestamo </a></li>
-                          <li><a href=" ">Devolucion  </a></li>
-                          <li><a href="RegistrarUsuario.jsp">Registrar Usuarios  </a></li>
-                         <li class = "dropdown"><a href=" " class = "dropdown-toggle" data-toggle="dropdown" role = "button">algo que ocupe desplegarse 
-                                 <span class = "caret"></span>
-                             </a></li>
-                     </ul> 
-                     
-                     <ul class="nav navbar-nav  navbar-right" >
-                         <li><a href=" Login.jsp">Cerrar Sesion  </a></li>
-                         
-                     </ul>
-                 </div>
-                 
-                 
-                 
-                 
-             </div>
-         
-         </nav>
-         </div>
-        
-        
-        
-        
-        
-        
-        
-            
-            
-            
-            
-            <div class="container">
-  <h2>Contratos registrados en el sistema</h2>
-    <br> <br>
-  
-  <table class="table" id="tabUsuarios">
-    <thead>
-      <tr>
-        <th class="success">Codigo del Contrato</th>
-        <th class="success">Fecha de inicio</th>
-        <th class="success">Fecha de vencimiento</th>
-        <th class="success">Editar</th>
-        <th class="success">Eliminar</th>
-      </tr>
-    </thead>
-    <tbody id="listado">
-    
-        
-        
-        
-    </tbody>
-  </table>
-</div>
-
-            
-            
-            
-     <div style=" display: inline-flex; align-items: center; justify-content: end; float:left;">
-     <button type="submit" class="btn btn-danger" id="enviarTab" onclick="salir();">Atras &nbsp;</button>
-                            </div>      
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-        </div>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>        
-              
-    </body>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-     <script> // Model
-  function Model() {
-    this.Model();
-  }
-  
-  Model.prototype={
-	Model: function(){
-        }
-  };
-</script>
-
-<script> // Controller
-  function Controller(model,view) {
-    this.Controller(model,view);
-  }
-  
-  Controller.prototype={
-	Controller: function(model,view){
-		this.model=model;
-		this.view=view;
-                
-          Proxy.getContratos(function(result){
-          
-          model.contratos = result;
-          console.log(result[0].id);
-          view.showTabla();
-        
-       }      
-      ); 
-	},
-        login: function(){
-            
-          
-        }
-  };
-</script>
-<script> // View
-  var model;
-  var controller;
-	function pageLoad(event){ 
- 
-		model=new Model();  
-		controller = new Controller(model,window);
-                showTabla();
-  
-	}
-        
-        
-                      function salir(){
- document.location = "/Bridgestone/RegistrarContratoLeasing.jsp";
-        
-     }
-        
-        function showTabla(){
-            var listado = document.getElementById("listado");
-              for (i=0;i<model.contratos.length;i++){
-        var tr =document.createElement("tr");
-        tr.classList.add("warning");
-	var td;
-	td=document.createElement("td");
-	td.appendChild(document.createTextNode(model.contratos[i].codigoContrato));
-	tr.appendChild(td);
-       
-       
-        td=document.createElement("td");
-	td.appendChild(document.createTextNode(model.contratos[i].fechaInicio));
-	tr.appendChild(td);
-        
-        td=document.createElement("td");
-	td.appendChild(document.createTextNode(model.contratos[i].fechaVencimiento));
-	tr.appendChild(td);
-	
-        td= document.createElement("td");
-       img= document.createElement("img");
-       img.src="imagenes/edit.png";
-       img.title="Editar";
-       img.addEventListener("click", function(e){doQuery(per);});
-       td.appendChild(img);
-       tr.appendChild(td);
-       td= document.createElement("td");
-       img= document.createElement("img");
-       img.src="imagenes/delete.png";
-       img.title="Eliminar";
-       img.addEventListener("click", function(e){doDelete(per);});
-       td.appendChild(img);
-       tr.appendChild(td);
-       
-	
-         
-         
-         listado.appendChild(tr);
-         
-        
-     }
-            
-        }
-      
-     
-        
-        
-        
-	document.addEventListener("DOMContentLoaded",pageLoad);
-</script>      
-    
-
-
-   
-    
-    
-    
-    
-    
-    
-    
-    
-   
-    
-</html>
-          
-          -->

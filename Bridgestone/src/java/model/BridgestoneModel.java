@@ -373,6 +373,28 @@ static {
  
    return 1;
    }
+       
+       
+       
+       
+       public static int modificaContrato(Contrato actual, Contrato aModificar)throws Exception{
+       System.out.println("Contrato actual y el que vamos a modificar "+ actual.toString() + aModificar.toString());
+       String sql="update Contrato "+
+                    "set codigoContrato  = '%s' ,fechaInicio  = '%s' , fechaVencimiento  = '%s' , estado  = '%s'" +
+                    "where codigoContrato = '%s'";
+
+       //update Profesor set cedula = '1' where cedula = '123412'; 
+       
+       sql=String.format(sql,aModificar.codigoContrato,aModificar.fechaInicio,aModificar.fechaVencimiento,aModificar.estado,actual.codigoContrato);
+       int aux = datos.executeUpdate(sql);
+       if(aux ==0){
+       
+        throw new Exception("Contrato no actualizado");
+       
+       }
+ 
+   return 1;
+   }
 
 
 
