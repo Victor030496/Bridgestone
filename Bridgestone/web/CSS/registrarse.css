@@ -8,6 +8,20 @@ and open the template in the editor.
     Author     : slon
 */
 
+.buscador{
+     width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+    
+}
+.cuadro {
+   width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+  margin: 1rem;
+}  *
+
 #dirInput {
     padding-left: 15px;
     padding-right: 13px;
