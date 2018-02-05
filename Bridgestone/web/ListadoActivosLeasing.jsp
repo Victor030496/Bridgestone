@@ -98,7 +98,18 @@
 
                     <div class="container">
   <h2>Activos por Leasing</h2>
-    <br> <br>
+      <br>  <br>
+    <div class="col-sm-10 , cuadro" >
+         <div class="col-sm-4" style="text-align: right; vertical-align: middle;" >
+                                    <p><b>Buscar Activos Leasing:</b></p>
+                                </div>
+                                <div class="col-sm-6 ,buscador">
+      <input type="email" class="form-control" id="searchTerm" placeholder="Digite cualquier dato del activo por leasing que desea encontrar" onkeyup="doSearch()">
+        </div>
+     </div>
+    <br>
+    <br>
+        
         
      <table class="table" id="tabUsuarios">
     <thead>
@@ -177,6 +188,40 @@
 <script> // View
   var model;
   var controller;
+  
+  
+  function doSearch(){
+    var tableReg = document.getElementById('tabUsuarios');
+    var searchText = document.getElementById('searchTerm').value.toLowerCase();
+    var cellsOfRow = "";
+    var found = false;
+    var compareWith = "";
+
+    // Recorremos todas las filas con contenido de la tabla
+    for (var i = 1; i < tableReg.rows.length; i++)
+    {
+        cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
+        found = false;
+        // Recorremos todas las celdas
+        for (var j = 0; j < cellsOfRow.length && !found; j++)
+        {
+            compareWith = cellsOfRow[j].innerHTML.toLowerCase();
+            // Buscamos el texto en el contenido de la celda
+            if (searchText.length == 0 || (compareWith.indexOf(searchText) > -1))
+            {
+                found = true;
+            }
+        }
+        if (found)
+        {
+            tableReg.rows[i].style.display = '';
+        } else {
+            // si no ha encontrado ninguna coincidencia, esconde la
+            // fila de la tabla
+            tableReg.rows[i].style.display = 'none';
+        }
+    }
+}
 	function pageLoad(event){ 
  
 		model=new Model();  

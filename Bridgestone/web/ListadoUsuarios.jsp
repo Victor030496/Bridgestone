@@ -291,7 +291,7 @@
      </div>
     <br>
     <br>
-        <br>
+        
   <table class="table" id="tabUsuarios">
     <thead>
       <tr>
