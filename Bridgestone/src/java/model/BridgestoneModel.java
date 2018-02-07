@@ -395,6 +395,38 @@ static {
  
    return 1;
    }
+       
+       
+    public static int modificaUsuario(Usuario actual, Usuario aModificar)throws Exception{
+       System.out.println("Usuario actual y el que vamos a modificar "+ actual.id+ aModificar.id);
+       
+        String sql="update Usuario "+
+                   "set id  = '%s' ,clave  = '%s' , tipo  = '%s'"+
+                    "where id = '%s'";
+       
+//       
+//       String sql2="update Trabajador "+
+//                    "set id  = '%s' ,clave  = '%s' , tipo  = '%s' , identificacion  = '%s'" +
+//                     ",nombre  = '%s' , apellido  = '%s' , telefono  = '%s', correo  = '%s'" +
+//               
+//                    "where correo= '%s'";
+       
+      
+
+       sql=String.format(sql,aModificar.id,aModificar.clave,aModificar.tipo,actual.id);
+//       sql2 = String.format(sql,aModificar.id,aModificar.clave,aModificar.tipo,actual.id);
+      
+       int aux = datos.executeUpdate(sql);
+//       int aux2 = datos.executeUpdate(sql2);
+       
+       if(aux ==0){
+       
+        throw new Exception("Usuario no actualizado");
+       
+       }
+ 
+   return 1;
+   }
 
 
 

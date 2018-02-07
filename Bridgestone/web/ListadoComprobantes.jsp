@@ -237,7 +237,12 @@
         
         var nume = document.getElementById("enviar");
         nume.value = num;
-
+        
+        //comprobante = model.comprobantes.find(function(x){return x.numeroDeComprobante === num; });
+        //alert(comprobante);
+        document.getElementById("numComprobante").value = num;
+        
+ 
     },
         editar: function(){
   

@@ -19,7 +19,6 @@
         <script type="text/javascript" src="JS/bootstrap.min.js"></script>
         <script type="text/javascript" src="JS/jquery-3.2.0.min.js"></script>
         <script type="text/javascript" src="JS/jquery.nivo.slider.js"></script>
-        <script type="text/javascript" src="JS/Trabajador.js"></script>
    
         
           <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -56,7 +55,7 @@
                      <div class="col-md-12">
                          
                  <div class="leftcontact">
-                    <div class="form-group" id="groupIdUsuario">
+                  <div class="form-group" id="groupIdUsuario">
                        
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
@@ -89,9 +88,9 @@
                        
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
-                                  <select class="selectpicker">
-                                    <option>Soportista</option>
-                                    <option>Administrador</option>
+                                  <select class="selectpicker" id = "tipo" style ="color: black;">
+                                    <option style ="color: black;">Soportista</option>
+                                    <option style ="color: black;">Administrador</option>
                                   </select>
                             </div>
                         
@@ -100,9 +99,9 @@
                          
                          
                          
+                       
                          
-                         
-                          <div class="rightcontact">
+                 <!--         <div class="rightcontact">
                     <div class="form-group" id="groupIdentificacion">
                        
                             <div class="input-group">
@@ -144,20 +143,20 @@
                        
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
-                                <input maxlength="10" name="correo" id="telefono" placeholder="Correo" class="form-control" type="email">
+                                <input maxlength="10" name="correo" id="correo" placeholder="Correo" class="form-control" type="email">
                             </div>
                         
                     </div>
                      
                      
                      
-                         </div>
+                         </div>-->
                   
         </div>
                     
                     <div class="form-group"  style="margin-left: 38%">
-                                <input type="hidden" value="agregarComprobante" id="commprobanteAction"/>
-                                <button type="submit" class="btn btn-primary" id="enviar"  onclick="controller.editar()">Guardar</button>
+                                <input type="hidden" value="agregarUsuario" id="commprobanteAction"/>
+                                <button type="submit" class="btn btn-primary" id="enviar"  onclick="controller.editar2()">Guardar</button>
                                 <button type="reset" class="btn btn-danger" id="cancelar">Cancelar</button>
                             </div>
 
@@ -419,51 +418,87 @@
   
         $("#myModalFormulario").modal();
         
-       // alert(num);
-        //var nume = document.getElementById("enviar");
-        //nume.value = num;
+        var nume = document.getElementById("enviar");
+        nume.value = num;
+        
+        usuario = model.usuarios.find(function(x){return x.id === num; });
 
+        alert(usuario.toString());
+        
+        document.getElementById("idUsuario").value = usuario.id;
+        document.getElementById("contraseña").value = usuario.clave;
+        document.getElementById("confirmacion").value = usuario.clave;
+        //document.getElementById("tipo").value = usuario.tipo;
     },
     
         
-        editar: function(){
+        editar2: function(){
   
     
-        alert("Holaaaa");
+        //alert("Holaaaa");
   
-         //var numero = document.getElementById("enviar").value;
-         //var numero2 = document.getElementById("numComprobante").value;
+         var numero = document.getElementById("enviar").value;
+         
         
-         //alert("El que está" + numero);
-         //alert("El que quiero modificar " + numero2);
-
+        var idUsuari = document.getElementById("idUsuario").value;
+        var contrasen = document.getElementById("contraseña").value;
+        var confirmacio = document.getElementById("confirmacion").value;
+        var tip = document.getElementById("tipo").value;
+       /* var identificacio = document.getElementById("identificacion").value;
+        var nombr = document.getElementById("nombre").value;
+        var apellid = document.getElementById("apellido").value;
+        var telefon = document.getElementById("telefono").value;
+        var corre = document.getElementById("correo").value;*/
+        
+        /* alert(idUsuari);
+         alert(contrasen);
+         alert(confirmacio);
+         alert(tip);
+         alert(identificacio);
+         alert(nombr);
+         alert(apellid);
+         alert(telefon);
+         alert(corre);*/
+         
+        
+        userActual = new Usuario(numero,"",1);
+        
+        
+        if(tip === "Soportista"){
+            
+        userAModificar = new Usuario(idUsuari,contrasen,1);
+    }else{
+        
+        userAModificar = new Usuario(idUsuari,contrasen,2);
     }
         
+        //trabajaActual = new Trabajador();
+        //trabajaAModificar = new Trabajador();
         
-        /*,
-        login2: function(id){
-     
-        user = new Usuario(id,"hello",1);
-        //window.alert("Activo registrado como : "+ document.getElementById("des").value);
-       
-        Proxy.eliminarUsuario(user,
-                function(contrat){
-                    if(contrat === 222){
-                       window.alert("Eliminado exitoso");
+        alert(userActual.toString());
+        alert(userAModificar.toString());
+        
+        var trabajadores = [];
+        trabajadores[0] = userActual;
+        trabajadores[1] = userAModificar;
+        
+        
+        
+         Proxy.modificarUsu(trabajadores,
+                function(user){
+                    if(user == 1){
+                       window.alert("Cambio exitoso");
                   }
-                     
+                   
+                     //window.alert("Contrato registrado como : "+ document.getElementById("codContrato").value);
                      document.location = "/Bridgestone/ListadoUsuarios.jsp";
-                            
-                    
-                });
-        ///alert(id);
-         
-        }
-        */
-        
-        
-        
-        
+    
+    }
+
+        );
+
+    }
+   
   };
 </script>
 <script> // View

@@ -283,6 +283,26 @@
         var nume = document.getElementById("enviar");
         nume.value = num;
 
+
+        contrato = model.contratos.find(function(x){return x.codigoContrato === num; });
+        
+        //alert(contrato);
+       
+        document.getElementById("codContrato").value = contrato.codigoContrato;
+        document.getElementById("datepickerr").value = contrato.fechaInicio;
+        document.getElementById("datepickerr2").value = contrato.fechaVencimiento;
+        
+        if(contrato.estado === 1){
+
+          document.getElementById("activee").checked = true;    
+        }
+        else{
+     
+          document.getElementById("cerrado").checked === true;
+          
+        }
+        
+        
     },
         editar: function(){
  

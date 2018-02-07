@@ -21,7 +21,7 @@ create table Trabajador (
 );
 
 alter table Trabajador
-  add constraint foreign key (id) references  Usuario (id);
+  add constraint foreign key (id) references  Usuario (id) on update cascade;
 
 
 create table Contrato(
@@ -52,8 +52,8 @@ create table Activo(
 	constraint PK_Activo primary key(numeroDeSerie)
 );
 
-ALTER TABLE Activo ADD Foreign Key (codigoContratoLeasing) REFERENCES Contrato(codigoContrato);
-ALTER TABLE Activo ADD Foreign Key (numeroComprobante) REFERENCES Comprobante(numeroDeComprobante);
+ALTER TABLE Activo ADD Foreign Key (codigoContratoLeasing) REFERENCES Contrato(codigoContrato) on update cascade;
+ALTER TABLE Activo ADD Foreign Key (numeroComprobante) REFERENCES Comprobante(numeroDeComprobante)  on update cascade;
 
 
 

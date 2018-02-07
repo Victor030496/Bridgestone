@@ -24,8 +24,9 @@
                 this.correo=correo;
 
 	},
+        
 	toString:function(){
-	  return this.id;
+	  return this.id + this.clave;
 	}
   }
   

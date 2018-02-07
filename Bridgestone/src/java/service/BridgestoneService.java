@@ -66,9 +66,11 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
         String json2;
         String accion = request.getParameter("action");
         System.out.println(accion);
-        List<Trabajador> trabajadores;
-        List<Contrato> contratos = new ArrayList();;
+        List<Trabajador> trabajadores = new ArrayList();
+        List<Contrato> contratos = new ArrayList();
         List<Comprobante> comprobantes = new ArrayList();
+        List<Usuario> usuarios = new ArrayList();
+        
 
         switch(accion){
          
@@ -261,6 +263,36 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
 
                     System.out.println(contratos);
                     int aux23 = model.modificaContrato(contratos.get(0), contratos.get(1));
+                    
+                break;
+                
+                
+                
+                case "modificarUsuario":
+                    json = request.getParameter("user");
+                    System.out.println(json);
+                    JSONObject  jaa = new JSONObject(json);
+                    JSONArray jii = new JSONArray();
+                    jii = jaa.getJSONArray("usuarios");
+                    System.out.println(jii);
+
+                    for (int i = 0; i < jii.length(); i++) {
+                    
+                        Usuario usu = new Usuario();
+                        usu.setId(jii.getJSONObject(i).getString("id"));
+                        usu.setClave(jii.getJSONObject(i).getString("clave"));
+                        usu.setTipo(jii.getJSONObject(i).getInt("tipo"));
+//                        usu.setIdentificacion(jii.getJSONObject(i).getString("identificacion"));
+//                        usu.setNombre(jii.getJSONObject(i).getString("nombre"));
+//                        usu.setApellido(jii.getJSONObject(i).getString("apellido"));
+//                        usu.setCorreo(jii.getJSONObject(i).getString("correo"));
+//                        usu.setTelefono(jii.getJSONObject(i).getString("telefono"));
+                        
+                        usuarios.add(usu);
+                  }           
+
+                    System.out.println(usuarios);
+                    int aux222 = model.modificaUsuario(usuarios.get(0), usuarios.get(1));
                     
                 break;
                 
