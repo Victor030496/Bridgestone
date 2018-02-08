@@ -66,7 +66,7 @@
                                  <span class = "caret"></span>
                                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
     <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="prue2.jsp">Registrar Contrato de Leasing</a>
+      <a role="menuitem" tabindex="-1" href="RegistrarContratoLeasing.jsp">Registrar Contrato de Leasing</a>
     </li>
     <li role="presentation">
       <a role="menuitem" tabindex="-1" href="prue.jsp">Registrar Comprobante de compra</a>
