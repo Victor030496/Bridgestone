@@ -22,6 +22,9 @@ JsonUtils.revive = function(k,v){
 		return Comprobante.from(v);
 	} 
 	  
+            if (v instanceof Object && v._class == 'Persona') {
+		return Persona.from(v);
+	}
 	  return v;
 	
 	
@@ -51,7 +54,9 @@ JsonUtils.replacer = function(k,v){
 	}
        
         
-        
+         if (v instanceof Persona) {
+		return Persona.to(v);
+	} 
         
 
 	
