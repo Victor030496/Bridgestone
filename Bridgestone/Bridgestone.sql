@@ -20,6 +20,16 @@ create table Trabajador (
  correo varchar(30)
 );
 
+create table Persona(
+   id  varchar(20) not null primary key,
+   nombre varchar(30),
+   apellido varchar(30),
+   telefono varchar(30),
+   correo varchar(30)
+
+
+);
+
 alter table Trabajador
   add constraint foreign key (id) references  Usuario (id);
 
