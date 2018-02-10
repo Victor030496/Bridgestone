@@ -41,7 +41,90 @@
         
         
                             
-        <div class="modal fade" id="myModalFormulario" role="dialog">
+        <div class="modal fade" id="myModalFormulario2" role="dialog">
+    <div class="row-fluid" >
+        <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+        
+        <div class="col-md-offset-4 col-md-4" id="boxy">
+            <br><br><br><br><br><br><br><br>
+            <h2 id='Contact' style="font-weight: bold;">Trabajador a editar</h2>
+            <hr>
+            <form role="form" onsubmit="return false;" id="formTrabajadores">
+                <fieldset>
+                     <div class="col-md-12">
+             
+                <div class="leftcontact">
+                    <div class="form-group" id="groupIdentificacion">
+                       
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
+                                <input maxlength="10" name="identificacion" id="identificacion" placeholder="Identificacion" class="form-control" type="text">
+                            </div>
+                        
+                    </div>
+                    
+                             
+                    <div class="form-group" id="groupNombre">
+                       
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-align-center"></i></span>
+                                <input maxlength="10" name="nombre" id="nombre" placeholder="Nombre" class="form-control" type="text">
+                            </div>
+                        
+                    </div>
+                             
+                    <div class="form-group" id="groupApellido">
+                       
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
+                                <input maxlength="10" name="apellido" id="apellido" placeholder="Apellido" class="form-control" type="text">
+                            </div>
+                        
+                    </div>
+                              
+                   <div class="form-group" id="groupTelefono">
+                       
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
+                                <input maxlength="10" name="telefono" id="telefono" placeholder="Telefono" class="form-control" type="text">
+                            </div>
+                        
+                    </div>
+                              
+                    <div class="form-group" id="groupCorreo">
+                       
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
+                                <input maxlength="10" name="correo" id="correo" placeholder="Correo" class="form-control" type="email">
+                            </div>
+                        
+                    </div>
+                     
+                     
+                     
+                         </div>-->
+                  
+        </div>
+                    
+                    <div class="form-group"  style="margin-left: 38%">
+                                <input type="hidden" value="agregarTrabajador" id="trabajadorAction"/>
+                                <button type="submit" class="btn btn-primary" id="enviar"  onclick="controller.editar()">Guardar</button>
+                                <button type="reset" class="btn btn-danger" id="cancelar">Cancelar</button>
+                            </div>
+
+                
+                </fieldset>
+            </form>
+        </div>    
+      </div>
+     </div> 
+   </div>
+</div>
+        
+        <!------------------------------------------------------------------------------------------>
+        
+         <div class="modal fade" id="myModalFormulario" role="dialog">
     <div class="row-fluid" >
         <div class="modal-dialog modal-lg">
                 <div class="modal-content">
@@ -96,68 +179,14 @@
                         
                     </div>
                          </div>
-                         
-                         
-                         
-                       
-                         
-                 <!--         <div class="rightcontact">
-                    <div class="form-group" id="groupIdentificacion">
-                       
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
-                                <input maxlength="10" name="identificacion" id="identificacion" placeholder="Identificacion" class="form-control" type="text">
-                            </div>
-                        
-                    </div>
-                    
-                             
-                    <div class="form-group" id="groupNombre">
-                       
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-align-center"></i></span>
-                                <input maxlength="10" name="nombre" id="nombre" placeholder="Nombre" class="form-control" type="text">
-                            </div>
-                        
-                    </div>
-                             
-                    <div class="form-group" id="groupApellido">
-                       
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
-                                <input maxlength="10" name="apellido" id="apellido" placeholder="Apellido" class="form-control" type="text">
-                            </div>
-                        
-                    </div>
-                              
-                   <div class="form-group" id="groupTelefono">
-                       
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
-                                <input maxlength="10" name="telefono" id="telefono" placeholder="Telefono" class="form-control" type="text">
-                            </div>
-                        
-                    </div>
-                              
-                    <div class="form-group" id="groupCorreo">
-                       
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
-                                <input maxlength="10" name="correo" id="correo" placeholder="Correo" class="form-control" type="email">
-                            </div>
-                        
-                    </div>
-                     
-                     
-                     
-                         </div>-->
+ 
                   
         </div>
                     
                     <div class="form-group"  style="margin-left: 38%">
                                 <input type="hidden" value="agregarUsuario" id="commprobanteAction"/>
-                                <button type="submit" class="btn btn-primary" id="enviar"  onclick="controller.editar2()">Guardar</button>
-                                <button type="reset" class="btn btn-danger" id="cancelar">Cancelar</button>
+                                <button type="submit" class="btn btn-primary" id="enviar2"  onclick="controller.editar2()">Guardar</button>
+                                 <button type="reset" class="btn btn-danger" id="cancelar">Cancelar</button>
                             </div>
 
                 
@@ -169,10 +198,7 @@
    </div>
 </div>
         
-        <!------------------------------------------------------------------------------------------>
-        
-        
-        
+   <!------------------------------------------------------------------------------------------------------------>     
         <div class="container-fluid" style="width: 1380px; height:550px; background-image: url(imagenes/prin2.jpg); background-repeat: no-repeat; background-size:cover;">
                         
             
@@ -300,7 +326,8 @@
         <th class="success">Telefono</th>
         <th class="success">Correo</th>
         <th class="success">Usuario</th>
-        <th class="success">Editar</th>
+        <th class="success">Editar usuario</th>
+        <th class="success">Editar información personal</th>
         <th class="success">Eliminar</th>
       </tr>
     </thead>
@@ -414,16 +441,33 @@
         ///alert(id);
          
         },
-         mostrarModal: function(num){
+        
+        mostrarModal: function(num){
   
         $("#myModalFormulario").modal();
         
         var nume = document.getElementById("enviar");
         nume.value = num;
         
-        usuario = model.usuarios.find(function(x){return x.id === num; });
+        //usuario = model.usuarios.find(function(x){return x.id === num; });
 
-        alert(usuario.toString());
+        alert(num);
+        
+        //document.getElementById("idUsuario").value = usuario.id;
+        //document.getElementById("contraseña").value = usuario.clave;
+        //document.getElementById("confirmacion").value = usuario.clave;
+        //document.getElementById("tipo").value = usuario.tipo;
+    },
+         mostrarModal2: function(num){
+  
+        $("#myModalFormulario2").modal();
+        
+        var nume = document.getElementById("enviar2");
+        nume.value = num;
+        
+        //usuario = model.usuarios.find(function(x){return x.id === num; });
+
+        alert(num);
         
         document.getElementById("idUsuario").value = usuario.id;
         document.getElementById("contraseña").value = usuario.clave;
@@ -435,7 +479,7 @@
         editar2: function(){
   
     
-        //alert("Holaaaa");
+        alert("Editaraaaaaaaaaaaar 2");
   
          var numero = document.getElementById("enviar").value;
          
@@ -497,8 +541,15 @@
 
         );
 
+    },
+    
+   editar: function(){
+  
+    
+        alert("Edittaaaaaaaaaaaaar 1");
+  
+       
     }
-   
   };
 </script>
 <script> // View
@@ -589,18 +640,29 @@
        img.src="imagenes/edit.png";
        img.title="Editar";
        //var ide2 = model.usuarios[i].id;
-       //img.addEventListener("click", function(e){doQuery(ide2);});
+       //img.addEventListener("click", function(e){doQuery2(ide2);});
        img.id = model.usuarios[i].id;
        img.addEventListener("click", doQuery);
        td.appendChild(img);
        tr.appendChild(td);
+       
+       td= document.createElement("td");
+       img= document.createElement("img");
+       img.src="imagenes/edit.png";
+       img.title="Editar";
+       //var ide2 = model.usuarios[i].id;
+       //img.addEventListener("click", function(e){doQuery2(ide2);});
+       img.id = model.usuarios[i].identificacion;
+       img.addEventListener("click", doQuery2);
+       td.appendChild(img);
+       tr.appendChild(td);
+       
        td= document.createElement("td");
        img= document.createElement("img");
        img.src="imagenes/delete.png";
        img.title="Eliminar";
        //var ide = model.usuarios[i].id;
        //img.addEventListener("click", function(e){doDelete(ide);});
-       
        img.id = model.usuarios[i].id;
        img.addEventListener("click", doDelete);
        td.appendChild(img);
@@ -629,7 +691,7 @@
         }
         
         
-        function doQuery(event){
+         function doQuery(event){
             
         //var persona = model.usuarios.find(function(x){return x.id==per.id; });
         
@@ -640,6 +702,20 @@
         
         
             controller.mostrarModal(aux);
+            
+        }
+    
+        function doQuery2(event){
+            
+        //var persona = model.usuarios.find(function(x){return x.id==per.id; });
+        
+        //if(persona.value == null  ){//|| persona.value.length == 0
+        
+            //controller.login2(id);
+            var aux = event.target.id;
+        
+        
+            controller.mostrarModal2(aux);
             
         }
         
