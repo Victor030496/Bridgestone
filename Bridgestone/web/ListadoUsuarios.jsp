@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-          <%@ include file="Imports.jspf" %>  
+          <%@ include file="Imports 2.jspf" %>  
         <title>Listado de usuarios</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -316,7 +316,7 @@
      </div>
     <br>
     <br>
-        <br>
+        
   <table class="table" id="tabUsuarios">
     <thead>
       <tr>

@@ -58,7 +58,7 @@
                                  <span class = "caret"></span>
                                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
     <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="prue2.jsp">Registrar Contrato de Leasing</a>
+      <a role="menuitem" tabindex="-1" href="RegistrarContratoLeasing.jsp">Registrar Contrato de Leasing</a>
     </li>
     <li role="presentation">
       <a role="menuitem" tabindex="-1" href="prue.jsp">Registrar Comprobante de compra</a>
@@ -136,6 +136,82 @@
          </div> 
         
         
+        
+        
+        <div class = "main row" class = "columna1" id = "divPrincipal">
+            
+     &nbsp;&nbsp;&nbsp;&nbsp;   <h2>Listado de contratos</h2>
+<br> 
+            
+            
+     <div class = "col-md-2 text-justify"  "col-lg-9 text-justify"  "col-sm-8 text-justify"  "col-xs-6 text-justify" align = "center" >
+
+     <br>
+    
+ <table class="table table-bordered" >
+    <thead>
+      <tr>
+        <th class="" id ="accesoP">ACCESOS DIRECTOS</th>
+      </tr>
+    </thead>
+    <tbody >
+    
+     <tr>
+      <th class="" id ="accesoP"> <a href="RegistrarContratoLeasing.jsp">Registrar de nuevo <span class="glyphicon glyphicon-pencil"></span></a></th>
+    </tr>  
+    
+     <tr>
+         <th class="" id ="accesoP" ><a href="ListadoContratosLeasing.jsp">Ver Contratos <span class="glyphicon glyphicon-list-alt"></span></a></th>
+    </tr>  
+        
+     <tr>
+         <th class=""  id ="accesoP"><a href="Principal.jsp">Pagina Principal <span class="glyphicon glyphicon-arrow-left"></span></a></th>
+    </tr>   
+    
+    </tbody>
+    <tfoot>
+        
+
+        
+    </tfoot>
+    
+    
+    
+  </table>
+     
+     
+     
+
+     
+ </div>
+       
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        </div>
         
         
         

@@ -41,7 +41,7 @@
         
                          <div class="container-fluid" style="width: 1360px; height:530px; background-image: url(imagenes/prin2.jpg); background-repeat: no-repeat; background-size:cover;">
 
-                     <div class = "">
+                  <div class = "">
          <nav class = " navbar navbar-default   navbar-static-top   ">
              <div class = "container-fluid">
                  <div class = "navbar-header">
@@ -51,24 +51,83 @@
                          <span class = "icon-bar"></span>
                          <span class = "icon-bar"></span>
                      </button>
-                     <a href="Principal.jsp" class = "navbar-brand">Activos de IT</a>
+                     <a href="Principal.jsp" class = "navbar-brand">Ir a Inicio</a>
                      
                  </div>
                  
                  <div class = "collapse navbar-collapse" id = "navbar-1">
                      
                      <ul class="nav navbar-nav">
-                         <li><a href="Principal.jsp ">Home</a></li>
-                         <li><a href="#"> Prestamo </a></li>
-                          <li><a href="#">Devolucion  </a></li>
-                          <!--<li><a href="RegistrarUsuario.jsp">Registrar Usuarios  </a></li>-->
-                         <!--<li class = "dropdown"><a href=" " class = "dropdown-toggle" data-toggle="dropdown" role = "button">algo que ocupe desplegarse 
+                         
+                        <li class = "dropdown"><a href=" " class = "dropdown-toggle" data-toggle="dropdown" role = "button">Inventarios
                                  <span class = "caret"></span>
-                             </a></li>-->
+                                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+    <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="RegistrarContratoLeasing.jsp">Registrar Contrato de Leasing</a>
+    </li>
+    <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="prue.jsp">Registrar Comprobante de compra</a>
+    </li>    
+     <li role="presentation" class="divider"></li>
+    <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="ListadoContratos.jsp">Contratos de Leasing Registrados</a>
+    </li>
+    <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="ListadoContratos.jsp">Comprobantes de compra registrados</a>
+    </li>    
+     <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="RegistrarActivoLeasing.jsp">Registrar Activo por Leasing</a>
+    </li>
+    <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="ListadoContratos.jsp">Registrar Activo por Comprobante</a>
+    </li>    
+    
+  </ul>
+                             </a></li>
+                         
+                           <li class = "dropdown"><a href=" " class = "dropdown-toggle" data-toggle="dropdown" role = "button">Prestamo
+                                 <span class = "caret"></span>
+                                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+    <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="prue.jsp">Nuevo Prestamo</a>
+    </li>
+     <li role="presentation" class="divider"></li>
+    <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="ListadoContratos.jsp">Prestamos Registrados</a>
+    </li>
+  </ul>
+                             </a></li>
+                             
+                               <li class = "dropdown"><a href=" " class = "dropdown-toggle" data-toggle="dropdown" role = "button">Devolucion
+                                 <span class = "caret"></span>
+                                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+    <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="prue.jsp">Registrar Devolucion</a>
+    </li>
+     <li role="presentation" class="divider"></li>
+    <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="ListadoContratos.jsp">Devoluciones Registradas</a>
+    </li>
+  </ul>
+                             </a></li>
+                             
+                           <li class = "dropdown"><a href=" " class = "dropdown-toggle" data-toggle="dropdown" role = "button">Usuarios
+                                 <span class = "caret"></span>
+                                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+    <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="RegistrarUsuario.jsp">Registrar Usuarios</a>
+    </li>
+     <li role="presentation" class="divider"></li>
+    <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="ListadoUsuarios.jsp">Usuarios Registrados</a>
+    </li>
+    
+  </ul>
+                             </a></li>
                      </ul> 
                      
                      <ul class="nav navbar-nav  navbar-right" >
-                         <li><a href=" Login.jsp ">Cerrar Sesion  </a></li>
+                         <li><a href="index.jsp "><img src="imagenes/cerrar.png" alt="" width="20" height="20"/>Cerrar Sesion </a></li>
                          
                      </ul>
                  </div>
@@ -79,7 +138,7 @@
              </div>
          
          </nav>
-         </div>
+         </div> 
         
         
               <!--------------------------------------------------------------------------------------->
@@ -143,7 +202,18 @@
 
                     <div class="container">
   <h2>Comprobantes</h2>
-    <br> <br>
+      <br>  <br>
+    <div class="col-sm-10 , cuadro" >
+         <div class="col-sm-4" style="text-align: right; vertical-align: middle;" >
+                                    <p><b>Buscar Comprobante:</b></p>
+                                </div>
+                                <div class="col-sm-6 ,buscador">
+      <input type="email" class="form-control" id="searchTerm" placeholder="Digite cualquier dato del comprobante que desea encontrar" onkeyup="doSearch()">
+        </div>
+     </div>
+    <br>
+    <br>
+        
         
      <table class="table" id="tabUsuarios">
     <thead>
@@ -288,6 +358,40 @@
 <script> // View
   var model;
   var controller;
+  
+  
+  function doSearch(){
+    var tableReg = document.getElementById('tabUsuarios');
+    var searchText = document.getElementById('searchTerm').value.toLowerCase();
+    var cellsOfRow = "";
+    var found = false;
+    var compareWith = "";
+
+    // Recorremos todas las filas con contenido de la tabla
+    for (var i = 1; i < tableReg.rows.length; i++)
+    {
+        cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
+        found = false;
+        // Recorremos todas las celdas
+        for (var j = 0; j < cellsOfRow.length && !found; j++)
+        {
+            compareWith = cellsOfRow[j].innerHTML.toLowerCase();
+            // Buscamos el texto en el contenido de la celda
+            if (searchText.length == 0 || (compareWith.indexOf(searchText) > -1))
+            {
+                found = true;
+            }
+        }
+        if (found)
+        {
+            tableReg.rows[i].style.display = '';
+        } else {
+            // si no ha encontrado ninguna coincidencia, esconde la
+            // fila de la tabla
+            tableReg.rows[i].style.display = 'none';
+        }
+    }
+}
 	function pageLoad(event){ 
  
 		model=new Model();  
