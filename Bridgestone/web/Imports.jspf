@@ -9,6 +9,7 @@
 
 <script type="text/javascript" src="JS/Usuario.js"></script> 
 <script type="text/javascript" src="JS/Trabajador.js"></script> 
+<script type="text/javascript" src="JS/Persona.js"></script>
 <script type="text/javascript" src="JS/Contrato.js"></script>
 <script type="text/javascript" src="JS/Comprobante.js"></script>
 <script type="text/javascript" src="JS/Activo.js"></script>
