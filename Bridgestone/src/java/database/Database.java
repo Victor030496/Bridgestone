@@ -74,10 +74,8 @@ public class Database {
     private static final String SERVIDOR = "localhost";
     private static final String PUERTO = "3306";
     private static final String USUARIO = "root";
-<<<<<<< HEAD
+
     private static final String CLAVE = "blaugrana";
-=======
-    private static final String CLAVE = "yoamopatinar";
->>>>>>> origin/master
+
     private static final String BASEDATOS = "Bridgestone";
 }
