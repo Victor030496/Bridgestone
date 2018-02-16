@@ -26,7 +26,7 @@
 	},
         
 	toString:function(){
-	  return this.id + this.clave;
+	  return this.identificacion + this.nombre;
 	}
   }
   

@@ -398,30 +398,64 @@ static {
        
        
     public static int modificaUsuario(Usuario actual, Usuario aModificar)throws Exception{
-       System.out.println("Usuario actual y el que vamos a modificar "+ actual.id+ aModificar.id);
+       System.out.println("Usuario actual "+ actual.id +actual.clave+actual.tipo);
+       System.out.println("Usuario actual vamos a modificar " +aModificar.id +aModificar.clave+aModificar.tipo);
        
         String sql="update Usuario "+
                    "set id  = '%s' ,clave  = '%s' , tipo  = '%s'"+
                     "where id = '%s'";
        
-//       
-//       String sql2="update Trabajador "+
-//                    "set id  = '%s' ,clave  = '%s' , tipo  = '%s' , identificacion  = '%s'" +
-//                     ",nombre  = '%s' , apellido  = '%s' , telefono  = '%s', correo  = '%s'" +
-//               
-//                    "where correo= '%s'";
+       
+       String sql2="update Trabajador "+
+                   "set id  = '%s' ,clave  = '%s' , tipo  = '%s'"+
+                    "where id = '%s'";
        
       
 
        sql=String.format(sql,aModificar.id,aModificar.clave,aModificar.tipo,actual.id);
-//       sql2 = String.format(sql,aModificar.id,aModificar.clave,aModificar.tipo,actual.id);
+       sql2 = String.format(sql2,aModificar.id,aModificar.clave,aModificar.tipo,actual.id);
       
        int aux = datos.executeUpdate(sql);
-//       int aux2 = datos.executeUpdate(sql2);
+       int aux2 = datos.executeUpdate(sql2);
        
-       if(aux ==0){
+       if(aux ==0 && aux2 == 0){
        
         throw new Exception("Usuario no actualizado");
+       
+       }
+ 
+   return 1;
+   }
+    
+    
+    
+    
+    
+     public static int modificaTrabajador(Trabajador actual, Trabajador aModificar)throws Exception{
+       System.out.println("Usuario actual y el que vamos a modificar "+ actual.identificacion+ aModificar.identificacion);
+       
+//        String sql="update Usuario "+
+//                   "set id  = '%s' ,clave  = '%s' , tipo  = '%s'"+
+//                    "where id = '%s'";
+       
+       
+       String sql2="update Trabajador "+
+                    "set identificacion  = '%s'" +
+                     ",nombre  = '%s' , apellido  = '%s' , telefono  = '%s', correo  = '%s'" +
+               
+                    "where correo= '%s'";
+       
+      
+
+     //  sql2=String.format(sql2,aModificar.id,aModificar.clave,aModificar.tipo,actual.id);
+       sql2 = String.format(sql2,aModificar.identificacion,aModificar.nombre,aModificar.apellido,aModificar.telefono,aModificar.correo,actual.correo);
+      
+   //    int aux = datos.executeUpdate(sql2);
+       int aux2 = datos.executeUpdate(sql2);
+       
+       if(aux2 ==0){
+       
+        throw new Exception("Trabajador no actualizado");
        
        }
  

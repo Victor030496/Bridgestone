@@ -339,3 +339,32 @@ Proxy.modificarUsu= function(usuarios,callBack){
     AJAX_req.send("user="+jsonText);   
 };
 
+
+
+Proxy.modificarTraba= function(usuarios,callBack){
+     
+     console.log("entramos al modificar usuario");
+     console.log(usuarios);
+     
+    var users =  {     
+        nombre : 'Usuario',
+        usuarios:usuarios
+    };
+    jsonText = JSON.stringify(users);
+    console.log("se parseo el usuario a json");
+    var AJAX_req = new XMLHttpRequest();
+    url="/Bridgestone/BridgestoneService?action=modificarTrabajador";
+    AJAX_req.open( "POST", url, true );
+    AJAX_req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    AJAX_req.onreadystatechange = function(){
+        if( AJAX_req.readyState === 4 && AJAX_req.status === 200 ){
+     
+            var object = 1;
+            console.log("El servlet ahora retorno un "+object);
+            callBack(object);
+        }
+    };
+    console.log("salimos del modificar usuario");
+    AJAX_req.send("user="+jsonText);   
+};
+

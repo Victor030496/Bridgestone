@@ -41,7 +41,7 @@
         
         
                             
-        <div class="modal fade" id="myModalFormulario2" role="dialog">
+        <div class="modal fade" id="myModalFormularioTrabajador" role="dialog">
     <div class="row-fluid" >
         <div class="modal-dialog modal-lg">
                 <div class="modal-content">
@@ -109,7 +109,7 @@
                     
                     <div class="form-group"  style="margin-left: 38%">
                                 <input type="hidden" value="agregarTrabajador" id="trabajadorAction"/>
-                                <button type="submit" class="btn btn-primary" id="enviar"  onclick="controller.editar()">Guardar</button>
+                                <button type="submit" class="btn btn-primary" id="enviarTrabajador"  onclick="controller.editarTrabajador()">Guardar</button>
                                 <button type="reset" class="btn btn-danger" id="cancelar">Cancelar</button>
                             </div>
 
@@ -124,7 +124,7 @@
         
         <!------------------------------------------------------------------------------------------>
         
-         <div class="modal fade" id="myModalFormulario" role="dialog">
+         <div class="modal fade" id="myModalFormularioUsuario" role="dialog">
     <div class="row-fluid" >
         <div class="modal-dialog modal-lg">
                 <div class="modal-content">
@@ -172,8 +172,8 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
                                   <select class="selectpicker" id = "tipo" style ="color: black;">
-                                    <option style ="color: black;">Soportista</option>
-                                    <option style ="color: black;">Administrador</option>
+                                    <option style ="color: black;" >Soportista</option>
+                                    <option style ="color: black;" >Administrador</option>
                                   </select>
                             </div>
                         
@@ -184,8 +184,8 @@
         </div>
                     
                     <div class="form-group"  style="margin-left: 38%">
-                                <input type="hidden" value="agregarUsuario" id="commprobanteAction"/>
-                                <button type="submit" class="btn btn-primary" id="enviar2"  onclick="controller.editar2()">Guardar</button>
+                                <input type="hidden" value="agregarUsuario" id="usuarioAction"/>
+                                <button type="submit" class="btn btn-primary" id="enviarUsuario"  onclick="controller.editarUsuario()">Guardar</button>
                                  <button type="reset" class="btn btn-danger" id="cancelar">Cancelar</button>
                             </div>
 
@@ -442,67 +442,77 @@
          
         },
         
-        mostrarModal: function(num){
+        mostrarModalUsuario: function(num){
   
-        $("#myModalFormulario").modal();
+        $("#myModalFormularioUsuario").modal();
         
-        var nume = document.getElementById("enviar");
+        var nume = document.getElementById("enviarUsuario");
         nume.value = num;
         
-        //usuario = model.usuarios.find(function(x){return x.id === num; });
+        usuario = model.usuarios.find(function(x){return x.id === num; });
 
-        alert(num);
-        
-        //document.getElementById("idUsuario").value = usuario.id;
-        //document.getElementById("contraseña").value = usuario.clave;
-        //document.getElementById("confirmacion").value = usuario.clave;
-        //document.getElementById("tipo").value = usuario.tipo;
-    },
-         mostrarModal2: function(num){
-  
-        $("#myModalFormulario2").modal();
-        
-        var nume = document.getElementById("enviar2");
-        nume.value = num;
-        
-        //usuario = model.usuarios.find(function(x){return x.id === num; });
-
-        alert(num);
+        //alert(num + "Mostarar modal Usuario");
         
         document.getElementById("idUsuario").value = usuario.id;
         document.getElementById("contraseña").value = usuario.clave;
         document.getElementById("confirmacion").value = usuario.clave;
-        //document.getElementById("tipo").value = usuario.tipo;
+        //document.getElementById("sopor").selected = true;
+        //document.getElementById("traba").selected = true;
+        
+        if(usuario.tipo === 1){
+            //alert(document.getElementById("traba").selected);
+            //document.getElementById("traba").selected === false;
+            //alert(document.getElementById("traba").selected);
+            document.getElementById("tipo").value = "Soportista";
+            
+        }else{
+            //alert(document.getElementById("sopor").selected);
+            //document.getElementById("sopor").selected === false;
+            //alert(document.getElementById("sopor").selected);
+            document.getElementById("tipo").value = "Administrador";
+            
+            
+        }
+        
+    },
+       
+        
+        
+        
+        
+        
+        
+        
+        mostrarModalTrabajador: function(num){
+  
+        $("#myModalFormularioTrabajador").modal();
+        
+        var nume = document.getElementById("enviarTrabajador");
+        nume.value = num;
+        
+      
+        trabajador = model.usuarios.find(function(x){return x.correo === num; });
+    
+        document.getElementById("identificacion").value = trabajador.identificacion;
+        document.getElementById("nombre").value = trabajador.nombre;
+        document.getElementById("apellido").value = trabajador.apellido;
+        document.getElementById("telefono").value = trabajador.telefono;
+        document.getElementById("correo").value = trabajador.correo;
     },
     
         
-        editar2: function(){
+        editarUsuario: function(){
   
     
-        alert("Editaraaaaaaaaaaaar 2");
+        //alert("Editaraaaaaaaaaaaar Usuario");
   
-         var numero = document.getElementById("enviar").value;
+         var numero = document.getElementById("enviarUsuario").value;
          
         
         var idUsuari = document.getElementById("idUsuario").value;
         var contrasen = document.getElementById("contraseña").value;
         var confirmacio = document.getElementById("confirmacion").value;
         var tip = document.getElementById("tipo").value;
-       /* var identificacio = document.getElementById("identificacion").value;
-        var nombr = document.getElementById("nombre").value;
-        var apellid = document.getElementById("apellido").value;
-        var telefon = document.getElementById("telefono").value;
-        var corre = document.getElementById("correo").value;*/
-        
-        /* alert(idUsuari);
-         alert(contrasen);
-         alert(confirmacio);
-         alert(tip);
-         alert(identificacio);
-         alert(nombr);
-         alert(apellid);
-         alert(telefon);
-         alert(corre);*/
          
         
         userActual = new Usuario(numero,"",1);
@@ -543,11 +553,37 @@
 
     },
     
-   editar: function(){
-  
+   editarTrabajador: function(){
+
+         var numero = document.getElementById("enviarTrabajador").value;
+
+        var identificacio = document.getElementById("identificacion").value;
+        var nombr = document.getElementById("nombre").value;
+        var apellid = document.getElementById("apellido").value;
+        var telefon = document.getElementById("telefono").value;
+        var corre = document.getElementById("correo").value;
     
-        alert("Edittaaaaaaaaaaaaar 1");
-  
+        userActual = new Trabajador("","",1,"","","","",numero);
+        userAModificar = new Trabajador("","",1,identificacio,nombr,apellid,telefon,corre);
+
+        var trabajadores = [];
+        trabajadores[0] = userActual;
+        trabajadores[1] = userAModificar;
+        
+        
+        
+         Proxy.modificarTraba(trabajadores,
+                function(user){
+                    if(user == 1){
+                       window.alert("Cambio exitoso");
+                  }
+                   
+                     //window.alert("Contrato registrado como : "+ document.getElementById("codContrato").value);
+                     document.location = "/Bridgestone/ListadoUsuarios.jsp";
+    
+    }
+
+        );
        
     }
   };
@@ -640,9 +676,9 @@
        img.src="imagenes/edit.png";
        img.title="Editar";
        //var ide2 = model.usuarios[i].id;
-       //img.addEventListener("click", function(e){doQuery2(ide2);});
+       //img.addEventListener("click", function(e){doQueryTrabajador(ide2);});
        img.id = model.usuarios[i].id;
-       img.addEventListener("click", doQuery);
+       img.addEventListener("click", doQueryUsuario);
        td.appendChild(img);
        tr.appendChild(td);
        
@@ -651,9 +687,9 @@
        img.src="imagenes/edit.png";
        img.title="Editar";
        //var ide2 = model.usuarios[i].id;
-       //img.addEventListener("click", function(e){doQuery2(ide2);});
-       img.id = model.usuarios[i].identificacion;
-       img.addEventListener("click", doQuery2);
+       //img.addEventListener("click", function(e){doQueryTrabajador(ide2);});
+       img.id = model.usuarios[i].correo;
+       img.addEventListener("click", doQueryTrabajador);
        td.appendChild(img);
        tr.appendChild(td);
        
@@ -691,7 +727,7 @@
         }
         
         
-         function doQuery(event){
+         function doQueryUsuario(event){
             
         //var persona = model.usuarios.find(function(x){return x.id==per.id; });
         
@@ -701,11 +737,11 @@
             var aux = event.target.id;
         
         
-            controller.mostrarModal(aux);
+            controller.mostrarModalUsuario(aux);
             
         }
     
-        function doQuery2(event){
+        function doQueryTrabajador(event){
             
         //var persona = model.usuarios.find(function(x){return x.id==per.id; });
         
@@ -715,7 +751,7 @@
             var aux = event.target.id;
         
         
-            controller.mostrarModal2(aux);
+            controller.mostrarModalTrabajador(aux);
             
         }
         
