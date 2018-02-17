@@ -236,12 +236,10 @@
     <li role="presentation">
       <a role="menuitem" tabindex="-1" href="ListadoComprobantes.jsp">Comprobantes de compra registrados</a>
     </li>    
-     <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="RegistrarActivoLeasing.jsp">Registrar Activo por Leasing</a>
+  <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="RegistrarEquipos.jsp">Registrar Equipos nuevos</a>
     </li>
-    <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="#.jsp">Registrar Activo por Comprobante</a>
-    </li>    
+ 
     
   </ul>
                              </a></li>
