@@ -34,7 +34,7 @@
          </div > 
          </div >               
         </header> 
-       <div class="container-fluid" style="width: 1360px; height:560px; background-image: url(imagenes/prin2.jpg); background-repeat: no-repeat; background-size:cover;">
+       <div class="container-fluid" style="width: 1360px; height:860px; background-image: url(imagenes/prin2.jpg); background-repeat: no-repeat; background-size:cover;">
      
          <div class = "">
          <nav class = " navbar navbar-default   navbar-static-top   ">
@@ -176,7 +176,7 @@
                         
                     <div class="form-group">
 
-                            <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="glyphicon glyphicon-option-vertical"></span>&nbsp Marca del equipo</label>
+                            <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="	glyphicon glyphicon-pencil"></span>&nbsp Marca del equipo</label>
                            <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="eje: Lenovo, HP, DEL">
 
                                   <input type="text" class="form-control" id="codContrato" name="usuarioTab" maxlength="12"/>
@@ -186,7 +186,7 @@
 
                     <div class="form-group">
 
-                            <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="glyphicon glyphicon-option-vertical"></span>&nbsp Modelo</label>
+                            <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="	glyphicon glyphicon-pencil"></span>&nbsp Modelo</label>
                            <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="110-440, C845-SP4143SL">
 
                                   <input type="text" class="form-control" id="codContrato" name="usuarioTab" maxlength="12"/>
@@ -195,7 +195,7 @@
                      
                       <div class="form-group">
 
-                            <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="glyphicon glyphicon-option-vertical"></span>&nbsp Memoria</label>
+                            <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="	glyphicon glyphicon-pencil"></span>&nbsp Memoria</label>
                            <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="500 GB,  1 TB">
 
                                   <input type="text" class="form-control" id="codContrato" name="usuarioTab" maxlength="12"/>
@@ -206,7 +206,7 @@
                        
                       <div class="form-group">
 
-                            <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="glyphicon glyphicon-option-vertical"></span>&nbsp Procesador</label>
+                            <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="	glyphicon glyphicon-pencil"></span>&nbsp Procesador</label>
                            <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="i3,i5,Athlon x4(AMD)">
 
                                   <input type="text" class="form-control" id="codContrato" name="usuarioTab" maxlength="12"/>
@@ -215,12 +215,31 @@
   
                    <div class="form-group">
 
-                            <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="glyphicon glyphicon-option-vertical"></span>&nbsp Procesador</label>
+                            <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="	glyphicon glyphicon-pencil"></span>&nbsp Procesador</label>
                            <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="i3,i5,Athlon x4(AMD)">
 
                                   <input type="text" class="form-control" id="codContrato" name="usuarioTab" maxlength="12"/>
                         </div>
                              </div>                        
+                        
+                       <div class="form-group">
+
+                            <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="	glyphicon glyphicon-pencil"></span>&nbsp Departamento</label>
+                           <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="Recursos Humanos , recepcion, o bien en INVENTARIO ">
+
+                                  <input type="text" class="form-control" id="codContrato" name="usuarioTab" maxlength="12"/>
+                        </div>
+                             </div> 
+                        
+                    <div class="form-group">
+
+                            <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="glyphicon glyphicon-pencil"></span>&nbsp Descripcion del equipo</label>
+                             <div class="col-xs-7 col-sm-5 col-md-5">
+                                 <input type="text" class="form-control"  id="des">
+               
+                                  
+                      </div>
+                        </div>  
                         
                         
                         
