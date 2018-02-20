@@ -229,6 +229,33 @@
 
                                   <input type="text" class="form-control" id="codContrato" name="usuarioTab" maxlength="12"/>
                         </div>
+                             </div>
+                        
+                                               <div class="form-group">
+
+                            <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="	glyphicon glyphicon-pencil"></span>&nbsp Usuario asignado</label>
+                           <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="Recursos Humanos , recepcion, o bien en INVENTARIO ">
+
+                                 <button onclick =
+                        "document.getElementById('o').style.display='block';
+                        document.getElementById('p').style.display='block';">Ingresar datos del usuario </button> 
+                               
+                               <div id="o" class="overlay"></div>
+
+
+                                 <div id="p" class="popup">
+
+                                h2>Esto es un pop-up</h2>
+
+                                  <button onclick =
+                                  "document.getElementById('o').style.display='none';
+                                    document.getElementById('p').style.display='none';">
+                                    Regresar</button>
+                                         </div>
+                               
+                               
+                               
+                        </div>
                              </div> 
                         
                     <div class="form-group">
