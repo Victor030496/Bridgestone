@@ -172,7 +172,22 @@
     <form role="form" onsubmit="return false;" id="userForm" class="form-horizontal">
                 <div class="tab-content">
                     <div class="tab-pane active" id="usuario-tab">
-                       
+                     
+                        
+                   <div class="form-group">
+
+                  <label class="control-label col-xs-3 col-sm-4 col-md-3" id = "acceso2"> <span class="glyphicon glyphicon-list-alt"></span>&nbsp tipo de activo</label>                                <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="Este numero representa el codigo del contrato por Leasing">
+
+                              <span class=" help-block"id="acceso2">CONTRATO POR LEASING &nbsp <select class="selectpicker" id="selee1">
+                                <option>Prueba</option>
+                                  </select></span>
+                      
+                       <span class=" help-block"id="acceso2">COMPROBANTE DE COMPRA &nbsp <select class="selectpicker" id="selee2">
+                                <option>Prueba</option>
+                           </select></span>
+
+                        </div>
+                             </div>   
                         
                     <div class="form-group">
 
@@ -230,20 +245,6 @@
 
                         
                         
-                <div class="form-group">
-
-                  <label class="control-label col-xs-3 col-sm-4 col-md-3" id = "acceso2"> <span class="glyphicon glyphicon-list-alt"></span>&nbsp tipo de activo</label>                                <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="Este numero representa el codigo del contrato por Leasing">
-
-                              <span class=" help-block"id="acceso2">CONTRATO POR LEASING &nbsp <select class="selectpicker" id="selee">
-                                <option>Prueba</option>
-                                  </select></span>
-                      
-                       <span class=" help-block"id="acceso2">COMPROBANTE DE COMPRA &nbsp <select class="selectpicker" id="selee">
-                                <option>Prueba</option>
-                           </select></span>
-
-                        </div>
-                             </div>
                         
                         
                         
@@ -352,4 +353,196 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>               
         
     </body>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+<script> // Model
+  function Model() {
+    this.Model();
+  }
+  
+  Model.prototype={
+	Model: function(){
+        }
+  };
+</script>
+
+<script> // Controller
+  function Controller(model,view) {
+    this.Controller(model,view);
+  }
+  
+  Controller.prototype={
+	Controller: function(model,view){
+		this.model=model;
+		this.view=view;
+                
+          
+        Proxy.getContratos(function(result){
+          
+          model.contratos = result;
+          console.log(result[0]);
+          view.showContratos();
+        
+       }      
+      ); 
+      
+      
+      
+              Proxy.getComprobantes(function(result){
+          
+          model.comprobantes = result;
+          console.log(result[0]);
+          view.showComprobantes();
+        
+       }      
+      ); 
+                
+                
+	},
+        login: function(){
+            activo = new Activo(document.getElementById("serie").value,document.getElementById("datepicker").value,document.getElementById("des").value,document.getElementById("contrats").value);
+        window.alert("Activo registrado como : "+ document.getElementById("des").value);
+       
+        Proxy.registrarActivo(activo,
+                function(contrat){
+                    if(contrat === 1){
+                       window.alert("Registro exitoso");
+                  }
+                     
+                     document.location = "/Bridgestone/RegistrarActivoLeasing.jsp";
+                            
+                    
+                });
+
+    
+    }
+
+        
+        
+        
+  };
+</script>
+
+
+<script> // View
+  var model;
+  var controller;
+	function pageLoad(event){ 
+ 
+		model=new Model();  
+		controller = new Controller(model,window);
+                 var fo = document.getElementById("siguiente1");
+                fo.addEventListener("click",doValidate);
+	}
+        function showErrorMessage(){
+            window.alert("Usuario incorrecto...");
+        }
+        
+        
+        
+     function doValidate(event){
+
+  var usu = document.getElementById("serie");
+  var pas = document.getElementById("datepicker");
+  var pas2 = document.getElementById("des");
+  //var con=document.getElementById("contrats");
+  var error = false;
+
+
+	usu.classList.remove("invalid");
+        pas.classList.remove("invalid");
+        pas2.classList.remove("invalid");
+   if(usu.value == null  || usu.value.length == 0){
+       usu.classList.add("invalid");
+	 error = true;
+}
+
+   if(pas.value == null  || pas.value.length == 0){
+     pas.classList.add("invalid");
+	 error = true;
+}
+
+
+   if(pas2.value == null  || pas2.value.length == 0){
+     pas2.classList.add("invalid");
+	 error = true;
+}
+
+
+
+	if (error){
+	event.preventDefault();
+        document.location = "/Bridgestone/RegistrarActivoLeasing.jsp";
+	}
+
+}
+        
+        
+                function salir(){
+ document.location = "/Bridgestone/Principal.jsp";
+        
+     }
+     
+     function showContratos(){
+         
+        var combo = document.getElementById("selee1");
+        for (i = 0; i < model.contratos.length; i++){
+        combo.options[i] = new Option(model.contratos[i].codigoContrato);
+         
+         
+     }
+ }
+ 
+ 
+ 
+      function showComprobantes(){
+         
+        var combo = document.getElementById("selee2");
+        for (i = 0; i < model.comprobantes.length; i++){
+        combo.options[i] = new Option(model.comprobantes[i].numeroDeComprobante);
+         
+         
+     }
+ }
+ 
+         function irTabla(){
+       document.location = "/Bridgestone/ListadoActivosLeasing.jsp";
+        
+     } 
+        
+        
+        
+        
+        
+         function siguiente(){
+      document.location = "/Bridgestone/Registrar2.jsp";
+  }
+	document.addEventListener("DOMContentLoaded",pageLoad);
+</script>
+        
+</html>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 </html>
