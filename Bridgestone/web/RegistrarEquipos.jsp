@@ -179,7 +179,7 @@
                             <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="	glyphicon glyphicon-pencil"></span>&nbsp Marca del equipo</label>
                            <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="eje: Lenovo, HP, DEL">
 
-                                  <input type="text" class="form-control" id="codContrato" name="usuarioTab" maxlength="12"/>
+                                  <input type="text" class="form-control" id="codContrato" name="usuarioTab" maxlength="12"/><span class=" help-block"id="acceso2">eje: Lenovo, HP, DEL</span>
                         </div>
                              </div>
                         
@@ -189,7 +189,7 @@
                             <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="	glyphicon glyphicon-pencil"></span>&nbsp Modelo</label>
                            <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="110-440, C845-SP4143SL">
 
-                                  <input type="text" class="form-control" id="codContrato" name="usuarioTab" maxlength="12"/>
+                                  <input type="text" class="form-control" id="codContrato" name="usuarioTab" maxlength="12"/><span class=" help-block"id="acceso2">110-440, C845-SP4143SL</span>
                         </div>
                              </div>
                      
@@ -198,27 +198,20 @@
                             <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="	glyphicon glyphicon-pencil"></span>&nbsp Memoria</label>
                            <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="500 GB,  1 TB">
 
-                                  <input type="text" class="form-control" id="codContrato" name="usuarioTab" maxlength="12"/>
+                                  <input type="text" class="form-control" id="codContrato" name="usuarioTab" maxlength="12"/> <span class=" help-block"id="acceso2">eje: 500 GB , 1TB</span>
                         </div>
                              </div>
                 
       
                        
-                      <div class="form-group">
 
-                            <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="	glyphicon glyphicon-pencil"></span>&nbsp Procesador</label>
-                           <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="i3,i5,Athlon x4(AMD)">
-
-                                  <input type="text" class="form-control" id="codContrato" name="usuarioTab" maxlength="12"/>
-                        </div>
-                             </div>  
   
                    <div class="form-group">
 
                             <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="	glyphicon glyphicon-pencil"></span>&nbsp Procesador</label>
                            <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="i3,i5,Athlon x4(AMD)">
 
-                                  <input type="text" class="form-control" id="codContrato" name="usuarioTab" maxlength="12"/>
+                                  <input type="text" class="form-control" id="codContrato" name="usuarioTab" maxlength="12"/><span class=" help-block"id="acceso2">eje: i3,i5,Athlon x4(AMD)</span>
                         </div>
                              </div>                        
                         
@@ -227,15 +220,30 @@
                             <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="	glyphicon glyphicon-pencil"></span>&nbsp Departamento</label>
                            <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="Recursos Humanos , recepcion, o bien en INVENTARIO ">
 
-                                  <input type="text" class="form-control" id="codContrato" name="usuarioTab" maxlength="12"/>
+                                  <input type="text" class="form-control" id="codContrato" name="usuarioTab" maxlength="12"/><span class=" help-block"id="acceso2">eje: Recursos Humanos,recepcion o bien Inventario</span>
                         </div>
                              </div>
                         
+                        
+                        
+                        
+                                            <div class="form-group">
+
+                            <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="glyphicon glyphicon-pencil"></span>&nbsp Descripcion del equipo</label>
+                             <div class="col-xs-7 col-sm-5 col-md-5">
+                                 <textarea name="comentarios" rows="3" cols="85"></textarea>
+               
+                                  
+                      </div>
+                        </div>  
+                        
+                        
+                        
+                        
                                                <div class="form-group">
-
-                            <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="	glyphicon glyphicon-pencil"></span>&nbsp Usuario asignado</label>
+                            <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class=" glyphicon glyphicon-pencil"></span>&nbsp Usuario asignado</label>
                            <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="Recursos Humanos , recepcion, o bien en INVENTARIO ">
-
+                                
                                  <button onclick =
                         "document.getElementById('o').style.display='block';
                         document.getElementById('p').style.display='block';">Ingresar datos del usuario </button> 
@@ -258,15 +266,7 @@
                         </div>
                              </div> 
                         
-                    <div class="form-group">
 
-                            <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="glyphicon glyphicon-pencil"></span>&nbsp Descripcion del equipo</label>
-                             <div class="col-xs-7 col-sm-5 col-md-5">
-                                 <input type="text" class="form-control"  id="des">
-               
-                                  
-                      </div>
-                        </div>  
                         
                         
                         
