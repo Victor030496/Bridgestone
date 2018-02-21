@@ -234,11 +234,11 @@
 
                   <label class="control-label col-xs-3 col-sm-4 col-md-3" id = "acceso2"> <span class="glyphicon glyphicon-list-alt"></span>&nbsp tipo de activo</label>                                <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="Este numero representa el codigo del contrato por Leasing">
 
-                              <span class=" help-block"id="acceso2">CONTRATO POR LEASING  <select class="selectpicker" id="contrats">
+                              <span class=" help-block"id="acceso2">CONTRATO POR LEASING &nbsp <select class="selectpicker" id="selee">
                                 <option>Prueba</option>
                                   </select></span>
                       
-                       <span class=" help-block"id="acceso2">COMPROBANTE DE COMPRA  <select class="selectpicker" id="contrats">
+                       <span class=" help-block"id="acceso2">COMPROBANTE DE COMPRA &nbsp <select class="selectpicker" id="selee">
                                 <option>Prueba</option>
                            </select></span>
 
