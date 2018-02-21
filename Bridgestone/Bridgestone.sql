@@ -20,6 +20,10 @@ create table Trabajador (
  correo varchar(30)
 );
 
+
+alter table Trabajador
+  add constraint foreign key (id) references  Usuario (id) on update cascade;
+
 create table Persona(
    id  varchar(20) not null primary key,
    nombre varchar(30),
@@ -30,8 +34,7 @@ create table Persona(
 
 );
 
-alter table Trabajador
-  add constraint foreign key (id) references  Usuario (id) on update cascade;
+
 
 
 create table Contrato(
@@ -52,26 +55,32 @@ create table Comprobante(
 );
 
 
-create table Activo(
+create table Equipo(
+   
+  tipoContrato varchar(15) not null primary key,
+  marca varchar(20),
+  modelo varchar(20),
+  memoria varchar(20),
+  procesador varchar(20),
+  departamento varchar(30),
+  usuario varchar(20),
+  descripcion varchar(40)
 
-	numeroDeSerie varchar(15),
-	fechaDeEntrada Date,
-	descripción varchar(20),
-	codigoContratoLeasing varchar(10),
-	numeroComprobante varchar(15),
-	constraint PK_Activo primary key(numeroDeSerie)
+
 );
 
-ALTER TABLE Activo ADD Foreign Key (codigoContratoLeasing) REFERENCES Contrato(codigoContrato) on update cascade;
-ALTER TABLE Activo ADD Foreign Key (numeroComprobante) REFERENCES Comprobante(numeroDeComprobante)  on update cascade;
+alter table Equipo
+  add constraint foreign key (tipoContrato) references Contrato (codigoContrato) on update cascade;
 
 
+alter table Equipo
+  add constraint foreign key (tipoContrato) references Comprobante(numeroDeComprobante) on update cascade;
 
-
-
-
+alter table Equipo
+  add constraint foreign key (usuario) references Persona(id) on update cascade;
 
   
   insert into Usuario (id,clave,tipo) values ('LuisO19','LuisO19', 2);
   insert into Usuario (id,clave,tipo) values ('1','1', 2);
+
   
