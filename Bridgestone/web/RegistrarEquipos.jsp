@@ -257,24 +257,59 @@
                             <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class=" glyphicon glyphicon-pencil"></span>&nbsp Usuario asignado</label>
                            <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="Recursos Humanos , recepcion, o bien en INVENTARIO ">
                                 
-                                 <button onclick =
-                        "document.getElementById('o').style.display='block';
-                        document.getElementById('p').style.display='block';">Ingresar datos del usuario </button> 
-                               
-                               <div id="o" class="overlay"></div>
+ 
+                          <button type="button" class="btn" id="acce" onclick="controller.login();">Ingresar Usuario</button>                            
+                            
+                          
+                          
+                          
+<div id="o" class="overlay"></div>
 
 
-                                 <div id="p" class="popup">
+<div id="p" class="popup">
 
-                                h2>Esto es un pop-up</h2>
+    <center>
+<div  class="container-fluid" style="width: 400px; height:300px; background-image: url(imagenes/prin2.jpg); background-repeat: no-repeat; background-size:cover;">
+<center>
+<form method="POST" name="formulario" id="formulario" action="javascript:doSubmit();">
+<table>
 
-                                  <button onclick =
-                                  "document.getElementById('o').style.display='none';
-                                    document.getElementById('p').style.display='none';">
-                                    Regresar</button>
-                                         </div>
-                               
-                               
+<tr><td colspan = 2 class = "etiqueta2" id = "encabeza" >Log in</td></tr>
+<tr><td class = "etiqueta2" >Usuario</td><td><input type = "text" id = "usuario" name= "usuario" ></td> </tr>
+<tr><td class = "etiqueta2" >Contrasena</td><td><input type = "text" id = "contrasena" name= "contrasena" ></td> </tr>
+<tr><td colspan = 2 ><input type="submit" value = "Ingresar"  class = "regi"> </td>
+</tr>
+
+</table>
+</form>
+<br>
+<a id = "noCuenta">Click aqui si aun no tiene su cuenta  </a>
+</center>
+
+
+</div>
+    </center>    
+<center><button onclick =
+"document.getElementById('o').style.display='none';
+document.getElementById('p').style.display='none';">
+ Volver</button>
+ </center>
+</div>
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
                                
                         </div>
                              </div> 
@@ -442,12 +477,20 @@
 		controller = new Controller(model,window);
                  var fo = document.getElementById("siguiente1");
                 fo.addEventListener("click",doValidate);
+        var accCue =  document.getElementById("acce"); 
+	accCue.addEventListener("click",mjs);
 	}
         function showErrorMessage(){
             window.alert("Usuario incorrecto...");
         }
         
-        
+        function mjs(){
+
+     var  o = document.getElementById('o').style.display='block';
+     var  p = document.getElementById('p').style.display='block';
+
+
+}
         
      function doValidate(event){
 
