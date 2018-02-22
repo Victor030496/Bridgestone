@@ -59,8 +59,8 @@
                        
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
-                                <input maxlength="10" name="identificacion" id="identificacion" placeholder="Identificacion" class="form-control" type="text">
-                            </div>
+                                <input maxlength="10" name="identificacion" id="identificacion" placeholder="Identificacion" class="form-control input_ced" type="text" size="15" maxlength="15">
+                            </div><span style="color: black ; font-size: 12pt ;font-family:Impact"  id="num2"></span>
                         
                     </div>
                     
@@ -87,8 +87,9 @@
                        
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
-                                <input maxlength="10" name="telefono" id="telefono" placeholder="Telefono" class="form-control" type="text">
-                            </div>
+                                <input maxlength="10" name="telefono" id="telefono" placeholder="Telefono" class="form-control input_tel" type="text" size="15" maxlength="15">
+                                
+                            </div><span style="color: black ; font-size: 12pt ;font-family:Impact"  id="num1"></span>
                         
                     </div>
                               
@@ -96,8 +97,8 @@
                        
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
-                                <input maxlength="10" name="correo" id="correo" placeholder="Correo" class="form-control" type="email">
-                            </div>
+                                <input  name="correo" id="correo" placeholder="Correo" class="form-control" type="email">
+                            </div><span style="color: black ; font-size: 12pt ;font-family:Impact"  id="emailOK"></span>
                         
                     </div>
                      
@@ -142,7 +143,7 @@
                        
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
-                                <input maxlength="10" name="idUsuario" id="idUsuario" placeholder="Usuario" class="form-control" type="text">
+                                <input maxlength="10" name="idUsuario" id="idUsuario" placeholder="Usuario" class="form-control" type="text"  size="8" maxlength="16">
                             </div>
                         
                     </div>
@@ -152,7 +153,7 @@
                        
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-align-center"></i></span>
-                                <input maxlength="10" name="contraseña" id="contraseña" placeholder="Contraseña" class="form-control" type="password">
+                                <input maxlength="10" name="contraseña" id="contraseña" placeholder="Contraseña" class="form-control" type="password" size="8" maxlength="8">
                             </div>
                         
                     </div>
@@ -161,7 +162,7 @@
                        
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
-                                <input maxlength="10" name="confirmacion" id="confirmacion" placeholder="Confirmar contraseña" class="form-control" type="password">
+                                <input maxlength="10" name="confirmacion" id="confirmacion" placeholder="Confirmar contraseña" class="form-control" type="password" size="8" maxlength="8">
                             </div>
                         
                     </div>
@@ -504,14 +505,14 @@
     
         //alert("Editaraaaaaaaaaaaar Usuario");
   
-         var numero = document.getElementById("enviarUsuario").value;
+        var numero = document.getElementById("enviarUsuario").value;
          
         
         var idUsuari = document.getElementById("idUsuario").value;
         var contrasen = document.getElementById("contraseña").value;
         var confirmacio = document.getElementById("confirmacion").value;
         var tip = document.getElementById("tipo").value;
-         
+ 
         
         userActual = new Usuario(numero,"",1);
         
@@ -538,13 +539,14 @@
         
          Proxy.modificarUsu(trabajadores,
                 function(user){
+                 //  if (error){  
                     if(user == 1){
                        window.alert("Cambio exitoso");
                   }
-                   
+                  
                      //window.alert("Contrato registrado como : "+ document.getElementById("codContrato").value);
                      document.location = "/Bridgestone/ListadoUsuarios.jsp";
-    
+   // }
     }
 
         );
@@ -589,6 +591,54 @@
 <script> // View
   var model;
   var controller;
+  
+       //valida el numero de telefono 
+        jQuery(document).ready(function() {
+    jQuery('.input_tel').keypress(function(tecla) {
+         valido = document.getElementById('num1');
+        if(tecla.charCode < 48 || tecla.charCode > 57){
+            
+             valido.innerText = "Solo puede ingresar numeros!!";
+             //valido.innerText = "";
+            return false;}
+        else  valido.innerText = "";
+        
+    });
+    
+    
+    
+    
+    //valida la identificacion
+});
+      jQuery(document).ready(function() {
+    jQuery('.input_ced').keypress(function(tecla) {
+        valido = document.getElementById('num2');
+        if((tecla.charCode < 48 || tecla.charCode > 57)){ 
+            
+             valido.innerText = "Solo puede ingresar numeros!!";
+            // valido.innerText = "";
+            return false;}
+        else  valido.innerText = "";
+    });
+});
+//valida el correo
+document.getElementById('correo').addEventListener('input', function() {
+    campo = event.target;
+    valido = document.getElementById('emailOK');
+        
+    emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+    //Se muestra un texto a modo de ejemplo, luego va a ser un icono
+    if (emailRegex.test(campo.value)) {
+      
+      valido.innerText = "Valido";
+    } else {
+        valido.innerText = "Formato incorrecto! ej:Raul@mail.com";
+        //alert("La dirección de email es incorrecta!.");
+    }
+});
+
+  
+  
   
   function doSearch(){
     var tableReg = document.getElementById('tabUsuarios');
