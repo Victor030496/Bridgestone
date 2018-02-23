@@ -516,20 +516,33 @@
         
         userActual = new Usuario(numero,"",1);
         
-        
+       if (contrasen != confirmacio || contrasen=="" || confirmacio=="") {
+             if (contrasen=="") {
+                alert("El espacio de la contraseña esta vacio.");
+                
+        }
+            else if (confirmacio=="") {
+                alert("El espacio de validacion de contraseña esta vacio.");
+                
+        }   
+            else
+            alert("Las Contraseñas no coinciden.");
+                
+        }
+            else{
         if(tip === "Soportista"){
             
         userAModificar = new Usuario(idUsuari,contrasen,1);
     }else{
         
         userAModificar = new Usuario(idUsuari,contrasen,2);
-    }
+    }}
         
         //trabajaActual = new Trabajador();
         //trabajaAModificar = new Trabajador();
         
-        alert(userActual.toString());
-        alert(userAModificar.toString());
+       // alert(userActual.toString());
+       // alert(userAModificar.toString());
         
         var trabajadores = [];
         trabajadores[0] = userActual;
