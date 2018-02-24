@@ -182,7 +182,7 @@
                                 <option>Prueba</option>
                                   </select></span>
                       
-                       <span class=" help-block"id="acceso2">COMPROBANTE DE COMPRA &nbsp <select class="selectpicker" id="selee2">
+                       <span class=" help-block"id="acceso2">COMPROBANTE DE COMPRa &nbsp <select class="selectpicker" id="selee2">
                                 <option>Prueba</option>
                            </select></span>
 
