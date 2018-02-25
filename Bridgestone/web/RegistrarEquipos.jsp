@@ -58,7 +58,7 @@
       <a role="menuitem" tabindex="-1" href="RegistrarContratoLeasing.jsp">Registrar Contrato de Leasing</a>
     </li>
     <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="prue.jsp">Registrar Comprobante de compra</a>
+      <a role="menuitem" tabindex="-1" href="RegistrarComprobante.jsp">Registrar Comprobante de compra</a>
      </li>    
      <li role="presentation" class="divider"></li>
     <li role="presentation">
@@ -269,31 +269,39 @@
 <div id="p" class="popup">
 
     <center>
-<div  class="container-fluid" style="width: 400px; height:300px; background-image: url(imagenes/prin2.jpg); background-repeat: no-repeat; background-size:cover;">
+<div  class="container-fluid" style="width: 400px; height:300px; background-image: url(imagenes/fa.jpg); background-repeat: no-repeat; background-size:cover;">
 <center>
 <form method="POST" name="formulario" id="formulario" action="javascript:doSubmit();">
 <table>
 
-<tr><td colspan = 2 class = "etiqueta2" id = "encabeza" >Log in</td></tr>
-<tr><td class = "etiqueta2" >Usuario</td><td><input type = "text" id = "usuario" name= "usuario" ></td> </tr>
-<tr><td class = "etiqueta2" >Contrasena</td><td><input type = "text" id = "contrasena" name= "contrasena" ></td> </tr>
-<tr><td colspan = 2 ><input type="submit" value = "Ingresar"  class = "regi"> </td>
-</tr>
+<tr><td colspan = 2 class = "etiqueta2" id = "encabeza" >Usuario del equipo</td></tr>
+<tr><td class = "etiqueta2" >Nombre</td><td><input type = "text" id = "nombre" name= "usuario" ><br></td> </tr>
+<tr><td class = "etiqueta2" >Apellido</td><td><input type = "text" id = "apellido" name= "usuario" ></td> </tr>
+<tr><td class = "etiqueta2" >Cedula</td><td><input type = "text" id = "cedula" name= "usuario" ></td> </tr>
+<tr><td class = "etiqueta2" >Nombre</td><td><input type = "text" id = "nombre" name= "usuario" ></td> </tr>
+<tr><td class = "etiqueta2" >telefono</td><td><input type = "text" id = "tel" name= "contrasena" ></td> </tr>
+<tr><td class = "etiqueta2" >Correo</td><td><input type = "text" id = "corre" name= "usuario" ></td> </tr>
+
 
 </table>
+    
+  <button>Eniviar</button>
+  
+ <button onclick =
+"document.getElementById('o').style.display='none';
+document.getElementById('p').style.display='none';">
+ Volver</button>
+  
+    
+    
 </form>
 <br>
-<a id = "noCuenta">Click aqui si aun no tiene su cuenta  </a>
 </center>
 
 
 </div>
     </center>    
-<center><button onclick =
-"document.getElementById('o').style.display='none';
-document.getElementById('p').style.display='none';">
- Volver</button>
- </center>
+
 </div>
                           
                           
