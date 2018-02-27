@@ -34,6 +34,98 @@
          </div > 
          </div >               
         </header> 
+        
+                <!------------------------------------------------------------------------------------------>
+        
+        
+                            
+        <div class="modal fade" id="myModalFormularioTrabajador" role="dialog">
+    <div class="row-fluid" >
+        <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+        
+        <div class="col-md-offset-4 col-md-4" id="boxy">
+            <br><br><br><br><br><br><br><br>
+            <h2 id='Contact' style="font-weight: bold;">Trabajador a editar</h2>
+            <hr>
+            <form role="form" onsubmit="return false;" id="formTrabajadores">
+                <fieldset>
+                     <div class="col-md-12">
+             
+                <div class="leftcontact">
+                    <div class="form-group" id="groupIdentificacion">
+                       
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
+                                <input maxlength="10" name="identificacion" id="identificacion" placeholder="Identificacion" class="form-control input_ced" type="text" size="15" maxlength="15">
+                            </div><span style="color: black ; font-size: 12pt ;font-family:Impact"  id="num2"></span>
+                        
+                    </div>
+                    
+                             
+                    <div class="form-group" id="groupNombre">
+                       
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-align-center"></i></span>
+                                <input maxlength="10" name="nombre" id="nombre" placeholder="Nombre" class="form-control" type="text">
+                            </div>
+                        
+                    </div>
+                             
+                    <div class="form-group" id="groupApellido">
+                       
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
+                                <input maxlength="10" name="apellido" id="apellido" placeholder="Apellido" class="form-control" type="text">
+                            </div>
+                        
+                    </div>
+                              
+                   <div class="form-group" id="groupTelefono">
+                       
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
+                                <input maxlength="10" name="telefono" id="telefono" placeholder="Telefono" class="form-control input_tel" type="text" size="15" maxlength="15">
+                                
+                            </div><span style="color: black ; font-size: 12pt ;font-family:Impact"  id="num1"></span>
+                        
+                    </div>
+                              
+                    <div class="form-group" id="groupCorreo">
+                       
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
+                                <input  name="correo" id="correo" placeholder="Correo" class="form-control" type="email">
+                            </div><span style="color: black ; font-size: 12pt ;font-family:Impact"  id="emailOK"></span>
+                        
+                    </div>
+                     
+                     
+                     
+                         </div>-->
+                  
+        </div>
+                    
+                    <div class="form-group"  style="margin-left: 38%">
+                                <input type="hidden" value="agregarTrabajador" id="trabajadorAction"/>
+                                <button type="submit" class="btn btn-primary" id="enviarTrabajador"  onclick="controller.editarTrabajador()">Guardar</button>
+                                <button type="reset" class="btn btn-danger" id="cancelar">Cancelar</button>
+                            </div>
+
+                
+                </fieldset>
+            </form>
+        </div>    
+      </div>
+     </div> 
+   </div>
+</div>
+        
+        <!------------------------------------------------------------------------------------------>
+        
+        
+        
+        
        <div class="container-fluid" style="width: 1360px; height:860px; background-image: url(imagenes/prin2.jpg); background-repeat: no-repeat; background-size:cover;">
      
          <div class = "">
@@ -260,7 +352,7 @@
  
                           <button type="button" class="btn" id="acce" onclick="controller.login();">Ingresar Usuario</button>                            
                             
-                          
+                           <button type="button" class="btn" id="proban" >Ingresar Usuario2</button>   
                           
                           
 <div id="o" class="overlay"></div>
@@ -467,6 +559,22 @@ document.getElementById('p').style.display='none';">
                 });
 
     
+    },
+            mostrarModalTrabajador: function(num){
+  
+        $("#myModalFormularioTrabajador").modal();
+        
+        var nume = document.getElementById("enviarTrabajador");
+        nume.value = num;
+        
+      
+        trabajador = model.usuarios.find(function(x){return x.correo === num; });
+    
+        document.getElementById("identificacion").value = trabajador.identificacion;
+        document.getElementById("nombre").value = trabajador.nombre;
+        document.getElementById("apellido").value = trabajador.apellido;
+        document.getElementById("telefono").value = trabajador.telefono;
+        document.getElementById("correo").value = trabajador.correo;
     }
 
         
@@ -481,12 +589,14 @@ document.getElementById('p').style.display='none';">
   var controller;
 	function pageLoad(event){ 
  
-		model=new Model();  
-		controller = new Controller(model,window);
-                 var fo = document.getElementById("siguiente1");
-                fo.addEventListener("click",doValidate);
+	model=new Model();  
+	controller = new Controller(model,window);
+        var fo = document.getElementById("siguiente1");
+        fo.addEventListener("click",doValidate);
         var accCue =  document.getElementById("acce"); 
 	accCue.addEventListener("click",mjs);
+       var accCue2 =  document.getElementById("proban"); 
+	accCue2.addEventListener("click",doQueryTrabajador);
 	}
         function showErrorMessage(){
             window.alert("Usuario incorrecto...");
@@ -569,6 +679,14 @@ document.getElementById('p').style.display='none';">
        document.location = "/Bridgestone/ListadoActivosLeasing.jsp";
         
      } 
+     
+       function doQueryTrabajador(event){
+            
+     
+            var aux = event.target.id;
+           controller.mostrarModalTrabajador(aux);
+            
+        }
         
         
         
