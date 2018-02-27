@@ -275,7 +275,7 @@
 <table>
 
 <tr><td colspan = 2 class = "etiqueta2" id = "encabeza" >Usuario del equipo</td></tr>
-<tr><td class = "etiqueta2" >Nombre</td><td><input type = "text" id = "nombre" name= "usuario" ><br></td> </tr>
+<tr><td class = "etiqueta2" >Nombre</td><td><input type = "text" id = "nombre" name= "usuario" ></td> </tr>
 <tr><td class = "etiqueta2" >Apellido</td><td><input type = "text" id = "apellido" name= "usuario" ></td> </tr>
 <tr><td class = "etiqueta2" >Cedula</td><td><input type = "text" id = "cedula" name= "usuario" ></td> </tr>
 <tr><td class = "etiqueta2" >Nombre</td><td><input type = "text" id = "nombre" name= "usuario" ></td> </tr>
