@@ -76,7 +76,7 @@ public class Database {
     private static final String USUARIO = "root";
 
 
-    private static final String CLAVE = "yoamopatinar";
+    private static final String CLAVE = "blaugrana";
 
 
     private static final String BASEDATOS = "Bridgestone";
