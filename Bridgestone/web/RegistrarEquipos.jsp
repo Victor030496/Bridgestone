@@ -46,7 +46,7 @@
         
         <div class="col-md-offset-4 col-md-4" id="boxy">
             <br><br><br><br><br><br><br><br>
-            <h2 id='Contact' style="font-weight: bold;">Trabajador a editar</h2>
+            <h2 id='Contact' style="font-weight: bold;">Ingresar datos del usuario del equipo</h2>
             <hr>
             <form role="form" onsubmit="return false;" id="formTrabajadores">
                 <fieldset>
@@ -126,7 +126,7 @@
         
         
         
-       <div class="container-fluid" style="width: 1360px; height:860px; background-image: url(imagenes/prin2.jpg); background-repeat: no-repeat; background-size:cover;">
+       <div  id= "mainDiv" class="container-fluid" style="width: 1360px; height:860px; background-image: url(imagenes/prin22.jpg); background-repeat: no-repeat; background-size:cover; ba">
      
          <div class = "">
          <nav class = " navbar navbar-default   navbar-static-top   ">
@@ -220,9 +220,9 @@
         
         <div class = "main row" class = "columna1" id = "divPrincipal">
         
-      &nbsp;&nbsp;&nbsp;&nbsp;   <h2>Registrar para equipos nuevos</h2>
+      &nbsp;&nbsp;&nbsp;   <h2>  Registrar equipos nuevos</h2>
       <br>   
-        
+         <h2 id="mjsImpor">¡ Rellene solo los campos necesarios segun el equipo que vaya a ingresar !</h2>
         <div class = "col-md-2 text-justify"  "col-lg-9 text-justify"  "col-sm-8 text-justify"  "col-xs-6 text-justify" align = "center" >
 
      <br>
@@ -350,67 +350,10 @@
                            <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="Recursos Humanos , recepcion, o bien en INVENTARIO ">
                                 
  
-                          <button type="button" class="btn" id="acce" onclick="controller.login();">Ingresar Usuario</button>                            
                             
-                           <button type="button" class="btn" id="proban" >Ingresar Usuario2</button>   
-                          
-                          
-<div id="o" class="overlay"></div>
-
-
-<div id="p" class="popup">
-
-    <center>
-<div  class="container-fluid" style="width: 400px; height:300px; background-image: url(imagenes/fa.jpg); background-repeat: no-repeat; background-size:cover;">
-<center>
-<form method="POST" name="formulario" id="formulario" action="javascript:doSubmit();">
-<table>
-
-<tr><td colspan = 2 class = "etiqueta2" id = "encabeza" >Usuario del equipo</td></tr>
-<tr><td class = "etiqueta2" >Nombre</td><td><input type = "text" id = "nombre" name= "usuario" ></td> </tr>
-<tr><td class = "etiqueta2" >Apellido</td><td><input type = "text" id = "apellido" name= "usuario" ></td> </tr>
-<tr><td class = "etiqueta2" >Cedula</td><td><input type = "text" id = "cedula" name= "usuario" ></td> </tr>
-<tr><td class = "etiqueta2" >Nombre</td><td><input type = "text" id = "nombre" name= "usuario" ></td> </tr>
-<tr><td class = "etiqueta2" >telefono</td><td><input type = "text" id = "tel" name= "contrasena" ></td> </tr>
-<tr><td class = "etiqueta2" >Correo</td><td><input type = "text" id = "corre" name= "usuario" ></td> </tr>
-
-
-</table>
-    
-  <button>Eniviar</button>
-  
- <button onclick =
-"document.getElementById('o').style.display='none';
-document.getElementById('p').style.display='none';">
- Volver</button>
-  
-    
-    
-</form>
-<br>
-</center>
-
-
-</div>
-    </center>    
-
-</div>
-                          
-                          
-                          
-                          
-                          
-                          
-                          
-                          
-                          
-                          
-                          
-                          
-                          
-                          
-                          
-                               
+                           <button type="button" class="btn" id="proban" >Ingresar Usuario</button>   
+                                            
+                                   
                         </div>
                              </div> 
                         
@@ -593,9 +536,7 @@ document.getElementById('p').style.display='none';">
 	controller = new Controller(model,window);
         var fo = document.getElementById("siguiente1");
         fo.addEventListener("click",doValidate);
-        var accCue =  document.getElementById("acce"); 
-	accCue.addEventListener("click",mjs);
-       var accCue2 =  document.getElementById("proban"); 
+        var accCue2 =  document.getElementById("proban"); 
 	accCue2.addEventListener("click",doQueryTrabajador);
 	}
         function showErrorMessage(){
