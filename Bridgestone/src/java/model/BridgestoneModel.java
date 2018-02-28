@@ -98,22 +98,22 @@ static {
    }
              
                
-   public static int guardaActivo(Activo c)throws Exception{
-       System.out.println("Activo que vamos a guardar"+ c.getNumeroDeSerie());
-       String sql="insert into Activo(numeroDeSerie,fechaDeEntrada,descripción ,codigoContratoLeasing)"
-                + "values('%s','%s','%s','%s')";
-
-       sql=String.format(sql,c.numeroDeSerie,c.fechaDeEntrada,c.descripción,c.codigoContratoLeasing);
-       int aux = datos.executeUpdate(sql);
-       if(aux ==0){
-       
-        throw new Exception("Activo no existe");
-       
-       }
- 
-   return 1;
-   }  
-   
+//   public static int guardaActivo(Activo c)throws Exception{
+//       System.out.println("Activo que vamos a guardar"+ c.getNumeroDeSerie());
+//       String sql="insert into Activo(numeroDeSerie,fechaDeEntrada,descripción ,codigoContratoLeasing)"
+//                + "values('%s','%s','%s','%s')";
+//
+//       sql=String.format(sql,c.numeroDeSerie,c.fechaDeEntrada,c.descripción,c.codigoContratoLeasing);
+//       int aux = datos.executeUpdate(sql);
+//       if(aux ==0){
+//       
+//        throw new Exception("Activo no existe");
+//       
+//       }
+// 
+//   return 1;
+//   }  
+//   
    
    
     public static int guardaContrato(Contrato c)throws Exception{

@@ -15,7 +15,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Activo;
 import model.BridgestoneModel;
 import model.Comprobante;
 import model.Contrato;
@@ -56,8 +55,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
             RuntimeTypeAdapterFactory<Jsonable> rta = RuntimeTypeAdapterFactory.of(Jsonable.class,"_class")
             .registerSubtype(Trabajador.class,"Trabajador") 
             .registerSubtype(Contrato.class,"Contrato")
-            .registerSubtype(Activo.class,"Activo")
-            .registerSubtype(Comprobante.class,"Comprobante") 
+             .registerSubtype(Comprobante.class,"Comprobante") 
             .registerSubtype(Usuario.class,"Usuario");//IMPORTANTE HACER CAMBIOS CUANDO META CLASE USUARIO , TIQUETE ECT....//
             
         Gson gson = new GsonBuilder().registerTypeAdapterFactory(rta).setDateFormat("dd/MM/yyyy").create();
@@ -145,12 +143,8 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                 break;
                          
                          
-                        case "registrarActivo":
-                    json = request.getParameter("active");
-                    Activo cc = gson.fromJson(json, Activo.class);
-                    System.out.println("Registrando activo" + cc.getNumeroDeSerie()+ cc.getDescripcion());
-                    int aux3 = model.guardaActivo(cc);
-                    System.out.println("retorno "+aux3);
+                        case "registrarEquipo":
+               
                 break; 
                  
                 
