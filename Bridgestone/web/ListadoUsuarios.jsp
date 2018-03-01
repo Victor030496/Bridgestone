@@ -60,7 +60,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
                                 <input maxlength="10" name="identificacion" id="identificacion" placeholder="Identificacion" class="form-control input_ced" type="text" size="15" maxlength="15">
-                            </div><span style="color: black ; font-size: 12pt ;font-family:Impact"  id="num2"></span>
+                            </div><span style="color: white ; font-size: 12pt ;font-family:Impact"  id="num2"></span>
                         
                     </div>
                     
@@ -89,7 +89,7 @@
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
                                 <input maxlength="10" name="telefono" id="telefono" placeholder="Telefono" class="form-control input_tel" type="text" size="15" maxlength="15">
                                 
-                            </div><span style="color: black ; font-size: 12pt ;font-family:Impact"  id="num1"></span>
+                            </div><span style="color: white ; font-size: 12pt ;font-family:Impact"  id="num1"></span>
                         
                     </div>
                               
@@ -98,7 +98,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
                                 <input  name="correo" id="correo" placeholder="Correo" class="form-control" type="email">
-                            </div><span style="color: black ; font-size: 12pt ;font-family:Impact"  id="emailOK"></span>
+                            </div><span style="color: white ; font-size: 12pt ;font-family:Impact"  id="emailOK"></span>
                         
                     </div>
                      
@@ -512,31 +512,45 @@
         var contrasen = document.getElementById("contraseña").value;
         var confirmacio = document.getElementById("confirmacion").value;
         var tip = document.getElementById("tipo").value;
- 
-        
+        var error=true;
         userActual = new Usuario(numero,"",1);
+        do{
+      if(idUsuari == null  || idUsuari.length == 0 || idUsuari.length <= 8 ){    
+        if(idUsuari.length ==0){
+         alert("El espacio esta vacio");
+         error=false;break;
+     }
+            
+           else if(idUsuari.length <= 8){
+         alert("El usuarios debe de tener al menos 8 caracteres");
+         error=false;break;
+           }
+        }
+        
         
        if (contrasen != confirmacio || contrasen=="" || confirmacio=="") {
              if (contrasen=="") {
                 alert("El espacio de la contraseña esta vacio.");
-                
+                error=false; break;
         }
             else if (confirmacio=="") {
                 alert("El espacio de validacion de contraseña esta vacio.");
-                
+                 error=false;break;
         }   
             else
-            alert("Las Contraseñas no coinciden.");
-                
+            alert("Las Contraseñas no coinciden."); error=false;break;
+             
         }
-            else{
+        else{error=true;}
+    } while(error==false);
+        if(error!=false){
         if(tip === "Soportista"){
             
         userAModificar = new Usuario(idUsuari,contrasen,1);
     }else{
         
         userAModificar = new Usuario(idUsuari,contrasen,2);
-    }}
+    }
         
         //trabajaActual = new Trabajador();
         //trabajaAModificar = new Trabajador();
@@ -562,7 +576,7 @@
    // }
     }
 
-        );
+        );}
 
     },
     
