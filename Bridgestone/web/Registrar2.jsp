@@ -142,16 +142,63 @@
          </nav>
          </div> 
         
+                         
+                        
+                   
+              <h2>Registro de Usuarios</h2>
+  <br> <br>
+        
+  <div class = "col-md-2 text-justify"  "col-lg-9 text-justify"  "col-sm-8 text-justify"  "col-xs-6 text-justify" align = "center" >
+
+     <br>
+    
+ <table class="table table-bordered" >
+    <thead>
+      <tr>
+        <th class="" id ="accesoP">ACCESOS DIRECTOS</th>
+      </tr>
+    </thead>
+    <tbody >
+    
+     <tr>
+      <th class="" id ="accesoP"> <a href="RegistrarUsuario.jsp">Registrar de nuevo <span class="glyphicon glyphicon-pencil"></span></a></th>
+    </tr>  
+    
+     <tr>
+         <th class="" id ="accesoP" ><a href="ListadoUsuarios.jsp">Ver Usuarios <span class="glyphicon glyphicon-list-alt"></span></a></th>
+    </tr>  
+        
+     <tr>
+         <th class=""  id ="accesoP"><a href="Principal.jsp">Pagina Principal <span class="glyphicon glyphicon-arrow-left"></span></a></th>
+    </tr>   
+    
+    </tbody>
+    <tfoot>
+        
+
+        
+    </tfoot>
+    
+    
+    
+  </table>
+     
+     
+     
+
+     
+ </div>
         
         
-            
+         <div class = "col-md-10 text-justify"  "col-lg-3 text-justify"  "col-sm-4 text-justify"  "col-xs-6 text-justify"  align = "center">
+   
         
 
             <form role="form" onsubmit="return false;" id="userForm" class="form-horizontal">
                 <div class="tab-content">
                     <div class="tab-pane active" id="usuario-tab">
                         <div class="form-group">
-                            <label class="control-label col-xs-3 col-sm-4 col-md-3"><span class="glyphicon glyphicon-user"></span>&nbsp Identificacion</label>
+                            <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"><span class="glyphicon glyphicon-user"></span>&nbsp Identificacion</label>
                             <div class="col-xs-7 col-sm-5 col-md-5" title="Este espacio solo acepta 15 digitos numericos maximo">
                                 <input type="text" class="form-control input_ced" id="identificacion" name="usuarioTab" size="15" maxlength="15" placeholder="ej:1125565445"/>
                                 <span style="color: black ; font-size: 12pt ;font-family:Impact"  id="num2"></span>
@@ -159,7 +206,7 @@
                         </div>
                         
                          <div class="form-group">
-                            <label class="control-label col-xs-3 col-sm-4 col-md-3"><span class="glyphicon glyphicon-user"></span>&nbsp Nombre</label>
+                            <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"><span class="glyphicon glyphicon-user"></span>&nbsp Nombre</label>
                             <div class="col-xs-7 col-sm-5 col-md-5">
                                 <input type="text" class="form-control " id="nombre" name="usuarioTab"/>
                             </div>
@@ -167,7 +214,7 @@
 
                         
                          <div class="form-group">
-                            <label class="control-label col-xs-3 col-sm-4 col-md-3"><span class="glyphicon glyphicon-user"></span>&nbsp Apellido</label>
+                            <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"><span class="glyphicon glyphicon-user"></span>&nbsp Apellido</label>
                             <div class="col-xs-7 col-sm-5 col-md-5">
                                 <input type="text" class="form-control" id="apellido" name="usuarioTab"/>
                             </div>
@@ -175,7 +222,7 @@
                         
                         
                            <div class="form-group">
-                            <label class="control-label col-xs-3 col-sm-4 col-md-3"><span class="glyphicon glyphicon-phone-alt"></span>&nbsp Telefono</label>
+                            <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"><span class="glyphicon glyphicon-phone-alt"></span>&nbsp Telefono</label>
                             <div class="col-xs-7 col-sm-5 col-md-5" title="Este espacio solo acepta 15 digitos numericos maximo">
                                 <input type="text" class="form-control input_tel" id="telefono" name="usuarioTab" size="15" maxlength="15" placeholder="ej:87458956"/>
                                  <span style="color: black ; font-size: 12pt ;font-family:Impact"  id="num1"></span>
@@ -183,7 +230,7 @@
                         </div>
                         
                           <div class="form-group">
-                            <label class="control-label col-xs-3 col-sm-4 col-md-3"><span class="glyphicon glyphicon-envelope"></span>&nbsp Correo electronico</label>
+                            <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"><span class="glyphicon glyphicon-envelope"></span>&nbsp Correo electronico</label>
                             <div class="col-xs-7 col-sm-5 col-md-5">
                                
                                 <input type="email" class="form-control" id="correo" aria-describedby="emailHelp" placeholder="Ejemplo@mail.com">
@@ -199,9 +246,7 @@
                                 <button type="submit" class="btn btn btn-primary" id="enviarTab" onclick="">Finalizar</button>
                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                
                                
                           
                                </div>
@@ -227,7 +272,7 @@
                    
                 </div>
             </form>
-      
+              <div>
         </div>
         
         
@@ -285,7 +330,7 @@
                             break;
                         case 1: // cliente
                              window.alert("usuario registrado como : "+ this.model.usua.id);
-                           // document.location = "/Bridgestone/Principal.jsp";
+                            document.location = "/Bridgestone/RegistrarUsuario.jsp";
                            
                             break;
                         case 2: // manager

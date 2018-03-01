@@ -137,7 +137,7 @@
          
          
   <div class = "main row" class = "columna1" id = "divPrincipal">
-         &nbsp;&nbsp;&nbsp;&nbsp;   <h2>Registro de contratos por Leasing</h2>
+            <h2>Registro de contratos por Leasing</h2>
 <br>
 
 <div class = "col-md-2 text-justify"  "col-lg-9 text-justify"  "col-sm-8 text-justify"  "col-xs-6 text-justify" align = "center" >

@@ -69,14 +69,14 @@
       <a role="menuitem" tabindex="-1" href="RegistrarContratoLeasing.jsp">Registrar Contrato de Leasing</a>
     </li>
     <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="prue.jsp">Registrar Comprobante de compra</a>
+      <a role="menuitem" tabindex="-1" href="RegistrarComprobante.jsp">Registrar Comprobante de compra</a>
     </li>    
      <li role="presentation" class="divider"></li>
     <li role="presentation">
       <a role="menuitem" tabindex="-1" href="ListadoContratos.jsp">Contratos de Leasing Registrados</a>
     </li>
     <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="ListadoContratos.jsp">Comprobantes de compra registrados</a>
+      <a role="menuitem" tabindex="-1" href="ListadoComprobantes.jsp">Comprobantes de compra registrados</a>
     </li>    
   <li role="presentation">
       <a role="menuitem" tabindex="-1" href="RegistrarEquipos.jsp">Registrar Equipos nuevos</a>
@@ -90,11 +90,11 @@
                                  <span class = "caret"></span>
                                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
     <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="prue.jsp">Nuevo Prestamo</a>
+      <a role="menuitem" tabindex="-1" href="#">Nuevo Prestamo</a>
     </li>
      <li role="presentation" class="divider"></li>
     <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="ListadoContratos.jsp">Prestamos Registrados</a>
+      <a role="menuitem" tabindex="-1" href="#">Prestamos Registrados</a>
     </li>
   </ul>
                              </a></li>
@@ -103,11 +103,11 @@
                                  <span class = "caret"></span>
                                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
     <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="prue.jsp">Registrar Devolucion</a>
+      <a role="menuitem" tabindex="-1" href="#">Registrar Devolucion</a>
     </li>
      <li role="presentation" class="divider"></li>
     <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="ListadoContratos.jsp">Devoluciones Registradas</a>
+      <a role="menuitem" tabindex="-1" href="#">Devoluciones Registradas</a>
     </li>
   </ul>
                              </a></li>
@@ -141,17 +141,69 @@
          </nav>
          </div> 
         
+                         
+                         
+                         
+          
+                         
+                         
+        
+              <h2>Registro de Usuarios</h2>
+  <br> <br>
+        
+  <div class = "col-md-2 text-justify"  "col-lg-9 text-justify"  "col-sm-8 text-justify"  "col-xs-6 text-justify" align = "center" >
+
+     <br>
+    
+ <table class="table table-bordered" >
+    <thead>
+      <tr>
+        <th class="" id ="accesoP">ACCESOS DIRECTOS</th>
+      </tr>
+    </thead>
+    <tbody >
+    
+     <tr>
+      <th class="" id ="accesoP"> <a href="RegistrarUsuario.jsp">Registrar de nuevo <span class="glyphicon glyphicon-pencil"></span></a></th>
+    </tr>  
+    
+     <tr>
+         <th class="" id ="accesoP" ><a href="ListadoUsuarios.jsp">Ver Usuarios <span class="glyphicon glyphicon-list-alt"></span></a></th>
+    </tr>  
+        
+     <tr>
+         <th class=""  id ="accesoP"><a href="Principal.jsp">Pagina Principal <span class="glyphicon glyphicon-arrow-left"></span></a></th>
+    </tr>   
+    
+    </tbody>
+    <tfoot>
+        
+
+        
+    </tfoot>
+    
+    
+    
+  </table>
+     
+     
+     
+
+     
+ </div>
+        
         
         
             
-        
+        <div class = "col-md-10 text-justify"  "col-lg-3 text-justify"  "col-sm-4 text-justify"  "col-xs-6 text-justify"  align = "center">
+
 
             <form role="form" onsubmit="return false;" id="userForm" class="form-horizontal">
                 <div class="tab-content">
                     <div class="tab-pane active" id="usuario-tab">
                         <div class="form-group">
 
-                            <label class="control-label col-xs-3 col-sm-4 col-md-3"> <span class="glyphicon glyphicon-user"></span>&nbsp Usuario</label>
+                            <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="glyphicon glyphicon-user"></span>&nbsp Usuario</label>
                              
                             <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="El usuario debe tener entre 8 - 16 caracteres!">
                                   <input type="text" class="form-control" id="usuario" name="usuarioTab" size="8" maxlength="16" />
@@ -161,7 +213,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label col-xs-3 col-sm-4 col-md-3"><span class="glyphicon glyphicon-lock"></span>&nbsp Contraseña</label>
+                            <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"><span class="glyphicon glyphicon-lock"></span>&nbsp Contraseña</label>
                              <div class="col-xs-7 col-sm-5 col-md-5" data-toggle="tooltip" title="La contrasena debe tener minimo 8 carcteres mayusculas y numeros!">
                                 <input type="password" class="form-control" id="contrasena" name="contrasena" size="8" maxlength="8" />
                             </div> 
@@ -169,14 +221,14 @@
                         
                         
                            <div class="form-group">
-                            <label class="control-label col-xs-3 col-sm-4 col-md-3 "><span class="glyphicon glyphicon-lock"></span>&nbsp Confirmar contraseña</label>
+                            <label class="control-label col-xs-3 col-sm-4 col-md-3 " id="acceso2"><span class="glyphicon glyphicon-lock"></span>&nbsp Confirmar contraseña</label>
                              <div class="col-xs-7 col-sm-5 col-md-5">
                                 <input type="password" class="form-control" id="confirmacion" name="confirmacion" size="8" maxlength="8"/>
                             </div>
                         </div>
                         
                           <div class="form-group">
-                            <label class="control-label col-xs-3 col-sm-4 col-md-3"><span class="glyphicon glyphicon-list"></span>&nbsp Tipo</label>
+                            <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"><span class="glyphicon glyphicon-list"></span>&nbsp Tipo</label>
                             <div class="col-xs-7 col-sm-5 col-md-5">
                               <select class="selectpicker">
                                 <option>Soportista</option>
@@ -214,6 +266,7 @@
              
                 </div>
             </form>
+             <div>
         </div>
         
         

@@ -73,14 +73,14 @@
       <a role="menuitem" tabindex="-1" href="RegistrarContratoLeasing.jsp">Registrar Contrato de Leasing</a>
     </li>
     <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="prue.jsp">Registrar Comprobante de compra</a>
+      <a role="menuitem" tabindex="-1" href="RegistrarComprobante.jsp">Registrar Comprobante de compra</a>
     </li>    
      <li role="presentation" class="divider"></li>
     <li role="presentation">
       <a role="menuitem" tabindex="-1" href="ListadoContratos.jsp">Contratos de Leasing Registrados</a>
     </li>
     <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="ListadoContratos.jsp">Comprobantes de compra registrados</a>
+      <a role="menuitem" tabindex="-1" href="ListadoComprobantes.jsp">Comprobantes de compra registrados</a>
     </li>    
   <li role="presentation">
       <a role="menuitem" tabindex="-1" href="RegistrarEquipos.jsp">Registrar Equipos nuevos</a>
@@ -94,11 +94,11 @@
                                  <span class = "caret"></span>
                                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
     <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="prue.jsp">Nuevo Prestamo</a>
+      <a role="menuitem" tabindex="-1" href="#">Nuevo Prestamo</a>
     </li>
      <li role="presentation" class="divider"></li>
     <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="ListadoContratos.jsp">Prestamos Registrados</a>
+      <a role="menuitem" tabindex="-1" href="#">Prestamos Registrados</a>
     </li>
   </ul>
                              </a></li>
@@ -107,11 +107,11 @@
                                  <span class = "caret"></span>
                                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
     <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="prue.jsp">Registrar Devolucion</a>
+      <a role="menuitem" tabindex="-1" href="#">Registrar Devolucion</a>
     </li>
      <li role="presentation" class="divider"></li>
     <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="ListadoContratos.jsp">Devoluciones Registradas</a>
+      <a role="menuitem" tabindex="-1" href="#">Devoluciones Registradas</a>
     </li>
   </ul>
                              </a></li>
@@ -166,6 +166,46 @@
               <h2>Registro de Comprobantes</h2>
   <br> <br>
         
+  <div class = "col-md-2 text-justify"  "col-lg-9 text-justify"  "col-sm-8 text-justify"  "col-xs-6 text-justify" align = "center" >
+
+     <br>
+    
+ <table class="table table-bordered" >
+    <thead>
+      <tr>
+        <th class="" id ="accesoP">ACCESOS DIRECTOS</th>
+      </tr>
+    </thead>
+    <tbody >
+    
+     <tr>
+      <th class="" id ="accesoP"> <a href="RegistrarComprobante.jsp">Registrar de nuevo <span class="glyphicon glyphicon-pencil"></span></a></th>
+    </tr>  
+    
+     <tr>
+         <th class="" id ="accesoP" ><a href="ListadoComprobantes.jsp">Ver Comprobantes <span class="glyphicon glyphicon-list-alt"></span></a></th>
+    </tr>  
+        
+     <tr>
+         <th class=""  id ="accesoP"><a href="Principal.jsp">Pagina Principal <span class="glyphicon glyphicon-arrow-left"></span></a></th>
+    </tr>   
+    
+    </tbody>
+    <tfoot>
+        
+
+        
+    </tfoot>
+    
+    
+    
+  </table>
+     
+     
+     
+
+     
+ </div>
         
         
         
@@ -176,7 +216,7 @@
                         
                     <div class="form-group">
 
-                            <label class="control-label col-xs-3 col-sm-4 col-md-3"> <span class="glyphicon glyphicon-barcode"></span>&nbsp Numero de Comprobante</label>
+                            <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="glyphicon glyphicon-barcode"></span>&nbsp Numero de Comprobante</label>
                            <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="Numero de Comprobante">
 
                                   <input type="text" class="form-control" id="numComprobante" name="numComprobante" maxlength="12"/>
@@ -201,12 +241,11 @@
                                   </div>
                                 
                                 
-                                     <!--                       <div style=" display: inline-flex; align-items: center; justify-content: end; float:left;">
+                             <div style=" display: inline-flex; align-items: center; justify-content: end; float:left;">
                              
-                                <button type="submit" class="btn btn-success" id="enviarTab" onclick="irTabla();">Ver Contratos &nbsp;</button>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            </div>-->
+                                <button type="submit" class="btn btn-success" id="enviarTab" onclick="irTabla();">Ver Comprobantes &nbsp;</button>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </div>
                             
                                     <div style=" display: inline-flex; align-items: center; justify-content: end; float:left;">
                              
@@ -358,7 +397,7 @@
      }
      
           function irTabla(){
-       document.location = "/Bridgestone/ListadoContratos.jsp";
+       document.location = "/Bridgestone/ListadoComprobantes.jsp";
         
      } 
         
