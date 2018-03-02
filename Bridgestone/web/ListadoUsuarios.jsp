@@ -59,7 +59,7 @@
                        
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
-                                <input maxlength="10" name="identificacion" id="identificacion" placeholder="Identificacion" class="form-control input_ced" type="text" size="15" maxlength="15">
+                                <input maxlength="12" name="identificacion" id="identificacion" placeholder="Identificacion" class="form-control input_ced" type="text" >
                             </div><span style="color: white ; font-size: 12pt ;font-family:Impact"  id="num2"></span>
                         
                     </div>
@@ -69,8 +69,8 @@
                        
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-align-center"></i></span>
-                                <input maxlength="10" name="nombre" id="nombre" placeholder="Nombre" class="form-control" type="text">
-                            </div>
+                                <input maxlength="10" name="nombre" id="nombre" placeholder="Nombre" class="form-control input_nombre" type="text" >
+                            </div><span style="color: white ; font-size: 12pt ;font-family:Impact"  id="nombre1"></span>
                         
                     </div>
                              
@@ -78,8 +78,8 @@
                        
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
-                                <input maxlength="10" name="apellido" id="apellido" placeholder="Apellido" class="form-control" type="text">
-                            </div>
+                                <input maxlength="10" name="apellido" id="apellido" placeholder="Apellido" class="form-control input_apellido" type="text">
+                            </div><span style="color: white ; font-size: 12pt ;font-family:Impact"  id="nombre2"></span>
                         
                     </div>
                               
@@ -87,7 +87,7 @@
                        
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
-                                <input maxlength="10" name="telefono" id="telefono" placeholder="Telefono" class="form-control input_tel" type="text" size="15" maxlength="15">
+                                <input maxlength="8" name="telefono" id="telefono" placeholder="Telefono" class="form-control input_tel" type="text" >
                                 
                             </div><span style="color: white ; font-size: 12pt ;font-family:Impact"  id="num1"></span>
                         
@@ -474,9 +474,7 @@
         }
         
     },
-       
-        
-        
+
         
         
         
@@ -517,7 +515,7 @@
         do{
       if(idUsuari == null  || idUsuari.length == 0 || idUsuari.length <= 8 ){    
         if(idUsuari.length ==0){
-         alert("El espacio esta vacio");
+         alert("El espacio de usuario esta vacio");
          error=false;break;
      }
             
@@ -589,9 +587,57 @@
         var apellid = document.getElementById("apellido").value;
         var telefon = document.getElementById("telefono").value;
         var corre = document.getElementById("correo").value;
-    
+        var error=true;
         userActual = new Trabajador("","",1,"","","","",numero);
+           do{
+      if(identificacio == null  || identificacio.length == 0 || identificacio.length <= 9 ){    
+        if(identificacio.length ==0){
+         alert("El espacio de cedula esta vacio");
+         error=false;break;
+     }
+            
+           else if(identificacio.length <= 9){
+         alert("La identificacion debe de tener al menos 9 caracteres");
+         error=false;break;
+           }
+        }
+        
+         if(nombr == null  || nombr.length == 0  ){    
+        if(nombr.length ==0){
+         alert("El espacio de nombre esta vacio");
+         error=false;break;
+     }}
+    if(apellid == null  || apellid.length == 0  ){    
+        if(apellid.length ==0){
+         alert("El espacio de apellido esta vacio");
+         error=false;break;
+     }}
+ 
+  if(telefon == null  || telefon.length == 0  ||telefon.length < 8){    
+        if(telefon.length ==0){
+         alert("El espacio de telefono esta vacio");
+         error=false;break;
+     }
+  else if(telefon.length < 8){
+         alert("El numero de telefono debe tener 8 digitos");
+         error=false;break;
+           }
+    
+            }
+  if(corre == null  || corre.length == 0  ){    
+        if(corre.length ==0){
+         alert("El espacio de Correo esta vacio");
+         error=false;break;
+     }}
+ 
+        
+     
+        else{error=true;}
+    } while(error==false);
+        
+         if(error!=false){
         userAModificar = new Trabajador("","",1,identificacio,nombr,apellid,telefon,corre);
+
 
         var trabajadores = [];
         trabajadores[0] = userActual;
@@ -611,7 +657,7 @@
     }
 
         );
-       
+   }
     }
   };
 </script>
@@ -643,6 +689,33 @@
         if((tecla.charCode < 48 || tecla.charCode > 57)){ 
             
              valido.innerText = "Solo puede ingresar numeros!!";
+            // valido.innerText = "";
+            return false;}
+        else  valido.innerText = "";
+    });
+});
+
+
+//valida nombre
+ jQuery(document).ready(function() {
+    jQuery('.input_nombre').keypress(function(tecla) {
+        valido = document.getElementById('nombre1');
+        if((tecla.charCode < 65 || tecla.charCode > 90) && (tecla.charCode < 97 || tecla.charCode > 122)){ 
+            
+             valido.innerText = "Solo puede ingresar Letras!!";
+            // valido.innerText = "";
+            return false;}
+        else  valido.innerText = "";
+    });
+});
+
+//valida apellidos
+ jQuery(document).ready(function() {
+    jQuery('.input_apellido').keypress(function(tecla) {
+        valido = document.getElementById('nombre2');
+        if((tecla.charCode < 65 || tecla.charCode > 90) && (tecla.charCode < 97 || tecla.charCode > 122)){ 
+            
+             valido.innerText = "Solo puede ingresar Letras!!";
             // valido.innerText = "";
             return false;}
         else  valido.innerText = "";
