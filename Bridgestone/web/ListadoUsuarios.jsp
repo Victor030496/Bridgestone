@@ -624,14 +624,18 @@
            }
     
             }
-  if(corre == null  || corre.length == 0  ){    
+  if(corre == null  || corre.length == 0 ){    
         if(corre.length ==0){
          alert("El espacio de Correo esta vacio");
          error=false;break;
      }}
- 
-        
-     
+ var emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+ if(!emailRegex.test(corre)){
+         alert("Formato incorrecto! ej:Raul@mail.com");
+         error=false;break;
+           }
+          
+           
         else{error=true;}
     } while(error==false);
         
