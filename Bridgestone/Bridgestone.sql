@@ -65,7 +65,8 @@ create table Equipo(
   procesador varchar(20),
   departamento varchar(30),
   usuario varchar(20),
-  descripcion varchar(40)
+  descripcion varchar(40),
+  estado varchar(15)
 
 
 );
