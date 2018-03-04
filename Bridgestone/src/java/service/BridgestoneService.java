@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.BridgestoneModel;
 import model.Comprobante;
 import model.Contrato;
+import model.Equipo;
 import model.Jsonable;
 import model.Trabajador;
 import model.Usuario;
@@ -56,7 +57,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
             .registerSubtype(Trabajador.class,"Trabajador") 
             .registerSubtype(Contrato.class,"Contrato")
              .registerSubtype(Comprobante.class,"Comprobante") 
-             .registerSubtype(Comprobante.class,"Equipo")         
+             .registerSubtype(Equipo.class,"Equipo")         
             .registerSubtype(Usuario.class,"Usuario");//IMPORTANTE HACER CAMBIOS CUANDO META CLASE USUARIO , TIQUETE ECT....//
             
         Gson gson = new GsonBuilder().registerTypeAdapterFactory(rta).setDateFormat("dd/MM/yyyy").create();
