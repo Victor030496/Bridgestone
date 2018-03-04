@@ -22,6 +22,7 @@
                 this.marca = marca;
                 this.modelo=modelo;
                 this.memoria=memoria;
+                this.procesador= procesador;
                 this.departamento=departamento;
                 this.usuario=usuario;
                 this.descripcion=descripcion;
@@ -34,7 +35,7 @@
   }
   
   Equipo.from= function(plain){
-    equipo = new Equipo(plain.idEquipo, plain.contrato, plain.comprobante , plain.marca , plain.modelo, plain.memoria,plain.departamento,plain.usuario,plain.descripcion,plain.estado);
+    equipo = new Equipo(plain.idEquipo, plain.contrato, plain.comprobante , plain.marca , plain.modelo, plain.memoria,plain.procesador,plain.departamento,plain.usuario,plain.descripcion,plain.estado);
 	return equipo;
   };
   
@@ -47,6 +48,7 @@
         marca:Equipo.marca,
         modelo:Equipo.modelo,
         memoria:Equipo.memoria,
+        procesador:Equipo.procesador,
         departamento:Equipo.departamento,
         usuario:Equipo.usuario,
         descripcion:Equipo.descripcion,

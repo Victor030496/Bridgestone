@@ -12,6 +12,7 @@
 <script type="text/javascript" src="JS/Persona.js"></script>
 <script type="text/javascript" src="JS/Contrato.js"></script>
 <script type="text/javascript" src="JS/Comprobante.js"></script>
+<script type="text/javascript" src="JS/Equipo.js"></script>
 
 <script type="text/javascript" src="JS/bootstrap.min.js"></script>
 <script type="text/javascript" src="JS/jquery-3.2.0.min.js"></script>
