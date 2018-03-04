@@ -144,11 +144,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                     System.out.println("retorno "+aux2);
                 break;
                          
-                         
-                        case "registrarEquipo":
-               
-                break; 
-                 
+  
                 
                     case "registrarComprobante":
                     json = request.getParameter("comprobant");
@@ -158,6 +154,16 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                     int aux11 = model.guardaComprobante(co);
                     System.out.println("retorno "+aux11);
                 break;
+                        
+                        
+                     case "registrarEquipo":
+                    json = request.getParameter("equipo");
+                    System.out.println(json);
+                    Equipo eq = gson.fromJson(json, Equipo.class);
+                    System.out.println("Registando equipo" + eq.getMarca() );
+                    int aux109 = model.guardaEquipo(eq);
+                    System.out.println("retorno "+aux109);
+                break;     
                 
                     case "eliminarUsuario":
                     json = request.getParameter("user");

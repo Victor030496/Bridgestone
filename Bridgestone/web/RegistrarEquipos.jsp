@@ -216,7 +216,8 @@
          </nav>
          </div>
         
-        
+          <!------------------------------------------------------------------------------------------>
+      
         
         <div class = "main row" class = "columna1" id = "divPrincipal">
         
@@ -257,7 +258,8 @@
  </div>  
       
       
-      
+           <!------------------------------------------------------------------------------------------>
+   
       <div class = "col-md-10 text-justify"  "col-lg-3 text-justify"  "col-sm-4 text-justify"  "col-xs-6 text-justify"  align = "center">
 
 
@@ -286,7 +288,7 @@
                             <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="	glyphicon glyphicon-pencil"></span>&nbsp Marca del equipo</label>
                            <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="eje: Lenovo, HP, DEL">
 
-                                  <input type="text" class="form-control" id="codContrato" name="usuarioTab" maxlength="12"/>
+                                  <input type="text" class="form-control" id="marca" name="usuarioTab" maxlength="12"/>
                         </div>
                              </div>
                         
@@ -296,7 +298,7 @@
                             <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="	glyphicon glyphicon-pencil"></span>&nbsp Modelo</label>
                            <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="110-440, C845-SP4143SL">
 
-                                  <input type="text" class="form-control" id="codContrato" name="usuarioTab" maxlength="12"/>
+                                  <input type="text" class="form-control" id="modelo" name="usuarioTab" maxlength="12"/>
                         </div>
                              </div>
                      
@@ -305,7 +307,7 @@
                             <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="	glyphicon glyphicon-pencil"></span>&nbsp Memoria</label>
                            <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="500 GB,  1 TB">
 
-                                  <input type="text" class="form-control" id="codContrato" name="usuarioTab" maxlength="12"/> 
+                                  <input type="text" class="form-control" id="memoria" name="usuarioTab" maxlength="12"/> 
                         </div>
                              </div>
                 
@@ -318,7 +320,7 @@
                             <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="	glyphicon glyphicon-pencil"></span>&nbsp Procesador</label>
                            <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="i3,i5,Athlon x4(AMD)">
 
-                                  <input type="text" class="form-control" id="codContrato" name="usuarioTab" maxlength="12"/>
+                                  <input type="text" class="form-control" id="procesador" name="usuarioTab" maxlength="12"/>
                         </div>
                              </div>                        
                         
@@ -327,7 +329,7 @@
                             <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="	glyphicon glyphicon-pencil"></span>&nbsp Departamento</label>
                            <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="Recursos Humanos , recepcion, o bien en INVENTARIO ">
 
-                                  <input type="text" class="form-control" id="codContrato" name="usuarioTab" maxlength="12"/>
+                                  <input type="text" class="form-control" id="departamento" name="usuarioTab" maxlength="12"/>
                         </div>
                              </div>
                         
@@ -364,7 +366,7 @@
 
                             <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="glyphicon glyphicon-pencil"></span>&nbsp Descripcion del equipo</label>
                              <div class="col-xs-7 col-sm-5 col-md-5">
-                                 <textarea name="comentarios" rows="3" cols="85"></textarea>
+                                 <textarea name="comentarios" rows="3" cols="85" id="descripcion"></textarea>
                
                                   
                       </div>
@@ -486,7 +488,7 @@
                 
                 
 	},
-        login: function(){
+        guardaEquipo: function(){
             activo = new Activo(document.getElementById("serie").value,document.getElementById("datepicker").value,document.getElementById("des").value,document.getElementById("contrats").value);
         window.alert("Activo registrado como : "+ document.getElementById("des").value);
        
