@@ -204,6 +204,31 @@ static {
          
          return contratos;
 
+}
+     
+     
+     
+     
+          public List<Equipo>getEquipos() throws Exception{
+          System.out.println("entro al getEquipos");
+         List<Equipo> equipos;
+         equipos= new ArrayList();
+         try {
+            String sql="select * "+
+                    "from Equipo  p  "; // sino sirve pasar trabajador a minuscula//
+            ResultSet rs =  datos.executeQuery(sql);
+             System.out.println("exitoooooo");
+            while (rs.next()) {
+                equipos.add(toEquipo(rs));
+                System.out.println("insertando");
+            }
+        } catch (SQLException ex) {
+        }
+        // System.out.println(ciudades.get(0).toString());
+         
+         
+         return equipos;
+
 }  
      
      
@@ -276,6 +301,25 @@ static {
    
         return obj;
     }
+        
+        
+        
+           private static Equipo toEquipo(ResultSet rs) throws Exception{
+        Equipo obj= new Equipo();
+        obj.setIdEquipo(rs.getInt("idEquipo"));
+        obj.setContrato(rs.getString("contrato"));// aqui puede estar el erros//
+        obj.setComprobante(rs.getString("comprobante"));
+        obj.setMarca(rs.getString("marca"));
+        obj.setModelo(rs.getString("modelo"));
+        obj.setMemoria(rs.getString("memoria"));
+        obj.setProcesador(rs.getString("procesador"));
+        obj.setDepartamento(rs.getString("departamento"));
+        obj.setUsuario(rs.getString("usuario"));
+        obj.setDescripcion(rs.getString("descripcion"));
+        obj.setEstado(rs.getString("estado"));
+   
+        return obj;
+    } 
         
         
         private static Comprobante toComprobante(ResultSet rs) throws Exception{
