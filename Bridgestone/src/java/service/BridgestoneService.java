@@ -160,7 +160,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                     json = request.getParameter("equipo");
                     System.out.println(json);
                     Equipo eq = gson.fromJson(json, Equipo.class);
-                    System.out.println("Registando equipo" + eq.getMarca() );
+                    System.out.println("Registando equipo : " + eq.getMarca() );
                     int aux109 = model.guardaEquipo(eq);
                     System.out.println("retorno "+aux109);
                 break;     
@@ -227,25 +227,16 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                         Contrato contra = new Contrato();
                         contra.setgetCodigoContrato(ju.getJSONObject(i).getString("codigoContrato"));
                         
-//                        long lg = 0;
-//                        String Str = ju.getJSONObject(i).getString("fechaInicio");
-//                        System.out.println(Str);
-//                        lg = Long.parseLong(Str);
+
                         
                         SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
                         Date parsed = (Date) format.parse(ju.getJSONObject(i).getString("fechaInicio"));
                         java.sql.Date sql = new java.sql.Date(parsed.getTime());
                         
                         contra.setFechaInicio(sql);
-                        //Date fechaIni = new Date(lg);
-                        //contra.setFechaInicio(fechaIni);
-                     System.out.println(sql);
+                         System.out.println(sql);
                         
                         
-//                        long lo = 0;
-//                        String Stri = ju.getJSONObject(i).getString("fechaVencimiento");
-//                        System.out.println(Stri);
-//                        lo = Long.parseLong(Stri);
                         
                         SimpleDateFormat format2 = new SimpleDateFormat("MM/dd/yyyy");
                         Date parsedd = (Date) format2.parse(ju.getJSONObject(i).getString("fechaVencimiento"));
@@ -284,12 +275,6 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                         usu.setId(jii.getJSONObject(i).getString("id"));
                         usu.setClave(jii.getJSONObject(i).getString("clave"));
                         usu.setTipo(jii.getJSONObject(i).getInt("tipo"));
-//                        usu.setIdentificacion(jii.getJSONObject(i).getString("identificacion"));
-//                        usu.setNombre(jii.getJSONObject(i).getString("nombre"));
-//                        usu.setApellido(jii.getJSONObject(i).getString("apellido"));
-//                        usu.setCorreo(jii.getJSONObject(i).getString("correo"));
-//                        usu.setTelefono(jii.getJSONObject(i).getString("telefono"));
-                        
                         usuarios.add(usu);
                   }           
 

@@ -9,7 +9,7 @@
     <head>
  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <%@ include file="Imports 2.jspf" %>  
-        <title>Listado de Contratos por Leasing</title>
+        <title>Registro de equipos</title>
         <link rel="stylesheet" title="Bridgestone" type="text/css" href="CSS/bootstrap.min.css">
         <link rel="stylesheet" title="Bridgestone" type="text/css" href="CSS/estilos.css">
         <link rel="stylesheet" title="Bridgestone" type="text/css" href="CSS/registrarse.css">
@@ -270,15 +270,15 @@
                         
                    <div class="form-group">
 
-                  <label class="control-label col-xs-3 col-sm-4 col-md-3" id = "acceso2"> <span class="glyphicon glyphicon-list-alt"></span>&nbsp tipo de activo</label>                                <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="Este numero representa el codigo del contrato por Leasing">
+                  <label class="control-label col-xs-3 col-sm-4 col-md-3" id = "acceso2"> <span class="glyphicon glyphicon-list-alt"></span>&nbsp Numero de Contrato</label>                                <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="Este numero representa el codigo del contrato por Leasing">
 
                               <span class=" help-block"id="acceso2">CONTRATO POR LEASING &nbsp <select class="selectpicker" id="selee1">
                                 <option>Prueba</option>
                                   </select></span>
                       
-                       <span class=" help-block"id="acceso2">COMPROBANTE DE COMPRA &nbsp <select class="selectpicker" id="selee2">
+                    <!---   <span class=" help-block"id="acceso2">COMPROBANTE DE COMPRA &nbsp <select class="selectpicker" id="selee2">
                                 <option>Prueba</option>
-                           </select></span>
+                           </select></span>--->
 
                         </div>
                              </div>   
@@ -378,7 +378,7 @@
                             <div class="col-xs-3 col-sm-4 col-md-3"></div>
                             <div class="col-xs-7 col-sm-5 col-md-5">
                                   <div style=" display: inline-flex; align-items: center; justify-content: end; float:left;">
-                                <button type="button" class="btn  btn-primary" id="siguiente1" onclick="controller.login();">Guardar</button>
+                                <button type="button" class="btn  btn-primary" id="siguiente1" onclick="controller.guardaEquipo();">Guardar</button>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 
@@ -489,16 +489,31 @@
                 
 	},
         guardaEquipo: function(){
-            activo = new Activo(document.getElementById("serie").value,document.getElementById("datepicker").value,document.getElementById("des").value,document.getElementById("contrats").value);
-        window.alert("Activo registrado como : "+ document.getElementById("des").value);
+        
+        
+        var id = document.getElementById("identificacion").value;
+        
+        if(id === null){
+        equipo = new Equipo(1,document.getElementById("selee1").value,null,document.getElementById("marca").value,document.getElementById("modelo").value,
+                  document.getElementById("memoria").value,document.getElementById("procesador").value,document.getElementById("departamento").value,
+                      null,document.getElementById("descripcion").value,"disponible");
+                  }
+         else{
+             
+          equipo = new Equipo(document.getElementById("selee1").value,null,document.getElementById("marca").value,document.getElementById("modelo").value,
+                  document.getElementById("memoria").value,document.getElementById("procesador").value,document.getElementById("departamento").value,
+                      null,document.getElementById("descripcion").value,"asignado");           
+             
+             
+         }         
        
-        Proxy.registrarActivo(activo,
+        Proxy.registrarEquipo(equipo,
                 function(contrat){
                     if(contrat === 1){
                        window.alert("Registro exitoso");
                   }
                      
-                     document.location = "/Bridgestone/RegistrarActivoLeasing.jsp";
+                   //  document.location = "/Bridgestone/RegistraeEquipos.jsp";
                             
                     
                 });
