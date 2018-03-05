@@ -36,6 +36,22 @@ public class Equipo implements Serializable, Jsonable{
         this.estado = estado;
     }
     
+    
+    
+    
+        public Equipo(String contrato, String comprobante, String marca, String modelo, String memoria, String procesador, String departamento, String usuario, String descripcion, String estado) {
+        this.contrato = contrato;
+        this.comprobante = comprobante;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.memoria = memoria;
+        this.procesador = procesador;
+        this.departamento = departamento;
+        this.usuario = usuario;
+        this.descripcion = descripcion;
+        this.estado = estado;
+    }
+    
         public Equipo() {
         this.idEquipo = -1;
         this.contrato = "";

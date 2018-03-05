@@ -493,14 +493,14 @@
         
         var id = document.getElementById("identificacion").value;
         
-        if(id === null){
+        if(id === ""){
         equipo = new Equipo(1,document.getElementById("selee1").value,null,document.getElementById("marca").value,document.getElementById("modelo").value,
                   document.getElementById("memoria").value,document.getElementById("procesador").value,document.getElementById("departamento").value,
                       null,document.getElementById("descripcion").value,"disponible");
                   }
          else{
              
-          equipo = new Equipo(document.getElementById("selee1").value,null,document.getElementById("marca").value,document.getElementById("modelo").value,
+          equipo = new Equipo(1,document.getElementById("selee1").value,null,document.getElementById("marca").value,document.getElementById("modelo").value,
                   document.getElementById("memoria").value,document.getElementById("procesador").value,document.getElementById("departamento").value,
                       null,document.getElementById("descripcion").value,"asignado");           
              

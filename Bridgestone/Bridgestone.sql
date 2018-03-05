@@ -56,7 +56,7 @@ create table Comprobante(
 
 
 create table Equipo(
-  idEquipo integer auto_increment not null primary key,
+  idEquipo integer auto_increment,
   contrato varchar(15) ,
   comprobante varchar(15) ,
   marca varchar(20),
@@ -66,8 +66,8 @@ create table Equipo(
   departamento varchar(30),
   usuario varchar(20),
   descripcion varchar(40),
-  estado varchar(15)
-
+  estado varchar(15),
+ PRIMARY KEY (idEquipo)
 
 );
 
@@ -86,6 +86,7 @@ alter table Equipo
   insert into Usuario (id,clave,tipo) values ('1','1', 2);
   insert into Contrato (codigoContrato,fechaInicio,fechaVencimiento,estado) values ('1234aaa',12/10/2018,13/5/2018,1);
   insert into Comprobante(numeroDeComprobante) values ('1212-fec');
-  insert into Equipo (idEquipo,contrato,comprobante,marca,modelo,memoria,procesador,departamento,usuario,descripcion) values (1,'1234aaa',null,'del','x-c2','3Ram','15','inventario',null,'muybonito');
+  use Bridgestone;
+  insert into Equipo (contrato,comprobante,marca,modelo,memoria,procesador,departamento,usuario,descripcion,estado) values ('1234aaa',null,'del','x-c2','3Ram','15','inventario',null,'muybonito','inventario');
   insert into Persona (id,nombre,apellido,telefono,correo) values ('111526','Victor','Mendoza','223456-34','vic@gmail.com');
-  insert into Equipo (idEquipo,contrato,comprobante,marca,modelo,memoria,procesador,departamento,usuario,descripcion) values (2,null,'1212-fec','hp','x-c2','3Ram','15','inventario','111526','muybonito');
+  insert into Equipo (contrato,comprobante,marca,modelo,memoria,procesador,departamento,usuario,descripcion,estado) values (null,'1212-fec','hp','x-c2','3Ram','15','inventario','111526','muybonito','inventario');
