@@ -77,7 +77,7 @@ public class Database {
 
 
 
-    private static final String CLAVE = "yoamopatinar";
+    private static final String CLAVE = "";
 
  
 

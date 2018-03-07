@@ -355,10 +355,13 @@ $(document).ready(function(){
 	usu.classList.remove("invalid");
         pas.classList.remove("invalid");
         pas2.classList.remove("invalid");
-   if(usu.value == null  || usu.value.length == 0 || usu.value.length <= 8 ){    
+    if(usu.value == null  || usu.value.length == 0 || usu.value.length <= 8 ){    
        usu.classList.add("invalid");
 	 error = true;
-     if(usu.value.length <= 8){
+         if(usu.value == null  || usu.value.length == 0){
+         window.alert("El espacio de usuario esta vacio");
+     }
+    else if(usu.value.length <= 8){
          window.alert("El usuarios debe de tener al menos 8 caracteres");
      }
              
@@ -366,10 +369,18 @@ $(document).ready(function(){
          
 }
 
-   if(pas.value == null  || pas.value.length == 0 ||  pas.value != pas2.value ){
+   if(pas.value == null  || pas.value.length == 0 ||  pas.value != pas2.value ||pas2.value == null  || pas2.value.length == 0){
      pas.classList.add("invalid");
 	 error = true;
-         if(pas.value != pas2.value){
+        if(pas.value == null  || pas.value.length == 0 ){
+              window.alert("El espacio de contraseña esta vacio!");
+             
+         }
+        else if(pas2.value == null  || pas2.value.length == 0 ){
+              window.alert("El espacio de confirmacio de contraseña esta vacio!");
+             
+         }
+        else if(pas.value != pas2.value){
               window.alert("Las contrasenas no coinciden!");
              
          }
@@ -377,10 +388,7 @@ $(document).ready(function(){
 }
 
 
-   if(pas2.value == null  || pas2.value.length == 0){
-     pas2.classList.add("invalid");
-	 error = true;
-}
+
 
 
 
