@@ -199,8 +199,8 @@
                     <div class="tab-pane active" id="usuario-tab">
                         <div class="form-group">
                             <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"><span class="glyphicon glyphicon-user"></span>&nbsp Identificacion</label>
-                            <div class="col-xs-7 col-sm-5 col-md-5" title="Este espacio solo acepta 15 digitos numericos maximo">
-                                <input type="text" class="form-control input_ced" id="identificacion" name="usuarioTab" size="15" maxlength="15" placeholder="ej:1125565445"/>
+                            <div class="col-xs-7 col-sm-5 col-md-5" title="Este espacio solo acepta 12 digitos numericos maximo">
+                                <input type="text" class="form-control input_ced" id="identificacion" name="usuarioTab" maxlength="12" placeholder="ej:1125565445"/>
                                 <span style="color: black ; font-size: 12pt ;font-family:Impact"  id="num2"></span>
                             </div>
                         </div>
@@ -208,7 +208,8 @@
                          <div class="form-group">
                             <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"><span class="glyphicon glyphicon-user"></span>&nbsp Nombre</label>
                             <div class="col-xs-7 col-sm-5 col-md-5">
-                                <input type="text" class="form-control " id="nombre" name="usuarioTab"/>
+                                <input type="text" class="form-control input_nombre" id="nombre" name="usuarioTab" maxlength="12"/>
+                                 <span style="color: black ; font-size: 12pt ;font-family:Impact"  id="nombre1"></span>
                             </div>
                         </div>
 
@@ -216,7 +217,8 @@
                          <div class="form-group">
                             <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"><span class="glyphicon glyphicon-user"></span>&nbsp Apellido</label>
                             <div class="col-xs-7 col-sm-5 col-md-5">
-                                <input type="text" class="form-control" id="apellido" name="usuarioTab"/>
+                                <input type="text" class="form-control input_apellido" id="apellido" name="usuarioTab" maxlength="15"/>
+                                <span style="color: black ; font-size: 12pt ;font-family:Impact"  id="nombre2"></span>
                             </div>
                         </div>
                         
@@ -329,8 +331,8 @@
                             document.location = "/Bridgestone/Principal.jsp";
                             break;
                         case 1: // cliente
-                             window.alert("usuario registrado como : "+ this.model.usua.id);
-                            document.location = "/Bridgestone/RegistrarUsuario.jsp";
+                             window.alert("Usuario registrado como : "+ this.model.usua.id);
+                            document.location = "/Bridgestone/ListadoUsuarios.jsp";
                            
                             break;
                         case 2: // manager
@@ -401,9 +403,31 @@ document.getElementById('correo').addEventListener('input', function() {
     }
 });
 
+//valida nombre
+ jQuery(document).ready(function() {
+    jQuery('.input_nombre').keypress(function(tecla) {
+        valido = document.getElementById('nombre1');
+        if((tecla.charCode < 65 || tecla.charCode > 90) && (tecla.charCode < 97 || tecla.charCode > 122)){ 
+            
+             valido.innerText = "Solo puede ingresar Letras!!";
+            // valido.innerText = "";
+            return false;}
+        else  valido.innerText = "";
+    });
+});
 
-
-
+//valida apellidos
+ jQuery(document).ready(function() {
+    jQuery('.input_apellido').keypress(function(tecla) {
+        valido = document.getElementById('nombre2');
+        if((tecla.charCode < 65 || tecla.charCode > 90) && (tecla.charCode < 97 || tecla.charCode > 122)){ 
+            
+             valido.innerText = "Solo puede ingresar Letras!!";
+            // valido.innerText = "";
+            return false;}
+        else  valido.innerText = "";
+    });
+});
 
 
 
@@ -423,39 +447,70 @@ document.getElementById('correo').addEventListener('input', function() {
         ap.classList.remove("invalid");
         tel.classList.remove("invalid");
         cor.classList.remove("invalid");
-   if(id.value == null  || id.value.length == 0){
-       id.classList.add("invalid");
+      
+   if(id.value == null  || id.value.length == 0|| id.value.length < 9 ){
+         id.classList.add("invalid");
 	 error = true;
+         if(id.value == null  || id.value.length == 0){
+          alert("El espacio de cedula esta vacio");
+         
+     }
+            
+          else if(id.value.length < 9){
+         alert("La identificacion debe de tener al menos 9 caracteres para cedula nacional");
+         
+           } 
 }
 
-   if(nom.value == null  || nom.value.length == 0){
+if(nom.value == null  || nom.value.length == 0){
      nom.classList.add("invalid");
 	 error = true;
+        if(nom.value == null  || nom.value.length == 0){
+         alert("El espacio de nombre esta vacio");
+     }    
+         
 }
 
 
-   if(ap.value == null  || ap.value.length == 0){
+ if(ap.value == null  || ap.value.length == 0){
      ap.classList.add("invalid");
 	 error = true;
+          if(ap.value == null  || ap.value.length == 0){
+         alert("El espacio de apellido esta vacio");
+     }    
 }
 
 
-   if(tel.value == null  || tel.value.length == 0){
+ if(tel.value == null  || tel.value.length == 0){
      tel.classList.add("invalid");
 	 error = true;
+         if(tel.value == null  || tel.value.length == 0){
+         alert("El espacio de telefono esta vacio");
+     } 
 }
 
-
-   if(cor.value == null  || cor.value.length == 0){
+ var emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+ if(cor.value == null  || cor.value.length == 0 || !emailRegex.test(cor.value) ){
      cor.classList.add("invalid");
 	 error = true;
+         if(cor.value == null  || cor.value.length == 0){
+         alert("El espacio de correo esta vacio");
+     } 
+     else if(!emailRegex.test(cor.value)){
+         alert("Formato incorrecto! ej:Raul@mail.com");
+        
+           }
 }
 
+
+
+
+        
 
 
 	if (error){
 	event.preventDefault();
-       window.alert("Faltan campos que rellenar! ");
+        //window.alert("Faltan campos que rellenar! ");
         document.location = "/Bridgestone/Registrar2.jsp";
 	}else{
             

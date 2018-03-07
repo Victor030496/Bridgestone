@@ -111,7 +111,7 @@
                     <div class="form-group"  style="margin-left: 38%">
                                 <input type="hidden" value="agregarTrabajador" id="trabajadorAction"/>
                                 <button type="submit" class="btn btn-primary" id="enviarTrabajador"  onclick="controller.editarTrabajador()">Guardar</button>
-                                <button type="reset" class="btn btn-danger" id="cancelar">Cancelar</button>
+                                <button type="reset" class="btn btn-danger" id="cancelar" onclick="salir();">Cancelar</button>
                             </div>
 
                 
@@ -187,7 +187,7 @@
                     <div class="form-group"  style="margin-left: 38%">
                                 <input type="hidden" value="agregarUsuario" id="usuarioAction"/>
                                 <button type="submit" class="btn btn-primary" id="enviarUsuario"  onclick="controller.editarUsuario()">Guardar</button>
-                                 <button type="reset" class="btn btn-danger" id="cancelar">Cancelar</button>
+                                 <button type="reset" class="btn btn-danger" id="cancelar" onclick="salir();">Cancelar</button>
                             </div>
 
                 
@@ -590,14 +590,14 @@
         var error=true;
         userActual = new Trabajador("","",1,"","","","",numero);
            do{
-      if(identificacio == null  || identificacio.length == 0 || identificacio.length <= 9 ){    
+      if(identificacio == null  || identificacio.length == 0 || identificacio.length < 9 ){    
         if(identificacio.length ==0){
          alert("El espacio de cedula esta vacio");
          error=false;break;
      }
             
-           else if(identificacio.length <= 9){
-         alert("La identificacion debe de tener al menos 9 caracteres");
+           else if(identificacio.length < 9){
+         alert("La identificacion debe de tener al menos 9 caracteres para cedula nacional");
          error=false;break;
            }
         }
@@ -787,7 +787,7 @@ document.getElementById('correo').addEventListener('input', function() {
         
               function salir(){
  
-        document.location = "/Bridgestone/Principal.jsp";
+        document.location = "/Bridgestone/ListadoUsuarios.jsp";
         
      }
         
@@ -892,6 +892,12 @@ document.getElementById('correo').addEventListener('input', function() {
             controller.mostrarModalUsuario(aux);
             
         }
+        
+        
+           function salir(){
+       document.location = "/Bridgestone/Registrar2.jsp";
+        
+     }
     
         function doQueryTrabajador(event){
             
