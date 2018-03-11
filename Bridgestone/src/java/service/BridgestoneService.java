@@ -157,8 +157,8 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                         
                         
                      case "registrarEquipo":
+                    System.out.println("Estamos registarando un equipo");
                     json = request.getParameter("equipo");
-                    System.out.println(json);
                     Equipo eq = gson.fromJson(json, Equipo.class);
                     System.out.println("Registando equipo : " + eq.getMarca() );
                     int aux109 = model.guardaEquipo(eq);

@@ -568,42 +568,7 @@
 
 }
         
-     function doValidate(event){
 
-  var usu = document.getElementById("serie");
-  var pas = document.getElementById("datepicker");
-  var pas2 = document.getElementById("des");
-  //var con=document.getElementById("contrats");
-  var error = false;
-
-
-	usu.classList.remove("invalid");
-        pas.classList.remove("invalid");
-        pas2.classList.remove("invalid");
-   if(usu.value == null  || usu.value.length == 0){
-       usu.classList.add("invalid");
-	 error = true;
-}
-
-   if(pas.value == null  || pas.value.length == 0){
-     pas.classList.add("invalid");
-	 error = true;
-}
-
-
-   if(pas2.value == null  || pas2.value.length == 0){
-     pas2.classList.add("invalid");
-	 error = true;
-}
-
-
-
-	if (error){
-	event.preventDefault();
-        document.location = "/Bridgestone/RegistrarActivoLeasing.jsp";
-	}
-
-}
         
         
                 function salir(){
