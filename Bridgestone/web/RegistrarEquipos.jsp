@@ -512,6 +512,8 @@
         }
          else{
              
+             
+             
           equipo = new Equipo(1,document.getElementById("selee1").value,null,document.getElementById("marca").value,document.getElementById("modelo").value,
                   document.getElementById("memoria").value,document.getElementById("procesador").value,document.getElementById("departamento").value,
                       null,document.getElementById("descripcion").value,"asignado");           

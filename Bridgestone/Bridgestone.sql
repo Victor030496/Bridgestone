@@ -84,9 +84,4 @@ alter table Equipo
   
   insert into Usuario (id,clave,tipo) values ('LuisO19','LuisO19', 2);
   insert into Usuario (id,clave,tipo) values ('1','1', 2);
-  insert into Contrato (codigoContrato,fechaInicio,fechaVencimiento,estado) values ('1234aaa',12/10/2018,13/5/2018,1);
-  insert into Comprobante(numeroDeComprobante) values ('1212-fec');
-  use Bridgestone;
-  insert into Equipo (contrato,comprobante,marca,modelo,memoria,procesador,departamento,usuario,descripcion,estado) values ('1234aaa',null,'del','x-c2','3Ram','15','inventario',null,'muybonito','inventario');
-  insert into Persona (id,nombre,apellido,telefono,correo) values ('111526','Victor','Mendoza','223456-34','vic@gmail.com');
-  insert into Equipo (contrato,comprobante,marca,modelo,memoria,procesador,departamento,usuario,descripcion,estado) values (null,'1212-fec','hp','x-c2','3Ram','15','inventario','111526','muybonito','inventario');
+  

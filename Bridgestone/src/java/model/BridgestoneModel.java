@@ -141,6 +141,27 @@ static {
 //   }  
 //   
    
+               
+           public static int guardaPersona(Persona c)throws Exception{
+           // IMPRORTANTE RECORDAR QUE LE QUITE EL ATIBUTO ID EQUIPO
+       System.out.println("Persona que vamos a guardar"+ c.nombre);
+       String sql="insert into Persona(id,nombre,apellido,telefono,correo)"
+                + "values('%s','%s','%s','%s','%s')";
+       
+
+       
+               
+       sql=String.format(sql,c.id,c.nombre,c.apellido,c.telefono,c.correo);
+   
+       int aux = datos.executeUpdate(sql);
+       if(aux ==0){
+       
+        throw new Exception("No se pudo guardar Persona");
+       
+       }
+ 
+   return 1;
+   }            
    
     public static int guardaContrato(Contrato c)throws Exception{
        System.out.println("Contrato que vamos a guardar"+ c.getCodigoContrato());
