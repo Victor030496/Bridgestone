@@ -207,6 +207,28 @@ Proxy.getUsuarios = function(callBack){
 
 
 
+  Proxy.registrarEquipoUsuario= function(contrat,callBack){
+     console.log("entramos al registrar equipousuario");
+     console.log(contrat);
+    jsonText = JSON.stringify(contrat,JsonUtils.replacer);
+    console.log("se parseo el equipo a json");
+    var AJAX_req = new XMLHttpRequest();
+    url="/Bridgestone/BridgestoneService?action=registrarEquipoUsuario";
+    AJAX_req.open( "POST", url, true );
+    AJAX_req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    AJAX_req.onreadystatechange = function(){
+        if( AJAX_req.readyState === 4 && AJAX_req.status === 200 ){
+     
+            var object = 1;
+            console.log("El servlet ahora retorno un "+object);
+            callBack(object);
+        }
+    };
+    console.log("salimos del registrar contrato");
+    AJAX_req.send("equipoUsu="+jsonText);   
+};
+
+
 
     Proxy.eliminarUsuario= function(user,callBack){
      console.log("entramos al eliminar usuario");

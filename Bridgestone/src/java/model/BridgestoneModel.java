@@ -105,7 +105,31 @@ static {
              
              
              
-             
+        
+                    
+       public static int guardaEquipoUsuario(Equipo c)throws Exception{
+           // IMPRORTANTE RECORDAR QUE LE QUITE EL ATIBUTO ID EQUIPO
+       System.out.println("Usuario que vamos a guardar"+ c.idEquipo);
+       String sql="insert into Equipo(contrato,marca,modelo,memoria,procesador,departamento,usuario,descripcion,estado)"
+                + "values('%s','%s','%s','%s','%s','%s','%s','%s','%s')";
+       
+
+       
+               
+       sql=String.format(sql,c.contrato,c.marca,c.modelo,c.memoria,c.procesador,c.departamento,c.usuario,c.descripcion,c.estado);
+   
+       int aux = datos.executeUpdate(sql);
+       if(aux ==0){
+       
+        throw new Exception("No se pudo guardar equipo");
+       
+       }
+ 
+   return 1;
+   }           
+      
+       
+       
              
                public static int guardaComprobante(Comprobante c)throws Exception{
        System.out.println("Comprobante que vamos a guardar"+ c.numeroDeComprobante);

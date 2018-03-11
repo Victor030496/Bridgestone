@@ -511,13 +511,43 @@
         
         }
          else{
-             
+          persona = new Persona(document.getElementById("identificacion").value,document.getElementById("nombre").value,document.getElementById("apellido").value,document.getElementById("telefono").value,document.getElementById("correo").value);   
              
              
           equipo = new Equipo(1,document.getElementById("selee1").value,null,document.getElementById("marca").value,document.getElementById("modelo").value,
                   document.getElementById("memoria").value,document.getElementById("procesador").value,document.getElementById("departamento").value,
-                      null,document.getElementById("descripcion").value,"asignado");           
-             
+                      document.getElementById("identificacion").value,document.getElementById("descripcion").value,"asignado");           
+         
+          Proxy.registrarPersona(persona,
+                function(contrat){
+                    if(contrat === 1){
+                       window.alert("Registro exitoso");
+                  }
+                     
+                   //  document.location = "/Bridgestone/RegistraeEquipos.jsp";
+                            
+                    
+                });
+            
+            
+            
+            
+            
+                    Proxy.registrarEquipoUsuario(equipo,
+                function(contrat){
+                    if(contrat === 1){
+                       window.alert("Registro exitoso");
+                  }
+                     
+                   //  document.location = "/Bridgestone/RegistraeEquipos.jsp";
+                            
+                    
+                });  
+            
+            
+            
+            
+            
              
          }         
        
@@ -557,7 +587,7 @@
 	model=new Model();  
 	controller = new Controller(model,window);
         var fo = document.getElementById("siguiente1");
-        fo.addEventListener("click",doValidate);
+       // fo.addEventListener("click",doValidate);
         var accCue2 =  document.getElementById("proban"); 
 	accCue2.addEventListener("click",doQueryTrabajador);
 	}
