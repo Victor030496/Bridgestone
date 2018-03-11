@@ -369,7 +369,7 @@ $(document).ready(function(){
          
 }
 
-   if(pas.value == null  || pas.value.length == 0 ||  pas.value != pas2.value ||pas2.value == null  || pas2.value.length == 0){
+  else if(pas.value == null  || pas.value.length == 0 ||  pas.value != pas2.value ||pas2.value == null  || pas2.value.length == 0){
      pas.classList.add("invalid");
 	 error = true;
         if(pas.value == null  || pas.value.length == 0 ){

@@ -111,7 +111,7 @@
                     <div class="form-group"  style="margin-left: 38%">
                                 <input type="hidden" value="agregarTrabajador" id="trabajadorAction"/>
                                 <button type="submit" class="btn btn-primary" id="enviarTrabajador"  onclick="controller.editarTrabajador()">Guardar</button>
-                                <button type="reset" class="btn btn-danger" id="cancelar" onclick="salir();">Cancelar</button>
+                                <button type="reset" class="btn btn-danger" id="cancelar" onclick="cerrar();">Cancelar</button>
                             </div>
 
                 
@@ -187,7 +187,7 @@
                     <div class="form-group"  style="margin-left: 38%">
                                 <input type="hidden" value="agregarUsuario" id="usuarioAction"/>
                                 <button type="submit" class="btn btn-primary" id="enviarUsuario"  onclick="controller.editarUsuario()">Guardar</button>
-                                 <button type="reset" class="btn btn-danger" id="cancelar" onclick="salir();">Cancelar</button>
+                                 <button type="reset" class="btn btn-danger" id="cancelar" onclick="cerrar();">Cancelar</button>
                             </div>
 
                 
@@ -785,7 +785,7 @@ document.getElementById('correo').addEventListener('input', function() {
   
 	}
         
-              function salir(){
+              function cerrar(){
  
         document.location = "/Bridgestone/ListadoUsuarios.jsp";
         
