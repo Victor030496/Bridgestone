@@ -82,7 +82,7 @@ static {
    }
              
              
-       public static int guardaEquipo(Equipo c)throws Exception{
+       public static int guardaEquipoContrato(Equipo c)throws Exception{
            // IMPRORTANTE RECORDAR QUE LE QUITE EL ATIBUTO ID EQUIPO
        System.out.println("Usuario que vamos a guardar"+ c.idEquipo);
        String sql="insert into Equipo(contrato,marca,modelo,memoria,procesador,departamento,descripcion,estado)"

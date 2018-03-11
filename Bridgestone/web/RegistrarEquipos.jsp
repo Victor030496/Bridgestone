@@ -497,17 +497,8 @@
         equipo = new Equipo(1,document.getElementById("selee1").value,null,document.getElementById("marca").value,document.getElementById("modelo").value,
                   document.getElementById("memoria").value,document.getElementById("procesador").value,document.getElementById("departamento").value,
                       null,document.getElementById("descripcion").value,"disponible");
-                  }
-         else{
-             
-          equipo = new Equipo(1,document.getElementById("selee1").value,null,document.getElementById("marca").value,document.getElementById("modelo").value,
-                  document.getElementById("memoria").value,document.getElementById("procesador").value,document.getElementById("departamento").value,
-                      null,document.getElementById("descripcion").value,"asignado");           
-             
-             
-         }         
-       
-        Proxy.registrarEquipo(equipo,
+                
+                Proxy.registrarEquipoContrato(equipo,
                 function(contrat){
                     if(contrat === 1){
                        window.alert("Registro exitoso");
@@ -517,6 +508,18 @@
                             
                     
                 });
+        
+        }
+         else{
+             
+          equipo = new Equipo(1,document.getElementById("selee1").value,null,document.getElementById("marca").value,document.getElementById("modelo").value,
+                  document.getElementById("memoria").value,document.getElementById("procesador").value,document.getElementById("departamento").value,
+                      null,document.getElementById("descripcion").value,"asignado");           
+             
+             
+         }         
+       
+
 
     
     },

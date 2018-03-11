@@ -161,13 +161,13 @@ Proxy.getUsuarios = function(callBack){
     AJAX_req.send("comprobant="+jsonText);   
 };
 
-        Proxy.registrarEquipo= function(contrat,callBack){
+        Proxy.registrarEquipoContrato= function(contrat,callBack){
      console.log("entramos al registrar equipo");
      console.log(contrat);
     jsonText = JSON.stringify(contrat,JsonUtils.replacer);
     console.log("se parseo el equipo a json");
     var AJAX_req = new XMLHttpRequest();
-    url="/Bridgestone/BridgestoneService?action=registrarEquipo";
+    url="/Bridgestone/BridgestoneService?action=registrarEquipoContrato";
     AJAX_req.open( "POST", url, true );
     AJAX_req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     AJAX_req.onreadystatechange = function(){

@@ -156,12 +156,12 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                 break;
                         
                         
-                     case "registrarEquipo":
+                     case "registrarEquipoContrato":
                     System.out.println("Estamos registarando un equipo");
                     json = request.getParameter("equipo");
                     Equipo eq = gson.fromJson(json, Equipo.class);
                     System.out.println("Registando equipo : " + eq.getMarca() );
-                    int aux109 = model.guardaEquipo(eq);
+                    int aux109 = model.guardaEquipoContrato(eq);
                     System.out.println("retorno "+aux109);
                 break;     
                 
