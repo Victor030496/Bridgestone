@@ -438,7 +438,7 @@ document.getElementById('correo').addEventListener('input', function() {
   var ap = document.getElementById("apellido"); 
   var tel = document.getElementById("telefono");
   var cor = document.getElementById("correo");   
-  
+  var emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i; 
   var error = false;
 
 
@@ -462,7 +462,7 @@ document.getElementById('correo').addEventListener('input', function() {
            } 
 }
 
-if(nom.value == null  || nom.value.length == 0){
+else if(nom.value == null  || nom.value.length == 0){
      nom.classList.add("invalid");
 	 error = true;
         if(nom.value == null  || nom.value.length == 0){
@@ -472,7 +472,7 @@ if(nom.value == null  || nom.value.length == 0){
 }
 
 
- if(ap.value == null  || ap.value.length == 0){
+ else if(ap.value == null  || ap.value.length == 0){
      ap.classList.add("invalid");
 	 error = true;
           if(ap.value == null  || ap.value.length == 0){
@@ -481,21 +481,27 @@ if(nom.value == null  || nom.value.length == 0){
 }
 
 
- if(tel.value == null  || tel.value.length == 0){
+else if(tel.value == null  || tel.value.length == 0||tel.value.length < 8){
      tel.classList.add("invalid");
 	 error = true;
          if(tel.value == null  || tel.value.length == 0){
          alert("El espacio de telefono esta vacio");
      } 
+      else if(tel.value.length < 8){
+         alert("El telefono tiene 8 digitos");
+         
+           } 
 }
 
- var emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
- if(cor.value == null  || cor.value.length == 0 || !emailRegex.test(cor.value) ){
+
+ else if(cor.value == null  || cor.value.length == 0 || !emailRegex.test(cor.value) ){
+    
      cor.classList.add("invalid");
 	 error = true;
          if(cor.value == null  || cor.value.length == 0){
          alert("El espacio de correo esta vacio");
      } 
+   
      else if(!emailRegex.test(cor.value)){
          alert("Formato incorrecto! ej:Raul@mail.com");
         
