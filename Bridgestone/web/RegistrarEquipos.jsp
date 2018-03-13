@@ -223,7 +223,7 @@
         
       &nbsp;&nbsp;&nbsp;   <h2>  Registrar equipos nuevos</h2>
       <br>   
-         <h2 id="mjsImpor">¡ Rellene solo los campos necesarios segun el equipo que vaya a ingresar !</h2>
+         <h3 id="mjsImpor">¡ Rellene solo los campos necesarios segun el equipo que vaya a ingresar !</h3>
         <div class = "col-md-2 text-justify"  "col-lg-9 text-justify"  "col-sm-8 text-justify"  "col-xs-6 text-justify" align = "center" >
 
      <br>
