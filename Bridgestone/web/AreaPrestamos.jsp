@@ -9,6 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+         <%@ include file="Imports 2.jspf" %> 
         <title>Area de Prestamos</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -124,7 +125,7 @@
         
         <!------------------------------------------------------------------------------------------>
                 
-          <div  id= "mainDiv" class="container-fluid" style="width: 1360px; height:860px; background-image: url(imagenes/prin22.jpg); background-repeat: no-repeat; background-size:cover; ba">
+          <div  id= "mainDiv" class="container-fluid" style="width: 1360px; height:1200px; background-image: url(imagenes/prin22.jpg); background-repeat: no-repeat; background-size:cover; ba">
 
               
                  <div class = "">
@@ -240,6 +241,7 @@
 
      
 </div>
+            <div class="col-sm-12 " >
 <!---------------------------------------------------------------------------------->   
 
         <div class = "col-md-6 text-justify"  "col-lg-9 text-justify"  "col-sm-8 text-justify"  "col-xs-6 text-justify" align = "center" >
@@ -249,10 +251,10 @@
   <table class="table" id="tabUsuarios">
     <thead>
       <tr>
-        <th class="active">Marca</th>
-        <th class="active">Modelo </th>
-        <th class="active">Memoria</th>
-        <th class="active">Seleccione</th>
+        <th class="success">Marca</th>
+        <th class="success">Modelo </th>
+        <th class="success">Memoria</th>
+        <th class="success">Seleccione</th>
 
       </tr>
     </thead>
@@ -282,7 +284,7 @@
 
 
 
-      <div class = "col-md-6 text-justify"  "col-lg-3 text-justify"  "col-sm-4 text-justify"  "col-xs-6 text-justify"  align = "center">
+      <div class = "col-md-6 text-justify"  "col-lg-9 text-justify"  "col-sm-8 text-justify"  "col-xs-6 text-justify" align = "center" >
 
 
                <div class="wrapper">
@@ -336,10 +338,187 @@
 
 
  <!-------------------------------------------------------->   
+            </div>
           </div>  
     <script type="text/javascript" src="JS/jquery.js"></script>     
     <script type="text/javascript" src="JS/jquery-ui.min.js"></script>  
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>                      
     </body>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+       <script> // Model
+  function Model() {
+    this.Model();
+  }
+  
+  Model.prototype={
+	Model: function(){
+        }
+  };
+</script>
+
+<script> // Controller
+  function Controller(model,view) {
+    this.Controller(model,view);
+  }
+  
+  Controller.prototype={
+	Controller: function(model,view){
+		this.model=model;
+		this.view=view;
+                
+          Proxy.getEquipos(function(result){
+          
+          model.equipos = result;
+          console.log(result[0].id);
+          view.showTabla();
+        
+       }      
+      ); 
+	}
+  };
+</script>
+<script> // View
+  var model;
+  var controller;
+  
+
+  
+
+
+	function pageLoad(event){ 
+ 
+		model=new Model();  
+		controller = new Controller(model,window);
+                showTabla();
+  
+	}
+        
+              function cerrar(){
+ 
+        document.location = "/Bridgestone/ListadoUsuarios.jsp";
+        
+     }
+        
+        function showTabla(){
+            var listado = document.getElementById("listado");
+              for (i=0;i<model.equipos.length;i++){
+        var tr =document.createElement("tr");
+        tr.classList.add("active");
+	var td;
+	td=document.createElement("td");
+	td.appendChild(document.createTextNode(model.equipos[i].marca));
+	tr.appendChild(td);
+       
+       
+        td=document.createElement("td");
+	td.appendChild(document.createTextNode(model.equipos[i].modelo));
+	tr.appendChild(td);
+        
+        td=document.createElement("td");
+	td.appendChild(document.createTextNode(model.equipos[i].memoria));
+	tr.appendChild(td);
+	
+
+ 
+        var check;
+	
+         td= document.createElement("td");
+         check = document.createElement("input");
+         check.type = "radio";
+
+       td.appendChild(check);
+       tr.appendChild(td);
+       
+ 
+
+ 
+         
+         listado.appendChild(tr);
+         
+        
+     }
+            
+        }
+        
+
+        
+        
+           function salir(){
+       document.location = "/Bridgestone/Registrar2.jsp";
+        
+     }
+    
+        function doQueryTrabajador(event){
+            
+        //var persona = model.usuarios.find(function(x){return x.id==per.id; });
+        
+        //if(persona.value == null  ){//|| persona.value.length == 0
+        
+            //controller.login2(id);
+            var aux = event.target.id;
+        
+        
+            controller.mostrarModalTrabajador(aux);
+            
+        }
+        
+        
+        
+	document.addEventListener("DOMContentLoaded",pageLoad);
+</script>      
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 </html>

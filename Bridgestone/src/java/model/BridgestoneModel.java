@@ -310,6 +310,23 @@ static {
         obj.setTipo(rs.getInt("tipo"));
         return obj;
     }
+     
+     
+          private static Equipo toEquipo(ResultSet rs) throws Exception{
+        Equipo obj= new Equipo();
+        obj.setIdEquipo(rs.getInt("idEquipo"));
+        obj.setContrato(rs.getString("contrato"));
+        obj.setComprobante(rs.getString("comprobante"));
+        obj.setMarca(rs.getString("marca"));
+        obj.setModelo(rs.getString("modelo"));
+        obj.setMemoria(rs.getString("memoria"));
+        obj.setProcesador(rs.getString("procesador"));
+        obj.setDepartamento(rs.getString("departamento"));
+        obj.setUsuario(rs.getString("usuario"));
+        obj.setDescripcion(rs.getString("descripcion"));
+        obj.setEstado(rs.getString("estado"));
+        return obj;
+    }
     
     
     
@@ -350,22 +367,22 @@ static {
         
         
         
-           private static Equipo toEquipo(ResultSet rs) throws Exception{
-        Equipo obj= new Equipo();
-        obj.setIdEquipo(rs.getInt("idEquipo"));
-        obj.setContrato(rs.getString("contrato"));// aqui puede estar el erros//
-        obj.setComprobante(rs.getString("comprobante"));
-        obj.setMarca(rs.getString("marca"));
-        obj.setModelo(rs.getString("modelo"));
-        obj.setMemoria(rs.getString("memoria"));
-        obj.setProcesador(rs.getString("procesador"));
-        obj.setDepartamento(rs.getString("departamento"));
-        obj.setUsuario(rs.getString("usuario"));
-        obj.setDescripcion(rs.getString("descripcion"));
-        obj.setEstado(rs.getString("estado"));
-   
-        return obj;
-    } 
+//           private static Equipo toEquipo(ResultSet rs) throws Exception{
+//        Equipo obj= new Equipo();
+//        obj.setIdEquipo(rs.getInt("idEquipo"));
+//        obj.setContrato(rs.getString("contrato"));// aqui puede estar el erros//
+//        obj.setComprobante(rs.getString("comprobante"));
+//        obj.setMarca(rs.getString("marca"));
+//        obj.setModelo(rs.getString("modelo"));
+//        obj.setMemoria(rs.getString("memoria"));
+//        obj.setProcesador(rs.getString("procesador"));
+//        obj.setDepartamento(rs.getString("departamento"));
+//        obj.setUsuario(rs.getString("usuario"));
+//        obj.setDescripcion(rs.getString("descripcion"));
+//        obj.setEstado(rs.getString("estado"));
+//   
+//        return obj;
+//    } 
         
         
         private static Comprobante toComprobante(ResultSet rs) throws Exception{
