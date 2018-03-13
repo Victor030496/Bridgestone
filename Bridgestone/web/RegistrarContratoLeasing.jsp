@@ -351,6 +351,7 @@
             Proxy.registrarContrato(contrato,
                 function(contrat){
                     if(contrat == 1){
+                      document.location = "/Bridgestone/ListadoContratos.jsp";
                       // window.alert("Registro exitoso");
                   }
                    
@@ -385,6 +386,7 @@
   var usu = document.getElementById("codContrato");
   var pas = document.getElementById("datepicker");
   var pas2 = document.getElementById("datepicker2"); 
+  
   var error = false;
 
 
@@ -394,28 +396,38 @@
    if(usu.value == null  || usu.value.length == 0){
        usu.classList.add("invalid");
 	 error = true;
+            if(usu.value == null  || usu.value.length == 0){
+         window.alert("El espacio de contrato esta vacio");
+     }
 }
 
-   if(pas.value == null  || pas.value.length == 0 || pas.value == pas2.value){
+  else if(pas.value == null  || pas.value.length == 0 || pas2.value == null  || pas2.value.length == 0  ){
      pas.classList.add("invalid");
 	 error = true;
-          if(pas.value == pas2.value && pas.value == null ){
-              window.alert("Las fechas no pueden ser iguales!");
+        if(pas.value == null  || pas.value.length == 0 ){
+              window.alert("El espacio de fecha de inicio de contrato esta vacio!");
              
          }
+        else if(pas2.value == null  || pas2.value.length == 0 ){
+              window.alert("El espacio de fecha de vencimiento del contrato esta vacio!");
+             
+         }
+         
+        
+         
+
+  
 }
 
 
-   if(pas2.value == null  || pas2.value.length == 0){
-     pas2.classList.add("invalid");
-	 error = true;
-}
+
+
 
 
 
 	if (error){
 	event.preventDefault();
-        window.alert("Hay espacios en blanco");
+        //window.alert("Hay espacios en blanco");
         document.location = "/Bridgestone/RegistrarContratoLeasing.jsp";
 	}else{
             window.alert("Registro exitoso");
