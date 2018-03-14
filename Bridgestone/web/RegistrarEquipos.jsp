@@ -45,7 +45,7 @@
                 <div class="modal-content">
         
         <div class="col-md-offset-4 col-md-4" id="boxy">
-            <br><br><br><br><br><br><br><br>
+            <br><br><br><br>
             <h2 id='Contact' style="font-weight: bold;">Ingresar datos del usuario del equipo</h2>
             <hr>
             <form role="form" onsubmit="return false;" id="formTrabajadores">
@@ -102,13 +102,13 @@
                      
                      
                      
-                         </div>-->
+                         </div>
                   
         </div>
                     
                     <div class="form-group"  style="margin-left: 38%">
                                 <input type="hidden" value="agregarTrabajador" id="trabajadorAction"/>
-                                <button type="submit" class="btn btn-primary" id="enviarTrabajador"  onclick="controller.editarTrabajador()">Guardar</button>
+                                <button type="submit" class="btn btn-primary" id="enviarTrabajador"  onclick="controller.almacenar()">Almacenar</button>
                                 <button type="reset" class="btn btn-danger" id="cancelar">Cancelar</button>
                             </div>
 
@@ -161,6 +161,9 @@
     </li>    
     <li role="presentation">
       <a role="menuitem" tabindex="-1" href="RegistrarEquipos.jsp">Registrar Equipos nuevos</a>
+    </li>
+    <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="ListadoEquipos.jsp">Equipos nuevos registrados</a>
     </li>
      
     
@@ -570,6 +573,15 @@
         document.getElementById("apellido").value = trabajador.apellido;
         document.getElementById("telefono").value = trabajador.telefono;
         document.getElementById("correo").value = trabajador.correo;
+    },
+    
+    
+    
+    
+     almacenar: function(){
+  
+        $("#myModalFormularioTrabajador").modal('hide');
+        
     }
 
         

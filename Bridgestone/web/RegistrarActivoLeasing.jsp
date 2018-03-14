@@ -79,6 +79,9 @@
   <li role="presentation">
       <a role="menuitem" tabindex="-1" href="RegistrarEquipos.jsp">Registrar Equipos nuevos</a>
     </li>
+    <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="ListadoEquipos.jsp">Equipos nuevos registrados</a>
+    </li>
   
     
   </ul>
