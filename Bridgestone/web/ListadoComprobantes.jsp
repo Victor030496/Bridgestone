@@ -148,7 +148,7 @@
               <!--------------------------------------------------------------------------------------->
         
                             
-        <div class="modal fade" id="myModalFormulario" role="dialog">
+        <div class="modal fade" id="myModalFormularioComprobantes" role="dialog">
     <div class="row-fluid" >
         <div class="modal-dialog modal-lg">
                 <div class="modal-content">
@@ -312,7 +312,7 @@
         },
         mostrarModal: function(num){
   
-        $("#myModalFormulario").modal();
+        $("#myModalFormularioComprobantes").modal();
         
         var nume = document.getElementById("enviar");
         nume.value = num;

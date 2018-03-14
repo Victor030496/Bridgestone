@@ -157,7 +157,7 @@
       <a role="menuitem" tabindex="-1" href="ListadoContratos.jsp">Contratos de Leasing Registrados</a>
     </li>
     <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="ListadoContratos.jsp">Comprobantes de compra registrados</a>
+      <a role="menuitem" tabindex="-1" href="ListadoComprobantes.jsp">Comprobantes de compra registrados</a>
     </li>    
     <li role="presentation">
       <a role="menuitem" tabindex="-1" href="RegistrarEquipos.jsp">Registrar Equipos nuevos</a>
@@ -178,7 +178,7 @@
     </li>
      <li role="presentation" class="divider"></li>
     <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="ListadoContratos.jsp">Prestamos Registrados</a>
+      <a role="menuitem" tabindex="-1" href="#">Prestamos Registrados</a>
     </li>
   </ul>
                              </a></li>
@@ -187,11 +187,11 @@
                                  <span class = "caret"></span>
                                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
     <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="prue.jsp">Registrar Devolucion</a>
+      <a role="menuitem" tabindex="-1" href="#">Registrar Devolucion</a>
     </li>
      <li role="presentation" class="divider"></li>
     <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="ListadoContratos.jsp">Devoluciones Registradas</a>
+      <a role="menuitem" tabindex="-1" href="#">Devoluciones Registradas</a>
        </li>
         </ul>
            </a></li>

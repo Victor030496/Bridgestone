@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-           <%@ include file="Imports.jspf" %>  
+           <%@ include file="Imports 2.jspf" %>  
         <title>Listado de Contratos</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -153,7 +153,7 @@
                              
         
         
-        <div class="modal fade" id="myModalFormulario" role="dialog">
+        <div class="modal fade" id="myModalFormularioContratos" role="dialog">
     <div class="row-fluid" >
         <div class="modal-dialog modal-lg">
                 <div class="modal-content">
@@ -251,7 +251,7 @@
         <th class="success">Fecha De Vencimiento del Contrato</th>
         <th class="success">Estado</th>
          <th class="success">Editar</th>
-        <th class="success">Eliminar</th>
+        <!--<th class="success">Eliminar</th>-->
       </tr>
     </thead>
     <br><br>
@@ -354,7 +354,7 @@
         },
         mostrarModal: function(num){
   
-        $("#myModalFormulario").modal();
+        $("#myModalFormularioContratos").modal();
         
         var nume = document.getElementById("enviar");
         nume.value = num;
@@ -511,6 +511,8 @@
        img.addEventListener("click", doQuery);
        td.appendChild(img);
        tr.appendChild(td);
+       
+        /*    
        td= document.createElement("td");
        img= document.createElement("img");
        img.src="imagenes/delete.png";
@@ -521,7 +523,7 @@
        img.addEventListener("click", doDelete);
        td.appendChild(img);
        tr.appendChild(td);
-       
+       */
 	
          
          
