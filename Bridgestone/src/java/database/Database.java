@@ -75,13 +75,8 @@ public class Database {
     private static final String PUERTO = "3306";
     private static final String USUARIO = "root";
 
-
-
-<<<<<<< HEAD
     private static final String CLAVE = "blaugrana";
-=======
-    private static final String CLAVE = "";
->>>>>>> e80a604ce94809ace0be1ca09c117588d2c2ba2b
+
 
  
 

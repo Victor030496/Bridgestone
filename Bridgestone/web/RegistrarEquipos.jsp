@@ -244,7 +244,7 @@
     </tr>  
     
      <tr>
-         <th class="" id ="accesoP" ><a href="ListadoContratosLeasing.jsp">Ver todos Los equipos <span class="glyphicon glyphicon-list-alt"></span></a></th>
+         <th class="" id ="accesoP" ><a href="ListadoEquipos.jsp">Ver todos Los equipos <span class="glyphicon glyphicon-list-alt"></span></a></th>
     </tr>  
         
      <tr>
@@ -434,7 +434,7 @@
     <script type="text/javascript" src="JS/jquery-ui.min.js"></script>  
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>               
-        
+    <script src="JS/bootbox.min.js" type="text/javascript"></script>
     </body>
     
     
@@ -504,10 +504,11 @@
                 Proxy.registrarEquipoContrato(equipo,
                 function(contrat){
                     if(contrat === 1){
-                       window.alert("Registro exitoso");
-                  }
-                     
-                   //  document.location = "/Bridgestone/RegistraeEquipos.jsp";
+                       bootbox.alert("Equipo Registrado Con Exito!",function(){ document.location = "/Bridgestone/RegistrarEquipos.jsp" });
+                  }else{
+                      
+                      bootbox.alert("No se pudo registrar!",function(){ document.location = "/Bridgestone/RegistrarEquipos.jsp" });
+                  }  
                             
                     
                 });
@@ -524,7 +525,7 @@
           Proxy.registrarPersona(persona,
                 function(contrat){
                     if(contrat === 1){
-                       window.alert("Registro exitoso");
+                       //window.alert("Registro exitoso");
                   }
                      
                    //  document.location = "/Bridgestone/RegistraeEquipos.jsp";
@@ -539,11 +540,11 @@
                     Proxy.registrarEquipoUsuario(equipo,
                 function(contrat){
                     if(contrat === 1){
-                       window.alert("Registro exitoso");
-                  }
-                     
-                   //  document.location = "/Bridgestone/RegistraeEquipos.jsp";
-                            
+                        bootbox.alert("Equipo Y Usuario Del Mismo Registrado Con Exito!",function(){ document.location = "/Bridgestone/RegistrarEquipos.jsp" });
+                  }else{
+                      
+                      bootbox.alert("No se pudo registrar!",function(){ document.location = "/Bridgestone/RegistrarEquipos.jsp" });
+                  }        
                     
                 });  
             

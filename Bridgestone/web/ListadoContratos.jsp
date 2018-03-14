@@ -288,7 +288,7 @@
 
    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>        
-                    
+    <script src="JS/bootbox.min.js" type="text/javascript"></script>
        
    
     
@@ -339,10 +339,12 @@
         Proxy.eliminarContrato(contrat,
                 function(contrats){
                     if(contrats === 10){
-                       window.alert("Eliminado exitoso");
+                       bootbox.alert("Contrato Eliminado Con Exito!",function(){ document.location = "/Bridgestone/ListadoContratos.jsp" });
+                  }else{
+                      
+                      bootbox.alert("No se pudo eliminar!",function(){ document.location = "/Bridgestone/ListadoContratos.jsp" });
                   }
                      
-                     document.location = "/Bridgestone/ListadoContratos.jsp";
                             
                     
                 });
@@ -405,13 +407,13 @@
         
             Proxy.modificarContrato(contratos,
                 function(contrat){
-                    if(contrat == 1){
-                      window.alert("Modificación exitosa");
-                  }
-                   
-                     //window.alert("Contrato registrado como : "+ document.getElementById("codContrato").value);
-                     document.location = "/Bridgestone/ListadoContratos.jsp";
-                            
+                    if(contrat == 33){
+                  
+                     bootbox.alert("Contrato Modificado Con Exito!",function(){ document.location = "/Bridgestone/ListadoContratos.jsp" });
+                  }else{
+                      
+                      bootbox.alert("No se pudo modificar!",function(){ document.location = "/Bridgestone/ListadoContratos.jsp" });
+                  }     
                     
                 });
        

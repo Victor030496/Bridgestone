@@ -390,7 +390,7 @@
         
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>        
-        
+    <script src="JS/bootbox.min.js" type="text/javascript"></script>
     </body>
     
     
@@ -433,11 +433,11 @@
         Proxy.eliminarUsuario(user,
                 function(contrat){
                     if(contrat === 222){
-                       window.alert("Eliminado exitoso");
-                  }
-                     
-                     document.location = "/Bridgestone/ListadoUsuarios.jsp";
-                            
+                       bootbox.alert("Usuario Eliminado Con Exito!",function(){ document.location = "/Bridgestone/ListadoUsuarios.jsp" });
+                  }else{
+                      
+                      bootbox.alert("No se pudo eliminar!",function(){ document.location = "/Bridgestone/ListadoUsuarios.jsp" });
+                  }    
                     
                 });
         ///alert(id);
@@ -569,11 +569,11 @@
                 function(user){
                  //  if (error){  
                     if(user == 1){
-                       window.alert("Cambio exitoso");
-                  }
-                  
-                     //window.alert("Contrato registrado como : "+ document.getElementById("codContrato").value);
-                     document.location = "/Bridgestone/ListadoUsuarios.jsp";
+                       bootbox.alert("Usuario Modificado Con Exito!",function(){ document.location = "/Bridgestone/ListadoUsuarios.jsp" });
+                  }else{
+                      
+                      bootbox.alert("No se pudo modificar!",function(){ document.location = "/Bridgestone/ListadoUsuarios.jsp" });
+                  } 
    // }
     }
 
@@ -655,11 +655,11 @@
          Proxy.modificarTraba(trabajadores,
                 function(user){
                     if(user == 1){
-                       window.alert("Cambio exitoso");
-                  }
-                   
-                     //window.alert("Contrato registrado como : "+ document.getElementById("codContrato").value);
-                     document.location = "/Bridgestone/ListadoUsuarios.jsp";
+                       bootbox.alert("Datos Personales Modificados Con Exito!",function(){ document.location = "/Bridgestone/ListadoUsuarios.jsp" });
+                  }else{
+                      
+                      bootbox.alert("No Se Pudieron Modificar Los Datos Personales!",function(){ document.location = "/Bridgestone/ListadoUsuarios.jsp" });
+                  } 
     
     }
 

@@ -257,7 +257,7 @@
         <th class="success">Departamento</th>
         <th class="success">Usuario</th>
         <th class="success">Descripción</th>
-        <th class="success">Editar</th>
+        <!--<th class="success">Editar</th>-->
       </tr>
     </thead>
     <br><br>
@@ -550,7 +550,7 @@
 	td.appendChild(document.createTextNode(model.equipos[i].descripcion));
 	tr.appendChild(td);
         
-	
+	/*
         td= document.createElement("td");
        img= document.createElement("img");
        img.src="imagenes/edit.png";
@@ -559,7 +559,7 @@
        //img.id = model.equipos[i].idEquipo;
        //img.addEventListener("click", doQuery);
        td.appendChild(img);
-       tr.appendChild(td);
+       tr.appendChild(td);*/
   
        
        

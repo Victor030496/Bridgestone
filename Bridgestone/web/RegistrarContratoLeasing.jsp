@@ -313,6 +313,8 @@
    
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>    
+    <script src="JS/bootbox.min.js" type="text/javascript"></script>
+    
     </body>
     
  
@@ -354,13 +356,11 @@
             Proxy.registrarContrato(contrato,
                 function(contrat){
                     if(contrat == 1){
-                      document.location = "/Bridgestone/ListadoContratos.jsp";
-                      // window.alert("Registro exitoso");
-                  }
-                   
-                     //window.alert("Contrato registrado como : "+ document.getElementById("codContrato").value);
-                     document.location = "/Bridgestone/RegistrarContratoLeasing.jsp";
-                            
+                      bootbox.alert("Contrato Registrado Con Exito!",function(){ document.location = "/Bridgestone/RegistrarContratoLeasing.jsp" });
+                  }else{
+                      
+                      bootbox.alert("No se pudo registrar!",function(){ document.location = "/Bridgestone/RegistrarContratoLeasing.jsp" });
+                  }       
                     
                 });
    

@@ -431,8 +431,8 @@ static {
            System.out.println("Comprobante que vamos a eliminar"+ c.getComprobante());
            
        String sql="delete from "+
-                    "Activo "+
-                    "where numeroComprobante = '%s'";
+                    "Equipo "+
+                    "where comprobante = '%s'";
        String sql2="delete from "+
                     "Comprobante  "+
                     "where numeroDeComprobante = '%s'";
@@ -462,8 +462,8 @@ static {
            System.out.println("Contrato que vamos a eliminar"+ c.getCodigoContrato());
            
        String sql="delete from "+
-                    "Activo "+
-                    "where codigoContratoLeasing = '%s'";
+                    "Equipo "+
+                    "where contrato = '%s'";
        String sql2="delete from "+
                     "Contrato  "+
                     "where codigoContrato = '%s'";
