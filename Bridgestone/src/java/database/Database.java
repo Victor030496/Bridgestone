@@ -77,11 +77,11 @@ public class Database {
 
 
 
-<<<<<<< HEAD
-    private static final String CLAVE = "blaugrana";
-=======
-    private static final String CLAVE = "";
->>>>>>> e80a604ce94809ace0be1ca09c117588d2c2ba2b
+
+    private static final String CLAVE = "yoamopatinar";
+
+   // private static final String CLAVE = "";
+
 
  
 

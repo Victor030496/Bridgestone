@@ -507,7 +507,7 @@
                        window.alert("Registro exitoso");
                   }
                      
-                   //  document.location = "/Bridgestone/RegistraeEquipos.jsp";
+                   document.location = "/Bridgestone/RegistrarEquipos.jsp";
                             
                     
                 });
