@@ -227,7 +227,7 @@
         
       <br>   
          <h3 id="mjsImpor">¡ Rellene solo los campos necesarios segun el equipo que vaya a ingresar !</h3>
-        <div class = "col-md-2 text-justify"  "col-lg-9 text-justify"  "col-sm-8 text-justify"  "col-xs-6 text-justify" align = "center" >
+        <div class = "col-md-3 text-justify"  "col-lg-9 text-justify"  "col-sm-8 text-justify"  "col-xs-6 text-justify" align = "center" >
 
      <br>
     
@@ -263,7 +263,7 @@
       
            <!------------------------------------------------------------------------------------------>
    
-      <div class = "col-md-6 text-justify"  "col-lg-3 text-justify"  "col-sm-4 text-justify"  "col-xs-6 text-justify"  align = "center">
+      <div class = "col-md-5 text-justify"  "col-lg-3 text-justify"  "col-sm-4 text-justify"  "col-xs-6 text-justify"  align = "center">
 
 
      

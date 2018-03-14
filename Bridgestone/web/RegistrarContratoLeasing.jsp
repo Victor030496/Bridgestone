@@ -389,7 +389,14 @@
   var usu = document.getElementById("codContrato");
   var pas = document.getElementById("datepicker");
   var pas2 = document.getElementById("datepicker2"); 
-  
+  var string1=pas.value.toString();
+  var string2=pas2.value.toString();
+  var dia1=string1.substring(0, 2);
+  var mes1=string1.substring(3, 5);
+  var ano1=string1.substring(6, 10);
+  var dia2=string2.substring(0, 2);
+  var mes2=string2.substring(3, 5);
+  var ano2=string2.substring(6, 10);
   var error = false;
 
 
@@ -414,14 +421,17 @@
         else if(pas2.value == null  || pas2.value.length == 0 ){
               window.alert("El espacio de fecha de vencimiento del contrato esta vacio!");
              
-         }
-         
-        
-         
-
-  
+         } 
 }
 
+else if (string1==string2){
+    pas.classList.add("invalid");
+    error = true;
+    if(string1==string2){
+              window.alert("Las fechas son iguales!");
+             
+         }  
+}
 
 
 
