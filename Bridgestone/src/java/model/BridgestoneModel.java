@@ -270,10 +270,8 @@ static {
             }
         } catch (SQLException ex) {
         }
-        // System.out.println(ciudades.get(0).toString());
-         
-         
-         return equipos;
+        // System.out.println(ciudades.get(0).toString());        
+       return equipos;
 
 }  
      
@@ -282,16 +280,20 @@ static {
      public List<Comprobante>getComprobantes() throws Exception{
           System.out.println("entro al getComprobantes");
          List<Comprobante> comprobantes;
+         List<Comprobante> comprobantes2;
          comprobantes= new ArrayList();
+         comprobantes2= new ArrayList();
          try {
             String sql="select * "+
                     "from Comprobante  p  "; // sino sirve pasar trabajador a minuscula//
             ResultSet rs =  datos.executeQuery(sql);
              System.out.println("exitiooo");
             while (rs.next()) {
-                comprobantes.add(toComprobante(rs));
+                comprobantes2.add(toComprobante(rs));
                 System.out.println("insertando");
             }
+            System.out.println("Si inserto");
+            
         } catch (SQLException ex) {
         }
         // System.out.println(ciudades.get(0).toString());

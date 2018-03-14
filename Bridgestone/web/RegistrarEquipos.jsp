@@ -495,7 +495,75 @@
         
         
         var id = document.getElementById("identificacion").value;
+        //var serie =document.getElementById("selee1").value;
+        var marca =document.getElementById("marca").value;
+        var modelo =document.getElementById("modelo").value;
+        var memoria =document.getElementById("memoria").value;
+        var proce =document.getElementById("procesador").value;
+        var depar =document.getElementById("departamento").value;
+        var des =document.getElementById("descripcion").value;
+        var error = false;
+                    
+  
+
+        if(marca == null  || marca.length == 0 ){
+        // id.classList.add("invalid");
+	 error = true;
+         if(marca == null  || marca.length == 0){
+          alert("El espacio de marca esta vacio");
+         
+     }
+}
+
+      else if(modelo == null  || modelo.length == 0 ){
+        // id.classList.add("invalid");
+	 error = true;
+         if(modelo == null  || modelo.length == 0){
+          alert("El espacio de modelo esta vacio");
+         
+     }
+}
+
+   else if(memoria == null  || memoria.length == 0 ){
+        // id.classList.add("invalid");
+	 error = true;
+         if(memoria == null  || memoria.length == 0){
+          alert("El espacio de memoria esta vacio");
+         
+     }
+}
+
+ else if(proce == null  || proce.length == 0 ){
+        // id.classList.add("invalid");
+	 error = true;
+         if(proce == null  || proce.length == 0){
+          alert("El espacio de procesador esta vacio");
+         
+     }
+}
+
+ else if(depar == null  || depar.length == 0 ){
+        // id.classList.add("invalid");
+	 error = true;
+         if(depar == null  || depar.length == 0){
+          alert("El espacio de departamento esta vacio");
+         
+     }
+}
+
+ else if(des == null  || des.length == 0 ){
+        // id.classList.add("invalid");
+	 error = true;
+         if(des == null  || des.length == 0){
+          alert("El espacio de descripcion esta vacio");
+         
+     }
+}
+
+
         
+        
+       if (error==false){
         if(id === ""){
         equipo = new Equipo(1,document.getElementById("selee1").value,null,document.getElementById("marca").value,document.getElementById("modelo").value,
                   document.getElementById("memoria").value,document.getElementById("procesador").value,document.getElementById("departamento").value,
@@ -504,18 +572,12 @@
                 Proxy.registrarEquipoContrato(equipo,
                 function(contrat){
                     if(contrat === 1){
-<<<<<<< HEAD
+
                        bootbox.alert("Equipo Registrado Con Exito!",function(){ document.location = "/Bridgestone/RegistrarEquipos.jsp" });
                   }else{
                       
                       bootbox.alert("No se pudo registrar!",function(){ document.location = "/Bridgestone/RegistrarEquipos.jsp" });
                   }  
-=======
-                       window.alert("Registro exitoso");
-                  }
-                     
-                   document.location = "/Bridgestone/RegistrarEquipos.jsp";
->>>>>>> 6ed5bedaffa80744e1cafaa1ee6bdc4063a05c9d
                             
                     
                 });
@@ -523,7 +585,7 @@
         }
          else{
           persona = new Persona(document.getElementById("identificacion").value,document.getElementById("nombre").value,document.getElementById("apellido").value,document.getElementById("telefono").value,document.getElementById("correo").value);   
-             
+      
              
           equipo = new Equipo(1,document.getElementById("selee1").value,null,document.getElementById("marca").value,document.getElementById("modelo").value,
                   document.getElementById("memoria").value,document.getElementById("procesador").value,document.getElementById("departamento").value,
@@ -562,6 +624,8 @@
              
          }         
        
+        }
+
 
 
     
