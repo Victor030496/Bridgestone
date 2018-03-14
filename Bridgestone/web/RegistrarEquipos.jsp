@@ -504,11 +504,18 @@
                 Proxy.registrarEquipoContrato(equipo,
                 function(contrat){
                     if(contrat === 1){
+<<<<<<< HEAD
                        bootbox.alert("Equipo Registrado Con Exito!",function(){ document.location = "/Bridgestone/RegistrarEquipos.jsp" });
                   }else{
                       
                       bootbox.alert("No se pudo registrar!",function(){ document.location = "/Bridgestone/RegistrarEquipos.jsp" });
                   }  
+=======
+                       window.alert("Registro exitoso");
+                  }
+                     
+                   document.location = "/Bridgestone/RegistrarEquipos.jsp";
+>>>>>>> 6ed5bedaffa80744e1cafaa1ee6bdc4063a05c9d
                             
                     
                 });
