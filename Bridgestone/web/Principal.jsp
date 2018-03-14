@@ -135,7 +135,7 @@
     </li>
      <li role="presentation" class="divider"></li>
     <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="#">Prestamos Registrados</a>
+      <a role="menuitem" tabindex="-1" href="Equi2.jsp">Prestamos Registrados</a>
     </li>
   </ul>
                              </a></li>

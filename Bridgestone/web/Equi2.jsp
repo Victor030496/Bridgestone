@@ -1,41 +1,40 @@
 <%-- 
-    Document   : AreaPrestamos
-    Created on : 13/03/2018, 03:30:39 PM
+    Document   : Equi2
+    Created on : 13/03/2018, 05:42:11 PM
     Author     : Luis Bogantes
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-         <%@ include file="Imports 2.jspf" %> 
-        <title>Area de Prestamos</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <%@ include file="Imports 2.jspf" %>  
+        <title>Registro de equipos</title>
         <link rel="stylesheet" title="Bridgestone" type="text/css" href="CSS/bootstrap.min.css">
         <link rel="stylesheet" title="Bridgestone" type="text/css" href="CSS/estilos.css">
-       <link rel="stylesheet" title="Bridgestone" type="text/css" href="CSS/estiloAdmin.css">
         <link rel="stylesheet" title="Bridgestone" type="text/css" href="CSS/registrarse.css">
+        <link rel="stylesheet" title="Bridgestone" type="text/css" href="CSS/estiloAdmin.css">
         <script type="text/javascript" src="JS/bootstrap.min.js"></script>
         <script type="text/javascript" src="JS/jquery-3.2.0.min.js"></script>
         <script type="text/javascript" src="JS/jquery.nivo.slider.js"></script>
+        <script type="text/javascript" src="JS/Trabajador.js"></script>
    
         
-          <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css" rel="stylesheet">        
-        
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css" rel="stylesheet">
+         <link rel="stylesheet" title="Bridgestone" type="text/css" href="CSS/jquery-ui.min.css">
     </head>
     <body>
-     <header>
-           
-        <div class = "container-fluid">     
-          <div id="links" style="height:125px;  margin-right: 10px; margin-left: 1px; display: inline-flex; align-items: center; justify-content: end; float:left;">    
-             <div style="width: 400px; height:75px; background-image: url(imagenes/logo.jpg); background-repeat: no-repeat; background-size:cover;">              </div>  
-                  </div > 
-                     </div >               
-        </header>
+        
+        
+        
+       <header>      
+         <div class = "container-fluid">     
+         <div id="links" style="height:125px;  margin-right: 10px; margin-left: 1px; display: inline-flex; align-items: center; justify-content: end; float:left;">    
+         <div style="width: 400px; height:75px; background-image: url(imagenes/logo.jpg); background-repeat: no-repeat; background-size:cover;">              </div>  
+         </div > 
+         </div >               
+        </header> 
         
                 <!------------------------------------------------------------------------------------------>
         
@@ -124,11 +123,13 @@
 </div>
         
         <!------------------------------------------------------------------------------------------>
-                
-          <div  id= "mainDiv" class="container-fluid" style="width: 1360px; height:1200px; background-image: url(imagenes/prin22.jpg); background-repeat: no-repeat; background-size:cover; ba">
-
-              
-                 <div class = "">
+        
+        
+        
+        
+       <div  id= "mainDiv" class="container-fluid" style="width: 1360px; height:860px; background-image: url(imagenes/prin22.jpg); background-repeat: no-repeat; background-size:cover; ba">
+     
+         <div class = "">
          <nav class = " navbar navbar-default   navbar-static-top   ">
              <div class = "container-fluid">
                  <div class = "navbar-header">
@@ -215,94 +216,70 @@
          
          </nav>
          </div>
+        
           <!------------------------------------------------------------------------------------------>
-            
-            <div class="container">
-  <h2>Area de presatmos de equipos</h2>
-    <br>  <br>
-    
-    
-    
-    <div class="col-sm-12 , cuadro" >
-  
-  
+      
+        
+        <div class = "main row" class = "columna1" id = "divPrincipal">
+        
+      <br>   
+         <h3 id="mjsImpor">¡ Rellene solo los campos necesarios segun el equipo que vaya a ingresar !</h3>
+        <div class = "col-md-2 text-justify"  "col-lg-9 text-justify"  "col-sm-8 text-justify"  "col-xs-6 text-justify" align = "center" >
 
-     </div>
-    
-    
-    
-  
-
-     
-</div>
-            <div class="col-sm-12 " >
-<!---------------------------------------------------------------------------------->   
-
-        <div class = "col-md-6 text-justify"  "col-lg-9 text-justify"  "col-sm-8 text-justify"  "col-xs-6 text-justify" align = "center" >
-
-           <div class="col-sm-3" style="text-align: right; vertical-align: middle;" >
-                                    <p><b>Buscar Equipo:</b></p>
-                                </div>
-                                <div class="col-sm-8 ,buscador">
-      <input type="email" class="form-control" id="searchTerm" placeholder="Busque un equipo por cualquier filtro" onkeyup="doSearch()">
-       
-                                </div>         
      <br>
     
-  <table class="table" id="tabUsuarios">
-        <br>  <br>
+    <table class="table table-bordered" >
     <thead>
       <tr>
-        <th class="success">Marca</th>
-        <th class="success">Modelo </th>
-        <th class="success">Memoria</th>
-        <th class="success">Seleccione</th>
-
+        <th class="" id ="accesoP">ACCESOS DIRECTOS</th>
       </tr>
     </thead>
-    <tbody id="listado">
+    <tbody >
     
+     <tr>
+      <th class="" id ="accesoP"> <a href="RegistrarEquipos.jsp">Registrar de nuevo <span class="glyphicon glyphicon-pencil"></span></a></th>
+    </tr>  
+    
+     <tr>
+         <th class="" id ="accesoP" ><a href="ListadoContratosLeasing.jsp">Ver todos Los equipos <span class="glyphicon glyphicon-list-alt"></span></a></th>
+    </tr>  
         
-        
-          
+     <tr>
+         <th class=""  id ="accesoP"><a href="Principal.jsp">Pagina Principal <span class="glyphicon glyphicon-arrow-left"></span></a></th>
+    </tr>   
+    
     </tbody>
-    <tfoot>
-        
-
-        
+    <tfoot>     
     </tfoot>
-    
-    
-    
+ 
   </table>
      
  
- </div> 
+ </div>  
+      
+      
+           <!------------------------------------------------------------------------------------------>
+   
+      <div class = "col-md-6 text-justify"  "col-lg-3 text-justify"  "col-sm-4 text-justify"  "col-xs-6 text-justify"  align = "center">
 
 
-
-
-<!---------------------------------------------------------------------------------------------->
-
-
-
-      <div class = "col-md-6 text-justify"  "col-lg-9 text-justify"  "col-sm-8 text-justify"  "col-xs-6 text-justify" align = "center" >
-
-
-               
+     
                 <form class="form-signin" id="formLogin">
                     <h3 class="form-signin-heading">
-                        <b style="color:#c7c7c7 !important">Registro de Prestamo</b>
+                        <b style="color:#c7c7c7 !important">Registro de Equipos</b>
                     </h3>
 
 
  
-
-                    <input type="text" class="form-control" name="u_name" placeholder="Cedula del prestario" required="" autofocus="" id="usuario" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" /><br />
-                    <input type="text" class="form-control" name="u_name" placeholder="Nombre del prestario" required="" autofocus="" id="usuario" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" /><br />
-                    <input type="text" class="form-control" name="u_name" placeholder="Apellido del prestario" required="" autofocus="" id="usuario" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" /><br />
-                    <input type="text" class="form-control" name="u_name" placeholder="Numero telefonico" required="" autofocus="" id="usuario" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" /><br />
-                    <input type="text" class="form-control" name="u_name" placeholder="Correo electronico" required="" autofocus="" id="usuario" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" /><br />
+                      <b style="color:#c7c7c7 !important">Contrato Leasing</b>
+                    <select class="selectpicker form-control " id="selee1">
+                                <option>Prueba</option>
+                                  </select>
+                      <br>
+                    <input type="text" class="form-control" name="u_name" placeholder="Marca del Equipo" required="" autofocus="" id="usuario" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" /><br />
+                    <input type="text" class="form-control" name="u_name" placeholder="Modelo del Equipo" required="" autofocus="" id="usuario" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" /><br />
+                    <input type="text" class="form-control" name="u_name" placeholder="Memoria del Equipo" required="" autofocus="" id="usuario" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" /><br />
+                    <input type="text" class="form-control" name="u_name" placeholder="Procesador " required="" autofocus="" id="usuario" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" /><br />
                     <input type="text" class="form-control" name="u_name" placeholder="Departamento " required="" autofocus="" id="usuario" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" /><br />
                     <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="button" id="enviar" onclick="controller.login();">Guardar</button>
                     <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="button" id="cancelar">Cancelar</button>
@@ -322,30 +299,35 @@
      
      
      
+
+
+     
+     
+     
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- <!-------------------------------------------------------->   
-            </div>
-          </div>  
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+        </div>
+       </div>      
     <script type="text/javascript" src="JS/jquery.js"></script>     
     <script type="text/javascript" src="JS/jquery-ui.min.js"></script>  
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>                      
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>               
+        
     </body>
     
     
@@ -357,37 +339,8 @@
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-       <script> // Model
+      
+<script> // Model
   function Model() {
     this.Model();
   }
@@ -408,107 +361,199 @@
 		this.model=model;
 		this.view=view;
                 
-          Proxy.getEquipos(function(result){
           
-          model.equipos = result;
-          console.log(result[0].id);
-          view.showTabla();
+        Proxy.getContratos(function(result){
+          
+          model.contratos = result;
+          console.log(result[0]);
+          view.showContratos();
         
        }      
       ); 
-	}
+      
+      
+      
+              Proxy.getComprobantes(function(result){
+          
+          model.comprobantes = result;
+          console.log(result[0]);
+          view.showComprobantes();
+        
+       }      
+      ); 
+                
+                
+	},
+        guardaEquipo: function(){
+        
+        
+        var id = document.getElementById("identificacion").value;
+        
+        if(id === ""){
+        equipo = new Equipo(1,document.getElementById("selee1").value,null,document.getElementById("marca").value,document.getElementById("modelo").value,
+                  document.getElementById("memoria").value,document.getElementById("procesador").value,document.getElementById("departamento").value,
+                      null,document.getElementById("descripcion").value,"disponible");
+                
+                Proxy.registrarEquipoContrato(equipo,
+                function(contrat){
+                    if(contrat === 1){
+                       window.alert("Registro exitoso");
+                  }
+                     
+                   //  document.location = "/Bridgestone/RegistraeEquipos.jsp";
+                            
+                    
+                });
+        
+        }
+         else{
+          persona = new Persona(document.getElementById("identificacion").value,document.getElementById("nombre").value,document.getElementById("apellido").value,document.getElementById("telefono").value,document.getElementById("correo").value);   
+             
+             
+          equipo = new Equipo(1,document.getElementById("selee1").value,null,document.getElementById("marca").value,document.getElementById("modelo").value,
+                  document.getElementById("memoria").value,document.getElementById("procesador").value,document.getElementById("departamento").value,
+                      document.getElementById("identificacion").value,document.getElementById("descripcion").value,"asignado");           
+         
+          Proxy.registrarPersona(persona,
+                function(contrat){
+                    if(contrat === 1){
+                       window.alert("Registro exitoso");
+                  }
+                     
+                   //  document.location = "/Bridgestone/RegistraeEquipos.jsp";
+                            
+                    
+                });
+            
+            
+            
+            
+            
+                    Proxy.registrarEquipoUsuario(equipo,
+                function(contrat){
+                    if(contrat === 1){
+                       window.alert("Registro exitoso");
+                  }
+                     
+                   //  document.location = "/Bridgestone/RegistraeEquipos.jsp";
+                            
+                    
+                });  
+            
+            
+            
+            
+            
+             
+         }         
+       
+
+
+    
+    },
+            mostrarModalTrabajador: function(num){
+  
+        $("#myModalFormularioTrabajador").modal();
+        
+        var nume = document.getElementById("enviarTrabajador");
+        nume.value = num;
+        
+      
+        trabajador = model.usuarios.find(function(x){return x.correo === num; });
+    
+        document.getElementById("identificacion").value = trabajador.identificacion;
+        document.getElementById("nombre").value = trabajador.nombre;
+        document.getElementById("apellido").value = trabajador.apellido;
+        document.getElementById("telefono").value = trabajador.telefono;
+        document.getElementById("correo").value = trabajador.correo;
+    }
+
+        
+        
+        
   };
 </script>
+
+
 <script> // View
   var model;
   var controller;
-  
-
-  
-
-
 	function pageLoad(event){ 
  
-		model=new Model();  
-		controller = new Controller(model,window);
-                showTabla();
-  
+	model=new Model();  
+	controller = new Controller(model,window);
+        var fo = document.getElementById("siguiente1");
+       // fo.addEventListener("click",doValidate);
+        var accCue2 =  document.getElementById("proban"); 
+	accCue2.addEventListener("click",doQueryTrabajador);
 	}
-        
-              function cerrar(){
- 
-        document.location = "/Bridgestone/ListadoUsuarios.jsp";
-        
-     }
-        
-        function showTabla(){
-            var listado = document.getElementById("listado");
-              for (i=0;i<model.equipos.length;i++){
-        var tr =document.createElement("tr");
-        tr.classList.add("active");
-	var td;
-	td=document.createElement("td");
-	td.appendChild(document.createTextNode(model.equipos[i].marca));
-	tr.appendChild(td);
-       
-       
-        td=document.createElement("td");
-	td.appendChild(document.createTextNode(model.equipos[i].modelo));
-	tr.appendChild(td);
-        
-        td=document.createElement("td");
-	td.appendChild(document.createTextNode(model.equipos[i].memoria));
-	tr.appendChild(td);
-	
-
- 
-        var check;
-	
-         td= document.createElement("td");
-         check = document.createElement("input");
-         check.type = "radio";
-
-       td.appendChild(check);
-       tr.appendChild(td);
-       
- 
-
- 
-         
-         listado.appendChild(tr);
-         
-        
-     }
-            
+        function showErrorMessage(){
+            window.alert("Usuario incorrecto...");
         }
         
+        function mjs(){
+
+     var  o = document.getElementById('o').style.display='block';
+     var  p = document.getElementById('p').style.display='block';
+
+
+}
+        
 
         
         
-           function salir(){
-       document.location = "/Bridgestone/Registrar2.jsp";
+                function salir(){
+ document.location = "/Bridgestone/Principal.jsp";
         
      }
-    
-        function doQueryTrabajador(event){
+     
+     function showContratos(){
+         
+        var combo = document.getElementById("selee1");
+        for (i = 0; i < model.contratos.length; i++){
+        combo.options[i] = new Option(model.contratos[i].codigoContrato);
+         
+         
+     }
+ }
+ 
+ 
+ 
+      function showComprobantes(){
+         
+        var combo = document.getElementById("selee2");
+        for (i = 0; i < model.comprobantes.length; i++){
+        combo.options[i] = new Option(model.comprobantes[i].numeroDeComprobante);
+         
+         
+     }
+ }
+ 
+         function irTabla(){
+       document.location = "/Bridgestone/ListadoActivosLeasing.jsp";
+        
+     } 
+     
+       function doQueryTrabajador(event){
             
-        //var persona = model.usuarios.find(function(x){return x.id==per.id; });
-        
-        //if(persona.value == null  ){//|| persona.value.length == 0
-        
-            //controller.login2(id);
+     
             var aux = event.target.id;
-        
-        
-            controller.mostrarModalTrabajador(aux);
+           controller.mostrarModalTrabajador(aux);
             
         }
         
         
         
+        
+        
+         function siguiente(){
+      document.location = "/Bridgestone/Registrar2.jsp";
+  }
 	document.addEventListener("DOMContentLoaded",pageLoad);
-</script>      
-    
+</script>
+        
+</html>
+  
     
     
     
@@ -524,3 +569,4 @@
     
     
 </html>
+
