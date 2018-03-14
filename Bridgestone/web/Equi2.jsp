@@ -127,7 +127,7 @@
         
         
         
-       <div  id= "mainDiv" class="container-fluid" style="width: 1360px; height:860px; background-image: url(imagenes/prin22.jpg); background-repeat: no-repeat; background-size:cover; ba">
+       <div  id= "mainDiv" class="container-fluid" style="width: 1360px; height:1200px; background-image: url(imagenes/prin22.jpg); background-repeat: no-repeat; background-size:cover; ba">
      
          <div class = "">
          <nav class = " navbar navbar-default   navbar-static-top   ">
@@ -281,6 +281,9 @@
                     <input type="text" class="form-control" name="u_name" placeholder="Memoria del Equipo" required="" autofocus="" id="usuario" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" /><br />
                     <input type="text" class="form-control" name="u_name" placeholder="Procesador " required="" autofocus="" id="usuario" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" /><br />
                     <input type="text" class="form-control" name="u_name" placeholder="Departamento " required="" autofocus="" id="usuario" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" /><br />
+                    <textarea class="form-control" name="comentarios" rows="3" cols="50" id="descripcion" placeholder="Descripcion del equipo"></textarea>  
+                    <b style="color:#c7c7c7 !important">Asignar un usuario al equipo</b>                
+                    <button type="button" class="btn btn-lg btn-primary btn-block" id="proban" >Ingresar Usuario</button>
                     <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="button" id="enviar" onclick="controller.login();">Guardar</button>
                     <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="button" id="cancelar">Cancelar</button>
                      
