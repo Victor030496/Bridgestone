@@ -309,7 +309,7 @@
                     <input type="text" class="form-control" name="u_name" placeholder="Departamento " required="" autofocus="" id="usuario" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" /><br />
                     <input type="text" id="datepicker" class="form-control" placeholder="Fecha de inicio del prestamo"><br />
                     <input type="text" id="datepicker2" class="form-control" placeholder="Fecha de devolucion"><br />
-                    <textarea  class="form-control" name="comentarios" rows="3" cols="85" id="descripcion"></textarea><br />
+                    <textarea  class="form-control" name="comentarios" rows="3" cols="85" id="descripcion" placeholder="Descripcion"></textarea><br />
 
                     <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="button" id="enviar" onclick="controller.login();">Guardar</button>
                     <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="button" id="cancelar">Cancelar</button>

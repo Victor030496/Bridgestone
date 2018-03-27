@@ -88,6 +88,8 @@ create table Prestamo(
   id_Persona varchar(15) ,
   id_equi integer ,
   departamento varchar(15),
+  fechaInicio Date,
+  fechaDevolucion Date,
   comentario varchar(40),
  PRIMARY KEY (id)
 
