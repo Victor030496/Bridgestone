@@ -132,7 +132,7 @@ static {
        
              
                public static int guardaComprobante(Comprobante c)throws Exception{
-       System.out.println("Comprobante que vamos a guardar"+ c.numeroDeComprobante);
+       System.out.println("Prestamo que vamos a guardar"+ c.getComprobante());
        String sql="insert into Comprobante(numeroDeComprobante)"
                 + "values('%s')";
 
@@ -146,6 +146,25 @@ static {
  
    return 1;
    }
+               
+               
+                  public static int guardaPrestamo(Prestamo c)throws Exception{
+
+       
+              System.out.println("Prestamo que vamos a guardar"+ c.getDepartamento());
+       String sql="insert into Prestamo(id_Persona,id_equi,departamento,fechaInicio,fechaDevolucion,comentario)"
+                + "values('%s','%s','%s','%s','%s','%s')";
+
+       sql=String.format(sql,c.id_Persona,c.id_equi,c.departamento,c.fechaInicio,c.fechaDevolucion,c.comentario);
+       int aux = datos.executeUpdate(sql);
+       if(aux ==0){
+       
+        throw new Exception("PRESTAMO NO SE PUDO GUARDAR");
+       
+       }
+ 
+   return 1;
+   }            
              
                
 //   public static int guardaActivo(Activo c)throws Exception{

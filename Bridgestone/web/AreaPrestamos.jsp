@@ -37,93 +37,7 @@
                      </div >               
         </header>
         
-                <!------------------------------------------------------------------------------------------>
-        
-        
-                            
-        <div class="modal fade" id="myModalFormularioTrabajador" role="dialog">
-    <div class="row-fluid" >
-        <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-        
-        <div class="col-md-offset-4 col-md-4" id="boxy">
-            <br><br><br><br><br><br><br><br>
-            <h2 id='Contact' style="font-weight: bold;">Ingresar datos del usuario del equipo</h2>
-            <hr>
-            <form role="form" onsubmit="return false;" id="formTrabajadores">
-                <fieldset>
-                     <div class="col-md-12">
-             
-                <div class="leftcontact">
-                    <div class="form-group" id="groupIdentificacion">
-                       
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
-                                <input maxlength="10" name="identificacion" id="identificacion" placeholder="Identificacion" class="form-control input_ced" type="text" size="15" maxlength="15">
-                            </div><span style="color: black ; font-size: 12pt ;font-family:Impact"  id="num2"></span>
-                        
-                    </div>
-                    
-                             
-                    <div class="form-group" id="groupNombre">
-                       
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-align-center"></i></span>
-                                <input maxlength="10" name="nombre" id="nombre" placeholder="Nombre" class="form-control" type="text">
-                            </div>
-                        
-                    </div>
-                             
-                    <div class="form-group" id="groupApellido">
-                       
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
-                                <input maxlength="10" name="apellido" id="apellido" placeholder="Apellido" class="form-control" type="text">
-                            </div>
-                        
-                    </div>
-                              
-                   <div class="form-group" id="groupTelefono">
-                       
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
-                                <input maxlength="10" name="telefono" id="telefono" placeholder="Telefono" class="form-control input_tel" type="text" size="15" maxlength="15">
-                                
-                            </div><span style="color: black ; font-size: 12pt ;font-family:Impact"  id="num1"></span>
-                        
-                    </div>
-                              
-                    <div class="form-group" id="groupCorreo">
-                       
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
-                                <input  name="correo" id="correo" placeholder="Correo" class="form-control" type="email">
-                            </div><span style="color: black ; font-size: 12pt ;font-family:Impact"  id="emailOK"></span>
-                        
-                    </div>
-                     
-                     
-                     
-                         </div>-->
-                  
-        </div>
-                    
-                    <div class="form-group"  style="margin-left: 38%">
-                                <input type="hidden" value="agregarTrabajador" id="trabajadorAction"/>
-                                <button type="submit" class="btn btn-primary" id="enviarTrabajador"  onclick="controller.editarTrabajador()">Guardar</button>
-                                <button type="reset" class="btn btn-danger" id="cancelar">Cancelar</button>
-                            </div>
 
-                
-                </fieldset>
-            </form>
-        </div>    
-      </div>
-     </div> 
-   </div>
-</div>
-        
-        <!------------------------------------------------------------------------------------------>
                 
           <div  id= "mainDiv" class="container-fluid" style="width: 1360px; height:1200px; background-image: url(imagenes/prin22.jpg); background-repeat: no-repeat; background-size:cover; ba">
 
@@ -309,7 +223,7 @@
                     <input type="text" class="form-control" name="u_name" placeholder="Departamento " required="" autofocus="" id="depa" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" /><br />
                     <input type="text" id="datepicker" class="form-control" placeholder="Fecha de inicio del prestamo"><br />
                     <input type="text" id="datepicker2" class="form-control" placeholder="Fecha de devolucion"><br />
-                    <textarea  class="form-control" name="comentarios" rows="3" cols="85" id="descripcion" placeholder="Descripcion"></textarea><br />
+                    <textarea  class="form-control" name="comentarios" rows="3" cols="85" id="comentario" placeholder="comentario"></textarea><br />
 
                     <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="button" id="enviar" onclick="controller.guardaPrestamo();">Guardar</button>
                     <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="button" id="cancelar">Cancelar</button>
@@ -455,7 +369,24 @@
                 }); 
                 
               //  prestamo = new Prestamo
+              
+              prestamo = new Prestamo(1,document.getElementById("identificacion").value,
+              model.equipos[i].idEquipo,
+              document.getElementById("depa").value,
+              document.getElementById("datepicker").value,
+              document.getElementById("datepicker2").value,document.getElementById("comentario").value);
              
+                Proxy.registrarPrestamo(prestamo,
+                function(contrat){
+                    if(contrat === 1){
+                   window.alert("Prestamo exitoso...");
+                   document.location = "/Bridgestone/AreaPrestamos.jsp";
+                  }
+                     
+                   //  document.location = "/Bridgestone/RegistraeEquipos.jsp";
+                            
+                    
+                }); 
              
             }
         }

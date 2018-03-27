@@ -21,6 +21,7 @@ import model.Contrato;
 import model.Equipo;
 import model.Jsonable;
 import model.Persona;
+import model.Prestamo;
 import model.Trabajador;
 import model.Usuario;
 import org.json.JSONObject;
@@ -60,6 +61,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
              .registerSubtype(Comprobante.class,"Comprobante") 
              .registerSubtype(Equipo.class,"Equipo")  
              .registerSubtype(Persona.class,"Persona") 
+            .registerSubtype(Prestamo.class,"Prestamo")          
             .registerSubtype(Usuario.class,"Usuario");//IMPORTANTE HACER CAMBIOS CUANDO META CLASE USUARIO , TIQUETE ECT....//
             
         Gson gson = new GsonBuilder().registerTypeAdapterFactory(rta).setDateFormat("dd/MM/yyyy").create();
@@ -199,7 +201,15 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                     System.out.println("Registando persona : " + eq1.getNombre() );
                     int aux1001 = model.guardaPersona(eq1);
                     System.out.println("retorno "+aux1001);
-                break;                             
+                break;  
+                          
+                           case "registrarPrestamo":
+                    json = request.getParameter("presta");
+                    Prestamo pre = gson.fromJson(json, Prestamo.class);
+                    System.out.println("Registrando Contrato" + pre.getDepartamento());
+                    int aux23232 = model.guardaPrestamo(pre);
+                    System.out.println("retorno "+aux23232);
+                break;          
                 
                     case "eliminarUsuario":
                     json = request.getParameter("user");
