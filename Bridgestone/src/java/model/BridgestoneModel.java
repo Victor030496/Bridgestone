@@ -299,7 +299,7 @@ static {
         // System.out.println(ciudades.get(0).toString());
          
          
-         return comprobantes;
+         return comprobantes2;
 
 }  
 
