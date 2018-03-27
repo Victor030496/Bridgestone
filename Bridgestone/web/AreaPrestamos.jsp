@@ -301,17 +301,17 @@
 
  
 
-                    <input type="text" class="form-control" name="u_name" placeholder="Cedula del prestario" required="" autofocus="" id="usuario" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" /><br />
-                    <input type="text" class="form-control" name="u_name" placeholder="Nombre del prestario" required="" autofocus="" id="usuario" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" /><br />
-                    <input type="text" class="form-control" name="u_name" placeholder="Apellido del prestario" required="" autofocus="" id="usuario" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" /><br />
-                    <input type="text" class="form-control" name="u_name" placeholder="Numero telefonico" required="" autofocus="" id="usuario" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" /><br />
-                    <input type="text" class="form-control" name="u_name" placeholder="Correo electronico" required="" autofocus="" id="usuario" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" /><br />
-                    <input type="text" class="form-control" name="u_name" placeholder="Departamento " required="" autofocus="" id="usuario" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" /><br />
+                    <input type="text" class="form-control" name="u_name" placeholder="Cedula del prestario" required="" autofocus="" id="identificacion" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" /><br />
+                    <input type="text" class="form-control" name="u_name" placeholder="Nombre del prestario" required="" autofocus="" id="nombre" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" /><br />
+                    <input type="text" class="form-control" name="u_name" placeholder="Apellido del prestario" required="" autofocus="" id="apellido" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" /><br />
+                    <input type="text" class="form-control" name="u_name" placeholder="Numero telefonico" required="" autofocus="" id="telefono" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" /><br />
+                    <input type="text" class="form-control" name="u_name" placeholder="Correo electronico" required="" autofocus="" id="correo" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" /><br />
+                    <input type="text" class="form-control" name="u_name" placeholder="Departamento " required="" autofocus="" id="depa" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" /><br />
                     <input type="text" id="datepicker" class="form-control" placeholder="Fecha de inicio del prestamo"><br />
                     <input type="text" id="datepicker2" class="form-control" placeholder="Fecha de devolucion"><br />
                     <textarea  class="form-control" name="comentarios" rows="3" cols="85" id="descripcion" placeholder="Descripcion"></textarea><br />
 
-                    <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="button" id="enviar" onclick="controller.login();">Guardar</button>
+                    <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="button" id="enviar" onclick="controller.guardaPrestamo();">Guardar</button>
                     <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="button" id="cancelar">Cancelar</button>
                      
                    
@@ -426,7 +426,7 @@
 		this.model=model;
 		this.view=view;
                 
-          Proxy.getEquipos(function(result){
+          Proxy.getEquiposDispo(function(result){
           
           model.equipos = result;
           console.log(result[0].id);
@@ -434,7 +434,38 @@
         
        }      
       ); 
-	}
+	},
+        
+        guardaPrestamo: function(){
+        
+         for (i=0;i< model.equipos.length ;i++){  
+            var cheki = document.getElementById(i);
+            if(cheki.checked){
+          persona = new Persona(document.getElementById("identificacion").value,document.getElementById("nombre").value,document.getElementById("apellido").value,document.getElementById("telefono").value,document.getElementById("correo").value);   
+
+                Proxy.registrarPersona(persona,
+                function(contrat){
+                    if(contrat === 1){
+                       //window.alert("Registro exitoso");
+                  }
+                     
+                   //  document.location = "/Bridgestone/RegistraeEquipos.jsp";
+                            
+                    
+                }); 
+                
+              //  prestamo = new Prestamo
+             
+             
+            }
+        }
+    
+    
+    
+    
+    
+    
+    }
   };
 </script>
 <script> // View
@@ -485,6 +516,7 @@
          td= document.createElement("td");
          check = document.createElement("input");
          check.type = "radio";
+         check.id =i;
 
        td.appendChild(check);
        tr.appendChild(td);

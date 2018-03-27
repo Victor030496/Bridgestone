@@ -1,5 +1,5 @@
-  function Prestamo(id,id_Persona,id_equi,departamento,comentario) {
-    this.Prestamo(id,id_Persona,id_equi,departamento,comentario);
+  function Prestamo(id,id_Persona,id_equi,departamento,fechaInicio,fechaDevolucion,comentario) {
+    this.Prestamo(id,id_Persona,id_equi,departamento,fechaInicio,fechaDevolucion,comentario);
   }
   
      Prestamo.prototype={
@@ -7,14 +7,18 @@
 	id_Persona: "",
         id_equi:0,
         departamento:"",
+        fechaInicio:"",
+        fechaDevolucion:"",
 	comentario: "",
 	
 
-	Prestamo: function(id,id_Persona,id_equi,departamento,comentario){
+	Prestamo: function(id,id_Persona,id_equi,departamento,fechaInicio,fechaDevolucion,comentario){
 		this.id=id;
 		this.id_Persona=id_Persona;
                 this.id_equi = id_equi;
                 this.departamento = departamento;
+                this.fechaInicio = fechaInicio;
+                this.fechaDevolucion = fechaDevolucion;
                 this.comentario=comentario;
 
 	},
@@ -24,7 +28,7 @@
   }
   
   Prestamo.from= function(plain){
-    prestamo = new Prestamo(plain.id, plain.id_Persona, plain.id_equi , plain.departamento , plain.comentario);
+    prestamo = new Prestamo(plain.id, plain.id_Persona, plain.id_equi , plain.departamento,plain.fechaInicio,plain.fechaDevolucion , plain.comentario);
 	return prestamo;
   };
   
@@ -33,9 +37,11 @@
         _class : 'Prestamo',
         id:Prestamo.id,
         id_Persona:Prestamo.id_Persona,
-        apellido:Prestamo.id_equi,
-        telefono:Prestamo.departamento,
-        correo:Prestamo.comentario
+        id_equi:Prestamo.id_equi,
+        departamento:Prestamo.departamento,
+        fechaInicio:Prestamo.fechaInicio,
+        fechaDevolucion: Prestamo.fechaVencimiento,
+        comentario:Prestamo.comentario
 
        
     };	

@@ -27,7 +27,9 @@ JsonUtils.revive = function(k,v){
         if (v instanceof Object && v._class == 'Equipo') {
 		return Equipo.from(v);
 	}
-        
+            if (v instanceof Object && v._class == 'Prestamo') {
+		return Prestamo.from(v);
+	}
         
 	  return v;
 	
@@ -64,6 +66,9 @@ JsonUtils.replacer = function(k,v){
 		return Equipo.to(v);
 	} 
 	
+             if (v instanceof Prestamo) {
+		return Prestamo.to(v);
+	} 
 	return v;
 	
 };

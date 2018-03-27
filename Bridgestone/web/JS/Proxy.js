@@ -92,6 +92,28 @@ Proxy.getUsuarios = function(callBack){
     };
     
     
+        Proxy.getEquiposDispo = function(callBack){
+    var AJAX_req = new XMLHttpRequest();
+    url = "/Bridgestone/BridgestoneService?action=EquiposDispoListAll";
+    AJAX_req.open("GET",url,true);
+    AJAX_req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    AJAX_req.onreadystatechange = function (){
+        if(AJAX_req.readyState === 4 && AJAX_req.status === 200){ // Si se recibieron los datos de forma correcta //
+             console.log("parseando...");
+            var object = JSON.parse(AJAX_req.responseText,JsonUtils.revive);
+            console.log("parseando bienn...");
+            console.log(object[0]);
+            callBack(object);
+        }
+         };
+        
+        AJAX_req.send();
+       
+    
+    
+    };
+    
+    
     
  Proxy.getContratos = function(callBack){
     var AJAX_req = new XMLHttpRequest();

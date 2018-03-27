@@ -73,7 +73,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
         List<Comprobante> comprobantes = new ArrayList();
         List<Usuario> usuarios = new ArrayList();
         List<Equipo> equipos = new ArrayList(); 
-
+        List<Equipo> disponibles = new ArrayList();
         switch(accion){
          
              case "trabajadorListAll":
@@ -112,7 +112,15 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                  System.out.println(model.getEquipos().get(0).getMarca());
                 out.write(json);
                 System.out.println("enviadosssss");
-                break;   
+                break;  
+                 case "EquiposDispoListAll":
+                disponibles = model.getEquiposDisponibles();
+                json = gson.toJson(disponibles);
+                System.out.println("enviando datoooos equipos dispo");
+                 System.out.println(model.getEquiposDisponibles().get(0).getMarca());
+                out.write(json);
+                System.out.println("enviadosssss");
+                break;                    
                  
              case "userLogin":
                     Usuario usua;
