@@ -164,7 +164,36 @@ static {
        }
  
    return 1;
-   }            
+   }
+                  
+                  
+                  
+       public static int guardaDevolucion(Devolucion c)throws Exception{
+
+       
+              System.out.println("Devolucion que vamos a guardar"+ c.id);
+       String sql="insert into Devolucion(id,id_Prestamo,comentario)"
+                + "values('%s','%s','%s')";
+       
+       String sql2="update Equipo "+
+                    "set estado  = 'disponible'" +
+               
+                    "where Prestamo.id= '%s'";
+
+       sql=String.format(sql,c.id,c.id_Prestamo,c.comentario);
+       //sql2=String.format(sql2,c.id_Prestamo);
+       
+       int aux = datos.executeUpdate(sql);
+       //int aux2 = datos.executeUpdate(sql2);
+       //if(aux ==0 && aux2 ==0 ){
+           if(aux ==0){
+       
+        throw new Exception("Devolucion NO SE PUDO GUARDAR");
+       
+       }
+ 
+   return 1;
+   }
              
                
 //   public static int guardaActivo(Activo c)throws Exception{
@@ -313,7 +342,90 @@ static {
         // System.out.println(ciudades.get(0).toString());        
        return equipos;
 
-}  
+} 
+           
+           public List<Prestamo>getPrestamosParaDevoluciones() throws Exception{
+          System.out.println("entro al getPrestamosParaDevoluciones");
+         List<Prestamo> prestamos;
+         prestamos= new ArrayList();
+         try {
+             
+             ////HACER CONSTRUCTOR DE PRESTAMOS CON ESTOS ATRIBUTOS
+            String sql="select Prestamo.id,Prestamo.id_equi,Prestamo.id_Persona,Prestamo.departamento,Prestamo.fechaInicio,Prestamo.fechaDevolucion\n" +
+                        "from Prestamo join Persona on Prestamo.id_Persona = Persona.id \n" +
+                        "join Equipo on Prestamo.id_equi = Equipo.idEquipo\n" +
+                         "where Equipo.estado = 'prestado'";
+                        //"where Equipo.estado = 'disponible'"; /// CAMBIAR AL DE ARRIBA!!!!!!!!!!!
+            
+            //"where p.estado = 'asignado' AND 'prestado'"; // sino sirve pasar trabajador a minuscula//
+            ResultSet rs =  datos.executeQuery(sql);
+             System.out.println("exitoooooo");
+            while (rs.next()) {
+                prestamos.add(toPrestamoParaDevoluciones(rs));
+                System.out.println("insertando");
+            }
+        } catch (SQLException ex) {
+        }
+        // System.out.println(ciudades.get(0).toString());        
+       return prestamos;
+
+} 
+           
+           
+           public List<Equipo>getEquiposParaDevoluciones() throws Exception{
+          System.out.println("entro al getEquiposParaDevoluciones");
+         List<Equipo> equipos;
+         equipos= new ArrayList();
+         try {
+             
+
+            String sql="select Equipo.idEquipo,Equipo.marca,Equipo.modelo,Equipo.departamento,Equipo.estado\n" +
+                        "from Prestamo join Persona on Prestamo.id_Persona = Persona.id \n" +
+                        "join Equipo on Prestamo.id_equi = Equipo.idEquipo\n" +
+                         "where Equipo.estado = 'prestado'";
+                        //"where Equipo.estado = 'disponible'"; /// CAMBIAR AL DE ARRIBA!!!!!!!!!!!
+            
+            //"where p.estado = 'asignado' AND 'prestado'"; // sino sirve pasar trabajador a minuscula//
+            ResultSet rs =  datos.executeQuery(sql);
+             System.out.println("exitoooooo");
+            while (rs.next()) {
+                equipos.add(toEquipoParaDevoluciones(rs));
+                System.out.println("insertando");
+            }
+        } catch (SQLException ex) {
+        }
+        // System.out.println(ciudades.get(0).toString());        
+       return equipos;
+
+}
+           
+           
+           public List<Persona>getPersonasParaDevoluciones() throws Exception{
+          System.out.println("entro al getPersonasParaDevoluciones");
+         List<Persona> personas;
+         personas= new ArrayList();
+         try {
+             
+                   ////HACER CONSTRUCTOR DE PERSONA CON ESTOS ATRIBUTOS
+            String sql="select Persona.id,Persona.nombre,Persona.apellido\n" +
+                         "from Prestamo join Persona on Prestamo.id_Persona = Persona.id \n" +
+                        "join Equipo on Prestamo.id_equi = Equipo.idEquipo\n" +
+                         "where Equipo.estado = 'prestado'";
+                        //"where Equipo.estado = 'disponible'"; /// CAMBIAR AL DE ARRIBA!!!!!!!!!!!
+            
+            //"where p.estado = 'asignado' AND 'prestado'"; // sino sirve pasar trabajador a minuscula//
+            ResultSet rs =  datos.executeQuery(sql);
+             System.out.println("exitoooooo");
+            while (rs.next()) {
+                personas.add(toPersonaParaDevoluciones(rs));
+                System.out.println("insertando");
+            }
+        } catch (SQLException ex) {
+        }
+        // System.out.println(ciudades.get(0).toString());        
+       return personas;
+
+}
             
      
      
@@ -405,6 +517,50 @@ static {
         obj.setFechaVencimiento(rs.getDate("fechaVencimiento"));
         obj.setEstado(rs.getInt("estado"));
    
+        return obj;
+    }
+        
+        
+        private static Prestamo toPrestamoParaDevoluciones(ResultSet rs) throws Exception{
+       Prestamo obj= new Prestamo();
+        obj.setId_Persona(rs.getString("id_Persona"));
+        obj.setId(rs.getInt("id"));
+        obj.setId_equi(rs.getInt("id_equi"));
+        obj.setDepartamento(rs.getString("departamento"));
+        obj.setFechaDevolucion(rs.getDate("fechaDevolucion"));
+        obj.setFechaInicio(rs.getDate("fechaInicio"));
+
+        return obj;
+    }
+        
+        private static Equipo toEquipoParaDevoluciones(ResultSet rs) throws Exception{
+       Equipo obj= new Equipo();
+        obj.setIdEquipo(rs.getInt("idEquipo"));
+        obj.setMarca(rs.getString("marca"));
+        obj.setModelo(rs.getString("modelo"));
+        obj.setDepartamento(rs.getString("departamento"));
+        obj.setEstado(rs.getString("estado"));
+        return obj;
+    }
+       
+        private static Persona toPersonaParaDevoluciones(ResultSet rs) throws Exception{
+       Persona obj= new Persona();
+        obj.setId(rs.getString("id"));
+        obj.setNombre(rs.getString("nombre"));
+        obj.setApellido(rs.getString("apellido"));
+        return obj;
+    }
+        
+        
+        private static Persona toPersona(ResultSet rs) throws Exception{
+       Persona obj= new Persona();
+        obj.setApellido(rs.getString("apellido"));
+        obj.setCorreo(rs.getString("correo"));
+        obj.setId(rs.getString("id"));
+        obj.setNombre(rs.getString("nombre"));
+        obj.setTelefono(rs.getString("telefono"));
+        
+
         return obj;
     }
         

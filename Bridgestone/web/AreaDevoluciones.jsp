@@ -1,8 +1,7 @@
-
-<%-- prueba
-    Document   : ListadoContratos
-    Created on : Oct 24, 2017, 4:08:07 PM
-    Author     : victo
+<%-- 
+    Document   : AreaDevoluciones
+    Created on : 30-mar-2018, 15:09:02
+    Author     : Ronald
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -11,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
            <%@ include file="Imports 2.jspf" %>  
-        <title>Listado de Contratos</title>
+        <title>Area Devoluciones</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" title="Bridgestone" type="text/css" href="CSS/bootstrap.min.css">
@@ -153,52 +152,38 @@
                              
         
         
-        <div class="modal fade" id="myModalFormularioContratos" role="dialog">
+        <div class="modal fade" id="myModalFormularioDevoluciones" role="dialog">
     <div class="row-fluid" >
         <div class="modal-dialog modal-lg">
                 <div class="modal-content">
         
         <div class="col-md-offset-4 col-md-4" id="boxy">
             <br><br><br><br><br><br><br><br>
-            <h2 id='Contact' style="font-weight: bold;">Contrato a editar</h2>
+            <h2 id='Contact' style="font-weight: bold;">Devolución</h2>
             <hr>
-          <form role="form" onsubmit="return false;" id="formContratos">
+          <form role="form" onsubmit="return false;" id="formDevoluciones">
                          <fieldset>
                              <div class="col-md-12">
                                  
                                   <div class="leftcontact">
                                  
-                            <div class="form-group" id="groupcodContrato">
+                            <div class="form-group" id="groupcomentario">
                                 <div class="input-group">
                                <span class="input-group-addon"><i class="glyphicon glyphicon-paperclip"></i></span>
-                                <input type="text" class="form-control" id="codContrato" name="codContratoTab" placeholder="Codigo del Contrato" maxlength="12"/>
+                                <input type="textarea" class="form-control" id="comentario" name="comentarioTab" placeholder="Comentario" maxlength="40"/>
                                  </div>
                             </div>
-
-                            <div class="form-group" id="groupInicio">
-                                 <div class="input-group">
-                              <span class="input-group-lg"><i class="glyphicon glyphicon-calendar"></i></span>
-                                <input type="text"  id="datepickerr">
-                            </div>
-                                </div>
            
                             </div>
                                  <div class="rightcontact">
-                                 
-                            <div class="form-group" id="groupVencimiento">
-                                <div class="input-group">
-                               <span class="input-group-lg"><i class="glyphicon glyphicon-calendar"></i></span>
-                                <input type="text" id="datepickerr2">
-                                 </div>
-                            </div>
-
-                            <div class="form-group" id="groupModalidad">
+                        
+                             <div class="form-group" id="groupEstado">
                                  <div class="input-group">
                               <span class="input-group-sm"><i class="glyphicon glyphicon-check"></i></span>
                              
-                              <label class="radio-inline" id="acceso2"> &nbsp  <input type="radio" name="optRadio" class="form-control" id = "activee" name="codContratoTab" maxlength="12"/>Activo</label>
-                              &nbsp &nbsp &nbsp &nbsp 
-                              <label class="radio-inline" id="acceso2">  &nbsp  <input type="radio" name="optRadio" class="form-control" id = "cerrado" name="codContratoTab" maxlength="12"/>Cerrado</label>  
+                              <label class="radio-inline" id="acceso2"> &nbsp  <input type="radio" name="optRadio" class="form-control" id = "disponible" name="disponible" maxlength="12"/>Disponible</label>
+ 
+                              <label class="radio-inline" id="acceso2">  &nbsp  <input type="radio" name="optRadio" class="form-control" id = "prestado" name="prestado" maxlength="12"/>Prestado</label>  
                             </div>
                                 </div>
                                       
@@ -229,14 +214,14 @@
                  <div class="container-fluid" style="width: 1360px; height:530px; background-image: url(imagenes/prin2.jpg); background-repeat: no-repeat; background-size:cover;">
 
                     <div class="container">
-  <h2>Contratos</h2>
+  <h2>Area de Devoluciones</h2>
       <br>  <br>
     <div class="col-sm-10 , cuadro" >
          <div class="col-sm-4" style="text-align: right; vertical-align: middle;" >
-                                    <p><b>Buscar Contrato:</b></p>
+                                    <p><b>Buscar Préstamo:</b></p>
                                 </div>
                                 <div class="col-sm-6 ,buscador">
-      <input type="email" class="form-control" id="searchTerm" placeholder="Digite cualquier dato del contrato que desea encontrar" onkeyup="doSearch()">
+      <input type="email" class="form-control" id="searchTerm" placeholder="Digite cualquier dato del Préstamo que desea encontrar" onkeyup="doSearch()">
         </div>
      </div>
     <br>
@@ -246,28 +231,23 @@
      <table class="table" id="tabUsuarios">
     <thead>
       <tr>
-        <th class="success">Codigo de Contrato</th>
-        <th class="success">Fecha De Inicio del Contrato</th>
-        <th class="success">Fecha De Vencimiento del Contrato</th>
-        <th class="success">Estado</th>
-         <th class="success">Editar</th>
-        <!--<th class="success">Eliminar</th>-->
+        <th class="success">Cédula del Prestario</th>
+        <th class="success">Marca del Equipo</th>
+        <th class="success">Modelo del Equipo</th>
+        <th class="success">Departamento</th>
+        <th class="success">Fecha de Inicio</th>
+        <th class="success">Fecha de Devolución</th>
+        <th class="success">Hacer Devolución</th>
       </tr>
     </thead>
     <br><br>
   
     <tbody id="listado">
     
-       
-        
-        
     </tbody>
-  </table>   
-    
-    
-    
-    
-    
+
+  </table>  
+
     
         
         </div>
@@ -319,65 +299,70 @@
 	Controller: function(model,view){
 		this.model=model;
 		this.view=view;
-                
-          Proxy.getContratos(function(result){
           
-          model.contratos = result;
-          //console.log(result[0].id);
-          view.showTabla();
         
+          Proxy.getPrestamosParaDevoluciones(function(result){
+          
+          model.prestamos = result;
+          console.log(result[0].departamento);
+          console.log(result[0].fechaInicio);
+          console.log(result[0].fechaDevolucion);
+          //view.showTabla();
+          view.showTabla();
        }      
       ); 
-	},
-        login: function(cod){
-              ///   hacer metodo con el proxy para eliminar
       
-        
-        contrat = new Contrato(cod,new Date(),new Date(),0);
-        //window.alert("Activo registrado como : "+ document.getElementById("des").value);
-       
-        Proxy.eliminarContrato(contrat,
-                function(contrats){
-                    if(contrats === 10){
-                       bootbox.alert("Contrato Eliminado Con Exito!",function(){ document.location = "/Bridgestone/ListadoContratos.jsp" });
-                  }else{
-                      
-                      bootbox.alert("No se pudo eliminar!",function(){ document.location = "/Bridgestone/ListadoContratos.jsp" });
-                  }
-                     
-                            
-                    
-                });
-        ///alert(id);
-       
+      
+      Proxy.getPersonasParaDevoluciones(function(result){
           
-        },
+          model.personas = result;
+          console.log(result[0].id);
+          ////view.showTabla();
+            //view.showTabla2();
+            view.showTabla();
+       }      
+      );
+      
+        Proxy.getEquiposParaDevoluciones(function(result){
+          
+          model.equipos = result;
+          //model.conjunto += result;
+          //console.log(result[0].departamento);
+          ////view.showTabla();
+            //view.showTabla2();
+            console.log(result[0].marca);
+          console.log(result[0].modelo);
+          console.log(result[0].departamento);
+           view.showTabla();
+       }      
+      );
+      
+
+      
+	},
         mostrarModal: function(num){
   
-         $("#myModalFormularioContratos").modal();
+        $("#myModalFormularioDevoluciones").modal();
         
         var nume = document.getElementById("enviar");
         nume.value = num;
+       alert(num);
+         
+         
+         persona = model.personas.find(function(x){return x.id === num; });
+         prestamo = model.prestamos.find(function(x){return x.id_Persona === persona.id; });
+         equipo = model.equipos.find(function(x){return x.idEquipo === prestamo.id_equi; });
+        alert(equipo.estado);
 
+        if(equipo.estado === "disponible"){
 
-        contrato = model.contratos.find(function(x){return x.codigoContrato === num; });
-        
-        //alert(contrato);
-       
-        document.getElementById("codContrato").value = contrato.codigoContrato;
-        document.getElementById("datepickerr").value = contrato.fechaInicio;
-        document.getElementById("datepickerr2").value = contrato.fechaVencimiento;
-        
-        if(contrato.estado === 1){
-
-          document.getElementById("activee").checked = true;    
+          document.getElementById("disponible").checked = true;    
         }
         else{
      
-          document.getElementById("cerrado").checked === true;
+          document.getElementById("prestado").checked = true;
           
         }
-     
         
         
     },
@@ -385,11 +370,43 @@
  
  
          var numero = document.getElementById("enviar").value;
-         var numero2 = document.getElementById("codContrato").value;
+         //var numero2 = document.getElementById("comentario").value;
          //alert("El que está" + numero);
          //alert("El que quiero modificar " + numero2);
          
-             var act = document.getElementById("activee");
+         
+          persona = model.personas.find(function(x){return x.id === numero; });
+         prestamo = model.prestamos.find(function(x){return x.id_Persona === persona.id; });
+         equipo = model.equipos.find(function(x){return x.idEquipo === prestamo.id_equi; });
+        alert(equipo.estado);
+
+        if(equipo.estado === "disponible"){
+
+            return;  
+        }
+        else{
+     
+          //document.getElementById("prestado").checked = true;
+          
+          devolucion = new Devolucion(1,prestamo.id,document.getElementById("comentario").value);
+          
+          Proxy.registrarDevo(devolucion,
+                function(devo){
+                    if(devo == 33){
+                       bootbox.alert("Devolucion Hecha Con Exito!",function(){ document.location = "/Bridgestone/AreaDevoluciones.jsp" });
+                  }else{
+                      
+                      bootbox.alert("No se pudo registrar!",function(){ document.location = "/Bridgestone/AreaDevoluciones.jsp" });
+                  } 
+    
+                });
+          
+        }
+         
+         
+         /*
+         
+             var act = document.getElementById("disponible");
              if(act.checked){
              contratoAModificar  = new Contrato(numero2,document.getElementById("datepickerr").value,document.getElementById("datepickerr2").value,1);
              }else{
@@ -417,9 +434,7 @@
                   }     
                     
                 });
-       
-    
-    }
+  */  }
   };
 </script>
 <script> // View
@@ -464,93 +479,71 @@
 		model=new Model();  
 		controller = new Controller(model,window);
                 showTabla();
-  
+
 	}
         
         
                       function salir(){
- document.location = "/Bridgestone/prue.jsp";
+ document.location = "/Bridgestone/Principal.jsp";
         
      }
         
         function showTabla(){
             var listado = document.getElementById("listado");
-              for (i=0;i<model.contratos.length;i++){
+              for (i=0;i<model.equipos.length;i++){
         var tr =document.createElement("tr");
         tr.classList.add("warning");
 	var td;
-	td=document.createElement("td");
-	td.appendChild(document.createTextNode(model.contratos[i].codigoContrato));
-	tr.appendChild(td);
-       
-       
-        td=document.createElement("td");
-	td.appendChild(document.createTextNode(model.contratos[i].fechaInicio));
+        
+        
+            td=document.createElement("td");
+	td.appendChild(document.createTextNode(model.personas[i].id));
 	tr.appendChild(td);
         
         td=document.createElement("td");
-	td.appendChild(document.createTextNode(model.contratos[i].fechaVencimiento));
+	td.appendChild(document.createTextNode(model.equipos[i].marca));
+	tr.appendChild(td);
+       
+       
+       td=document.createElement("td");
+	td.appendChild(document.createTextNode(model.equipos[i].modelo));
+	tr.appendChild(td);
+        
+        
+        td=document.createElement("td");
+	td.appendChild(document.createTextNode(model.equipos[i].departamento));
+	tr.appendChild(td);
+       
+       
+       
+        td=document.createElement("td");
+	td.appendChild(document.createTextNode(model.prestamos[i].fechaInicio));
 	tr.appendChild(td);
         
         td=document.createElement("td");
-        var est = model.contratos[i].estado;
-        
-        if(est === 1){
-	td.appendChild(document.createTextNode("Abierto"));
-    }
-    else{
-        td.appendChild(document.createTextNode("Cerrado"));
-    }
+	td.appendChild(document.createTextNode(model.prestamos[i].fechaDevolucion));
 	tr.appendChild(td);
-	
-        td= document.createElement("td");
-       img= document.createElement("img");
-       img.src="imagenes/edit.png";
-       img.title="Editar";
-       //img.addEventListener("click", function(e){doQuery(per);});
-       img.id = model.contratos[i].codigoContrato;
-       img.addEventListener("click", doQuery);
-       td.appendChild(img);
-       tr.appendChild(td);
-       
-        /*    
+        
+        
        td= document.createElement("td");
        img= document.createElement("img");
-       img.src="imagenes/delete.png";
-       img.title="Eliminar";
-       //var con = model.contratos[i].codigoContrato;
-       //img.addEventListener("click", function(e){doDelete(con);});
-       img.id = model.contratos[i].codigoContrato;
-       img.addEventListener("click", doDelete);
+       img.src="imagenes/edit.png";
+       //img.title="Editar";
+       //var num2 = model.comprobantes[i].numeroDeComprobante;
+       //console.log(num2);
+       //img.addEventListener("click", function(e){doQuery(num2);});
+       img.id = model.personas[i].id;
+       img.addEventListener("click", doQuery);
        td.appendChild(img);
-       tr.appendChild(td);
-       */
-	
-         
-         
+       tr.appendChild(td); 
+        
+    
+
          listado.appendChild(tr);
-         
-        
-     }
-            
+   
+     }  
         }
-        
-        
-         function doDelete(event){
-            
-        //var persona = model.usuarios.find(function(x){return x.id==per.id; });
-        
-        //if(persona.value == null  ){//|| persona.value.length == 0
-        var aux = event.target.id;
-        
-        
-            controller.login(aux);
-            
-            console.log("En el do delete" + num);
-            
-        }
-        
-        
+              
          function doQuery(event){
             
         //var persona = model.usuarios.find(function(x){return x.id==per.id; });

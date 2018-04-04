@@ -31,6 +31,10 @@ JsonUtils.revive = function(k,v){
 		return Prestamo.from(v);
 	}
         
+        if (v instanceof Object && v._class == 'Devolucion') {
+		return Devolucion.from(v);
+	}
+        
 	  return v;
 	
 	
@@ -68,6 +72,10 @@ JsonUtils.replacer = function(k,v){
 	
              if (v instanceof Prestamo) {
 		return Prestamo.to(v);
+	} 
+        
+        if (v instanceof Devolucion) {
+		return Devolucion.to(v);
 	} 
 	return v;
 	

@@ -147,7 +147,7 @@
                                  <span class = "caret"></span>
                                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
     <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="#">Registrar Devolucion</a>
+      <a role="menuitem" tabindex="-1" href="AreaDevoluciones.jsp">Registrar Devolucion</a>
     </li>
      <li role="presentation" class="divider"></li>
     <li role="presentation">

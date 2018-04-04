@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.BridgestoneModel;
 import model.Comprobante;
 import model.Contrato;
+import model.Devolucion;
 import model.Equipo;
 import model.Jsonable;
 import model.Persona;
@@ -61,7 +62,8 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
              .registerSubtype(Comprobante.class,"Comprobante") 
              .registerSubtype(Equipo.class,"Equipo")  
              .registerSubtype(Persona.class,"Persona") 
-            .registerSubtype(Prestamo.class,"Prestamo")          
+            .registerSubtype(Prestamo.class,"Prestamo")  
+            .registerSubtype(Devolucion.class,"Devolucion")  
             .registerSubtype(Usuario.class,"Usuario");//IMPORTANTE HACER CAMBIOS CUANDO META CLASE USUARIO , TIQUETE ECT....//
             
         Gson gson = new GsonBuilder().registerTypeAdapterFactory(rta).setDateFormat("dd/MM/yyyy").create();
@@ -76,6 +78,9 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
         List<Usuario> usuarios = new ArrayList();
         List<Equipo> equipos = new ArrayList(); 
         List<Equipo> disponibles = new ArrayList();
+        List<Prestamo> prestamosParaDevoluciones = new ArrayList();
+        List<Persona> personasParaDevoluciones = new ArrayList();
+        List<Equipo> equiposParaDevoluciones = new ArrayList();
         switch(accion){
          
              case "trabajadorListAll":
@@ -107,7 +112,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                 System.out.println("enviadosssss");
                 break; 
         
-                case "EquiposListAll":
+             case "EquiposListAll":
                 equipos = model.getEquipos();
                 json = gson.toJson(equipos);
                 System.out.println("enviando datoooos equipos");
@@ -115,14 +120,48 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                 out.write(json);
                 System.out.println("enviadosssss");
                 break;  
-                 case "EquiposDispoListAll":
+                 
+                
+             case "EquiposDispoListAll":
                 disponibles = model.getEquiposDisponibles();
                 json = gson.toJson(disponibles);
                 System.out.println("enviando datoooos equipos dispo");
                  System.out.println(model.getEquiposDisponibles().get(0).getMarca());
                 out.write(json);
                 System.out.println("enviadosssss");
-                break;                    
+                break; 
+                
+                
+              case "prestamosParaDevolucionesListAll":
+                prestamosParaDevoluciones = model.getPrestamosParaDevoluciones();
+                json = gson.toJson(prestamosParaDevoluciones);
+                System.out.println("enviando datoooos prestamos Para Devoluciones");
+                 System.out.println(model.getPrestamosParaDevoluciones().get(0).getFechaDevolucion());
+                out.write(json);
+                System.out.println("enviadosssss");
+                break;
+                
+                
+             case "personasParaDevolucionesListAll":
+                personasParaDevoluciones = model.getPersonasParaDevoluciones();
+                json = gson.toJson(personasParaDevoluciones);
+                System.out.println("enviando datoooos personas Para Devoluciones");
+                 System.out.println(model.getPersonasParaDevoluciones().get(0).getNombre());
+                out.write(json);
+                System.out.println("enviadosssss");
+                break;
+                
+                
+            case "equiposParaDevolucionesListAll":
+                equiposParaDevoluciones = model.getEquiposParaDevoluciones();
+                json = gson.toJson(equiposParaDevoluciones);
+                System.out.println("enviando datoooos equipos Para Devoluciones");
+                 System.out.println(model.getEquiposParaDevoluciones().get(0).getMarca());
+                out.write(json);
+                System.out.println("enviadosssss");
+                break;
+                
+             
                  
              case "userLogin":
                     Usuario usua;
@@ -209,7 +248,16 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                     System.out.println("Registrando Contrato" + pre.getDepartamento());
                     int aux23232 = model.guardaPrestamo(pre);
                     System.out.println("retorno "+aux23232);
-                break;          
+                break; 
+                
+                
+                       case "registrarDevolucion":
+                    json = request.getParameter("devo");
+                    Devolucion dev = gson.fromJson(json, Devolucion.class);
+                    System.out.println("Registrando Contrato" + dev.getId() + " " + dev.getId_Prestamo()+ "  "+ dev.getComentario());
+                    int aux1234 = model.guardaDevolucion(dev);
+                    System.out.println("retorno "+aux1234);
+                break; 
                 
                     case "eliminarUsuario":
                     json = request.getParameter("user");

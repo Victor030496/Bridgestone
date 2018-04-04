@@ -156,8 +156,76 @@ Proxy.getUsuarios = function(callBack){
        
     
     
-    }; 
+    };
     
+    
+    Proxy.getPrestamosParaDevoluciones = function(callBack){
+    var AJAX_req = new XMLHttpRequest();
+    url = "/Bridgestone/BridgestoneService?action=prestamosParaDevolucionesListAll";
+    AJAX_req.open("GET",url,true);
+    AJAX_req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    AJAX_req.onreadystatechange = function (){
+        if(AJAX_req.readyState === 4 && AJAX_req.status === 200){ // Si se recibieron los datos de forma correcta //
+             console.log("parseando...");
+            var object = JSON.parse(AJAX_req.responseText,JsonUtils.revive);
+            console.log("parseando bienn...");
+            console.log(object[0]);
+            console.log(object[1]);
+            callBack(object);
+        }
+         };
+        
+        AJAX_req.send();
+       
+    
+    
+    };
+    
+    
+    
+     Proxy.getPersonasParaDevoluciones = function(callBack){
+    var AJAX_req = new XMLHttpRequest();
+    url = "/Bridgestone/BridgestoneService?action=personasParaDevolucionesListAll";
+    AJAX_req.open("GET",url,true);
+    AJAX_req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    AJAX_req.onreadystatechange = function (){
+        if(AJAX_req.readyState === 4 && AJAX_req.status === 200){ // Si se recibieron los datos de forma correcta //
+             console.log("parseando...");
+            var object = JSON.parse(AJAX_req.responseText,JsonUtils.revive);
+            console.log("parseando bienn...");
+            console.log(object[0]);
+           
+            callBack(object);
+        }
+         };
+        
+        AJAX_req.send();
+       
+    
+    
+    };
+    
+    
+    Proxy.getEquiposParaDevoluciones = function(callBack){
+    var AJAX_req = new XMLHttpRequest();
+    url = "/Bridgestone/BridgestoneService?action=equiposParaDevolucionesListAll";
+    AJAX_req.open("GET",url,true);
+    AJAX_req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    AJAX_req.onreadystatechange = function (){
+        if(AJAX_req.readyState === 4 && AJAX_req.status === 200){ // Si se recibieron los datos de forma correcta //
+             console.log("parseando...");
+            var object = JSON.parse(AJAX_req.responseText,JsonUtils.revive);
+            console.log("parseando bienn...");
+            console.log(object[0]);
+            callBack(object);
+        }
+         };
+        
+        AJAX_req.send();
+       
+    
+    
+    };
     
       Proxy.registrarPersona= function(contrat,callBack){
      console.log("entramos al registrar persona");
@@ -204,6 +272,29 @@ Proxy.getUsuarios = function(callBack){
     console.log("salimos del registrar prests");
     AJAX_req.send("presta="+jsonText);   
 };
+    
+    
+    Proxy.registrarDevo= function(devo,callBack){
+     console.log("entramos al registrar devo");
+     console.log(devo);
+    jsonText = JSON.stringify(devo,JsonUtils.replacer);
+    console.log("se parseo la devo a json");
+    var AJAX_req = new XMLHttpRequest();
+    url="/Bridgestone/BridgestoneService?action=registrarDevolucion";
+    AJAX_req.open( "POST", url, true );
+    AJAX_req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    AJAX_req.onreadystatechange = function(){
+        if( AJAX_req.readyState === 4 && AJAX_req.status === 200 ){
+     
+            var object = 33;
+            console.log("El servlet ahora retorno un "+object);
+            callBack(object);
+        }
+    };
+    console.log("salimos del registrar devo");
+    AJAX_req.send("devo="+jsonText);   
+};
+    
     
     
     
