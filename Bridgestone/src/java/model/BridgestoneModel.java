@@ -171,22 +171,21 @@ static {
        public static int guardaDevolucion(Devolucion c)throws Exception{
 
        
-              System.out.println("Devolucion que vamos a guardar"+ c.id);
-       String sql="insert into Devolucion(id,id_Prestamo,comentario)"
-                + "values('%s','%s','%s')";
+              System.out.println("Devolucion que vamos a guardar"+ c.getId());
+       String sql="insert into Devolucion(id_Prestamo,comentario,id_Persona,id_equi)"
+                + "values('%s','%s','%s','%s')";
        
        String sql2="update Equipo "+
                     "set estado  = 'disponible'" +
-               
-                    "where Prestamo.id= '%s'";
+                    "where Equipo.idEquipo= '%s'";
 
-       sql=String.format(sql,c.id,c.id_Prestamo,c.comentario);
-       //sql2=String.format(sql2,c.id_Prestamo);
+       sql=String.format(sql,c.getId_Prestamo(), c.getComentario(),c.getId_Persona(),c.getId_equi());
+       sql2=String.format(sql2,c.getId_equi());
        
        int aux = datos.executeUpdate(sql);
-       //int aux2 = datos.executeUpdate(sql2);
-       //if(aux ==0 && aux2 ==0 ){
-           if(aux ==0){
+       int aux2 = datos.executeUpdate(sql2);
+       if(aux ==0 && aux2 ==0 ){
+          // if(aux ==0){
        
         throw new Exception("Devolucion NO SE PUDO GUARDAR");
        

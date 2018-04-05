@@ -97,7 +97,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                 contratos = model.getContratos();
                 json = gson.toJson(contratos);
                 System.out.println("enviando datoooos");
-                 System.out.println(model.getContratos().get(0).toString());
+                 //System.out.println(model.getContratos().get(0).toString());
                 out.write(json);
                 System.out.println("enviadosssss");
                 break; 
@@ -107,7 +107,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                 comprobantes = model.getComprobantes();
                 json = gson.toJson(comprobantes);
                 System.out.println("enviando datoooos");
-                 System.out.println(model.getComprobantes().get(0).toString());
+                 //System.out.println(model.getComprobantes().get(0).toString());
                 out.write(json);
                 System.out.println("enviadosssss");
                 break; 
@@ -116,7 +116,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                 equipos = model.getEquipos();
                 json = gson.toJson(equipos);
                 System.out.println("enviando datoooos equipos");
-                 System.out.println(model.getEquipos().get(0).getMarca());
+                 //System.out.println(model.getEquipos().get(0).getMarca());
                 out.write(json);
                 System.out.println("enviadosssss");
                 break;  
@@ -126,7 +126,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                 disponibles = model.getEquiposDisponibles();
                 json = gson.toJson(disponibles);
                 System.out.println("enviando datoooos equipos dispo");
-                 System.out.println(model.getEquiposDisponibles().get(0).getMarca());
+                 //System.out.println(model.getEquiposDisponibles().get(0).getMarca());
                 out.write(json);
                 System.out.println("enviadosssss");
                 break; 
@@ -136,7 +136,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                 prestamosParaDevoluciones = model.getPrestamosParaDevoluciones();
                 json = gson.toJson(prestamosParaDevoluciones);
                 System.out.println("enviando datoooos prestamos Para Devoluciones");
-                 System.out.println(model.getPrestamosParaDevoluciones().get(0).getFechaDevolucion());
+                 //System.out.println(model.getPrestamosParaDevoluciones().get(0).getFechaDevolucion());
                 out.write(json);
                 System.out.println("enviadosssss");
                 break;
@@ -146,7 +146,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                 personasParaDevoluciones = model.getPersonasParaDevoluciones();
                 json = gson.toJson(personasParaDevoluciones);
                 System.out.println("enviando datoooos personas Para Devoluciones");
-                 System.out.println(model.getPersonasParaDevoluciones().get(0).getNombre());
+                 //System.out.println(model.getPersonasParaDevoluciones().get(0).getNombre());
                 out.write(json);
                 System.out.println("enviadosssss");
                 break;
@@ -156,7 +156,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                 equiposParaDevoluciones = model.getEquiposParaDevoluciones();
                 json = gson.toJson(equiposParaDevoluciones);
                 System.out.println("enviando datoooos equipos Para Devoluciones");
-                 System.out.println(model.getEquiposParaDevoluciones().get(0).getMarca());
+                 //System.out.println(model.getEquiposParaDevoluciones().get(0).getMarca());
                 out.write(json);
                 System.out.println("enviadosssss");
                 break;
@@ -189,7 +189,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                  case "registrarTrabajador":
                     json = request.getParameter("client");
                     Trabajador cl = gson.fromJson(json, Trabajador.class);
-                    System.out.println("Registrando Trabajador" + cl.getNombre() );
+                    //System.out.println("Registrando Trabajador" + cl.getNombre() );
                     int aux = model.guardaCliente(cl);
                     System.out.println("retorno "+aux);
                 break; 
@@ -197,7 +197,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                      case "registrarContrato":
                     json = request.getParameter("contrat");
                     Contrato c = gson.fromJson(json, Contrato.class);
-                    System.out.println("Registrando Contrato" + c.getCodigoContrato());
+                    //System.out.println("Registrando Contrato" + c.getCodigoContrato());
                     int aux2 = model.guardaContrato(c);
                     System.out.println("retorno "+aux2);
                 break;
@@ -208,7 +208,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                     json = request.getParameter("comprobant");
                     System.out.println(json);
                     Comprobante co = gson.fromJson(json, Comprobante.class);
-                    System.out.println("Registrando Comprobante" + co.getComprobante() );
+                    //System.out.println("Registrando Comprobante" + co.getComprobante() );
                     int aux11 = model.guardaComprobante(co);
                     System.out.println("retorno "+aux11);
                 break;
@@ -218,7 +218,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                     System.out.println("Estamos registarando un equipo");
                     json = request.getParameter("equipo");
                     Equipo eq = gson.fromJson(json, Equipo.class);
-                    System.out.println("Registando equipo : " + eq.getMarca() );
+                    //System.out.println("Registando equipo : " + eq.getMarca() );
                     int aux109 = model.guardaEquipoContrato(eq);
                     System.out.println("retorno "+aux109);
                 break;     
@@ -228,7 +228,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                     System.out.println("Estamos registarando un equipo");
                     json = request.getParameter("equipoUsu");
                     Equipo eq2 = gson.fromJson(json, Equipo.class);
-                    System.out.println("Registando equipo : " + eq2.getMarca() );
+                    //System.out.println("Registando equipo : " + eq2.getMarca() );
                     int aux1002 = model.guardaEquipoUsuario(eq2);
                     System.out.println("retorno "+aux1002);
                 break;       
@@ -237,7 +237,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                     System.out.println("Estamos registarando una Persona");
                     json = request.getParameter("persona");
                     Persona eq1 = gson.fromJson(json, Persona.class);
-                    System.out.println("Registando persona : " + eq1.getNombre() );
+                    //System.out.println("Registando persona : " + eq1.getNombre() );
                     int aux1001 = model.guardaPersona(eq1);
                     System.out.println("retorno "+aux1001);
                 break;  
@@ -245,7 +245,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                            case "registrarPrestamo":
                     json = request.getParameter("presta");
                     Prestamo pre = gson.fromJson(json, Prestamo.class);
-                    System.out.println("Registrando Contrato" + pre.getDepartamento());
+                    //System.out.println("Registrando Contrato" + pre.getDepartamento());
                     int aux23232 = model.guardaPrestamo(pre);
                     System.out.println("retorno "+aux23232);
                 break; 
@@ -254,7 +254,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                        case "registrarDevolucion":
                     json = request.getParameter("devo");
                     Devolucion dev = gson.fromJson(json, Devolucion.class);
-                    System.out.println("Registrando Contrato" + dev.getId() + " " + dev.getId_Prestamo()+ "  "+ dev.getComentario());
+                    //System.out.println("Registrando Devo  " + dev.getId() + " " + dev.getId_Prestamo()+ "  "+ dev.getId_equi());
                     int aux1234 = model.guardaDevolucion(dev);
                     System.out.println("retorno "+aux1234);
                 break; 
@@ -263,7 +263,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                     json = request.getParameter("user");
                     System.out.println(json);
                     Usuario u = gson.fromJson(json, Usuario.class);
-                    System.out.println("Eliminando usuario" + u.getId()+ u.getClave());
+                    //System.out.println("Eliminando usuario" + u.getId()+ u.getClave());
                     int aux4 = model.eliminaUsuario(u);
                     System.out.println("retorno "+aux4);
                 break; 
@@ -272,7 +272,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                     json = request.getParameter("comprobant");
                     System.out.println(json);
                     Comprobante cb = gson.fromJson(json, Comprobante.class);
-                    System.out.println("Eliminando comprobante" + cb.getComprobante());
+                    //System.out.println("Eliminando comprobante" + cb.getComprobante());
                     int aux5 = model.eliminaComprobante(cb);
                     System.out.println("retorno "+aux5);
                 break;
@@ -281,7 +281,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                     json = request.getParameter("contrat");
                     System.out.println(json);
                     Contrato ce = gson.fromJson(json, Contrato.class);
-                    System.out.println("Eliminando Contrato" + ce.getCodigoContrato());
+                    //System.out.println("Eliminando Contrato" + ce.getCodigoContrato());
                     int aux43 = model.eliminaContrato(ce);
                     System.out.println("retorno "+aux43);
                 break;

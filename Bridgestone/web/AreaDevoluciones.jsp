@@ -169,13 +169,15 @@
                                  
                             <div class="form-group" id="groupcomentario">
                                 <div class="input-group">
-                               <span class="input-group-addon"><i class="glyphicon glyphicon-paperclip"></i></span>
-                                <input type="textarea" class="form-control" id="comentario" name="comentarioTab" placeholder="Comentario" maxlength="40"/>
-                                 </div>
+                               <span class="input-group-addon"><i class="glyphicon glyphicon-paperclip"></i></span>    
+                                <textarea  class="form-control" name="comentarioTab" rows="3" cols="85" id="comentario" placeholder="Comentario" maxlength="40"></textarea><br />
+                                </div>
                             </div>
            
                             </div>
-                                 <div class="rightcontact">
+                                 
+                                 
+                             <!--<div class="rightcontact">
                         
                              <div class="form-group" id="groupEstado">
                                  <div class="input-group">
@@ -187,7 +189,7 @@
                             </div>
                                 </div>
                                       
-                            </div>
+                            </div>-->
                                  
                              
                                  </div>
@@ -344,16 +346,23 @@
   
         $("#myModalFormularioDevoluciones").modal();
         
+        var a = parseInt(num);
         var nume = document.getElementById("enviar");
-        nume.value = num;
-       alert(num);
+        nume.value = a;
+        //alert(num);
          
          
-         persona = model.personas.find(function(x){return x.id === num; });
-         prestamo = model.prestamos.find(function(x){return x.id_Persona === persona.id; });
+        /* 
+         prestamo = model.prestamos.find(function(x){return x.id=== a; });
          equipo = model.equipos.find(function(x){return x.idEquipo === prestamo.id_equi; });
-        alert(equipo.estado);
-
+         persona = model.personas.find(function(x){return x.id === prestamo.id_Persona; });
+        
+        alert(prestamo.id);
+        alert(prestamo.id_equi);
+        alert(equipo.idEquipo);
+        alert(prestamo.id_Persona);
+        alert(persona.id);
+        
         if(equipo.estado === "disponible"){
 
           document.getElementById("disponible").checked = true;    
@@ -362,7 +371,7 @@
      
           document.getElementById("prestado").checked = true;
           
-        }
+        }*/
         
         
     },
@@ -370,27 +379,25 @@
  
  
          var numero = document.getElementById("enviar").value;
-         //var numero2 = document.getElementById("comentario").value;
-         //alert("El que está" + numero);
-         //alert("El que quiero modificar " + numero2);
+         var a = parseInt(numero);
          
-         
-          persona = model.personas.find(function(x){return x.id === numero; });
-         prestamo = model.prestamos.find(function(x){return x.id_Persona === persona.id; });
+          prestamo = model.prestamos.find(function(x){return x.id=== a; });
          equipo = model.equipos.find(function(x){return x.idEquipo === prestamo.id_equi; });
-        alert(equipo.estado);
-
+         persona = model.personas.find(function(x){return x.id === prestamo.id_Persona; });
+        
+        
+        /*
         if(equipo.estado === "disponible"){
 
             return;  
         }
-        else{
+        else{*/
      
-          //document.getElementById("prestado").checked = true;
+          devolucion = new Devolucion(1,prestamo.id,document.getElementById("comentario").value,prestamo.id_Persona,prestamo.id_equi);
           
-          devolucion = new Devolucion(1,prestamo.id,document.getElementById("comentario").value);
-          
-          Proxy.registrarDevo(devolucion,
+         
+         
+         Proxy.registrarDevo(devolucion,
                 function(devo){
                     if(devo == 33){
                        bootbox.alert("Devolucion Hecha Con Exito!",function(){ document.location = "/Bridgestone/AreaDevoluciones.jsp" });
@@ -399,42 +406,10 @@
                       bootbox.alert("No se pudo registrar!",function(){ document.location = "/Bridgestone/AreaDevoluciones.jsp" });
                   } 
     
-                });
-          
-        }
+                }); 
          
-         
-         /*
-         
-             var act = document.getElementById("disponible");
-             if(act.checked){
-             contratoAModificar  = new Contrato(numero2,document.getElementById("datepickerr").value,document.getElementById("datepickerr2").value,1);
-             }else{
-                 contratoAModificar  = new Contrato(numero2,document.getElementById("datepickerr").value,document.getElementById("datepickerr2").value,0);
-             }
-
-             contratoActual = new Contrato(numero,"02/01/2018","01/01/2018",0);
-             
-             var contratos = [];
-             contratos[0] = contratoActual;
-             contratos[1] = contratoAModificar;
-          
-             //alert(contratos);
-             //alert(contratos[0].toString());
-             //alert(contratos[1].toString());
-        
-            Proxy.modificarContrato(contratos,
-                function(contrat){
-                    if(contrat == 33){
-                  
-                     bootbox.alert("Contrato Modificado Con Exito!",function(){ document.location = "/Bridgestone/ListadoContratos.jsp" });
-                  }else{
-                      
-                      bootbox.alert("No se pudo modificar!",function(){ document.location = "/Bridgestone/ListadoContratos.jsp" });
-                  }     
-                    
-                });
-  */  }
+        //}
+   }
   };
 </script>
 <script> // View
@@ -532,7 +507,7 @@
        //var num2 = model.comprobantes[i].numeroDeComprobante;
        //console.log(num2);
        //img.addEventListener("click", function(e){doQuery(num2);});
-       img.id = model.personas[i].id;
+       img.id = model.prestamos[i].id;
        img.addEventListener("click", doQuery);
        td.appendChild(img);
        tr.appendChild(td); 

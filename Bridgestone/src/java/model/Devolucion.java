@@ -13,17 +13,21 @@ import java.io.Serializable;
  */
 public class Devolucion implements Serializable, Jsonable {
     
-  int id; 
-  String id_Prestamo; 
-  String comentario;
+  private int id; 
+  private String id_Prestamo; 
+  private String comentario;
+  private String id_Persona ;
+  private int   id_equi ;
 
   
- public Devolucion(int id,String id_Prestamo,String comentario){
+ public Devolucion(int id,String id_Prestamo,String comentario,String id_Persona, int id_equi){
  
      
      this.id = id;
      this.id_Prestamo = id_Prestamo;
      this.comentario = comentario;
+     this.id_Persona = id_Persona;
+        this.id_equi = id_equi;
  
  }
  
@@ -35,10 +39,11 @@ public class Devolucion implements Serializable, Jsonable {
      this.id = 0;
      this.id_Prestamo = "";
      this.comentario = "";
+     this.id_Persona = "";
+     this.id_equi = 0;
  
  }
-  
-  
+
     /**
      * @return the id
      */
@@ -80,6 +85,37 @@ public class Devolucion implements Serializable, Jsonable {
     public void setComentario(String comentario) {
         this.comentario = comentario;
     }
+
+    /**
+     * @return the id_Persona
+     */
+    public String getId_Persona() {
+        return id_Persona;
+    }
+
+    /**
+     * @param id_Persona the id_Persona to set
+     */
+    public void setId_Persona(String id_Persona) {
+        this.id_Persona = id_Persona;
+    }
+
+    /**
+     * @return the id_equi
+     */
+    public int getId_equi() {
+        return id_equi;
+    }
+
+    /**
+     * @param id_equi the id_equi to set
+     */
+    public void setId_equi(int id_equi) {
+        this.id_equi = id_equi;
+    }
+  
+  
+
   
   
   
