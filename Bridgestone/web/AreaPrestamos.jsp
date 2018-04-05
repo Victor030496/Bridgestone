@@ -387,7 +387,9 @@
                             
                     
                 }); 
-             
+                
+                // aca vamos a setear el estado a prestado
+
             }
         }
     
@@ -427,8 +429,11 @@
         var tr =document.createElement("tr");
         tr.classList.add("active");
 	var td;
+        var textoNom;
 	td=document.createElement("td");
-	td.appendChild(document.createTextNode(model.equipos[i].marca));
+        textoNom = document.createTextNode(model.equipos[i].marca);
+        textoNom.id = "marca";
+	td.appendChild(textoNom);
 	tr.appendChild(td);
        
        
