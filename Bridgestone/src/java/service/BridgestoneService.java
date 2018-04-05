@@ -407,7 +407,36 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                     
                 break;
                 
-                
+             // Setea estadooo
+                    
+                   
+                      case "setPrestado":
+                    json = request.getParameter("equipoPres");
+                    System.out.println(json);
+                    JSONObject  jaaa1 = new JSONObject(json);
+                    JSONArray jiii1 = new JSONArray();
+                    jiii = jaaa.getJSONArray("usuarios");
+                    System.out.println(jiii);
+
+                    for (int i = 0; i < jiii.length(); i++) {
+                    
+                        Trabajador usu = new Trabajador();
+//                        usu.setId(jiii.getJSONObject(i).getString("id"));
+//                        usu.setClave(jiii.getJSONObject(i).getString("clave"));
+//                        usu.setTipo(jiii.getJSONObject(i).getInt("tipo"));
+                        usu.setIdentificacion(jiii.getJSONObject(i).getString("identificacion"));
+                        usu.setNombre(jiii.getJSONObject(i).getString("nombre"));
+                        usu.setApellido(jiii.getJSONObject(i).getString("apellido"));
+                        usu.setCorreo(jiii.getJSONObject(i).getString("correo"));
+                        usu.setTelefono(jiii.getJSONObject(i).getString("telefono"));
+                        
+                        trabajadores.add(usu);
+                  }           
+
+                    System.out.println(trabajadores);
+                    int aux2222 = model.modificaTrabajador(trabajadores.get(0), trabajadores.get(1));
+                    
+                break;
                     
                
                     

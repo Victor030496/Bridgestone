@@ -572,3 +572,30 @@ Proxy.modificarTraba= function(usuarios,callBack){
     AJAX_req.send("user="+jsonText);   
 };
 
+
+Proxy.setPrestado= function(equipos,callBack){
+     
+     console.log("entramos al setPrestado");
+     console.log(usuarios);
+     
+    var equips =  {     
+        nombre : 'Equipo',
+        equipos:equipos
+    };
+    jsonText = JSON.stringify(equips);
+    console.log("se parseo el usuario a json");
+    var AJAX_req = new XMLHttpRequest();
+    url="/Bridgestone/BridgestoneService?action=setPrestado";
+    AJAX_req.open( "POST", url, true );
+    AJAX_req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    AJAX_req.onreadystatechange = function(){
+        if( AJAX_req.readyState === 4 && AJAX_req.status === 200 ){
+     
+            var object = 1;
+            console.log("El servlet ahora retorno un "+object);
+            callBack(object);
+        }
+    };
+    console.log("salimos del setPrestado");
+    AJAX_req.send("equipoPres="+jsonText);   
+};

@@ -795,7 +795,36 @@ static {
 
 
 
+     public static int setPresta(Equipo actual, Equipo aModificar)throws Exception{
+       System.out.println("Equipo actual y el que vamos a modificar "+ actual.estado+ aModificar.estado);
+       
+//        String sql="update Usuario "+
+//                   "set id  = '%s' ,clave  = '%s' , tipo  = '%s'"+
+//                    "where id = '%s'";
+       
+       
+       String sql2="update Equipo "+
+                    "set estado  = '%s'" +
+                    
+               
+                    "where idEquipo= '%s'";
+       
+      
 
+     //  sql2=String.format(sql2,aModificar.id,aModificar.clave,aModificar.tipo,actual.id);
+       sql2 = String.format(sql2,aModificar.estado,actual.idEquipo);
+      
+   //    int aux = datos.executeUpdate(sql2);
+       int aux2 = datos.executeUpdate(sql2);
+       
+       if(aux2 ==0){
+       
+        throw new Exception("Estado del equipo no actualizado");
+       
+       }
+ 
+   return 1;
+   }
 
 
 
