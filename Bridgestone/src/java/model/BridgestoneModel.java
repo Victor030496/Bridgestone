@@ -368,7 +368,29 @@ static {
         // System.out.println(ciudades.get(0).toString());        
        return equipos;
 
-} 
+}
+           
+           
+            public List<Equipo>getEquiposParaBaja() throws Exception{
+          System.out.println("entro al getEquiposParaBaja");
+         List<Equipo> equipos;
+         equipos= new ArrayList();
+         try {
+            String sql="select * "+
+                    "from Equipo  p  "+
+                    "where p.estado = 'disponible' OR p.estado = 'asignado' "; // sino sirve pasar trabajador a minuscula//
+            ResultSet rs =  datos.executeQuery(sql);
+             System.out.println("exitoooooo");
+            while (rs.next()) {
+                equipos.add(toEquipo(rs));
+                System.out.println("insertando");
+            }
+        } catch (SQLException ex) {
+        }
+        // System.out.println(ciudades.get(0).toString());        
+       return equipos;
+
+}
            
            public List<Prestamo>getPrestamosParaDevoluciones() throws Exception{
           System.out.println("entro al getPrestamosParaDevoluciones");

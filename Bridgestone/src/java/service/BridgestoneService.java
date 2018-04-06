@@ -134,6 +134,16 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                 break; 
                 
                 
+                case "EquiposParaBajaListAll":
+                disponibles = model.getEquiposParaBaja();
+                json = gson.toJson(disponibles);
+                System.out.println("enviando datoooos equipos para Baja");
+                 //System.out.println(model.getEquiposDisponibles().get(0).getMarca());
+                out.write(json);
+                System.out.println("enviadosssss");
+                break; 
+                
+                
               case "prestamosParaDevolucionesListAll":
                 prestamosParaDevoluciones = model.getPrestamosParaDevoluciones();
                 json = gson.toJson(prestamosParaDevoluciones);

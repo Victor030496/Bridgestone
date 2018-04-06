@@ -307,7 +307,7 @@
           
         
 
-        Proxy.getEquiposDispo(function(result){
+        Proxy.getEquiposParaBaja(function(result){
           
           model.equipos = result;
           //model.conjunto += result;
