@@ -193,6 +193,33 @@ static {
  
    return 1;
    }
+       
+       
+        public static int guardaBaja(Baja c)throws Exception{
+
+       
+              System.out.println("Baja que vamos a guardar"+ c.getId());
+       String sql="insert into DarDeBaja(comentario,id_equi)"
+                + "values('%s','%s')";
+       
+       String sql2="update Equipo "+
+                    "set estado  = 'baja'" +
+                    "where Equipo.idEquipo= '%s'";
+
+       sql=String.format(sql,c.getComentario(),c.getId_equi());
+       sql2=String.format(sql2,c.getId_equi());
+       
+       int aux = datos.executeUpdate(sql);
+       int aux2 = datos.executeUpdate(sql2);
+       if(aux ==0 && aux2 ==0 ){
+          // if(aux ==0){
+       
+        throw new Exception("Baja NO SE PUDO GUARDAR");
+       
+       }
+ 
+   return 1;
+   }
              
                
 //   public static int guardaActivo(Activo c)throws Exception{

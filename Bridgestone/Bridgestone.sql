@@ -128,6 +128,20 @@ alter table Devolucion
   
   
   
+ create table DarDeBaja(
+   id integer auto_increment,
+   comentario varchar(40),
+   id_equi integer ,
+ PRIMARY KEY (id)
+
+);
+
+
+alter table DarDeBaja
+  add constraint foreign key (id_equi) references Equipo(idEquipo) on update cascade;
+
+  
+  
   insert into Usuario (id,clave,tipo) values ('LuisO19','LuisO19', 2);
   insert into Usuario (id,clave,tipo) values ('1','1', 2);
   insert into Persona (id,nombre,apellido,telefono,correo) values ('2323111','Juan','Castro','323243','a@gmail.com');

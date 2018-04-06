@@ -25,6 +25,7 @@ import model.Persona;
 import model.Prestamo;
 import model.Trabajador;
 import model.Usuario;
+import model.Baja;
 import org.json.JSONObject;
 import org.json.JSONArray;
 /**
@@ -63,7 +64,8 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
              .registerSubtype(Equipo.class,"Equipo")  
              .registerSubtype(Persona.class,"Persona") 
             .registerSubtype(Prestamo.class,"Prestamo")  
-            .registerSubtype(Devolucion.class,"Devolucion")  
+            .registerSubtype(Devolucion.class,"Devolucion") 
+            .registerSubtype(Baja.class,"Baja") 
             .registerSubtype(Usuario.class,"Usuario");//IMPORTANTE HACER CAMBIOS CUANDO META CLASE USUARIO , TIQUETE ECT....//
             
         Gson gson = new GsonBuilder().registerTypeAdapterFactory(rta).setDateFormat("dd/MM/yyyy").create();
@@ -257,6 +259,42 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                     //System.out.println("Registrando Devo  " + dev.getId() + " " + dev.getId_Prestamo()+ "  "+ dev.getId_equi());
                     int aux1234 = model.guardaDevolucion(dev);
                     System.out.println("retorno "+aux1234);
+                break; 
+                
+                       case "registrarBaja":
+                    json = request.getParameter("baja");
+                    JSONObject  jaax = new JSONObject(json);
+                     
+                    Baja ba = new Baja();
+                    ba.setId(jaax.getInt("id"));
+                    ba.setComentario(jaax.getString("comentario"));
+                    ba.setId_equi(jaax.getInt("id_equi"));
+                    
+                    //System.out.println("Registrando Devo  " + dev.getId() + " " + dev.getId_Prestamo()+ "  "+ dev.getId_equi());
+                    int aux14 = model.guardaBaja(ba);
+                    System.out.println("retorno "+aux14);
+                    
+                    
+                    
+                    /*  json = request.getParameter("user");
+                    System.out.println(json);
+                    JSONObject  jaa = new JSONObject(json);
+                    JSONArray jii = new JSONArray();
+                    jii = jaa.getJSONArray("usuarios");
+                    System.out.println(jii);
+
+                    for (int i = 0; i < jii.length(); i++) {
+                    
+                        Usuario usu = new Usuario();
+                        usu.setId(jii.getJSONObject(i).getString("id"));
+                        usu.setClave(jii.getJSONObject(i).getString("clave"));
+                        usu.setTipo(jii.getJSONObject(i).getInt("tipo"));
+                        usuarios.add(usu);
+                  }           
+
+                    System.out.println(usuarios.get(0));
+                    System.out.println(usuarios.get(1));
+                    int aux222 = model.modificaUsuario(usuarios.get(0), usuarios.get(1));*/
                 break; 
                 
                     case "eliminarUsuario":

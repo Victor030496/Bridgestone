@@ -125,7 +125,10 @@
     <li role="presentation">
       <a role="menuitem" tabindex="-1" href="ListadoEquipos.jsp">Equipos nuevos registrados</a>
     </li>
-    
+     <li role="presentation" class="divider"></li>
+     <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="AreaDarDeBaja.jsp">Dar De Baja a Equipos</a>
+    </li>
     
   </ul>
                              </a></li>

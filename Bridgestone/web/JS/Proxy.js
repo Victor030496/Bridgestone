@@ -90,6 +90,7 @@ Proxy.getUsuarios = function(callBack){
     
     
     };
+
     
     
         Proxy.getEquiposDispo = function(callBack){
@@ -294,6 +295,29 @@ Proxy.getUsuarios = function(callBack){
     console.log("salimos del registrar devo");
     AJAX_req.send("devo="+jsonText);   
 };
+
+
+  Proxy.registrarBaja= function(perro,callBack){
+     console.log("entramos al registrar baja");
+     console.log(perro);
+    jsonText = JSON.stringify(perro);
+    console.log("se parseo la baja a json");
+    console.log(jsonText);
+    var AJAX_req = new XMLHttpRequest();
+    url="/Bridgestone/BridgestoneService?action=registrarBaja";
+    AJAX_req.open( "POST", url, true );
+    AJAX_req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    AJAX_req.onreadystatechange = function(){
+        if( AJAX_req.readyState === 4 && AJAX_req.status === 200 ){
+     
+            var object = 33;
+            console.log("El servlet ahora retorno un "+object);
+            callBack(object);
+        }
+    };
+    console.log("salimos del registrar baja");
+    AJAX_req.send("baja="+jsonText);   
+};
     
     
     
@@ -326,6 +350,7 @@ Proxy.getUsuarios = function(callBack){
      console.log("entramos al registrar comprobante");
      console.log(comprobante);
     jsonText = JSON.stringify(comprobante,JsonUtils.replacer);
+    console.log(jsonText);
     console.log("se parseo el comprobante a json");
     var AJAX_req = new XMLHttpRequest();
     url="/Bridgestone/BridgestoneService?action=registrarComprobante";
