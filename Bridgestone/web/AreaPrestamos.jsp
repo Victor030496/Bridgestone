@@ -389,6 +389,16 @@
                 }); 
                 
                 // aca vamos a setear el estado a prestado
+                
+                
+                 equiAModificar = new Equipo(model.equipos[i].idEquipo,null,null,null,null,null,null,null,null,null,model.equipos[i].estado);
+                  equiActual = new Equipo(model.equipos[i].idEquipo,null,null,null,null,null,null,null,null,null,"prestado");
+  
+        
+        
+             var trabajadores = [];
+             trabajadores[0] = userActual;
+             trabajadores[1] = userAModificar;
 
             }
         }
