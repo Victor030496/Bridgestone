@@ -879,7 +879,32 @@ static {
 
 
 
+     public static int setEstPresta(Equipo aModificar)throws Exception{
+       System.out.println("Equipo  que vamos a modificar "+  aModificar.estado);
+       aModificar.setEstado("prestado");
+              
+       String sql2="update Equipo "+
+                    "set estado  = '%s'" +
+                    
+              
+               
+                    "where idEquipo= '%s'";
+       
+      
 
+       sql2 = String.format(sql2,aModificar.estado,aModificar.idEquipo);
+      
+   
+       int aux2 = datos.executeUpdate(sql2);
+       
+       if(aux2 ==0){
+       
+        throw new Exception("Estado del equipo no actualizado");
+       
+       }
+ 
+   return 1;
+   }
 
 
 

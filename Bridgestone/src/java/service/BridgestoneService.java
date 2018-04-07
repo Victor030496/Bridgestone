@@ -483,7 +483,17 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
 //                    int aux2222 = model.modificaTrabajador(trabajadores.get(0), trabajadores.get(1));
                     
                 break;
+ 
+                          
+                      case "setEstPresta":
+                    System.out.println("Estamos seteando el estado a un equipo");
+                    json = request.getParameter("equipoPresta");
+                    Equipo eqPres = gson.fromJson(json, Equipo.class);
+                    //System.out.println("Registando equipo : " + eq2.getMarca() );
+                    int auxPres = model.setEstPresta(eqPres );
+                    System.out.println("retorno "+auxPres);
                     
+                break;                          
                
                     
                     
