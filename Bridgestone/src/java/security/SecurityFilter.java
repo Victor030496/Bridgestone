@@ -31,8 +31,8 @@ import model.Usuario;
     @WebInitParam(name = "TipoUsuario", value = "1")})
 public class SecurityFilter implements Filter {
 
-    List<String> clientActions = Arrays.asList("/Principal.jsp");
-    List<String> managerActions = Arrays.asList("/Principal2.jsp");
+    List<String> clientActions = Arrays.asList("/Principal2.jsp");
+    List<String> managerActions = Arrays.asList("/Principal.jsp");
     List<String>[] userActions;
     
     public SecurityFilter() {
@@ -48,7 +48,7 @@ public class SecurityFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
         HttpSession ses = req.getSession();
-        String LOGIN= "/Bridgestone/Principal.jsp";
+        String LOGIN= "/Bridgestone/index.jsp";
         String SEGURIDAD = "/Bridgestone/ErrorSeguridad.jsp";
         String uri= req.getRequestURI().substring(req.getContextPath().length());
         if (uri.equals("/BridgestoneService")){ // si le falta la accion//
