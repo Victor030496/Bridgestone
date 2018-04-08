@@ -58,7 +58,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
                                 <input maxlength="10" name="identificacion" id="identificacion" placeholder="Identificacion" class="form-control input_ced" type="text" size="15" maxlength="15">
-                            </div><span style="color: black ; font-size: 12pt ;font-family:Impact"  id="num2"></span>
+                            </div><span style="color: white ; font-size: 12pt ;font-family:Impact"  id="num2"></span>
                         
                     </div>
                     
@@ -67,8 +67,8 @@
                        
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-align-center"></i></span>
-                                <input maxlength="10" name="nombre" id="nombre" placeholder="Nombre" class="form-control" type="text">
-                            </div>
+                                <input maxlength="10" name="nombre" id="nombre" placeholder="Nombre" class="form-control input_nombre" type="text">
+                            </div><span style="color: white ; font-size: 12pt ;font-family:Impact"  id="nombre1"></span>
                         
                     </div>
                              
@@ -76,8 +76,8 @@
                        
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
-                                <input maxlength="10" name="apellido" id="apellido" placeholder="Apellido" class="form-control" type="text">
-                            </div>
+                                <input maxlength="10" name="apellido" id="apellido" placeholder="Apellido" class="form-control input_apellido" type="text">
+                            </div><span style="color: white ; font-size: 12pt ;font-family:Impact"  id="nombre2"></span>
                         
                     </div>
                               
@@ -87,7 +87,7 @@
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
                                 <input maxlength="10" name="telefono" id="telefono" placeholder="Telefono" class="form-control input_tel" type="text" size="15" maxlength="15">
                                 
-                            </div><span style="color: black ; font-size: 12pt ;font-family:Impact"  id="num1"></span>
+                            </div><span style="color: white ; font-size: 12pt ;font-family:Impact"  id="num1"></span>
                         
                     </div>
                               
@@ -96,7 +96,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
                                 <input  name="correo" id="correo" placeholder="Correo" class="form-control" type="email">
-                            </div><span style="color: black ; font-size: 12pt ;font-family:Impact"  id="emailOK"></span>
+                            </div> <span style="color: white ; font-size: 12pt ;font-family:Impact"  id="emailOK"></span>
                         
                     </div>
                      
@@ -109,7 +109,7 @@
                     <div class="form-group"  style="margin-left: 38%">
                                 <input type="hidden" value="agregarTrabajador" id="trabajadorAction"/>
                                 <button type="submit" class="btn btn-primary" id="enviarTrabajador"  onclick="controller.almacenar()">Almacenar</button>
-                                <button type="reset" class="btn btn-danger" id="cancelar">Cancelar</button>
+                                <button type="reset" class="btn btn-danger" id="cancelar" onclick="controller.salirfor()">Cancelar</button>
                             </div>
 
                 
@@ -647,16 +647,87 @@
         document.getElementById("correo").value = trabajador.correo;
     },
     
-    
+   salirfor: function(){
+      $("#myModalFormularioTrabajador").modal('hide');},  
     
     
      almacenar: function(){
-  
-        $("#myModalFormularioTrabajador").modal('hide');
+         
+        var id = document.getElementById("identificacion").value;
+        var nombre =document.getElementById("nombre").value;
+        var apellido =document.getElementById("apellido").value;
+        var telefono =document.getElementById("telefono").value;
+        var correo =document.getElementById("correo").value;  
+        var emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i; 
+        var error = false;
+        
+        if(id.length == 0 || id==null ){
+          error = false;   
+        // id.classList.add("invalid"); 
+         alert("El equipo no tiene un usuario asignado por el momento"); 
+         }
+         //Validar al usuario si se mete alguno
+        if(id.length >= 1 && id.length <9 ){
+          error = true;   
+        // id.classList.add("invalid"); 
+         alert("La identificacion debe de tener al menos 9 caracteres para cedula nacional"); 
+         }
+ //----------------------------nombre---------------------------------        
+         else if(id==null || id.length == 0 && nombre.length>=1){
+	 error = true;
+         alert("El espacio de identificacion esta esta vacio");           
+}
+
+ else if(id.length >=1 && nombre.length==0 || nombre==null){
+     error = true; 
+         alert("El espacio de nombre esta esta vacio");    
+         }
+//----------------------------apellido-------------------------------
+ else if(id==null || id.length == 0 && apellido.length>=1){
+	 error = true;
+         alert("El espacio de identificacion esta esta vacio");          
+}
+
+ else if(id.length >=1 && apellido.length==0 || apellido==null){
+     error = true; 
+         alert("El espacio de apellido esta esta vacio");   
+         }
+ //---------------------------telefono------------------------------
+  else if(id==null || id.length == 0 && telefono.length>=1){
+	 error = true;
+         alert("El espacio de identificacion esta esta vacio");           
+}
+
+ else if(id.length >=1 && telefono.length==0 || telefono==null){
+     error = true; 
+         alert("El espacio de telefono esta esta vacio");   
+         }
+ //----------------------------correo------------------------------
+  else if(id==null || id.length == 0 && correo.length>=1){
+	 error = true;
+         if(id==null || id.length == 0 && correo.length>=1 ){
+         alert("El espacio de identificacion esta esta vacio");  }  
+        /* else if(!emailRegex.test(correo)){
+         error = true;  
+         alert("Formato incorrecto! ej:Raul@mail.com");
+        
+           }  */
+}
+
+ else if(id.length >=1 && correo.length==0 || correo==null){
+     error = true; 
+         alert("El espacio de correo esta esta vacio");    
+         }
+    
+     
+   if (error==false){
+        alert("La informacion del usuario ha sido guardada"); 
+        $("#myModalFormularioTrabajador").modal('hide');}
         
     }
 
-        
+
+       
         
         
   };
@@ -685,15 +756,87 @@
      var  p = document.getElementById('p').style.display='block';
 
 
-}
+}//valida el correo
+document.getElementById('correo').addEventListener('input', function() {
+    campo = event.target;
+    valido = document.getElementById('emailOK');
         
+    emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+    //Se muestra un texto a modo de ejemplo, luego va a ser un icono
+    if (emailRegex.test(campo.value)) {
+      
+      valido.innerText = "Valido";
+    } else {
+        valido.innerText = "Formato incorrecto! ej:Raul@mail.com";
+        //alert("La dirección de email es incorrecta!.");
+    }
+});
+        
+        
+      //valida el numero de telefono 
+        jQuery(document).ready(function() {
+    jQuery('.input_tel').keypress(function(tecla) {
+         valido = document.getElementById('num1');
+        if(tecla.charCode < 48 || tecla.charCode > 57){
+            
+             valido.innerText = "Solo puede ingresar numeros!!";
+             //valido.innerText = "";
+            return false;}
+        else  valido.innerText = "";
+        
+    });
+    
+    
+    
+    
+    //valida la identificacion
+});
+      jQuery(document).ready(function() {
+    jQuery('.input_ced').keypress(function(tecla) {
+        valido = document.getElementById('num2');
+        if((tecla.charCode < 48 || tecla.charCode > 57)){ 
+            
+             valido.innerText = "Solo puede ingresar numeros!!";
+            // valido.innerText = "";
+            return false;}
+        else  valido.innerText = "";
+    });
+});
 
+
+//valida nombre
+ jQuery(document).ready(function() {
+    jQuery('.input_nombre').keypress(function(tecla) {
+        valido = document.getElementById('nombre1');
+        if((tecla.charCode < 65 || tecla.charCode > 90) && (tecla.charCode < 97 || tecla.charCode > 122)){ 
+            
+             valido.innerText = "Solo puede ingresar Letras!!";
+            // valido.innerText = "";
+            return false;}
+        else  valido.innerText = "";
+    });
+});
+
+//valida apellidos
+ jQuery(document).ready(function() {
+    jQuery('.input_apellido').keypress(function(tecla) {
+        valido = document.getElementById('nombre2');
+        if((tecla.charCode < 65 || tecla.charCode > 90) && (tecla.charCode < 97 || tecla.charCode > 122)){ 
+            
+             valido.innerText = "Solo puede ingresar Letras!!";
+            // valido.innerText = "";
+            return false;}
+        else  valido.innerText = "";
+    });
+});  
         
         
                 function salir(){
  document.location = "/Bridgestone/Principal.jsp";
         
      }
+     
+    
      
      function showContratos(){
          
@@ -729,8 +872,7 @@
            controller.mostrarModalTrabajador(aux);
             
         }
-        
-        
+     
         
         
         

@@ -135,7 +135,7 @@
           <!------------------------------------------------------------------------------------------>
             
             <div class="container">
-  <h2>Area de presatmos de equipos</h2>
+  <h2>Area de prestamos de equipos</h2>
     <br>  <br>
     
     
