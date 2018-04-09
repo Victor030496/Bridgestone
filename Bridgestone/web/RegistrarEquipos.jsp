@@ -661,7 +661,7 @@
         var emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i; 
         var error = false;
         
-        if(id.length == 0 || id==null ){
+        if(id.length == 0 || id==null){
           error = false;   
         // id.classList.add("invalid"); 
          alert("El equipo no tiene un usuario asignado por el momento"); 
@@ -707,11 +707,7 @@
 	 error = true;
          if(id==null || id.length == 0 && correo.length>=1 ){
          alert("El espacio de identificacion esta esta vacio");  }  
-        /* else if(!emailRegex.test(correo)){
-         error = true;  
-         alert("Formato incorrecto! ej:Raul@mail.com");
-        
-           }  */
+ 
 }
 
  else if(id.length >=1 && correo.length==0 || correo==null){
@@ -719,16 +715,26 @@
          alert("El espacio de correo esta esta vacio");    
          }
     
-     
+  else if(id.length >=1 && !emailRegex.test(correo)){
+         error = true;  
+         alert("Formato incorrecto! ej:Raul@mail.com");
+        
+           }     
    if (error==false){
-        alert("La informacion del usuario ha sido guardada"); 
-        $("#myModalFormularioTrabajador").modal('hide');}
+       if(id.length == 0 || id==null){
+         
+          $("#myModalFormularioTrabajador").modal('hide'); 
+       }
+       else{   
+        alert("La informacion del usuario ha sido guardada");  
+       $("#myModalFormularioTrabajador").modal('hide');
+   }
         
     }
 
 
        
-        
+     }      
         
   };
 </script>
