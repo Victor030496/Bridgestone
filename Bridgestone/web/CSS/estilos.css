@@ -19,10 +19,35 @@ header{
 
 #acceso2{
     
-    
+    display: block;
     background-color: #dbdbdb;
 }
 
+#acceso2V{
+    
+    display: block;
+    background-color: #dbdbdb;
+}
+#acceso3{
+    
+    display: block;
+    background-color: #dbdbdb;
+}
+
+
+
+#acceso22{
+    
+    display: none;
+    background-color: #dbdbdb;
+}
+
+
+#acceso23{
+    
+    display: none;
+    background-color: #dbdbdb;
+}
 #encabezado{
     
    background-image : url(logo.jpg);

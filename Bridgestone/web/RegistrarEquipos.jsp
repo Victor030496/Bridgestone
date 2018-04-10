@@ -295,7 +295,6 @@
         
       &nbsp;&nbsp;&nbsp;   <h2>  Registrar equipos nuevos</h2>
       <br>   
-         <h3 id="mjsImpor">¡ Rellene solo los campos necesarios segun el equipo que vaya a ingresar !</h3>
         <div class = "col-md-2 text-justify"  "col-lg-9 text-justify"  "col-sm-8 text-justify"  "col-xs-6 text-justify" align = "center" >
 
      <br>
@@ -342,16 +341,22 @@
                         
                    <div class="form-group">
 
-                  <label class="control-label col-xs-3 col-sm-4 col-md-3" id = "acceso2"> <span class="glyphicon glyphicon-list-alt"></span>&nbsp Numero de Contrato</label>                                <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="Este numero representa el codigo del contrato por Leasing">
-
-                              <span class=" help-block"id="acceso2">CONTRATO POR LEASING &nbsp <select class="selectpicker" id="selee1">
+                  <label class="control-label col-xs-3 col-sm-4 col-md-3" id = "acceso2"> <span class="glyphicon glyphicon-list-alt"></span>&nbsp Tipo de activo</label>                                <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="Este numero representa el codigo del contrato por Leasing">
+                           <span class=" help-block"id="">
+                                 <button type="submit" class="btn btn-primary" id="btnLeasing" onclick="switchea();">Contrato Leasing &nbsp;</button>
+                              <span class=" help-block"id="acceso22">CONTRATO POR LEASING &nbsp 
+                               <select class="selectpicker" id="selee1">
                                 <option>Prueba</option>
                                   </select></span>
+                               </span>
                       
-                    <!---   <span class=" help-block"id="acceso2">COMPROBANTE DE COMPRA &nbsp <select class="selectpicker" id="selee2">
-                                <option>Prueba</option>
-                           </select></span>--->
+                      <span class=" help-block"id="">
+                  <button type="submit" class="btn btn-primary" id="btnLeasing" onclick="switchea2();">Comprobante Compra &nbsp;</button>
 
+                      <span class=" help-block"id="acceso23">COMPROBANTE DE COMPRA &nbsp <select class="selectpicker" id="selee2">
+                                <option>Prueba</option>
+                           </select></span>
+                      </span>
                         </div>
                              </div>   
                         
@@ -911,7 +916,28 @@ document.getElementById('correo').addEventListener('input', function() {
         
      }
      
-    
+                    function switchea(){
+            var spa = document.getElementById("acceso22");
+            if(spa == null){
+                var spa = document.getElementById("acceso2V");
+                 spa.id = "acceso22"; 
+            }else{
+               spa.id = "acceso2V";  
+           }
+  
+     }
+     
+     
+                         function switchea2(){
+            var spa = document.getElementById("acceso23");
+            if(spa == null){
+                var spa = document.getElementById("acceso3");
+                 spa.id = "acceso23"; 
+            }else{
+               spa.id = "acceso3";  
+           }
+  
+     }
      
      function showContratos(){
          
