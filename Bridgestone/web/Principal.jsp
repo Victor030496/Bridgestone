@@ -169,11 +169,11 @@
                                  <span class = "caret"></span>
       
     <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-           <% if(user.getTipo()==2){ // admi %>
+        
     <li role="presentation">
       <a role="menuitem" tabindex="-1" href="RegistrarUsuario.jsp">Registrar Usuarios</a>
     </li>
-    <% } %>
+
      <li role="presentation" class="divider"></li>
     <li role="presentation">
       <a role="menuitem" tabindex="-1" href="ListadoUsuarios.jsp">Usuarios Registrados</a>
