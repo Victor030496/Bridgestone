@@ -13,5 +13,10 @@
     </head>
     <body>
         <h1>Error de seguridad!</h1>
+        
+    <div class="container-fluid" style="width: 1360px; height:530px; background-image: url(imagenes/erorseguri.png); background-repeat: no-repeat; background-size:cover;">
+  
+        </div>
+        
     </body>
 </html>

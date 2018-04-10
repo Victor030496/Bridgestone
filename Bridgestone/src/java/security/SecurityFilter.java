@@ -32,7 +32,7 @@ import model.Usuario;
 public class SecurityFilter implements Filter {
 
     List<String> clientActions = Arrays.asList("/Principal.jsp");
-    List<String> managerActions = Arrays.asList("/Principal.jsp");
+    List<String> managerActions = Arrays.asList("/Principal.jsp","/RegistrarContratoLeasing.jsp","/RegistrarComprobante.jsp","/AreaDarDeBaja.jsp");
     List<String>[] userActions;
     
     public SecurityFilter() {
