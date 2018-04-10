@@ -120,7 +120,7 @@
                           document.location = "/Bridgestone/index.jsp";
                             break;
                         case 1: // cliente
-                            document.location = "/Bridgestone/Principal2.jsp";
+                            document.location = "/Bridgestone/Principal.jsp";
                             
                             break;
                         case 2: // manager

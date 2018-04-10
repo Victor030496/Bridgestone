@@ -31,7 +31,7 @@ import model.Usuario;
     @WebInitParam(name = "TipoUsuario", value = "1")})
 public class SecurityFilter implements Filter {
 
-    List<String> clientActions = Arrays.asList("/Principal2.jsp");
+    List<String> clientActions = Arrays.asList("/Principal.jsp");
     List<String> managerActions = Arrays.asList("/Principal.jsp");
     List<String>[] userActions;
     

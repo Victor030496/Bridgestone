@@ -106,12 +106,17 @@
                         <li class = "dropdown"><a href=" " class = "dropdown-toggle" data-toggle="dropdown" role = "button">Inventarios
                                  <span class = "caret"></span>
                                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-    <li role="presentation">
+    
+                     <% if(user.getTipo()==2){ // client %>
+             
+                
+          <li role="presentation">
       <a role="menuitem" tabindex="-1" href="RegistrarContratoLeasing.jsp">Registrar Contrato de Leasing</a>
     </li>
     <li role="presentation">
       <a role="menuitem" tabindex="-1" href="RegistrarComprobante.jsp">Registrar Comprobante de compra</a>
-    </li>    
+    </li>
+             <%}%>              
      <li role="presentation" class="divider"></li>
     <li role="presentation">
       <a role="menuitem" tabindex="-1" href="ListadoContratos.jsp">Contratos de Leasing Registrados</a>
@@ -126,10 +131,11 @@
       <a role="menuitem" tabindex="-1" href="ListadoEquipos.jsp">Equipos nuevos registrados</a>
     </li>
      <li role="presentation" class="divider"></li>
+        <% if(user.getTipo()==2){ // client %>
      <li role="presentation">
       <a role="menuitem" tabindex="-1" href="AreaDarDeBaja.jsp">Dar De Baja a Equipos</a>
     </li>
-    
+    <% } %>
   </ul>
                              </a></li>
                          
@@ -161,10 +167,13 @@
                              
                            <li class = "dropdown"><a href=" " class = "dropdown-toggle" data-toggle="dropdown" role = "button">Usuarios
                                  <span class = "caret"></span>
-                                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+      
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+           <% if(user.getTipo()==2){ // admi %>
     <li role="presentation">
       <a role="menuitem" tabindex="-1" href="RegistrarUsuario.jsp">Registrar Usuarios</a>
     </li>
+    <% } %>
      <li role="presentation" class="divider"></li>
     <li role="presentation">
       <a role="menuitem" tabindex="-1" href="ListadoUsuarios.jsp">Usuarios Registrados</a>
