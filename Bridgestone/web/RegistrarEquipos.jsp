@@ -22,7 +22,7 @@
         
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css" rel="stylesheet">
-         <link rel="stylesheet" title="Bridgestone" type="text/css" href="CSS/jquery-ui.min.css">
+      
     </head>
     <body>
         
@@ -504,8 +504,7 @@
        
         </div>
        </div>      
-    <script type="text/javascript" src="JS/jquery.js"></script>     
-    <script type="text/javascript" src="JS/jquery-ui.min.js"></script>  
+ 
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>               
     <script src="JS/bootbox.min.js" type="text/javascript"></script>
@@ -635,10 +634,19 @@
 }
 
 
-        
+          
         
        if (error==false){
+            var spa =document.getElementById("acceso3"); 
+            if(spa == null){
         if(id === ""){
+            
+            
+            
+            
+            
+        
+            
         equipo = new Equipo(1,document.getElementById("selee1").value,null,document.getElementById("marca").value,document.getElementById("modelo").value,
                   document.getElementById("memoria").value,document.getElementById("procesador").value,document.getElementById("departamento").value,
                       null,document.getElementById("descripcion").value,"disponible");
@@ -655,8 +663,17 @@
                             
                     
                 });
-        
-        }
+                
+                
+            
+     //-----------------------------------------------------------------------------------           
+ 
+                
+                
+                
+                
+            }            
+       
          else{
           persona = new Persona(document.getElementById("identificacion").value,document.getElementById("nombre").value,document.getElementById("apellido").value,document.getElementById("telefono").value,document.getElementById("correo").value);   
       
@@ -696,7 +713,144 @@
             
             
              
-         }         
+         }
+         
+            }
+            
+            
+            
+            
+            
+                          
+              else{
+                  
+                  
+                  
+                    if(id === ""){
+                  
+                    equipo = new Equipo(1,null,document.getElementById("selee2").value,document.getElementById("marca").value,document.getElementById("modelo").value,
+                  document.getElementById("memoria").value,document.getElementById("procesador").value,document.getElementById("departamento").value,
+                      null,document.getElementById("descripcion").value,"disponible");
+                
+                Proxy.registrarEquipoComprobante(equipo,
+                function(contrat){
+                    if(contrat === 1){
+
+                       bootbox.alert("Equipo Registrado Con Exito!",function(){ document.location = "/Bridgestone/RegistrarEquipos.jsp" });
+                  }else{
+                      
+                      bootbox.alert("No se pudo registrar!",function(){ document.location = "/Bridgestone/RegistrarEquipos.jsp" });
+                  }  
+                            
+                    
+                });  
+                
+                
+                
+                } else{
+                    
+                    
+                    
+        persona = new Persona(document.getElementById("identificacion").value,document.getElementById("nombre").value,document.getElementById("apellido").value,document.getElementById("telefono").value,document.getElementById("correo").value);   
+      
+             
+          equipo = new Equipo(1,null,document.getElementById("selee2").value,document.getElementById("marca").value,document.getElementById("modelo").value,
+                  document.getElementById("memoria").value,document.getElementById("procesador").value,document.getElementById("departamento").value,
+                      document.getElementById("identificacion").value,document.getElementById("descripcion").value,"asignado");           
+         
+          Proxy.registrarPersona(persona,
+                function(contrat){
+                    if(contrat === 1){
+                       //window.alert("Registro exitoso");
+                  }
+                     
+                   //  document.location = "/Bridgestone/RegistraeEquipos.jsp";
+                            
+                    
+                });
+            
+            
+            
+            
+            
+                    Proxy.registrarEquipoComprobanteUsu(equipo,
+                function(contrat){
+                    if(contrat === 1){
+                        bootbox.alert("Equipo Y Usuario Del Mismo Registrado Con Exito!",function(){ document.location = "/Bridgestone/RegistrarEquipos.jsp" });
+                  }else{
+                      
+                      bootbox.alert("No se pudo registrar!",function(){ document.location = "/Bridgestone/RegistrarEquipos.jsp" });
+                  }        
+                    
+                });           
+      
+             
+         
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                }
+                
+                
+                
+                
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            }  
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
        
         }
 
