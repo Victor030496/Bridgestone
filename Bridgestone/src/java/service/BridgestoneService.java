@@ -275,7 +275,8 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                            case "registrarPrestamo":
                     json = request.getParameter("presta");
                     Prestamo pre = gson.fromJson(json, Prestamo.class);
-                    //System.out.println("Registrando Contrato" + pre.getDepartamento());
+                    System.out.println("Registrando Contrato" + pre.getFechaInicio());
+                    System.out.println("Registrando Contrato" + pre.getFechaDevolucion());
                     int aux23232 = model.guardaPrestamo(pre);
                     System.out.println("retorno "+aux23232);
                 break; 
@@ -389,7 +390,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                         
 
                         
-                        SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+                        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
                         Date parsed = (Date) format.parse(ju.getJSONObject(i).getString("fechaInicio"));
                         java.sql.Date sql = new java.sql.Date(parsed.getTime());
                         
@@ -398,7 +399,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                         
                         
                         
-                        SimpleDateFormat format2 = new SimpleDateFormat("MM/dd/yyyy");
+                        SimpleDateFormat format2 = new SimpleDateFormat("dd/MM/yyyy");
                         Date parsedd = (Date) format2.parse(ju.getJSONObject(i).getString("fechaVencimiento"));
                         java.sql.Date sqll = new java.sql.Date(parsedd.getTime());
                         

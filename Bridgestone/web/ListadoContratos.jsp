@@ -494,17 +494,22 @@
        
                  for (i=0;i<model.contratos.length;i++){
 	
-                      var fechaVencida = moment(model.contratos[i].fechaVencimiento);
                       var fechaActual = moment(new Date());
+                      var fechaVencida = model.contratos[i].fechaVencimiento;
+                       var day = moment(fechaVencida, "DD/MM/YYYY");
+                    
                     //var alerta = fechaVencida.diff(fechaActual, "days"),"dias de diferencia");
-                     var alerta = fechaVencida.diff(fechaActual, "days");
+                     var alerta = fechaActual.diff(day, "days");
+                     //alert(alerta);
+                     
                              if(alerta <= 15){
                                   aux++;
-                      } 
+                      }
                   }
                     
                     if(aux > 0){
-                        
+                       
+                //alert(aux);
                         
     var tableReg = document.getElementById('tabUsuarios');
     var cellsOfRow = "";
@@ -517,10 +522,11 @@
         found = false;
 
               //alert(cellsOfRow[i].className);
-              
-         if (cellsOfRow[i].className == 'warning invalid')
+          
+         if (cellsOfRow[i].className === 'warning invalid')
             {
                 found = true;
+               
             }         
      
         if (found)
@@ -626,11 +632,12 @@
         
         //alert(model.contratos[i].fechaVencimiento);
         
-        
-        var fechaVencida = moment(model.contratos[i].fechaVencimiento);
         var fechaActual = moment(new Date());
-        //var alerta = fechaVencida.diff(fechaActual, "days"),"dias de diferencia");
-        var alerta = fechaVencida.diff(fechaActual, "days");
+        var fechaVencida = model.contratos[i].fechaVencimiento;
+        var day = moment(fechaVencida, "DD/MM/YYYY");
+      //var alerta = fechaVencida.diff(fechaActual, "days"),"dias de diferencia");
+        var alerta = fechaActual.diff(day, "days");
+
        
         if(est === 1 && alerta <= 15){    
         tr.classList.add("invalid"); 
