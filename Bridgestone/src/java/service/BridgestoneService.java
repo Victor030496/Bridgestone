@@ -243,8 +243,26 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                     //System.out.println("Registando equipo : " + eq2.getMarca() );
                     int aux1002 = model.guardaEquipoUsuario(eq2);
                     System.out.println("retorno "+aux1002);
-                break;       
+                break;    
+                            
+                    case "registrarEquipoComprobante":
+                    System.out.println("Estamos registarando un equipo comproba");
+                    json = request.getParameter("equipoCompro");
+                    Equipo eqCom = gson.fromJson(json, Equipo.class);
+                    //System.out.println("Registando equipo : " + eq2.getMarca() );
+                    int aux100Com = model.guardaEquipoComprobante(eqCom);
+                    System.out.println("retorno "+aux100Com);
+                break;           
                          
+                 case "registrarEquipoComprobanteUsu":
+                    System.out.println("Estamos registarando un equipo comproba");
+                    json = request.getParameter("equipoComproUsu");
+                    Equipo eqCom2 = gson.fromJson(json, Equipo.class);
+                    //System.out.println("Registando equipo : " + eq2.getMarca() );
+                    int aux100Com2 = model.guardaEquipoComUsuario(eqCom2);
+                    System.out.println("retorno "+aux100Com2);
+                break;     
+                        
                       case "registrarPersona":
                     System.out.println("Estamos registarando una Persona");
                     json = request.getParameter("persona");
@@ -483,7 +501,17 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
 //                    int aux2222 = model.modificaTrabajador(trabajadores.get(0), trabajadores.get(1));
                     
                 break;
+ 
+                          
+                      case "setEstPresta":
+                    System.out.println("Estamos seteando el estado a un equipo");
+                    json = request.getParameter("equipoPresta");
+                    Equipo eqPres = gson.fromJson(json, Equipo.class);
+                    //System.out.println("Registando equipo : " + eq2.getMarca() );
+                    int auxPres = model.setEstPresta(eqPres );
+                    System.out.println("retorno "+auxPres);
                     
+                break;                          
                
                     
                     

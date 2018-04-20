@@ -3,6 +3,7 @@
     Created on : 17/02/2018, 01:57:43 PM
     Author     : Luis Bogantes
 --%>
+<%@page import="model.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -21,18 +22,65 @@
         
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css" rel="stylesheet">
-         <link rel="stylesheet" title="Bridgestone" type="text/css" href="CSS/jquery-ui.min.css">
+      
     </head>
     <body>
         
         
         
        <header>      
-         <div class = "container-fluid">     
-         <div id="links" style="height:125px;  margin-right: 10px; margin-left: 1px; display: inline-flex; align-items: center; justify-content: end; float:left;">    
-         <div style="width: 400px; height:75px; background-image: url(imagenes/logo.jpg); background-repeat: no-repeat; background-size:cover;">              </div>  
-         </div > 
-         </div >               
+       <div class = "container-fluid">     
+          <div id="links" style="height:125px;  margin-right: 10px; margin-left: 1px; display: inline-flex; align-items: center; justify-content: end; float:left;">    
+
+                 <div style="width: 400px; height:75px; background-image: url(imagenes/logo.jpg); background-repeat: no-repeat; background-size:cover;">              </div>  
+  
+   <% Usuario user = (Usuario) request.getSession().getAttribute("user"); %>
+    
+     <% if (user==null){%> 
+ 
+        <%}%> 
+        
+         <div id="links" style="height:60px;  margin-right: 10px; display: inline-flex; align-items: center; justify-content: end; float:right;">    
+    <%   if (user!=null){%>
+     
+           <% if(user.getTipo()==1){ // client %>
+             
+            <%}%>
+        
+               <% if(user.getTipo()!=1){ // admi %>
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <h3 id = "letraUs">     <%=(     (Usuario) request.getSession().getAttribute("user")).getId()%> </h3>&nbsp;&nbsp;
+                 <div style="       width: 45px; height:45px; background-image: url(imagenes/male.png); background-repeat: no-repeat; background-size:contain;" onclick="redirect();"></div>
+                                  <script>
+                          function redirect(){
+                         
+                         document.location = "/Bridgestone/Principal.jsp";
+                     }
+                  </script>
+                 <%}%>
+            
+         <%}%> 
+     </div>
+                 
+                 
+                 
+   </div > 
+ </div >              
         </header> 
         
                 <!------------------------------------------------------------------------------------------>
@@ -58,7 +106,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
                                 <input maxlength="10" name="identificacion" id="identificacion" placeholder="Identificacion" class="form-control input_ced" type="text" size="15" maxlength="15">
-                            </div><span style="color: black ; font-size: 12pt ;font-family:Impact"  id="num2"></span>
+                            </div><span style="color: white ; font-size: 12pt ;font-family:Impact"  id="num2"></span>
                         
                     </div>
                     
@@ -67,8 +115,8 @@
                        
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-align-center"></i></span>
-                                <input maxlength="10" name="nombre" id="nombre" placeholder="Nombre" class="form-control" type="text">
-                            </div>
+                                <input maxlength="10" name="nombre" id="nombre" placeholder="Nombre" class="form-control input_nombre" type="text">
+                            </div><span style="color: white ; font-size: 12pt ;font-family:Impact"  id="nombre1"></span>
                         
                     </div>
                              
@@ -76,8 +124,8 @@
                        
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
-                                <input maxlength="10" name="apellido" id="apellido" placeholder="Apellido" class="form-control" type="text">
-                            </div>
+                                <input maxlength="10" name="apellido" id="apellido" placeholder="Apellido" class="form-control input_apellido" type="text">
+                            </div><span style="color: white ; font-size: 12pt ;font-family:Impact"  id="nombre2"></span>
                         
                     </div>
                               
@@ -87,7 +135,7 @@
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
                                 <input maxlength="10" name="telefono" id="telefono" placeholder="Telefono" class="form-control input_tel" type="text" size="15" maxlength="15">
                                 
-                            </div><span style="color: black ; font-size: 12pt ;font-family:Impact"  id="num1"></span>
+                            </div><span style="color: white ; font-size: 12pt ;font-family:Impact"  id="num1"></span>
                         
                     </div>
                               
@@ -96,7 +144,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
                                 <input  name="correo" id="correo" placeholder="Correo" class="form-control" type="email">
-                            </div><span style="color: black ; font-size: 12pt ;font-family:Impact"  id="emailOK"></span>
+                            </div> <span style="color: white ; font-size: 12pt ;font-family:Impact"  id="emailOK"></span>
                         
                     </div>
                      
@@ -109,7 +157,7 @@
                     <div class="form-group"  style="margin-left: 38%">
                                 <input type="hidden" value="agregarTrabajador" id="trabajadorAction"/>
                                 <button type="submit" class="btn btn-primary" id="enviarTrabajador"  onclick="controller.almacenar()">Almacenar</button>
-                                <button type="reset" class="btn btn-danger" id="cancelar">Cancelar</button>
+                                <button type="reset" class="btn btn-danger" id="cancelar" onclick="controller.salirfor()">Cancelar</button>
                             </div>
 
                 
@@ -128,7 +176,7 @@
         
        <div  id= "mainDiv" class="container-fluid" style="width: 1360px; height:860px; background-image: url(imagenes/prin22.jpg); background-repeat: no-repeat; background-size:cover; ba">
      
-         <div class = "">
+     <div class = "">
          <nav class = " navbar navbar-default   navbar-static-top   ">
              <div class = "container-fluid">
                  <div class = "navbar-header">
@@ -138,35 +186,47 @@
                          <span class = "icon-bar"></span>
                          <span class = "icon-bar"></span>
                      </button>
-                     <a href="Principal.jsp" class = "navbar-brand">Ir a Inicio</a>
-                      </div>
+                     <a href="Principal.jsp" class = "navbar-brand">Home</a>
+                     
+                 </div>
                  
-         <div class = "collapse navbar-collapse" id = "navbar-1">
-           <ul class="nav navbar-nav">
-              <li class = "dropdown"><a href=" " class = "dropdown-toggle" data-toggle="dropdown" role = "button">Inventarios
-                  <span class = "caret"></span>
-                     <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-    <li role="presentation">
+                 <div class = "collapse navbar-collapse" id = "navbar-1">
+                     
+                     <ul class="nav navbar-nav">
+                         
+                        <li class = "dropdown"><a href=" " class = "dropdown-toggle" data-toggle="dropdown" role = "button">Inventarios
+                                 <span class = "caret"></span>
+                                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+    
+                     <% if(user.getTipo()==2){ // client %>
+             
+                
+          <li role="presentation">
       <a role="menuitem" tabindex="-1" href="RegistrarContratoLeasing.jsp">Registrar Contrato de Leasing</a>
     </li>
     <li role="presentation">
       <a role="menuitem" tabindex="-1" href="RegistrarComprobante.jsp">Registrar Comprobante de compra</a>
-     </li>    
+    </li>
+             <%}%>              
      <li role="presentation" class="divider"></li>
     <li role="presentation">
       <a role="menuitem" tabindex="-1" href="ListadoContratos.jsp">Contratos de Leasing Registrados</a>
     </li>
     <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="ListadoContratos.jsp">Comprobantes de compra registrados</a>
+      <a role="menuitem" tabindex="-1" href="ListadoComprobantes.jsp">Comprobantes de compra registrados</a>
     </li>    
-    <li role="presentation">
+     <li role="presentation">
       <a role="menuitem" tabindex="-1" href="RegistrarEquipos.jsp">Registrar Equipos nuevos</a>
     </li>
     <li role="presentation">
       <a role="menuitem" tabindex="-1" href="ListadoEquipos.jsp">Equipos nuevos registrados</a>
     </li>
-     
-    
+     <li role="presentation" class="divider"></li>
+        <% if(user.getTipo()==2){ // client %>
+     <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="AreaDarDeBaja.jsp">Dar De Baja a Equipos</a>
+    </li>
+    <% } %>
   </ul>
                              </a></li>
                          
@@ -174,11 +234,11 @@
                                  <span class = "caret"></span>
                                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
     <li role="presentation">
-<a role="menuitem" tabindex="-1" href="AreaPrestamos.jsp">Nuevo Prestamo</a>
+      <a role="menuitem" tabindex="-1" href="AreaPrestamos.jsp">Nuevo Prestamo</a>
     </li>
      <li role="presentation" class="divider"></li>
     <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="ListadoContratos.jsp">Prestamos Registrados</a>
+      <a role="menuitem" tabindex="-1" href="Equi2.jsp">Prestamos Registrados</a>
     </li>
   </ul>
                              </a></li>
@@ -187,34 +247,43 @@
                                  <span class = "caret"></span>
                                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
     <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="prue.jsp">Registrar Devolucion</a>
+      <a role="menuitem" tabindex="-1" href="AreaDevoluciones.jsp">Registrar Devolucion</a>
     </li>
      <li role="presentation" class="divider"></li>
     <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="ListadoContratos.jsp">Devoluciones Registradas</a>
-       </li>
-        </ul>
-           </a></li>
+      <a role="menuitem" tabindex="-1" href="#">Devoluciones Registradas</a>
+    </li>
+  </ul>
+                             </a></li>
                              
-              <li class = "dropdown"><a href=" " class = "dropdown-toggle" data-toggle="dropdown" role = "button">Usuarios
+                           <li class = "dropdown"><a href=" " class = "dropdown-toggle" data-toggle="dropdown" role = "button">Usuarios
                                  <span class = "caret"></span>
-                                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-       <li role="presentation">
-         <a role="menuitem" tabindex="-1" href="RegistrarUsuario.jsp">Registrar Usuarios</a>
-           </li>
+      
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+        
+    <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="RegistrarUsuario.jsp">Registrar Usuarios</a>
+    </li>
+
      <li role="presentation" class="divider"></li>
-        <li role="presentation">
-          <a role="menuitem" tabindex="-1" href="ListadoUsuarios.jsp">Usuarios Registrados</a>
-          </li>
+    <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="ListadoUsuarios.jsp">Usuarios Registrados</a>
+    </li>
     
   </ul>
-                     </a></li>
-                     </ul>  
+                             </a></li>
+                     </ul> 
+                     
                      <ul class="nav navbar-nav  navbar-right" >
-                         <li><a href="index.jsp "><img src="imagenes/cerrar.png" alt="" width="20" height="20"/>Cerrar Sesion </a></li>
-                   </ul>
+                         <li><a href="index.jsp"><img src="imagenes/cerrar.png" alt="" width="20" height="20"/>Cerrar Sesion </a></li>
+                         
+                     </ul>
                  </div>
-                </div>
+                 
+                 
+                 
+                 
+             </div>
          
          </nav>
          </div>
@@ -226,7 +295,6 @@
         
       &nbsp;&nbsp;&nbsp;   <h2>  Registrar equipos nuevos</h2>
       <br>   
-         <h3 id="mjsImpor">¡ Rellene solo los campos necesarios segun el equipo que vaya a ingresar !</h3>
         <div class = "col-md-2 text-justify"  "col-lg-9 text-justify"  "col-sm-8 text-justify"  "col-xs-6 text-justify" align = "center" >
 
      <br>
@@ -273,16 +341,22 @@
                         
                    <div class="form-group">
 
-                  <label class="control-label col-xs-3 col-sm-4 col-md-3" id = "acceso2"> <span class="glyphicon glyphicon-list-alt"></span>&nbsp Numero de Contrato</label>                                <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="Este numero representa el codigo del contrato por Leasing">
-
-                              <span class=" help-block"id="acceso2">CONTRATO POR LEASING &nbsp <select class="selectpicker" id="selee1">
+                  <label class="control-label col-xs-3 col-sm-4 col-md-3" id = "acceso2"> <span class="glyphicon glyphicon-list-alt"></span>&nbsp Tipo de activo</label>                                <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="Este numero representa el codigo del contrato por Leasing">
+                           <span class=" help-block"id="">
+                                 <button type="submit" class="btn btn-primary" id="btnLeasing" onclick="switchea();">Contrato Leasing &nbsp;</button>
+                              <span class=" help-block"id="acceso22">CONTRATO POR LEASING &nbsp 
+                               <select class="selectpicker" id="selee1">
                                 <option>Prueba</option>
                                   </select></span>
+                               </span>
                       
-                    <!---   <span class=" help-block"id="acceso2">COMPROBANTE DE COMPRA &nbsp <select class="selectpicker" id="selee2">
-                                <option>Prueba</option>
-                           </select></span>--->
+                      <span class=" help-block"id="">
+                  <button type="submit" class="btn btn-primary" id="btnLeasing" onclick="switchea2();">Comprobante Compra &nbsp;</button>
 
+                      <span class=" help-block"id="acceso23">COMPROBANTE DE COMPRA &nbsp <select class="selectpicker" id="selee2">
+                                <option>Prueba</option>
+                           </select></span>
+                      </span>
                         </div>
                              </div>   
                         
@@ -430,8 +504,7 @@
        
         </div>
        </div>      
-    <script type="text/javascript" src="JS/jquery.js"></script>     
-    <script type="text/javascript" src="JS/jquery-ui.min.js"></script>  
+ 
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>               
     <script src="JS/bootbox.min.js" type="text/javascript"></script>
@@ -561,10 +634,19 @@
 }
 
 
-        
+          
         
        if (error==false){
+            var spa =document.getElementById("acceso3"); 
+            if(spa == null){
         if(id === ""){
+            
+            
+            
+            
+            
+        
+            
         equipo = new Equipo(1,document.getElementById("selee1").value,null,document.getElementById("marca").value,document.getElementById("modelo").value,
                   document.getElementById("memoria").value,document.getElementById("procesador").value,document.getElementById("departamento").value,
                       null,document.getElementById("descripcion").value,"disponible");
@@ -581,8 +663,17 @@
                             
                     
                 });
-        
-        }
+                
+                
+            
+     //-----------------------------------------------------------------------------------           
+ 
+                
+                
+                
+                
+            }            
+       
          else{
           persona = new Persona(document.getElementById("identificacion").value,document.getElementById("nombre").value,document.getElementById("apellido").value,document.getElementById("telefono").value,document.getElementById("correo").value);   
       
@@ -622,7 +713,144 @@
             
             
              
-         }         
+         }
+         
+            }
+            
+            
+            
+            
+            
+                          
+              else{
+                  
+                  
+                  
+                    if(id === ""){
+                  
+                    equipo = new Equipo(1,null,document.getElementById("selee2").value,document.getElementById("marca").value,document.getElementById("modelo").value,
+                  document.getElementById("memoria").value,document.getElementById("procesador").value,document.getElementById("departamento").value,
+                      null,document.getElementById("descripcion").value,"disponible");
+                
+                Proxy.registrarEquipoComprobante(equipo,
+                function(contrat){
+                    if(contrat === 1){
+
+                       bootbox.alert("Equipo Registrado Con Exito!",function(){ document.location = "/Bridgestone/RegistrarEquipos.jsp" });
+                  }else{
+                      
+                      bootbox.alert("No se pudo registrar!",function(){ document.location = "/Bridgestone/RegistrarEquipos.jsp" });
+                  }  
+                            
+                    
+                });  
+                
+                
+                
+                } else{
+                    
+                    
+                    
+        persona = new Persona(document.getElementById("identificacion").value,document.getElementById("nombre").value,document.getElementById("apellido").value,document.getElementById("telefono").value,document.getElementById("correo").value);   
+      
+             
+          equipo = new Equipo(1,null,document.getElementById("selee2").value,document.getElementById("marca").value,document.getElementById("modelo").value,
+                  document.getElementById("memoria").value,document.getElementById("procesador").value,document.getElementById("departamento").value,
+                      document.getElementById("identificacion").value,document.getElementById("descripcion").value,"asignado");           
+         
+          Proxy.registrarPersona(persona,
+                function(contrat){
+                    if(contrat === 1){
+                       //window.alert("Registro exitoso");
+                  }
+                     
+                   //  document.location = "/Bridgestone/RegistraeEquipos.jsp";
+                            
+                    
+                });
+            
+            
+            
+            
+            
+                    Proxy.registrarEquipoComprobanteUsu(equipo,
+                function(contrat){
+                    if(contrat === 1){
+                        bootbox.alert("Equipo Y Usuario Del Mismo Registrado Con Exito!",function(){ document.location = "/Bridgestone/RegistrarEquipos.jsp" });
+                  }else{
+                      
+                      bootbox.alert("No se pudo registrar!",function(){ document.location = "/Bridgestone/RegistrarEquipos.jsp" });
+                  }        
+                    
+                });           
+      
+             
+         
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                }
+                
+                
+                
+                
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            }  
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
        
         }
 
@@ -647,17 +875,94 @@
         document.getElementById("correo").value = trabajador.correo;
     },
     
-    
+   salirfor: function(){
+      $("#myModalFormularioTrabajador").modal('hide');},  
     
     
      almacenar: function(){
-  
-        $("#myModalFormularioTrabajador").modal('hide');
+         
+        var id = document.getElementById("identificacion").value;
+        var nombre =document.getElementById("nombre").value;
+        var apellido =document.getElementById("apellido").value;
+        var telefono =document.getElementById("telefono").value;
+        var correo =document.getElementById("correo").value;  
+        var emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i; 
+        var error = false;
+        
+        if(id.length == 0 || id==null){
+          error = false;   
+        // id.classList.add("invalid"); 
+         alert("El equipo no tiene un usuario asignado por el momento"); 
+         }
+         //Validar al usuario si se mete alguno
+        if(id.length >= 1 && id.length <9 ){
+          error = true;   
+        // id.classList.add("invalid"); 
+         alert("La identificacion debe de tener al menos 9 caracteres para cedula nacional"); 
+         }
+ //----------------------------nombre---------------------------------        
+         else if(id==null || id.length == 0 && nombre.length>=1){
+	 error = true;
+         alert("El espacio de identificacion esta esta vacio");           
+}
+
+ else if(id.length >=1 && nombre.length==0 || nombre==null){
+     error = true; 
+         alert("El espacio de nombre esta esta vacio");    
+         }
+//----------------------------apellido-------------------------------
+ else if(id==null || id.length == 0 && apellido.length>=1){
+	 error = true;
+         alert("El espacio de identificacion esta esta vacio");          
+}
+
+ else if(id.length >=1 && apellido.length==0 || apellido==null){
+     error = true; 
+         alert("El espacio de apellido esta esta vacio");   
+         }
+ //---------------------------telefono------------------------------
+  else if(id==null || id.length == 0 && telefono.length>=1){
+	 error = true;
+         alert("El espacio de identificacion esta esta vacio");           
+}
+
+ else if(id.length >=1 && telefono.length==0 || telefono==null){
+     error = true; 
+         alert("El espacio de telefono esta esta vacio");   
+         }
+ //----------------------------correo------------------------------
+  else if(id==null || id.length == 0 && correo.length>=1){
+	 error = true;
+         if(id==null || id.length == 0 && correo.length>=1 ){
+         alert("El espacio de identificacion esta esta vacio");  }  
+ 
+}
+
+ else if(id.length >=1 && correo.length==0 || correo==null){
+     error = true; 
+         alert("El espacio de correo esta esta vacio");    
+         }
+    
+  else if(id.length >=1 && !emailRegex.test(correo)){
+         error = true;  
+         alert("Formato incorrecto! ej:Raul@mail.com");
+        
+           }     
+   if (error==false){
+       if(id.length == 0 || id==null){
+         
+          $("#myModalFormularioTrabajador").modal('hide'); 
+       }
+       else{   
+        alert("La informacion del usuario ha sido guardada");  
+       $("#myModalFormularioTrabajador").modal('hide');
+   }
         
     }
 
-        
-        
+
+       
+     }      
         
   };
 </script>
@@ -685,14 +990,107 @@
      var  p = document.getElementById('p').style.display='block';
 
 
-}
+}//valida el correo
+document.getElementById('correo').addEventListener('input', function() {
+    campo = event.target;
+    valido = document.getElementById('emailOK');
         
+    emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+    //Se muestra un texto a modo de ejemplo, luego va a ser un icono
+    if (emailRegex.test(campo.value)) {
+      
+      valido.innerText = "Valido";
+    } else {
+        valido.innerText = "Formato incorrecto! ej:Raul@mail.com";
+        //alert("La dirección de email es incorrecta!.");
+    }
+});
+        
+        
+      //valida el numero de telefono 
+        jQuery(document).ready(function() {
+    jQuery('.input_tel').keypress(function(tecla) {
+         valido = document.getElementById('num1');
+        if(tecla.charCode < 48 || tecla.charCode > 57){
+            
+             valido.innerText = "Solo puede ingresar numeros!!";
+             //valido.innerText = "";
+            return false;}
+        else  valido.innerText = "";
+        
+    });
+    
+    
+    
+    
+    //valida la identificacion
+});
+      jQuery(document).ready(function() {
+    jQuery('.input_ced').keypress(function(tecla) {
+        valido = document.getElementById('num2');
+        if((tecla.charCode < 48 || tecla.charCode > 57)){ 
+            
+             valido.innerText = "Solo puede ingresar numeros!!";
+            // valido.innerText = "";
+            return false;}
+        else  valido.innerText = "";
+    });
+});
 
+
+//valida nombre
+ jQuery(document).ready(function() {
+    jQuery('.input_nombre').keypress(function(tecla) {
+        valido = document.getElementById('nombre1');
+        if((tecla.charCode < 65 || tecla.charCode > 90) && (tecla.charCode < 97 || tecla.charCode > 122)){ 
+            
+             valido.innerText = "Solo puede ingresar Letras!!";
+            // valido.innerText = "";
+            return false;}
+        else  valido.innerText = "";
+    });
+});
+
+//valida apellidos
+ jQuery(document).ready(function() {
+    jQuery('.input_apellido').keypress(function(tecla) {
+        valido = document.getElementById('nombre2');
+        if((tecla.charCode < 65 || tecla.charCode > 90) && (tecla.charCode < 97 || tecla.charCode > 122)){ 
+            
+             valido.innerText = "Solo puede ingresar Letras!!";
+            // valido.innerText = "";
+            return false;}
+        else  valido.innerText = "";
+    });
+});  
         
         
                 function salir(){
  document.location = "/Bridgestone/Principal.jsp";
         
+     }
+     
+                    function switchea(){
+            var spa = document.getElementById("acceso22");
+            if(spa == null){
+                var spa = document.getElementById("acceso2V");
+                 spa.id = "acceso22"; 
+            }else{
+               spa.id = "acceso2V";  
+           }
+  
+     }
+     
+     
+                         function switchea2(){
+            var spa = document.getElementById("acceso23");
+            if(spa == null){
+                var spa = document.getElementById("acceso3");
+                 spa.id = "acceso23"; 
+            }else{
+               spa.id = "acceso3";  
+           }
+  
      }
      
      function showContratos(){
@@ -729,8 +1127,7 @@
            controller.mostrarModalTrabajador(aux);
             
         }
-        
-        
+     
         
         
         

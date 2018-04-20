@@ -119,10 +119,12 @@
                           window.alert("El usuario ingresado no exsiste");
                             break;
                         case 1: // cliente
-                            document.location = "/Bridgestone/Principal.jsp";
+                            window.alert(usuario.tipo);
+                            document.location = "/Bridgestone/Principal2.jsp";
                             
                             break;
                         case 2: // manager
+                            window.alert(usuario.tipo);
                             document.location = "/Bridgestone/Principal.jsp";
                             break;
                     }
