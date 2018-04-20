@@ -267,11 +267,11 @@
 <script type="text/javascript" src="JS/jquery-ui.min.js"></script>  
 <script>
     
-    $("#datepicker").datepicker();
+    $("#datepicker").datepicker({ dateFormat: 'dd/mm/yy' });
 </script>
 <script>
     
-    $("#datepicker2").datepicker();
+    $("#datepicker2").datepicker({ dateFormat: 'dd/mm/yy' });
 </script>
 
   

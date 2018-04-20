@@ -10,18 +10,25 @@
 
 <html>
     <head>
-          <%@ include file="Imports.jspf" %>  
+          <%@ include file="Imports 2.jspf" %>  
         <title>Inventario de activos</title>
-        <meta charset="UTF-8">
+            <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" title="Bridgestone" type="text/css" href="CSS/bootstrap.min.css">
         <link rel="stylesheet" title="Bridgestone" type="text/css" href="CSS/estilos.css">
+        <link rel="stylesheet" title="Bridgestone" type="text/css" href="CSS/registrarse.css">
         <script type="text/javascript" src="JS/bootstrap.min.js"></script>
         <script type="text/javascript" src="JS/jquery-3.2.0.min.js"></script>
         <script type="text/javascript" src="JS/jquery.nivo.slider.js"></script>
-        <script src = "http://code.jquery.com/jquery-latest.js"></script>
         
-    </head>
+        <script type="text/javascript" src="JS/jquery.js"></script>     
+        <script type="text/javascript" src="JS/jquery-ui.min.js"></script> 
+        
+        
+          <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css" rel="stylesheet">
+         <link rel="stylesheet" title="Bridgestone" type="text/css" href="CSS/jquery-ui.min.css">
     <body>
         <header>
            
@@ -190,26 +197,119 @@
                          
                          
         </div>
+     
+ <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>        
+    <script src="JS/bootbox.min.js" type="text/javascript"></script>
+    <script src="http://momentjs.com/downloads/moment.min.js"></script>
+     
     </body>
     
     
     
   
-    <script>
-  
     
-    
-
-    function pageLoad(event){
-
-
- }
-
+     <script> // Model
+  function Model() {
+    this.Model();
+  }
   
+  Model.prototype={
+	Model: function(){
+        }
+  };
+</script>
+
+<script> // Controller
+  function Controller(model,view) {
+    this.Controller(model,view);
+  }
   
-    document.addEventListener("DOMContentLoaded",pageLoad)
-    
-    </script>
+  Controller.prototype={
+	Controller: function(model,view){
+		this.model=model;
+		this.view=view;
+                
+          Proxy.getContratos(function(result){
+          
+          model.contratos = result;
+          //console.log(result[0].id);
+          view.showTabla();
+        
+       }      
+      ); 
+	}
+  };
+</script>
+<script> // View
+  var model;
+  var controller;
+  
+	function pageLoad(event){ 
+ 
+		model=new Model();  
+		controller = new Controller(model,window);
+                showTabla();
+  
+	}
+        
+       
+        
+        function showTabla(){
+         
+       var aux = 0;
+       
+        for (i=0;i<model.contratos.length;i++){
+	
+           var fechaVencida = moment(model.contratos[i].fechaVencimiento);
+           var fechaActual = moment(new Date());
+           //var alerta = fechaVencida.diff(fechaActual, "days"),"dias de diferencia");
+           var alerta = fechaVencida.diff(fechaActual, "days");
+           if(alerta <= 15){       
+               aux++;
+        }   
+        
+     }
+      
+      
+            if(aux > 0){
+                
+                ///alert(aux);
+         bootbox.confirm({
+             title: "Contratos prontos a vencer",
+             message: "¿Desea ver los contratos?",
+                buttons: {
+                    cancel: {
+                             label: '<i class="fa fa-times"></i> Cancel'
+                            },
+                    confirm: {
+                             label: '<i class="fa fa-check"></i> Confirm'
+                              }
+                        },
+                            callback: function (result) {
+                         
+                                    if(result == true){
+                                        document.location = "/Bridgestone/ListadoContratos.jsp" ;
+
+                                    }
+                                    else{
+                                        return; 
+                                    }      
+                         }
+                        
+                
+                });
+            }
+            }
+        
+       
+      
+     
+        
+        
+        
+	document.addEventListener("DOMContentLoaded",pageLoad);
+</script>  
     
 </html>
 

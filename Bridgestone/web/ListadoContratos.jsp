@@ -231,13 +231,21 @@
                     <div class="container">
   <h2>Contratos</h2>
       <br>  <br>
-    <div class="col-sm-10 , cuadro" >
-         <div class="col-sm-4" style="text-align: right; vertical-align: middle;" >
+    <div class="col-sm-12 , cuadro" >
+         <div class="col-sm-3" style="text-align: right; vertical-align: middle;" >
                                     <p><b>Buscar Contrato:</b></p>
                                 </div>
-                                <div class="col-sm-6 ,buscador">
-      <input type="email" class="form-control" id="searchTerm" placeholder="Digite cualquier dato del contrato que desea encontrar" onkeyup="doSearch()">
+                                <div class="col-sm-3 ,buscador">
+      <input type="email" class="form-control" id="searchTerm" placeholder="Digite por dato que desea encontrar" onkeyup="doSearch()">
         </div>
+        
+         <div class="col-sm-3" style="text-align: right; vertical-align: middle;" >
+                                    <p><b>Contratos por vencer:</b></p>
+                                </div>
+        <div class="col-sm-1 ,buscador">
+      <input type="checkBox" class="form-control" id="check"  onClick="Filtrar()">
+        </div>
+        
      </div>
     <br>
     <br>
@@ -278,17 +286,18 @@
 
   <script>
     
-    $("#datepickerr").datepicker();
+    $("#datepickerr").datepicker({ dateFormat: 'dd/mm/yy' });
 </script>
 <script>
     
-    $("#datepickerr2").datepicker();
+    $("#datepickerr2").datepicker({ dateFormat: 'dd/mm/yy' });
 </script>
 
 
    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>        
     <script src="JS/bootbox.min.js" type="text/javascript"></script>
+    <script src="http://momentjs.com/downloads/moment.min.js"></script>
        
    
     
@@ -427,6 +436,79 @@
   var controller;
   
   
+  function Filtrar(){
+      
+      var a = document.getElementById("check");
+      
+      if(a.checked == true){
+          //alert("SI");
+          
+         var aux = 0;
+       
+                 for (i=0;i<model.contratos.length;i++){
+	
+                      var fechaVencida = moment(model.contratos[i].fechaVencimiento);
+                      var fechaActual = moment(new Date());
+                    //var alerta = fechaVencida.diff(fechaActual, "days"),"dias de diferencia");
+                     var alerta = fechaVencida.diff(fechaActual, "days");
+                             if(alerta <= 15){
+                                  aux++;
+                      } 
+                  }
+                    
+                    if(aux > 0){
+                        
+                        
+    var tableReg = document.getElementById('tabUsuarios');
+    var cellsOfRow = "";
+    var found = false;
+    // Recorremos todas las filas con contenido de la tabla
+    for (var i = 1; i < tableReg.rows.length; i++)
+    {
+        cellsOfRow = tableReg.getElementsByTagName('tr');
+        //cellsOfRow = tableReg.getElementsByClassName('warning');
+        found = false;
+
+              //alert(cellsOfRow[i].className);
+              
+         if (cellsOfRow[i].className == 'warning invalid')
+            {
+                found = true;
+            }         
+     
+        if (found)
+        {
+            tableReg.rows[i].style.display = '';
+        } else {
+            // si no ha encontrado ninguna coincidencia, esconde la
+            // fila de la tabla
+            tableReg.rows[i].style.display = 'none';
+        } 
+    }
+        }
+          else{
+                 return;
+                        
+              }       
+            }
+      else{
+          
+          //alert("NO");
+          
+    var tableReg = document.getElementById('tabUsuarios');
+    var found = false;
+
+
+    // Recorremos todas las filas con contenido de la tabla
+    for (var i = 1; i < tableReg.rows.length; i++)
+    {
+           tableReg.rows[i].style.display = '';
+
+          }   
+    }
+  
+    } 
+  
   function doSearch(){
     var tableReg = document.getElementById('tabUsuarios');
     var searchText = document.getElementById('searchTerm').value.toLowerCase();
@@ -495,7 +577,19 @@
         td=document.createElement("td");
         var est = model.contratos[i].estado;
         
-        if(est === 1){
+        //alert(model.contratos[i].fechaVencimiento);
+        
+        
+        var fechaVencida = moment(model.contratos[i].fechaVencimiento);
+        var fechaActual = moment(new Date());
+        //var alerta = fechaVencida.diff(fechaActual, "days"),"dias de diferencia");
+        var alerta = fechaVencida.diff(fechaActual, "days");
+       
+        if(est === 1 && alerta <= 15){    
+        tr.classList.add("invalid"); 
+        }
+
+        if(est === 1 ){      
 	td.appendChild(document.createTextNode("Abierto"));
     }
     else{
@@ -512,6 +606,8 @@
        img.addEventListener("click", doQuery);
        td.appendChild(img);
        tr.appendChild(td);
+       
+       
        
         /*    
        td= document.createElement("td");

@@ -160,7 +160,7 @@
     </tr>  
     
      <tr>
-         <th class="" id ="accesoP" ><a href="ListadoContratosLeasing.jsp">Ver Contratos <span class="glyphicon glyphicon-list-alt"></span></a></th>
+         <th class="" id ="accesoP" ><a href="ListadoContratos.jsp">Ver Contratos <span class="glyphicon glyphicon-list-alt"></span></a></th>
     </tr>  
         
      <tr>
@@ -302,11 +302,11 @@
 <script type="text/javascript" src="JS/jquery-ui.min.js"></script>  
 <script>
     
-    $("#datepicker").datepicker();
+    $("#datepicker").datepicker({ dateFormat: 'dd/mm/yy'});
 </script>
 <script>
     
-    $("#datepicker2").datepicker();
+    $("#datepicker2").datepicker({ dateFormat: 'dd/mm/yy'});
 </script>
 
   
