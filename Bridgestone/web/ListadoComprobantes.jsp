@@ -370,23 +370,47 @@
        
         //console.log("Se va a meter al proxy eliminar Comrpobante" + comprobante);
        
-        Proxy.eliminarComprobante(comprobante,
-                function(contrat){
-                    if(contrat === 19){
-                       //window.alert("Eliminado exitoso");
-                       bootbox.alert("Comprobante Eliminado Con Exito!",function(){ document.location = "/Bridgestone/ListadoComprobantes.jsp" });
-                  }
-                  else{
+         bootbox.confirm({
+             title: "Eliminar Comprobante",
+             message: "¿Desea eliminar el comprobante?",
+                buttons: {
+                    cancel: {
+                             label: '<i class="fa fa-times"></i> Cancelar'
+                            },
+                    confirm: {
+                             label: '<i class="fa fa-check"></i> Confirmar'
+                              }
+                        },
+                            callback: function (result) {
+                         
+                                    if(result == true){
+                                        Proxy.eliminarComprobante(comprobante,
+                
+            
+                                                function(contrat){
+                                                     if(contrat === 19){
+                                                     //window.alert("Eliminado exitoso");
+                                                     bootbox.alert("Comprobante Eliminado Con Exito!",function(){ document.location = "/Bridgestone/ListadoComprobantes.jsp" });
+                                                         }
+                                                       else{
                       
-                      bootbox.alert("No se pudo eliminar!!",function(){ document.location = "/Bridgestone/ListadoComprobantes.jsp" });
-                  }
+                                                     bootbox.alert("No se pudo eliminar!!",function(){ document.location = "/Bridgestone/ListadoComprobantes.jsp" });
+                                                         }
                      
-                     //document.location = "/Bridgestone/ListadoComprobantes.jsp";
+                                                 //document.location = "/Bridgestone/ListadoComprobantes.jsp";
                             
                     
+                                            });
+
+                                    }
+                                    else{
+                                        return; 
+                                    }      
+                         }
+                        
+                
                 });
-        ///alert(id); */
-          
+ 
         },
         mostrarModal: function(num){
   
@@ -419,6 +443,7 @@
         comprobantes[0] = comprobanteActual;
         comprobantes[1] = comprobanteAModificar;
         
+
          Proxy.modificarCompro(comprobantes,
                 function(comprobant){
                     if(comprobant == 33){

@@ -430,16 +430,41 @@
         user = new Usuario(id,"hello",1);
         //window.alert("Activo registrado como : "+ document.getElementById("des").value);
        
-        Proxy.eliminarUsuario(user,
-                function(contrat){
-                    if(contrat === 222){
-                       bootbox.alert("Usuario Eliminado Con Exito!",function(){ document.location = "/Bridgestone/ListadoUsuarios.jsp" });
-                  }else{
+        bootbox.confirm({
+             title: "Eliminar Usuarios",
+             message: "¿Desea eliminar este usuario?",
+                buttons: {
+                    cancel: {
+                             label: '<i class="fa fa-times"></i> Cancelar'
+                            },
+                    confirm: {
+                             label: '<i class="fa fa-check"></i> Confirmar'
+                              }
+                        },
+                            callback: function (result) {
+                         
+                                    if(result == true){
+                                          Proxy.eliminarUsuario(user,
+              
+                                    function(contrat){
+                                        if(contrat === 222){
+                                             bootbox.alert("Usuario Eliminado Con Exito!",function(){ document.location = "/Bridgestone/ListadoUsuarios.jsp" });
+                                        }else{
                       
-                      bootbox.alert("No se pudo eliminar!",function(){ document.location = "/Bridgestone/ListadoUsuarios.jsp" });
-                  }    
+                                            bootbox.alert("No se pudo eliminar!",function(){ document.location = "/Bridgestone/ListadoUsuarios.jsp" });
+                                            }    
                     
+                                            });
+
+                                    }
+                                    else{
+                                        return; 
+                                    }      
+                         }
+                        
+                
                 });
+      
         ///alert(id);
          
         },

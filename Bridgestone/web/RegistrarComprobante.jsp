@@ -403,6 +403,9 @@
         //comprobante = new Comprobante(document.getElementById("numComprobante").value,document.getElementById("datepicker").value);
         //window.alert("com : "+ comprobante);
         
+        
+        
+        
         Proxy.registrarCompro(comprobante,
                 function(comprobant){
                     if(comprobant == 33){
