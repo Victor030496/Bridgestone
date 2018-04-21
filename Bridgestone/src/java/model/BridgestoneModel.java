@@ -178,15 +178,15 @@ static {
        
              
                public static int guardaComprobante(Comprobante c)throws Exception{
-       System.out.println("Prestamo que vamos a guardar"+ c.getComprobante());
-       String sql="insert into Comprobante(numeroDeComprobante)"
-                + "values('%s')";
+       System.out.println("Prestamo que vamos a guardar"+ c.getComprobante()+ c.getGarantia());
+       String sql="insert into Comprobante(numeroDeComprobante,garantia)"
+                + "values('%s','%s')";
 
-       sql=String.format(sql,c.numeroDeComprobante);
+       sql=String.format(sql,c.numeroDeComprobante,c.garantia);
        int aux = datos.executeUpdate(sql);
        if(aux ==0){
        
-        throw new Exception("Comprobante no existe");
+        throw new Exception("Comprobante no se pudo guardar");
        
        }
  
@@ -681,6 +681,7 @@ static {
         private static Comprobante toComprobante(ResultSet rs) throws Exception{
        Comprobante obj= new Comprobante();
         obj.setComprobante(rs.getInt("numeroDeComprobante"));
+        obj.setGarantia(rs.getDate("garantia"));
         return obj;
     }
     
@@ -783,12 +784,11 @@ static {
        public static int modificaComprobante(Comprobante actual, Comprobante aModificar)throws Exception{
        System.out.println("Comprobante actual y el que vamos a modificar "+ actual.numeroDeComprobante + aModificar.numeroDeComprobante);
        String sql="update Comprobante "+
-                    "set numeroDeComprobante  = '%s'"+
-                    "where numeroDeComprobante = '%s'";
+                    "set numeroDeComprobante  = '%s',garantia  = '%s' where numeroDeComprobante = '%s'";
 
        //update Profesor set cedula = '1' where cedula = '123412'; 
        
-       sql=String.format(sql,aModificar.numeroDeComprobante,actual.numeroDeComprobante);
+       sql=String.format(sql,aModificar.numeroDeComprobante,aModificar.garantia,actual.numeroDeComprobante);
        int aux = datos.executeUpdate(sql);
        if(aux ==0){
        

@@ -266,12 +266,30 @@
                     <div class="form-group">
 
                             <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="glyphicon glyphicon-barcode"></span>&nbsp Numero de Comprobante</label>
-                           <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="Numero de Comprobante">
+                          
+                            
+                        <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="Numero de Comprobante">
 
                                   <input type="text" class="form-control" id="numComprobante" name="numComprobante" maxlength="12"/>
 
                         </div>
-                             </div>
+                         
+                            </br> </br> </br> </br>
+                            
+                       <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"><span class="glyphicon glyphicon-calendar"></span>&nbsp Fecha de garantía</label>
+                             <div class="col-xs-4 col-sm-3 col-md-3" >
+                                  <input type="text" class="form-control" id="datepicker">
+                                
+               
+                                  
+                      </div>
+                                  
+                      </div>
+               </div>
+                       
+                        
+                        
+                        
                         
                        
                        <br>
@@ -326,23 +344,23 @@
      </div>   
         
         
-        <script type="text/javascript" src="JS/jquery.js"></script>     
+<script type="text/javascript" src="JS/jquery.js"></script>     
 <script type="text/javascript" src="JS/jquery-ui.min.js"></script>  
 
-<!--
+
+
+
+
 <script>
     
-    $("#datepicker").datepicker();
+    $("#datepicker").datepicker({ dateFormat: 'dd/mm/yy' });
 </script>
-<script>
-    
-    $("#datepicker2").datepicker();
-</script>-->
-  
+
    
           <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="JS/bootbox.min.js" type="text/javascript"></script>
+    <script src="http://momentjs.com/downloads/moment.min.js"></script>
     
     </body>
     
@@ -377,12 +395,13 @@
 	},
         loginn: function(){
             
-            var view = this.view;
+        var view = this.view;
        
             //usuario = new Usuario(document.getElementById("usuario").value, document.getElementById("contrasena").value, 0); 
-        comprobante = new Comprobante(document.getElementById("numComprobante").value);
+        comprobante = new Comprobante(document.getElementById("numComprobante").value,document.getElementById("datepicker").value);
 
-        //window.alert("comrpobante registrado como : "+ comprobante);
+        //comprobante = new Comprobante(document.getElementById("numComprobante").value,document.getElementById("datepicker").value);
+        window.alert("com : "+ comprobante);
         
         Proxy.registrarCompro(comprobante,
                 function(comprobant){

@@ -5,23 +5,25 @@
  */
 
 
-  function Comprobante(numeroDeComprobante) {
-    this.Comprobante(numeroDeComprobante);
+  function Comprobante(numeroDeComprobante,garantia) {
+    this.Comprobante(numeroDeComprobante,garantia);
   }
   
   Comprobante.prototype={
         numeroDeComprobante:0,
+        garantia:"",
        
-	Comprobante: function(numeroDeComprobante){
+	Comprobante: function(numeroDeComprobante,garantia){
                 this.numeroDeComprobante= numeroDeComprobante;
+                this.garantia= garantia;
 	},
 	toString:function(){
-	  return this.numeroDeComprobante;
+	  return this.garantia+this.numeroDeComprobante;
 	}
   }
   
   Comprobante.from= function(plain){
-    comprobant = new Comprobante(plain.numeroDeComprobante);
+    comprobant = new Comprobante(plain.numeroDeComprobante,plain.garantia);
 	return comprobant;
   };
   
@@ -29,6 +31,7 @@
     return {
         _class : 'Comprobante',
         numeroDeComprobante:comprobante.numeroDeComprobante,
+        garantia:comprobante.garantia,
  
     };	
   };

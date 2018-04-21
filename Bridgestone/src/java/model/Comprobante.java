@@ -11,16 +11,18 @@ package model;
  */
 
 import java.io.Serializable;
+import java.sql.Date;
 
 
 public class Comprobante implements Jsonable, Serializable{
     
     int numeroDeComprobante;
+    Date garantia;
     
-    
-     public Comprobante(int numeroComprobante){
+     public Comprobante(int numeroComprobante,Date garantia){
     
         this.numeroDeComprobante = numeroComprobante;
+         this.garantia = garantia;
      
 
     }
@@ -28,6 +30,7 @@ public class Comprobante implements Jsonable, Serializable{
      public Comprobante(){
     
         this.numeroDeComprobante = 11;
+        this.garantia = new Date(2,03,2005);
     }
     
      
@@ -40,6 +43,18 @@ public class Comprobante implements Jsonable, Serializable{
      public void setComprobante(int a){
      
          numeroDeComprobante = a;
+     }
+     
+     
+     public Date getGarantia(){
+     
+         return garantia;
+     
+     }
+     
+     public void setGarantia(Date a){
+     
+         garantia = a;
      }
     
     

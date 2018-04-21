@@ -270,11 +270,13 @@
        
         for (i=0;i<model.contratos.length;i++){
 	
+        
+           var est = model.contratos[i].estado;
            var fechaActual = moment(new Date());
            var fechaVencida = model.contratos[i].fechaVencimiento;
            var day = moment(fechaVencida, "DD/MM/YYYY");
             var alerta = fechaActual.diff(day, "days");
-           if(alerta <= 15){       
+           if(alerta <= 15 && est === 1){       
                aux++;
         }   
         

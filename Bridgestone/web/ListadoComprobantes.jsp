@@ -20,12 +20,16 @@
         <script type="text/javascript" src="JS/bootstrap.min.js"></script>
         <script type="text/javascript" src="JS/jquery-3.2.0.min.js"></script>
         <script type="text/javascript" src="JS/jquery.nivo.slider.js"></script>
-        <script type="text/javascript" src="JS/Trabajador.js"></script>
-   
+
+          <script type="text/javascript" src="JS/jquery.js"></script>     
+        <script type="text/javascript" src="JS/jquery-ui.min.js"></script> 
+        
         
           <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css" rel="stylesheet">
+        <link rel="stylesheet" title="Bridgestone" type="text/css" href="CSS/jquery-ui.min.css"> 
+        
     </head>
     <body>
                
@@ -217,6 +221,15 @@
                             </div>
                         
                     </div>
+                             
+                             
+                    <div class="form-group" id="groupInicio">
+                                 <div class="input-group">
+                              <span class="input-group-lg"><i class="glyphicon glyphicon-calendar"></i></span>
+                                <input type="text"  id="datepickerr">
+                            </div>
+                                </div>         
+                             
                          </div>
                   
         </div>
@@ -270,6 +283,7 @@
     <thead>
       <tr>
         <th class="success">Numero De Comprobante</th>
+        <th class="success">Garantia</th>
          <th class="success">Editar</th>
         <th class="success">Eliminar</th>
       </tr>
@@ -294,6 +308,13 @@
        <a href="Principal.jsp "><button type="button" class="btn btn-default" >Atras</button></a>                 
         </div>
         
+      <script>
+    
+    $("#datepickerr").datepicker({ dateFormat: 'dd/mm/yy' });
+</script>
+ 
+    
+ 
    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>        
     <script src="JS/bootbox.min.js" type="text/javascript"></script>
@@ -364,10 +385,9 @@
         var nume = document.getElementById("enviar");
         nume.value = num;
         
-        //comprobante = model.comprobantes.find(function(x){return x.numeroDeComprobante === num; });
-        //alert(comprobante);
-        document.getElementById("numComprobante").value = num;
-        
+        comprobante = model.comprobantes.find(function(x){return x.numeroDeComprobante == num; });
+        document.getElementById("numComprobante").value = comprobante.numeroDeComprobante;
+        document.getElementById("datepickerr").value = comprobante.garantia;
  
     },
         editar: function(){
@@ -380,8 +400,8 @@
          //alert("El que quiero modificar " + numero2);
          
         
-        comprobanteActual = new Comprobante(numero);
-        comprobanteAModificar = new Comprobante(numero2);
+        comprobanteActual = new Comprobante(numero,"02/01/2010");
+        comprobanteAModificar = new Comprobante(numero2,document.getElementById("datepickerr").value);
         //var numero = document.getElementById("groupIDVehiculo");
         
         
@@ -476,8 +496,14 @@
         var tr =document.createElement("tr");
         tr.classList.add("warning");
 	var td;
+        
+        
 	td=document.createElement("td");
 	td.appendChild(document.createTextNode(model.comprobantes[i].numeroDeComprobante));
+	tr.appendChild(td);
+        
+        td=document.createElement("td");
+	td.appendChild(document.createTextNode(model.comprobantes[i].garantia));
 	tr.appendChild(td);
 
         td= document.createElement("td");

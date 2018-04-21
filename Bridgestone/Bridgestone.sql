@@ -50,6 +50,7 @@ create table Contrato(
 create table Comprobante(
 
    numeroDeComprobante varchar(15),
+   garantia Date,
    constraint PK_Activo primary key(numeroDeComprobante)
 
 );

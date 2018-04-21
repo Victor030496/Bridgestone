@@ -366,6 +366,17 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                     
                         Comprobante compro = new Comprobante();
                         compro.setComprobante(ji.getJSONObject(i).getInt("numeroDeComprobante"));
+                        
+                        
+                          SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                        Date parsed = (Date) format.parse(ji.getJSONObject(i).getString("garantia"));
+                        java.sql.Date sql = new java.sql.Date(parsed.getTime());
+                        
+                        compro.setGarantia(sql);
+                         System.out.println(sql);
+                        
+                        
+                        
                         comprobantes.add(compro);
                   }           
 

@@ -452,7 +452,7 @@
                  contratoAModificar  = new Contrato(numero2,document.getElementById("datepickerr").value,document.getElementById("datepickerr2").value,0);
              }
 
-             contratoActual = new Contrato(numero,"02/01/2018","01/01/2018",0);
+             contratoActual = new Contrato(numero,"02/01/2010","01/01/2018",0);
              
              var contratos = [];
              contratos[0] = contratoActual;
