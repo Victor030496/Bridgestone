@@ -211,7 +211,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>        
     <script src="JS/bootbox.min.js" type="text/javascript"></script>
     <script src="http://momentjs.com/downloads/moment.min.js"></script>
-     
+    <script src="JS/push.min.js" type="text/javascript"></script>
+    <script src="JS/easyNotify.js" type="text/javascript"></script>
     </body>
     
     
@@ -247,6 +248,15 @@
         
        }      
       ); 
+      
+      Proxy.getComprobantes(function(result){
+          
+          model.comprobantes = result;
+          //console.log(result[0].id);
+          view.showTabla2();
+        
+       }      
+      ); 
 	}
   };
 </script>
@@ -259,6 +269,7 @@
 		model=new Model();  
 		controller = new Controller(model,window);
                 showTabla();
+                showTabla2();
   
 	}
         
@@ -284,17 +295,41 @@
       
       
             if(aux > 0){
+               
+            
+            /*  body:"Se sugiere revisar los comprobantes",
+                    icon:"imagenes/log.jpg",
+                    onClick: function(){
+                        document.location = "/Bridgestone/ListadoComprobantes.jsp" ;
+                    }*/
+      
+	var options = {
+	    title: "Hay contratos prontos a vencer",
+	    options: {
+              body:"Se sugiere revisar los contratos",
+	      icon:"imagenes/log.jpg",
+	       onClick: function(){
+                        document.location = "/Bridgestone/ListadoComprobantes.jsp" ;
+                    }
+	    }
+	};
+	 
+	$("#easyNotify").easyNotify(options);  
+        }
+        
+        
+                
                 
                 ///alert(aux);
-         bootbox.confirm({
+       /*  bootbox.confirm({
              title: "Contratos prontos a vencer",
              message: "¿Desea ver los contratos?",
                 buttons: {
                     cancel: {
-                             label: '<i class="fa fa-times"></i> Cancel'
+                             label: '<i class="fa fa-times"></i> Cancelar'
                             },
                     confirm: {
-                             label: '<i class="fa fa-check"></i> Confirm'
+                             label: '<i class="fa fa-check"></i> Confirmar'
                               }
                         },
                             callback: function (result) {
@@ -309,10 +344,48 @@
                          }
                         
                 
-                });
-            }
+                });*/
+            
+
+  
             }
         
+        
+        function showTabla2(){
+                         var aux2 = 0;
+       
+        for (i=0;i<model.comprobantes.length;i++){
+	
+        
+           var fechaActual = moment(new Date());
+           var fechaVencida = model.comprobantes[i].garantia;
+           var day = moment(fechaVencida, "DD/MM/YYYY");
+            var alerta = fechaActual.diff(day, "days");
+           if(alerta <= 15){       
+               aux2++;
+        }   
+        
+     }
+      
+      
+          if(aux2> 0){
+                
+                ///alert(aux);
+                 Push.create("Hay garantias por vencer",{
+                      body:"Se sugiere revisar los comprobantes",
+                    icon:"imagenes/log.jpg",
+                    onClick: function(){
+                        document.location = "/Bridgestone/ListadoComprobantes.jsp" ;
+                    }
+                });
+                
+                
+            
+     
+          }
+            
+            
+        }
        
       
      
