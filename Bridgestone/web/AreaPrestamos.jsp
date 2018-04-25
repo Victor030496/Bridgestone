@@ -428,7 +428,8 @@
         var corre0 =document.getElementById("correo");
         var emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i; 
         var error = false;
-       
+        var selec=false;
+         var  cheki;
         
          if(id.value == null  || id.value.length == 0|| id.value.length < 9 ){
          //id.value.classList.add("invalid");
@@ -489,17 +490,23 @@ else if(telefono.value == null  || telefono.value.length == 0||telefono.value.le
         
            }
 } 
-        
-  
-        
+ 
+ for (j=0;j< model.equipos.length ;j++){   
+     cheki = document.getElementById(j);
+if(cheki.checked){
+    selec=true;
+           }  
+       }    
+       if(selec==false){
+           error=false;
+          alert("Para hacer un prestamos debe seleccionar  equipos");
+
+       }
         
       
          for (i=0;i< model.equipos.length ;i++){  
-           var  cheki = document.getElementById(i);
-           if(cheki.checked==false){
-               error=true
-               alert("Seleccione un equipo");break;
-           }
+            
+          cheki = document.getElementById(i); 
           
      if(error==false){        
          if(cheki.checked){
