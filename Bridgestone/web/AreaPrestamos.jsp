@@ -421,10 +421,91 @@
 	},
         
         guardaPrestamo: function(){
+        var id = document.getElementById("identificacion");
+        var nombre =document.getElementById("nombre");
+        var apellido =document.getElementById("apellido");
+        var telefono =document.getElementById("telefono");
+        var corre0 =document.getElementById("correo");
+        var emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i; 
+        var error = false;
+       
         
+         if(id.value == null  || id.value.length == 0|| id.value.length < 9 ){
+         //id.value.classList.add("invalid");
+	 error = true;
+         if(id.value == null  || id.value.length == 0){
+          alert("El espacio de cedula esta vacio");
+         
+     }
+            
+          else if(id.value.length < 9){
+         alert("La identificacion debe de tener al menos 9 caracteres para cedula nacional");
+         
+           } 
+}
+
+else if(nombre.value == null  || nombre.value.length == 0){
+     //nombre.classList.add("invalid");
+	 error = true;
+        if(nombre.value == null  || nombre.value.length == 0){
+         alert("El espacio de nombre esta vacio");
+     }    
+         
+}
+
+
+ else if(apellido.value == null  || apellido.value.length == 0){
+    // apellido.classList.add("invalid");
+	 error = true;
+          if(apellido.value == null  || apellido.value.length == 0){
+         alert("El espacio de apellido esta vacio");
+     }    
+}
+
+
+else if(telefono.value == null  || telefono.value.length == 0||telefono.value.length < 8){
+    // telefono.classList.add("invalid");
+	 error = true;
+         if(telefono.value == null  || telefono.value.length == 0){
+         alert("El espacio de telefono esta vacio");
+     } 
+      else if(telefono.value.length < 8){
+         alert("El telefono tiene 8 digitos");
+         
+           } 
+}
+
+
+ else if(correo.value == null  || correo.value.length == 0 || !emailRegex.test(correo.value) ){
+    
+     //correo.classList.add("invalid");
+	 error = true;
+         if(correo.value == null  || correo.value.length == 0){
+         alert("El espacio de correo esta vacio");
+     } 
+   
+     else if(!emailRegex.test(correo.value)){
+         alert("Formato incorrecto! ej:Raul@mail.com");
+        
+           }
+} 
+        
+  
+        
+        
+      
          for (i=0;i< model.equipos.length ;i++){  
-            var cheki = document.getElementById(i);
-            if(cheki.checked){
+           var  cheki = document.getElementById(i);
+           if(cheki.checked==false){
+               error=true
+               alert("Seleccione un equipo");break;
+           }
+          
+     if(error==false){        
+         if(cheki.checked){
+       
+                
+                  
           persona = new Persona(document.getElementById("identificacion").value,document.getElementById("nombre").value,document.getElementById("apellido").value,document.getElementById("telefono").value,document.getElementById("correo").value);   
 
                 Proxy.registrarPersona(persona,
@@ -489,8 +570,8 @@
     
     
     
-    
-    }
+        }
+    }//end del metodo de guardar
   };
 </script>
 <script> // View

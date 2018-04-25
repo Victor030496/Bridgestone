@@ -783,81 +783,20 @@
                   }        
                     
                 });           
-      
-             
-         
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+     
                 }
-                
-                
-                
-                
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+                        
             }  
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-       
+                 
         }
 
 
 
     
     },
+    
+    
+    
             mostrarModalTrabajador: function(num){
   
         $("#myModalFormularioTrabajador").modal();
