@@ -296,7 +296,7 @@
 
                     <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="button" id="enviar" onclick="controller.guardaPrestamo();">Guardar</button>
                     <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="button" id="cancelar">Cancelar</button>
-                     
+                    <button class="btn btn-lg btn-success btn-block" name="Submit" value="Login" type="button" id="generaComprobante" onclick="comprobante();">Generar Comprobante</button> 
                    
                     <br><br>
                      <center>
@@ -343,7 +343,7 @@
     $("#datepicker2").datepicker({ dateFormat: 'dd/mm/yy' });
 </script>
 
-  
+
    
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>    
@@ -700,7 +700,33 @@ if(cheki.checked){
             controller.mostrarModalTrabajador(aux);
             
         }
-        
+        function comprobante(){
+        var id = document.getElementById("identificacion").value;
+        var nombre =document.getElementById("nombre").value;
+        var apellido =document.getElementById("apellido").value;
+        var telefono =document.getElementById("telefono").value;
+        var corre0 =document.getElementById("correo").value;
+        document.getElementById("depa").value;
+         var fech=document.getElementById("datepicker").value;
+        var fech2= document.getElementById("datepicker2").value;
+        document.getElementById("comentario").value;
+        var pdf = new jsPDF();
+        pdf.text(20,20,"Comprobante de Prestamo");
+        pdf.text(20,30,"Identificacion: ");
+        pdf.text(60,30,id);
+        pdf.text(20,40,"Nombre: ");
+        pdf.text(55,40,nombre);
+        pdf.text(75,40,apellido);
+        pdf.text(20,50,"Telefono: ");
+        pdf.text(55,50,telefono);
+        pdf.text(20,60,"correo: ");
+        pdf.text(55,60,telefono); 
+        pdf.text(20,70,"Fecha de inicio: ");
+        pdf.text(65,70,fech); 
+        pdf.text(20,80,"Fecha de devolucion: ");
+        pdf.text(80,80,fech2); 
+        pdf.save('comprobantePresta.pdf');
+        }
         
         
 	document.addEventListener("DOMContentLoaded",pageLoad);
