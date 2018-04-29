@@ -19,5 +19,7 @@
 <script type="text/javascript" src="JS/Proxy.js"></script>
 <script type="text/javascript" src="JS/JsonUtils.js"></script>
 <script type="text/javascript" src="JS/Utils.js"></script>
-
-
+<script type="text/javascript" src="JS/jspdf.min.js"></script>
+<script type="text/javascript" src="JS/jspdf.plugin.autotable.js"></script>
+<script type="text/javascript" src="JS/jspdf.plugin.autotable.min.js"></script>
+<script type="text/javascript" src="JS/jspdf.plugin.autotable.src.js"></script>
