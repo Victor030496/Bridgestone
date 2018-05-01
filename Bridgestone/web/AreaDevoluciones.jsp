@@ -90,7 +90,7 @@
         </header>
         
         
-                         <div class="container-fluid" style="width: 1360px; height:530px; background-image: url(imagenes/prin2.jpg); background-repeat: no-repeat; background-size:cover;">
+                         <div class="container-fluid" style="width: 1360px; height:1200px; background-image: url(imagenes/prin2.jpg); background-repeat: no-repeat; background-size:cover;">
 
                      
                              

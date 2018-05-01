@@ -717,7 +717,7 @@ if(cheki.checked){
         var nombre =document.getElementById("nombre").value;
         var apellido =document.getElementById("apellido").value;
         var telefono =document.getElementById("telefono").value;
-        var corre0 =document.getElementById("correo").value;
+        var corre =document.getElementById("correo").value;
         document.getElementById("depa").value;
          var fech=document.getElementById("datepicker").value;
         var fech2= document.getElementById("datepicker2").value;
@@ -734,7 +734,7 @@ if(cheki.checked){
         pdf.text(20,70,"Telefono: ");
         pdf.text(55,70,telefono);
         pdf.text(20,80,"correo: ");
-        pdf.text(55,80,telefono); 
+        pdf.text(55,80,corre); 
         pdf.text(20,90,"Fecha de inicio: ");
         pdf.text(65,90,fech); 
         pdf.text(20,100,"Fecha de devolucion: ");
