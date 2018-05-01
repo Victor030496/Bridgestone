@@ -701,6 +701,18 @@ if(cheki.checked){
             
         }
         function comprobante(){
+         
+        var checki;
+        var contador=0;
+         for (i=0;i<model.equipos.length;i++){
+         checki = document.getElementById(i);
+         if(checki.checked){
+            contador ++;
+            
+            }
+         }
+        var conta= contador.toString();
+            
         var id = document.getElementById("identificacion").value;
         var nombre =document.getElementById("nombre").value;
         var apellido =document.getElementById("apellido").value;
@@ -711,20 +723,62 @@ if(cheki.checked){
         var fech2= document.getElementById("datepicker2").value;
         document.getElementById("comentario").value;
         var pdf = new jsPDF();
-        pdf.text(20,20,"Comprobante de Prestamo");
-        pdf.text(20,30,"Identificacion: ");
-        pdf.text(60,30,id);
-        pdf.text(20,40,"Nombre: ");
-        pdf.text(55,40,nombre);
-        pdf.text(75,40,apellido);
-        pdf.text(20,50,"Telefono: ");
-        pdf.text(55,50,telefono);
-        pdf.text(20,60,"correo: ");
-        pdf.text(55,60,telefono); 
-        pdf.text(20,70,"Fecha de inicio: ");
-        pdf.text(65,70,fech); 
-        pdf.text(20,80,"Fecha de devolucion: ");
-        pdf.text(80,80,fech2); 
+        pdf.text(20,20,"COMPROBANTE DE PRESTAMO");
+        pdf.text(20,30,"Departamento de TI, Bridgestone CR");
+        pdf.text(20,40,"_______________________________________________________");
+        pdf.text(20,50,"Identificacion: ");
+        pdf.text(60,50,id);
+        pdf.text(20,60,"Nombre: ");
+        pdf.text(55,60,nombre);
+        pdf.text(75,60,apellido);
+        pdf.text(20,70,"Telefono: ");
+        pdf.text(55,70,telefono);
+        pdf.text(20,80,"correo: ");
+        pdf.text(55,80,telefono); 
+        pdf.text(20,90,"Fecha de inicio: ");
+        pdf.text(65,90,fech); 
+        pdf.text(20,100,"Fecha de devolucion: ");
+        pdf.text(80,100,fech2); 
+        pdf.text(20,110,"Cantidad de equipos prestados: ");
+        pdf.text(105,110,conta);
+        var aux1 =20;
+        var aux2 =120;
+        var indi=1;
+        if(contador <= 1){
+            
+           for (j=0;j<model.equipos.length;j++){
+         checki = document.getElementById(j);
+         if(checki.checked){
+         pdf.text(20,120,"Equipo prestado: ");
+         pdf.text(65,120,model.equipos[j].marca+" - "); 
+         pdf.text(80,120,model.equipos[j].modelo); 
+            
+            }
+         }
+
+        }else{
+
+          for (z=0;z<model.equipos.length;z++){
+         checki = document.getElementById(z);
+         if(checki.checked){
+         pdf.text(aux1,aux2,"Equipo prestado#"+indi+": ");
+         aux1= aux1+50;
+         pdf.text(aux1,aux2,model.equipos[z].marca+" - ");
+         aux1= aux1+20;
+         pdf.text(aux1,aux2,model.equipos[z].modelo); 
+         aux2 = aux2+10;
+         aux1 =20;
+            indi++;
+            }
+         }
+      
+      
+        }
+        
+        //---------------------------------------------//
+        
+        
+        
         pdf.save('comprobantePresta.pdf');
         }
         
