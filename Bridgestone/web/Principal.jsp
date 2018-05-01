@@ -285,8 +285,8 @@
            var fechaActual = moment(new Date());
            var fechaVencida = model.contratos[i].fechaVencimiento;
            var day = moment(fechaVencida, "DD/MM/YYYY");
-            var alerta = fechaActual.diff(day, "days");
-           if(alerta <= 15 && est === 1){       
+            var alerta = day.diff(fechaActual, "days");
+           if((alerta <= 15 && alerta > 0) && est === 1){       
                aux++;
         }   
         
@@ -359,8 +359,9 @@
            var fechaActual = moment(new Date());
            var fechaVencida = model.comprobantes[i].garantia;
            var day = moment(fechaVencida, "DD/MM/YYYY");
-            var alerta = fechaActual.diff(day, "days");
-           if(alerta <= 15){       
+            var alerta = day.diff(fechaActual, "days");
+            //alert(alerta);
+           if(alerta <= 15 && alerta > 0){       
                aux2++;
         }   
         

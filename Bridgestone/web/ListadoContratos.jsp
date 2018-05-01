@@ -507,7 +507,7 @@
                        var day = moment(fechaVencida, "DD/MM/YYYY");
                     
                     //var alerta = fechaVencida.diff(fechaActual, "days"),"dias de diferencia");
-                     var alerta = fechaActual.diff(day, "days");
+                     var alerta = day.diff(fechaActual, "days");
                      //alert(alerta);
                      
                              if(alerta <= 15){
@@ -644,10 +644,10 @@
         var fechaVencida = model.contratos[i].fechaVencimiento;
         var day = moment(fechaVencida, "DD/MM/YYYY");
       //var alerta = fechaVencida.diff(fechaActual, "days"),"dias de diferencia");
-        var alerta = fechaActual.diff(day, "days");
+        var alerta = day.diff(fechaActual, "days");
 
        
-        if(est === 1 && alerta <= 15){    
+        if(est === 1 && (alerta <= 15 && alerta > 0)){    
         tr.classList.add("invalid"); 
         }
 
