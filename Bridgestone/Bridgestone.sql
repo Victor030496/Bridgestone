@@ -105,6 +105,21 @@ alter table Prestamo
   add constraint foreign key (id_equi) references Equipo(idEquipo) on update cascade;
   
   
+  
+  create table historial_Prestamo(
+  id_Persona varchar(15) ,
+  id_equi integer ,
+ PRIMARY KEY (id_Persona,id_equi)
+
+);
+
+alter table historial_Prestamo
+  add constraint foreign key (id_Persona) references Persona (id) on update cascade;
+
+
+alter table historial_Prestamo
+  add constraint foreign key (id_equi) references Equipo(idEquipo) on update cascade;
+  
   create table Devolucion(
   id integer auto_increment,
   id_Prestamo integer,
