@@ -142,6 +142,10 @@
      <li role="presentation">
       <a role="menuitem" tabindex="-1" href="AreaDarDeBaja.jsp">Dar De Baja a Equipos</a>
     </li>
+    
+     <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="ListadoEquiposDeBaja.jsp">Equipos dados de baja</a>
+    </li>
     <% } %>
   </ul>
                              </a></li>
@@ -152,10 +156,6 @@
     <li role="presentation">
       <a role="menuitem" tabindex="-1" href="AreaPrestamos.jsp">Nuevo Prestamo</a>
     </li>
-     <li role="presentation" class="divider"></li>
-    <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="Equi2.jsp">Prestamos Registrados</a>
-    </li>
   </ul>
                              </a></li>
                              
@@ -164,10 +164,6 @@
                                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
     <li role="presentation">
       <a role="menuitem" tabindex="-1" href="AreaDevoluciones.jsp">Registrar Devolucion</a>
-    </li>
-     <li role="presentation" class="divider"></li>
-    <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="#">Devoluciones Registradas</a>
     </li>
   </ul>
                              </a></li>

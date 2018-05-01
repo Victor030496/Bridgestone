@@ -115,12 +115,17 @@
                         <li class = "dropdown"><a href=" " class = "dropdown-toggle" data-toggle="dropdown" role = "button">Inventarios
                                  <span class = "caret"></span>
                                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-    <li role="presentation">
+    
+                     <% if(user.getTipo()==2){ // client %>
+             
+                
+          <li role="presentation">
       <a role="menuitem" tabindex="-1" href="RegistrarContratoLeasing.jsp">Registrar Contrato de Leasing</a>
     </li>
     <li role="presentation">
       <a role="menuitem" tabindex="-1" href="RegistrarComprobante.jsp">Registrar Comprobante de compra</a>
-    </li>    
+    </li>
+             <%}%>              
      <li role="presentation" class="divider"></li>
     <li role="presentation">
       <a role="menuitem" tabindex="-1" href="ListadoContratos.jsp">Contratos de Leasing Registrados</a>
@@ -128,14 +133,22 @@
     <li role="presentation">
       <a role="menuitem" tabindex="-1" href="ListadoComprobantes.jsp">Comprobantes de compra registrados</a>
     </li>    
-  <li role="presentation">
+     <li role="presentation">
       <a role="menuitem" tabindex="-1" href="RegistrarEquipos.jsp">Registrar Equipos nuevos</a>
     </li>
     <li role="presentation">
       <a role="menuitem" tabindex="-1" href="ListadoEquipos.jsp">Equipos nuevos registrados</a>
     </li>
-
+     <li role="presentation" class="divider"></li>
+        <% if(user.getTipo()==2){ // client %>
+     <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="AreaDarDeBaja.jsp">Dar De Baja a Equipos</a>
+    </li>
     
+     <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="ListadoEquiposDeBaja.jsp">Equipos dados de baja</a>
+    </li>
+    <% } %>
   </ul>
                              </a></li>
                          
@@ -143,11 +156,7 @@
                                  <span class = "caret"></span>
                                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
     <li role="presentation">
-<a role="menuitem" tabindex="-1" href="AreaPrestamos.jsp">Nuevo Prestamo</a>
-    </li>
-     <li role="presentation" class="divider"></li>
-    <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="#">Prestamos Registrados</a>
+      <a role="menuitem" tabindex="-1" href="AreaPrestamos.jsp">Nuevo Prestamo</a>
     </li>
   </ul>
                              </a></li>
@@ -156,21 +165,21 @@
                                  <span class = "caret"></span>
                                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
     <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="#">Registrar Devolucion</a>
+      <a role="menuitem" tabindex="-1" href="AreaDevoluciones.jsp">Registrar Devolucion</a>
     </li>
-     <li role="presentation" class="divider"></li>
-    <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="#">Devoluciones Registradas</a>
-    </li>
+
   </ul>
                              </a></li>
                              
                            <li class = "dropdown"><a href=" " class = "dropdown-toggle" data-toggle="dropdown" role = "button">Usuarios
                                  <span class = "caret"></span>
-                                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+      
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+        
     <li role="presentation">
       <a role="menuitem" tabindex="-1" href="RegistrarUsuario.jsp">Registrar Usuarios</a>
     </li>
+
      <li role="presentation" class="divider"></li>
     <li role="presentation">
       <a role="menuitem" tabindex="-1" href="ListadoUsuarios.jsp">Usuarios Registrados</a>
@@ -181,7 +190,7 @@
                      </ul> 
                      
                      <ul class="nav navbar-nav  navbar-right" >
-                         <li><a href="index.jsp "><img src="imagenes/cerrar.png" alt="" width="20" height="20"/>Cerrar Sesion </a></li>
+                         <li><a href="index.jsp"><img src="imagenes/cerrar.png" alt="" width="20" height="20"/>Cerrar Sesion </a></li>
                          
                      </ul>
                  </div>

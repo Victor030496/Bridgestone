@@ -121,7 +121,17 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                  //System.out.println(model.getEquipos().get(0).getMarca());
                 out.write(json);
                 System.out.println("enviadosssss");
-                break;  
+                break; 
+                
+                
+             case "EquiposBajaListAll":
+                equipos = model.getEquiposDeBaja();
+                json = gson.toJson(equipos);
+                System.out.println("enviando datoooos equipos");
+                 //System.out.println(model.getEquipos().get(0).getMarca());
+                out.write(json);
+                System.out.println("enviadosssss");
+                break; 
                  
                 
              case "EquiposDispoListAll":
