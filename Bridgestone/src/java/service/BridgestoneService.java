@@ -83,6 +83,9 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
         List<Prestamo> prestamosParaDevoluciones = new ArrayList();
         List<Persona> personasParaDevoluciones = new ArrayList();
         List<Equipo> equiposParaDevoluciones = new ArrayList();
+         List<Prestamo> prestamosParaDevoluciones2 = new ArrayList();
+        List<Persona> personasParaDevoluciones2 = new ArrayList();
+        List<Equipo> equiposParaDevoluciones2 = new ArrayList();
         switch(accion){
          
              case "trabajadorListAll":
@@ -177,6 +180,37 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
             case "equiposParaDevolucionesListAll":
                 equiposParaDevoluciones = model.getEquiposParaDevoluciones();
                 json = gson.toJson(equiposParaDevoluciones);
+                System.out.println("enviando datoooos equipos Para Devoluciones");
+                 //System.out.println(model.getEquiposParaDevoluciones().get(0).getMarca());
+                out.write(json);
+                System.out.println("enviadosssss");
+                break;
+                
+                
+                
+                   case "prestamosParaDevolucionesListAll2":
+                prestamosParaDevoluciones2 = model.getPrestamosParaDevoluciones2();
+                json = gson.toJson(prestamosParaDevoluciones2);
+                System.out.println("enviando datoooos prestamos Para Devoluciones");
+                 //System.out.println(model.getPrestamosParaDevoluciones().get(0).getFechaDevolucion());
+                out.write(json);
+                System.out.println("enviadosssss");
+                break;
+                
+                
+             case "personasParaDevolucionesListAll2":
+                personasParaDevoluciones2 = model.getPersonasParaDevoluciones2();
+                json = gson.toJson(personasParaDevoluciones2);
+                System.out.println("enviando datoooos personas Para Devoluciones");
+                 //System.out.println(model.getPersonasParaDevoluciones().get(0).getNombre());
+                out.write(json);
+                System.out.println("enviadosssss");
+                break;
+                
+                
+            case "equiposParaDevolucionesListAll2":
+                equiposParaDevoluciones2 = model.getEquiposParaDevoluciones2();
+                json = gson.toJson(equiposParaDevoluciones2);
                 System.out.println("enviando datoooos equipos Para Devoluciones");
                  //System.out.println(model.getEquiposParaDevoluciones().get(0).getMarca());
                 out.write(json);

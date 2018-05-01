@@ -544,6 +544,94 @@ static {
 }
             
      
+           
+     //----------------------------------------------------------------------------------------------------//
+           
+                    public List<Prestamo>getPrestamosParaDevoluciones2() throws Exception{
+          System.out.println("entro al getPrestamosParaDevoluciones");
+         List<Prestamo> prestamos;
+         prestamos= new ArrayList();
+         try {
+             
+             ////HACER CONSTRUCTOR DE PRESTAMOS CON ESTOS ATRIBUTOS
+            String sql="select Prestamo.id,Prestamo.id_equi,Prestamo.id_Persona,Prestamo.departamento,Prestamo.fechaInicio,Prestamo.fechaDevolucion\n" +
+                        "from Prestamo join Persona on Prestamo.id_Persona = Persona.id \n" +
+                        "join Equipo on Prestamo.id_equi = Equipo.idEquipo\n" ; //+
+                        // "where Equipo.estado = 'prestado'";
+                        //"where Equipo.estado = 'disponible'"; /// CAMBIAR AL DE ARRIBA!!!!!!!!!!!
+            
+            //"where p.estado = 'asignado' AND 'prestado'"; // sino sirve pasar trabajador a minuscula//
+            ResultSet rs =  datos.executeQuery(sql);
+             System.out.println("exitoooooo");
+            while (rs.next()) {
+                prestamos.add(toPrestamoParaDevoluciones(rs));
+                System.out.println("insertando");
+            }
+        } catch (SQLException ex) {
+        }
+        // System.out.println(ciudades.get(0).toString());        
+       return prestamos;
+
+} 
+           
+           
+           public List<Equipo>getEquiposParaDevoluciones2() throws Exception{
+          System.out.println("entro al getEquiposParaDevoluciones");
+         List<Equipo> equipos;
+         equipos= new ArrayList();
+         try {
+             
+
+            String sql="select Equipo.idEquipo,Equipo.marca,Equipo.modelo,Equipo.departamento,Equipo.estado\n" +
+                        "from Prestamo join Persona on Prestamo.id_Persona = Persona.id \n" +
+                        "join Equipo on Prestamo.id_equi = Equipo.idEquipo\n";// +
+                         //"where Equipo.estado = 'prestado'";
+                        //"where Equipo.estado = 'disponible'"; /// CAMBIAR AL DE ARRIBA!!!!!!!!!!!
+            
+            //"where p.estado = 'asignado' AND 'prestado'"; // sino sirve pasar trabajador a minuscula//
+            ResultSet rs =  datos.executeQuery(sql);
+             System.out.println("exitoooooo");
+            while (rs.next()) {
+                equipos.add(toEquipoParaDevoluciones(rs));
+                System.out.println("insertando");
+            }
+        } catch (SQLException ex) {
+        }
+        // System.out.println(ciudades.get(0).toString());        
+       return equipos;
+
+}
+           
+           
+           public List<Persona>getPersonasParaDevoluciones2() throws Exception{
+          System.out.println("entro al getPersonasParaDevoluciones");
+         List<Persona> personas;
+         personas= new ArrayList();
+         try {
+             
+                   ////HACER CONSTRUCTOR DE PERSONA CON ESTOS ATRIBUTOS
+            String sql="select Persona.id,Persona.nombre,Persona.apellido\n" +
+                         "from Prestamo join Persona on Prestamo.id_Persona = Persona.id \n" +
+                        "join Equipo on Prestamo.id_equi = Equipo.idEquipo\n";// +
+                        // "where Equipo.estado = 'prestado'";
+                        //"where Equipo.estado = 'disponible'"; /// CAMBIAR AL DE ARRIBA!!!!!!!!!!!
+            
+            //"where p.estado = 'asignado' AND 'prestado'"; // sino sirve pasar trabajador a minuscula//
+            ResultSet rs =  datos.executeQuery(sql);
+             System.out.println("exitoooooo");
+            while (rs.next()) {
+                personas.add(toPersonaParaDevoluciones(rs));
+                System.out.println("insertando");
+            }
+        } catch (SQLException ex) {
+        }
+        // System.out.println(ciudades.get(0).toString());        
+       return personas;
+
+}
+           
+           
+           
      
      
      public List<Comprobante>getComprobantes() throws Exception{
