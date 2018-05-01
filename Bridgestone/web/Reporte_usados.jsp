@@ -294,6 +294,7 @@
         <th class="success">Departamento</th>
         <th class="success">Fecha de Inicio</th>
         <th class="success">Fecha de Devolución</th>
+        <th class="success">Documentar</th>
        
       </tr>
     </thead>
@@ -308,7 +309,9 @@
     
         
         </div>
-       <a href="Principal.jsp "><button type="button" class="btn btn-default" >Atras</button></a>                 
+       <button class="btn btn-lg btn-success " name="Submit" value="Login" type="button" id="generaComprobante" onclick="comprobante();">Generar Reporte</button> 
+
+       <a href="Principal.jsp "><button type="button" class="btn btn-lg btn-default" >Atras</button></a>                 
         </div>
      
   
@@ -387,7 +390,7 @@
           //console.log(result[0].departamento);
           ////view.showTabla();
             //view.showTabla2();
-            console.log(result[0].marca);
+          console.log(result[0].marca);
           console.log(result[0].modelo);
           console.log(result[0].departamento);
            view.showTabla();
@@ -555,6 +558,17 @@
 	tr.appendChild(td);
         
         
+           var check;
+	
+         td= document.createElement("td");
+         check = document.createElement("input");
+         check.type = "radio";
+         check.id =i;
+
+       td.appendChild(check);
+       tr.appendChild(td);
+        
+        
      //  td= document.createElement("td");
       // img= document.createElement("img");
        //img.src="imagenes/edit.png";
@@ -588,6 +602,68 @@
             controller.mostrarModal(aux);
             
             
+        }
+        
+                function comprobante(){
+         
+    
+      
+            
+
+        var pdf = new jsPDF();
+        pdf.text(20,20,"REPORTE DE USO DE EQUIPOS");
+        pdf.text(20,30,"Departamento de TI, Bridgestone CR");
+        pdf.text(20,40,"Listado de equipos que han sido prestados y sus usuarios ");
+        pdf.text(20,50,"_____________________________________________________________ ");
+        
+        //---------------------------------------------//
+        var aux1 =20;
+        var aux2 =60;
+        var aux3 =20;
+        var aux4 =70;
+        var indi=1;
+        
+                  for (z=0;z<model.equipos.length;z++){
+         checki = document.getElementById(z);
+         if(checki.checked){
+         pdf.text(aux1,aux2,"Equipo prestado#"+indi+": ");
+         aux1= aux1+50;
+         pdf.text(aux1,aux2,model.equipos[z].marca+" - ");
+         aux1= aux1+20;
+         pdf.text(aux1,aux2,model.equipos[z].modelo); 
+         aux2 = aux2+10;
+         aux1 =20;
+  //------------------- Persona asignada ----------------------------//  
+       pdf.text(aux1,aux2,"Usuario asignado: ");
+         aux1= aux1+50;
+         pdf.text(aux1,aux2,model.personas[z].id+", ");
+         aux1= aux1+40;
+         pdf.text(aux1,aux2,model.personas[z].nombre); 
+          aux1= aux1+15;
+        pdf.text(aux1,aux2,model.personas[z].apellido); 
+         aux2 = aux2+10;
+         aux1 =20;
+         //----------------------- Fecha inicio  ------------------------------//
+           pdf.text(aux1,aux2,"Fecha de incio del prestamo: ");
+         aux1= aux1+80;
+         pdf.text(aux1,aux2,model.prestamos[z].fechaInicio); 
+         aux2 = aux2+10;
+         aux1 =20; 
+           //----------------------- Fecha final  ------------------------------//     
+         pdf.text(aux1,aux2,"Fecha de devolucion del prestamo: ");
+         aux1= aux1+95;
+         pdf.text(aux1,aux2,model.prestamos[z].fechaDevolucion); 
+         aux1 =20;
+         aux2 = aux2+10;
+          pdf.text(aux1,aux2,"_____________________________________________________________ ");
+         aux2 = aux2+10;
+            
+                
+                indi++;
+            }
+         }
+        
+        pdf.save('reporte_uso.pdf');
         }
         
       
