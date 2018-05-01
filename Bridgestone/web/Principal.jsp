@@ -156,6 +156,9 @@
     <li role="presentation">
       <a role="menuitem" tabindex="-1" href="AreaPrestamos.jsp">Nuevo Prestamo</a>
     </li>
+        <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="Reporte_usados.jsp">Reporte de uso del equipo</a>
+    </li>
   </ul>
                              </a></li>
                              
