@@ -417,11 +417,21 @@
 	},
         
         guardaPrestamo: function(){
+         
+                 
+            
+            
         var id = document.getElementById("identificacion");
         var nombre =document.getElementById("nombre");
         var apellido =document.getElementById("apellido");
         var telefono =document.getElementById("telefono");
         var corre0 =document.getElementById("correo");
+        var depa =document.getElementById("depa");
+        var inicio =document.getElementById("datepicker");
+        var fin =document.getElementById("datepicker2");
+     
+        
+   
         var emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i; 
         var error = false;
         var selec=false;
@@ -486,6 +496,35 @@ else if(telefono.value == null  || telefono.value.length == 0||telefono.value.le
         
            }
 } 
+
+
+else if(depa.value == null  || depa.value.length == 0){
+     //nombre.classList.add("invalid");
+	 error = true;
+        if(depa.value == null  || depa.value.length == 0){
+         alert("El espacio departamento esta vacio");
+     }    
+         
+}
+
+else if(inicio.value == null  || inicio.value.length == 0){
+     //nombre.classList.add("invalid");
+	 error = true;
+        if(inicio.value == null  || inicio.value.length == 0){
+         alert("Ingrese la fecha de prestamo por favor");
+     }    
+         
+}
+
+else if(fin.value == null  || fin.value.length == 0){
+     //nombre.classList.add("invalid");
+	 error = true;
+        if(fin.value == null  || fin.value.length == 0){
+         alert("Ingrese la fecha de devolucion por favor");
+     }    
+         
+}
+
  
  for (j=0;j< model.equipos.length ;j++){   
      cheki = document.getElementById(j);
