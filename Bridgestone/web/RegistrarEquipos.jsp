@@ -379,7 +379,7 @@
                            <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="110-440, C845-SP4143SL">
 
                                                                    <select class="selectpicker" id="modelo">
-                                      <option>Seleccione una opción </option>
+                                      <option>Seleccione una opción</option>
                                 <option>110-440(Del)</option>
                                 <option>Compaq(Hp)</option>
                                 <option>HP ProBook</option>
@@ -613,59 +613,30 @@
                     
   
 
-        if(marca == null  || marca.length == 0 ){
+        if(marca ==  "Seleccione una opción"){
         // id.classList.add("invalid");
-	 error = true;
-         if(marca == null  || marca.length == 0){
-          alert("El espacio de marca esta vacio");
-         
-     }
+document.getElementById("marca").innerHTML="No Aplica";
 }
 
-      else if(modelo == null  || modelo.length == 0 ){
-        // id.classList.add("invalid");
-	 error = true;
-         if(modelo == null  || modelo.length == 0){
-          alert("El espacio de modelo esta vacio");
-         
-     }
+      else if(modelo ==  "Seleccione una opción" ){
+        document.getElementById("modelo").innerHTML="No Aplica";
 }
 
-   else if(memoria == null  || memoria.length == 0 ){
-        // id.classList.add("invalid");
-	 error = true;
-         if(memoria == null  || memoria.length == 0){
-          alert("El espacio de memoria esta vacio");
-         
-     }
+   else if(memoria ==  "Seleccione una opción" ){
+       document.getElementById("memoria").innerHTML="No Aplica";
 }
 
- else if(proce == null  || proce.length == 0 ){
-        // id.classList.add("invalid");
-	 error = true;
-         if(proce == null  || proce.length == 0){
-          alert("El espacio de procesador esta vacio");
-         
-     }
+ else if(proce ==  "Seleccione una opción" ){
+      document.getElementById("procesador").innerHTML="No Aplica";
 }
 
- else if(depar == null  || depar.length == 0 ){
-        // id.classList.add("invalid");
-	 error = true;
-         if(depar == null  || depar.length == 0){
-          alert("El espacio de departamento esta vacio");
-         
-     }
+ else if(depar ==  "Seleccione una opción" ){
+       document.getElementById("departamento").innerHTML="No Aplica";
 }
 
- else if(des == null  || des.length == 0 ){
-        // id.classList.add("invalid");
-	 error = true;
-         if(des == null  || des.length == 0){
-          alert("El espacio de descripcion esta vacio");
-         
-     }
-}
+ //else if(des ==  "Seleccione una opción" ){
+ //      document.getElementById("marca").innerHTML="No Aplica";
+//}
 
 
           
