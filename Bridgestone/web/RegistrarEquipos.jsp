@@ -362,7 +362,7 @@
                            <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="eje: Lenovo, HP, DEL">
 
                                  <select class="selectpicker" id="marca">
-                                      <option>Seleccione una opción </option>
+                                <option>- </option>
                                 <option>Lenovo</option>
                                 <option>Dell</option>
                                 <option>Hp</option>
@@ -379,7 +379,7 @@
                            <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="110-440, C845-SP4143SL">
 
                                                                    <select class="selectpicker" id="modelo">
-                                      <option>Seleccione una opción</option>
+                                      <option>-</option>
                                 <option>110-440(Del)</option>
                                 <option>Compaq(Hp)</option>
                                 <option>HP ProBook</option>
@@ -395,7 +395,7 @@
                            <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="500 GB,  1 TB">
 
                               <select class="selectpicker" id="memoria">
-                                <option>Seleccione una opción </option>
+                                <option>-</option>
                                 <option>4GB</option>
                                 <option>6GB</option>
                                 <option>8GB</option>
@@ -415,7 +415,7 @@
                            <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="i3,i5,Athlon x4(AMD)">
 
                          <select class="selectpicker" id="procesador">
-                              <option>Seleccione una opción </option>
+                              <option>- </option>
                                 <option>i3</option>
                                 <option>i5</option>
                                 <option>i7</option>
@@ -432,7 +432,7 @@
                            <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="Recursos Humanos , recepcion, o bien en INVENTARIO ">
 
                              <select class="selectpicker" id="departamento">
-                                <option>Seleccione una opción </option>
+                                <option>- </option>
                                 <option>Recursos Humanos</option>
                                 <option>TI</option>
                                 <option>Administracion</option>
