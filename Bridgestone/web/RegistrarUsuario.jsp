@@ -261,8 +261,8 @@
 
                             <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="glyphicon glyphicon-user"></span>&nbsp Usuario</label>
                              
-                            <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="El usuario debe tener entre 8 - 16 caracteres!">
-                                  <input type="text" class="form-control" id="usuario" name="usuarioTab" size="8" maxlength="16" />
+                            <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="El usuario debe tener entre 6 - 16 caracteres!">
+                                  <input type="text" class="form-control" id="usuario" name="usuarioTab"  maxlength="16" />
                                     <span style="color: black ; font-size: 12pt ;font-family:Impact"  id="usuariook"></span>
                                   
                             </div>
@@ -271,7 +271,7 @@
                         <div class="form-group">
                             <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"><span class="glyphicon glyphicon-lock"></span>&nbsp Contraseña</label>
                              <div class="col-xs-7 col-sm-5 col-md-5" data-toggle="tooltip" title="La contrasena debe tener minimo 8 carcteres mayusculas y numeros!">
-                                <input type="password" class="form-control" id="contrasena" name="contrasena" size="8" maxlength="8" />
+                                <input type="password" class="form-control" id="contrasena" name="contrasena" size="20" maxlength="20" />
                             </div> 
                         </div>
                         
@@ -279,7 +279,7 @@
                            <div class="form-group">
                             <label class="control-label col-xs-3 col-sm-4 col-md-3 " id="acceso2"><span class="glyphicon glyphicon-lock"></span>&nbsp Confirmar contraseña</label>
                              <div class="col-xs-7 col-sm-5 col-md-5">
-                                <input type="password" class="form-control" id="confirmacion" name="confirmacion" size="8" maxlength="8"/>
+                                <input type="password" class="form-control" id="confirmacion" name="confirmacion" size="20" maxlength="20"/>
                             </div>
                         </div>
                         
@@ -417,21 +417,27 @@ $(document).ready(function(){
          if(usu.value == null  || usu.value.length == 0){
          window.alert("El espacio de usuario esta vacio");
      }
-    else if(usu.value.length <= 8){
-         window.alert("El usuarios debe de tener al menos 8 caracteres");
+    else if(usu.value.length <= 6){
+         window.alert("El usuarios debe de tener al menos 6 caracteres");
      }
              
              
          
 }
 
-  else if(pas.value == null  || pas.value.length == 0 ||  pas.value != pas2.value ||pas2.value == null  || pas2.value.length == 0){
+  else if(pas.value == null  || pas.value.length == 0 ||  pas.value != pas2.value ||pas2.value == null  || pas2.value.length == 0 || pas.value.length < 8){
      pas.classList.add("invalid");
 	 error = true;
         if(pas.value == null  || pas.value.length == 0 ){
               window.alert("El espacio de contraseña esta vacio!");
              
          }
+        else if(pas.value.length < 8){
+         window.alert("Por motivos de seguridad la contraseña debe tener 8 caracteres minino");
+        window.alert("Utilice letras Mayusculas y Numeros. Ej HF4jfd4j");
+        } 
+         
+         
         else if(pas2.value == null  || pas2.value.length == 0 ){
               window.alert("El espacio de confirmacio de contraseña esta vacio!");
              
@@ -442,8 +448,6 @@ $(document).ready(function(){
          }
   
 }
-
-
 
 
 
