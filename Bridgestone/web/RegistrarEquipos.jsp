@@ -115,7 +115,7 @@
                        
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-align-center"></i></span>
-                                <input maxlength="10" name="nombre" id="nombre" placeholder="Nombre" class="form-control input_nombre" type="text">
+                                <input maxlength="20" name="nombre" id="nombre" placeholder="Nombre" class="form-control input_nombre" type="text">
                             </div><span style="color: white ; font-size: 12pt ;font-family:Impact"  id="nombre1"></span>
                         
                     </div>
@@ -124,7 +124,7 @@
                        
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
-                                <input maxlength="10" name="apellido" id="apellido" placeholder="Apellido" class="form-control input_apellido" type="text">
+                                <input maxlength="25" name="apellido" id="apellido" placeholder="Apellido" class="form-control input_apellido" type="text">
                             </div><span style="color: white ; font-size: 12pt ;font-family:Impact"  id="nombre2"></span>
                         
                     </div>
@@ -827,7 +827,7 @@
         if(id.length == 0 || id==null){
           error = false;   
         // id.classList.add("invalid"); 
-         alert("El equipo no tiene un usuario asignado por el momento"); 
+         alert("El espacio de identificacion esta vacio"); 
          }
          //Validar al usuario si se mete alguno
         if(id.length >= 1 && id.length <9 ){
@@ -977,7 +977,7 @@ document.getElementById('correo').addEventListener('input', function() {
  jQuery(document).ready(function() {
     jQuery('.input_nombre').keypress(function(tecla) {
         valido = document.getElementById('nombre1');
-        if((tecla.charCode < 65 || tecla.charCode > 90) && (tecla.charCode < 97 || tecla.charCode > 122)){ 
+        if((tecla.charCode < 31 || tecla.charCode > 33) &&(tecla.charCode < 65 || tecla.charCode > 90) && (tecla.charCode < 97 || tecla.charCode > 122)){ 
             
              valido.innerText = "Solo puede ingresar Letras!!";
             // valido.innerText = "";
@@ -990,7 +990,7 @@ document.getElementById('correo').addEventListener('input', function() {
  jQuery(document).ready(function() {
     jQuery('.input_apellido').keypress(function(tecla) {
         valido = document.getElementById('nombre2');
-        if((tecla.charCode < 65 || tecla.charCode > 90) && (tecla.charCode < 97 || tecla.charCode > 122)){ 
+        if((tecla.charCode < 31 || tecla.charCode > 33) &&(tecla.charCode < 65 || tecla.charCode > 90) && (tecla.charCode < 97 || tecla.charCode > 122)){ 
             
              valido.innerText = "Solo puede ingresar Letras!!";
             // valido.innerText = "";
