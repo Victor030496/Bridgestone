@@ -378,7 +378,14 @@
                             <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="	glyphicon glyphicon-pencil"></span>&nbsp Modelo</label>
                            <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="110-440, C845-SP4143SL">
 
-                                  <input type="text" class="form-control" id="modelo" name="usuarioTab" maxlength="12"/>
+                                                                   <select class="selectpicker" id="modelo">
+                                      <option>Seleccione una opción </option>
+                                <option>110-440(Del)</option>
+                                <option>Compaq(Hp)</option>
+                                <option>HP ProBook</option>
+                                <option>C845-SP4143SL(Toshiba)</option>
+                                 <option>Agregar una nueva opcion...</option>
+                           </select>
                         </div>
                              </div>
                      
