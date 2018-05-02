@@ -265,16 +265,16 @@
                          <div class="form-group">
                             <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"><span class="glyphicon glyphicon-user"></span>&nbsp Nombre</label>
                             <div class="col-xs-7 col-sm-5 col-md-5">
-                                <input type="text" class="form-control input_nombre" id="nombre" name="usuarioTab" maxlength="12"/>
+                                <input type="text" class="form-control input_nombre" id="nombre" name="usuarioTab" maxlength="20" placeholder="ej:Pedro"/>
                                  <span style="color: black ; font-size: 12pt ;font-family:Impact"  id="nombre1"></span>
                             </div>
                         </div>
 
                         
                          <div class="form-group">
-                            <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"><span class="glyphicon glyphicon-user"></span>&nbsp Apellido</label>
+                            <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"><span class="glyphicon glyphicon-user"></span>&nbsp Apellidos</label>
                             <div class="col-xs-7 col-sm-5 col-md-5">
-                                <input type="text" class="form-control input_apellido" id="apellido" name="usuarioTab" maxlength="15"/>
+                                <input type="text" class="form-control input_apellido" id="apellido" name="usuarioTab" maxlength="25" placeholder="ej:Ramirez Fonseca"/>
                                 <span style="color: black ; font-size: 12pt ;font-family:Impact"  id="nombre2"></span>
                             </div>
                         </div>
@@ -462,11 +462,12 @@ document.getElementById('correo').addEventListener('input', function() {
  jQuery(document).ready(function() {
     jQuery('.input_nombre').keypress(function(tecla) {
         valido = document.getElementById('nombre1');
-        if((tecla.charCode < 65 || tecla.charCode > 90) && (tecla.charCode < 97 || tecla.charCode > 122)){ 
+        if((tecla.charCode < 31 || tecla.charCode > 33) &&(tecla.charCode < 65 || tecla.charCode > 90) && (tecla.charCode < 97 || tecla.charCode > 122)){ 
             
              valido.innerText = "Solo puede ingresar Letras!!";
             // valido.innerText = "";
             return false;}
+       
         else  valido.innerText = "";
     });
 });
@@ -475,7 +476,7 @@ document.getElementById('correo').addEventListener('input', function() {
  jQuery(document).ready(function() {
     jQuery('.input_apellido').keypress(function(tecla) {
         valido = document.getElementById('nombre2');
-        if((tecla.charCode < 65 || tecla.charCode > 90) && (tecla.charCode < 97 || tecla.charCode > 122)){ 
+        if((tecla.charCode < 31 || tecla.charCode > 33) &&(tecla.charCode < 65 || tecla.charCode > 90) && (tecla.charCode < 97 || tecla.charCode > 122)){ 
             
              valido.innerText = "Solo puede ingresar Letras!!";
             // valido.innerText = "";
