@@ -361,7 +361,14 @@
                             <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="	glyphicon glyphicon-pencil"></span>&nbsp Marca del equipo</label>
                            <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="eje: Lenovo, HP, DEL">
 
-                                  <input type="text" class="form-control" id="marca" name="usuarioTab" maxlength="12"/>
+                                 <select class="selectpicker" id="marca">
+                                      <option>Seleccione una opción </option>
+                                <option>Lenovo</option>
+                                <option>Dell</option>
+                                <option>Hp</option>
+                                <option>Toshiba</option>
+                                 <option>Agregar una nueva opcion...</option>
+                           </select>
                         </div>
                              </div>
                         
@@ -380,7 +387,14 @@
                             <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="	glyphicon glyphicon-pencil"></span>&nbsp Memoria</label>
                            <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="500 GB,  1 TB">
 
-                                  <input type="text" class="form-control" id="memoria" name="usuarioTab" maxlength="12"/> 
+                              <select class="selectpicker" id="memoria">
+                                <option>Seleccione una opción </option>
+                                <option>4GB</option>
+                                <option>6GB</option>
+                                <option>8GB</option>
+                                <option>16GB</option>
+                                 <option>Agregar una nueva opcion...</option>
+                           </select> 
                         </div>
                              </div>
                 
@@ -393,7 +407,15 @@
                             <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="	glyphicon glyphicon-pencil"></span>&nbsp Procesador</label>
                            <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="i3,i5,Athlon x4(AMD)">
 
-                                  <input type="text" class="form-control" id="procesador" name="usuarioTab" maxlength="12"/>
+                         <select class="selectpicker" id="procesador">
+                              <option>Seleccione una opción </option>
+                                <option>i3</option>
+                                <option>i5</option>
+                                <option>i7</option>
+                                <option>i9</option>
+                                <option>x4(AMD)</option>
+                                 <option>Agregar una nueva opcion...</option>
+                           </select> 
                         </div>
                              </div>                        
                         
@@ -402,7 +424,16 @@
                             <label class="control-label col-xs-3 col-sm-4 col-md-3" id="acceso2"> <span class="	glyphicon glyphicon-pencil"></span>&nbsp Departamento</label>
                            <div class="col-xs-7 col-sm-5 col-md-5"  data-toggle="tooltip" title="Recursos Humanos , recepcion, o bien en INVENTARIO ">
 
-                                  <input type="text" class="form-control" id="departamento" name="usuarioTab" maxlength="12"/>
+                             <select class="selectpicker" id="departamento">
+                                <option>Seleccione una opción </option>
+                                <option>Recursos Humanos</option>
+                                <option>TI</option>
+                                <option>Administracion</option>
+                                <option>Marketing</option>
+                                <option>Financiero</option>
+                                <option>Gerencia</option>
+                                <option>Agregar una nueva opcion...</option>
+                           </select> 
                         </div>
                              </div>
                         
