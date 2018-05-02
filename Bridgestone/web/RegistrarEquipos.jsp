@@ -825,48 +825,57 @@
         var error = false;
         
         if(id.length == 0 || id==null){
+            
           error = false;   
         // id.classList.add("invalid"); 
-         alert("El espacio de identificacion esta vacio"); 
+         alert("El equipo ocupa la informacion completa del usuario para asignarle uno"); 
          }
          //Validar al usuario si se mete alguno
         if(id.length >= 1 && id.length <9 ){
+            
           error = true;   
         // id.classList.add("invalid"); 
          alert("La identificacion debe de tener al menos 9 caracteres para cedula nacional"); 
          }
  //----------------------------nombre---------------------------------        
          else if(id==null || id.length == 0 && nombre.length>=1){
+             
 	 error = true;
          alert("El espacio de identificacion esta esta vacio");           
 }
 
  else if(id.length >=1 && nombre.length==0 || nombre==null){
      error = true; 
+     
          alert("El espacio de nombre esta esta vacio");    
          }
 //----------------------------apellido-------------------------------
  else if(id==null || id.length == 0 && apellido.length>=1){
+   
 	 error = true;
          alert("El espacio de identificacion esta esta vacio");          
 }
 
  else if(id.length >=1 && apellido.length==0 || apellido==null){
+   
      error = true; 
          alert("El espacio de apellido esta esta vacio");   
          }
  //---------------------------telefono------------------------------
   else if(id==null || id.length == 0 && telefono.length>=1){
+     
 	 error = true;
          alert("El espacio de identificacion esta esta vacio");           
 }
 
  else if(id.length >=1 && telefono.length==0 || telefono==null){
+     
      error = true; 
          alert("El espacio de telefono esta esta vacio");   
          }
  //----------------------------correo------------------------------
   else if(id==null || id.length == 0 && correo.length>=1){
+      
 	 error = true;
          if(id==null || id.length == 0 && correo.length>=1 ){
          alert("El espacio de identificacion esta esta vacio");  }  
@@ -874,11 +883,13 @@
 }
 
  else if(id.length >=1 && correo.length==0 || correo==null){
+     
      error = true; 
          alert("El espacio de correo esta esta vacio");    
          }
     
   else if(id.length >=1 && !emailRegex.test(correo)){
+     
          error = true;  
          alert("Formato incorrecto! ej:Raul@mail.com");
         

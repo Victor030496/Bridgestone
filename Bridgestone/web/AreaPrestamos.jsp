@@ -279,15 +279,23 @@
 
 
  
-
-                    <input type="text" class="form-control" name="u_name" placeholder="Cedula del prestario" required="" autofocus="" id="identificacion" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" /><br />
-                    <input type="text" class="form-control" name="u_name" placeholder="Nombre del prestario" required="" autofocus="" id="nombre" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" /><br />
-                    <input type="text" class="form-control" name="u_name" placeholder="Apellido del prestario" required="" autofocus="" id="apellido" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" /><br />
-                    <input type="text" class="form-control" name="u_name" placeholder="Numero telefonico" required="" autofocus="" id="telefono" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" /><br />
+                    <span style="color: black ; font-size: 12pt ;font-family:Impact"  id="num2"></span>
+                    <input type="text" class="form-control input_ced" name="u_name" placeholder="Cedula del prestario" required="" autofocus="" id="identificacion" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" size="15" maxlength="15"/><br />
+                    <span style="color: black ; font-size: 12pt ;font-family:Impact"  id="nombre1"></span>
+                    <input type="text" class="form-control input_nombre" name="u_name" placeholder="Nombre del prestario" required="" autofocus="" id="nombre" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" size="15" maxlength="15"/><br />
+                    <span style="color: black ; font-size: 12pt ;font-family:Impact"  id="nombre2"></span>
+                    <input type="text" class="form-control input_apellido" name="u_name" placeholder="Apellidos del prestario" required="" autofocus="" id="apellido" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" size="25" maxlength="25"/><br />
+                    <span style="color: black ; font-size: 12pt ;font-family:Impact"  id="num1"></span>
+                    <input type="text" class="form-control input_tel" name="u_name" placeholder="Numero telefonico" required="" autofocus="" id="telefono" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" size="15" maxlength="15"/><br />
+                    <span style="color: black ; font-size: 12pt ;font-family:Impact"  id="emailOK"></span>
                     <input type="text" class="form-control" name="u_name" placeholder="Correo electronico" required="" autofocus="" id="correo" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" /><br />
-                    <input type="text" class="form-control" name="u_name" placeholder="Departamento " required="" autofocus="" id="depa" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" /><br />
+                     <span style="color: black ; font-size: 12pt ;font-family:Impact"  id="departamento"></span>
+                    <input type="text" class="form-control input_departamento" name="u_name" placeholder="Departamento " required="" autofocus="" id="depa" data-toggle="tooltip" data-placement="right" title="Ingrese su usuario eje : Juanxx39" size="20" maxlength="20"/><br />
+                    
                     <input type="text" id="datepicker" class="form-control" placeholder="Fecha de inicio del prestamo"><br />
+                    
                     <input type="text" id="datepicker2" class="form-control" placeholder="Fecha de devolucion"><br />
+                    
                     <textarea  class="form-control" name="comentarios" rows="3" cols="85" id="comentario" placeholder="comentario"></textarea><br />
 
                     <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="button" id="enviar" onclick="controller.guardaPrestamo();">Guardar</button>
@@ -515,7 +523,7 @@ else if(inicio.value == null  || inicio.value.length == 0){
      }    
          
 }
-
+/*
 else if(fin.value == null  || fin.value.length == 0){
      //nombre.classList.add("invalid");
 	 error = true;
@@ -523,7 +531,7 @@ else if(fin.value == null  || fin.value.length == 0){
          alert("Ingrese la fecha de devolucion por favor");
      }    
          
-}
+}*/
 
  
  for (j=0;j< model.equipos.length ;j++){   
@@ -619,9 +627,92 @@ if(cheki.checked){
 <script> // View
   var model;
   var controller;
-  
+  //valida el correo
+document.getElementById('correo').addEventListener('input', function() {
+    campo = event.target;
+    valido = document.getElementById('emailOK');
+        
+    emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+    //Se muestra un texto a modo de ejemplo, luego va a ser un icono
+    if (emailRegex.test(campo.value)) {
+      
+      valido.innerText = "Valido";
+    } else {
+        valido.innerText = "Formato incorrecto! ej:Raul@mail.com";
+        //alert("La dirección de email es incorrecta!.");
+    }
+});
+        
+        
+      //valida el numero de telefono 
+        jQuery(document).ready(function() {
+    jQuery('.input_tel').keypress(function(tecla) {
+         valido = document.getElementById('num1');
+        if(tecla.charCode < 48 || tecla.charCode > 57){
+            
+             valido.innerText = "Solo puede ingresar numeros!!";
+             //valido.innerText = "";
+            return false;}
+        else  valido.innerText = "";
+        
+    });
+    
+    
+    
+    
+    //valida la identificacion
+});
+      jQuery(document).ready(function() {
+    jQuery('.input_ced').keypress(function(tecla) {
+        valido = document.getElementById('num2');
+        if((tecla.charCode < 48 || tecla.charCode > 57)){ 
+            
+             valido.innerText = "Solo puede ingresar numeros en la cedula!!";
+            // valido.innerText = "";
+            return false;}
+        else  valido.innerText = "";
+    });
+});
 
-  
+
+//valida nombre
+ jQuery(document).ready(function() {
+    jQuery('.input_nombre').keypress(function(tecla) {
+        valido = document.getElementById('nombre1');
+        if((tecla.charCode < 31 || tecla.charCode > 33) &&(tecla.charCode < 65 || tecla.charCode > 90) && (tecla.charCode < 97 || tecla.charCode > 122)){ 
+            
+             valido.innerText = "Solo puede ingresar Letras en el nombre!!";
+            // valido.innerText = "";
+            return false;}
+        else  valido.innerText = "";
+    });
+});
+
+//valida apellidos
+ jQuery(document).ready(function() {
+    jQuery('.input_apellido').keypress(function(tecla) {
+        valido = document.getElementById('nombre2');
+        if((tecla.charCode < 31 || tecla.charCode > 33) &&(tecla.charCode < 65 || tecla.charCode > 90) && (tecla.charCode < 97 || tecla.charCode > 122)){ 
+            
+             valido.innerText = "Solo puede ingresar Letras y espacios en los apellidos!!";
+            // valido.innerText = "";
+            return false;}
+        else  valido.innerText = "";
+    });
+});  
+
+//valida apellidos
+ jQuery(document).ready(function() {
+    jQuery('.input_departamento').keypress(function(tecla) {
+        valido = document.getElementById('departamento');
+        if((tecla.charCode < 31 || tecla.charCode > 33) &&(tecla.charCode < 65 || tecla.charCode > 90) && (tecla.charCode < 97 || tecla.charCode > 122)){ 
+            
+             valido.innerText = "Solo puede ingresar Letras y espacios en el departamento!!";
+            // valido.innerText = "";
+            return false;}
+        else  valido.innerText = "";
+    });
+});   
 
 
 	function pageLoad(event){ 
