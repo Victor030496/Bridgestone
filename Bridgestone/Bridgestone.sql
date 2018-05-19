@@ -148,6 +148,7 @@ alter table Devolucion
    id integer auto_increment,
    comentario varchar(40),
    id_equi integer ,
+   fechaBaja Date,
  PRIMARY KEY (id)
 
 );

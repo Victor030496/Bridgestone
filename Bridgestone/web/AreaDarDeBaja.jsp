@@ -229,6 +229,12 @@
            
                             </div>
                                  
+                             <div class="form-group" id="groupInicio">
+                                 <div class="input-group">
+                              <span class="input-group-lg"><i class="glyphicon glyphicon-calendar"></i></span>
+                                <input type="text"  id="datepickerr">
+                            </div>
+                                </div>
                                  
                              <!--<div class="rightcontact">
                         
@@ -316,11 +322,7 @@
 
   <script>
     
-    $("#datepickerr").datepicker();
-</script>
-<script>
-    
-    $("#datepickerr2").datepicker();
+    $("#datepickerr").datepicker({ dateFormat: 'dd/mm/yy' });
 </script>
 
 
@@ -419,9 +421,11 @@
          equipo = model.equipos.find(function(x){return x.idEquipo === a ; });
 
 
-         baja = new Baja(1,document.getElementById("comentario").value,equipo.idEquipo);
+         baja = new Baja(1,document.getElementById("comentario").value,equipo.idEquipo,document.getElementById("datepickerr").value);
         
-        
+         alert(document.getElementById("datepickerr").value);
+         alert(baja.id);
+         alert(baja.fechaBaja);
          Proxy.registrarBaja(baja,
                 function(devo){
                     if(devo == 33){

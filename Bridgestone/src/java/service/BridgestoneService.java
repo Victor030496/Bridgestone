@@ -343,6 +343,13 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                     ba.setComentario(jaax.getString("comentario"));
                     ba.setId_equi(jaax.getInt("id_equi"));
                     
+                    
+                    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                    Date parsed = (Date) format.parse(jaax.getString("fechaBaja"));
+                    java.sql.Date sql = new java.sql.Date(parsed.getTime());
+                        
+                    ba.setFechaBaja(sql);
+                    
                     //System.out.println("Registrando Devo  " + dev.getId() + " " + dev.getId_Prestamo()+ "  "+ dev.getId_equi());
                     int aux14 = model.guardaBaja(ba);
                     System.out.println("retorno "+aux14);
@@ -412,12 +419,12 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                         compro.setComprobante(ji.getJSONObject(i).getInt("numeroDeComprobante"));
                         
                         
-                          SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-                        Date parsed = (Date) format.parse(ji.getJSONObject(i).getString("garantia"));
-                        java.sql.Date sql = new java.sql.Date(parsed.getTime());
+                          SimpleDateFormat format2 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date parsed2 = (Date) format2.parse(ji.getJSONObject(i).getString("garantia"));
+                        java.sql.Date sql2 = new java.sql.Date(parsed2.getTime());
                         
-                        compro.setGarantia(sql);
-                         System.out.println(sql);
+                        compro.setGarantia(sql2);
+                         System.out.println(sql2);
                         
                         
                         
@@ -442,15 +449,13 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                     
                         Contrato contra = new Contrato();
                         contra.setgetCodigoContrato(ju.getJSONObject(i).getString("codigoContrato"));
+   
+                        SimpleDateFormat format3 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date parsed3 = (Date) format3.parse(ju.getJSONObject(i).getString("fechaInicio"));
+                        java.sql.Date sql3 = new java.sql.Date(parsed3.getTime());
                         
-
-                        
-                        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-                        Date parsed = (Date) format.parse(ju.getJSONObject(i).getString("fechaInicio"));
-                        java.sql.Date sql = new java.sql.Date(parsed.getTime());
-                        
-                        contra.setFechaInicio(sql);
-                         System.out.println(sql);
+                        contra.setFechaInicio(sql3);
+                         System.out.println(sql3);
                         
                         
                         

@@ -4,28 +4,30 @@
  * and open the template in the editor.
  */
 
-  function Baja(id,comentario,id_equi) {
-    this.Baja(id,comentario,id_equi);
+  function Baja(id,comentario,id_equi,fechaBaja) {
+    this.Baja(id,comentario,id_equi,fechaBaja);
   }
   
   Baja.prototype={
         id:0,
         comentario:"",
         id_equi:0,
+        fechaBaja:"",
 	
-	Baja: function(id,comentario,id_equi){
+	Baja: function(id,comentario,id_equi,fechaBaja){
                 this.id= id;
                 this.comentario = comentario;
                 this.id_equi= id_equi;
+                this.fechaBaja= fechaBaja;
 
 	},
 	toString:function(){
-	  return this.id +this.comentario;
+	  return this.id +this.comentario+this.id_equi+this.fechaBaja;
 	}
   }
   
   Baja.from= function(plain){
-    devo = new Baja(plain.id,plain.comentario,plain.id_equi);
+    devo = new Baja(plain.id,plain.comentario,plain.id_equi,plain.fechaBaja);
 	return devo;
   };
   
@@ -36,6 +38,7 @@
         id:baja.id,
         comentario: baja.comentario,
         id_equi: baja.id_equi,
+        fechaBaja: baja.fechaBaja
     };	
   };
   /*

@@ -224,7 +224,7 @@ static {
        String sql2="update Equipo "+
                     "set estado  = 'disponible'" +
                     "where Equipo.idEquipo= '%s'";
-
+       
        sql=String.format(sql,c.getId_Prestamo(), c.getComentario(),c.getId_Persona(),c.getId_equi());
        sql2=String.format(sql2,c.getId_equi());
        
@@ -236,7 +236,7 @@ static {
         throw new Exception("Devolucion NO SE PUDO GUARDAR");
        
        }
- 
+       
    return 1;
    }
        
@@ -245,14 +245,14 @@ static {
 
        
               System.out.println("Baja que vamos a guardar"+ c.getId());
-       String sql="insert into DarDeBaja(comentario,id_equi)"
-                + "values('%s','%s')";
+       String sql="insert into DarDeBaja(comentario,id_equi,fechaBaja)"
+                + "values('%s','%s','%s')";
        
        String sql2="update Equipo "+
                     "set estado  = 'baja'" +
                     "where Equipo.idEquipo= '%s'";
 
-       sql=String.format(sql,c.getComentario(),c.getId_equi());
+       sql=String.format(sql,c.getComentario(),c.getId_equi(),c.getFechaBaja());
        sql2=String.format(sql2,c.getId_equi());
        
        int aux = datos.executeUpdate(sql);

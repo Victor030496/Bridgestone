@@ -40,7 +40,7 @@
         id_equi:Prestamo.id_equi,
         departamento:Prestamo.departamento,
         fechaInicio:Prestamo.fechaInicio,
-        fechaDevolucion: Prestamo.fechaVencimiento,
+        fechaDevolucion: Prestamo.fechaDevolucion,
         comentario:Prestamo.comentario
 
        
