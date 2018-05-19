@@ -194,16 +194,25 @@ static {
    }
                
                
-                  public static int guardaPrestamo(Prestamo c)throws Exception{
+        public static int guardaPrestamo(Prestamo c)throws Exception{
 
        
-              System.out.println("Prestamo que vamos a guardar"+ c.getDepartamento());
+       System.out.println("Prestamo que vamos a guardar"+ c.getId_Persona());
+       
+       
+       String sql2="insert into historial_Prestamo(id_Persona,id_equi,departamento,fechaInicio,fechaDevolucion,comentario)"
+                + "values('%s','%s','%s','%s','%s','%s')";
+
+       sql2=String.format(sql2,c.id_Persona,c.id_equi,c.departamento,c.fechaInicio,c.fechaDevolucion,c.comentario);
+       int aux2 = datos.executeUpdate(sql2);
+       
        String sql="insert into Prestamo(id_Persona,id_equi,departamento,fechaInicio,fechaDevolucion,comentario)"
                 + "values('%s','%s','%s','%s','%s','%s')";
 
        sql=String.format(sql,c.id_Persona,c.id_equi,c.departamento,c.fechaInicio,c.fechaDevolucion,c.comentario);
        int aux = datos.executeUpdate(sql);
-       if(aux ==0){
+
+       if(aux ==0 && aux2 == 0){
        
         throw new Exception("PRESTAMO NO SE PUDO GUARDAR");
        
@@ -225,12 +234,18 @@ static {
                     "set estado  = 'disponible'" +
                     "where Equipo.idEquipo= '%s'";
        
+       String sql3="delete from "+
+                    "historial_Prestamo  "+
+                    "where id = '%s'";
+           
        sql=String.format(sql,c.getId_Prestamo(), c.getComentario(),c.getId_Persona(),c.getId_equi());
        sql2=String.format(sql2,c.getId_equi());
+       sql3=String.format(sql3,c.getId_Prestamo());
        
        int aux = datos.executeUpdate(sql);
        int aux2 = datos.executeUpdate(sql2);
-       if(aux ==0 && aux2 ==0 ){
+       int aux3 = datos.executeUpdate(sql3);
+       if(aux ==0 && aux2 ==0 && aux3 ==0 ){
           // if(aux ==0){
        
         throw new Exception("Devolucion NO SE PUDO GUARDAR");
@@ -467,10 +482,10 @@ static {
          try {
              
              ////HACER CONSTRUCTOR DE PRESTAMOS CON ESTOS ATRIBUTOS
-            String sql="select Prestamo.id,Prestamo.id_equi,Prestamo.id_Persona,Prestamo.departamento,Prestamo.fechaInicio,Prestamo.fechaDevolucion\n" +
-                        "from Prestamo join Persona on Prestamo.id_Persona = Persona.id \n" +
-                        "join Equipo on Prestamo.id_equi = Equipo.idEquipo\n" +
-                         "where Equipo.estado = 'prestado'";
+            String sql="select historial_prestamo.id,historial_prestamo.id_equi,historial_prestamo.id_Persona,historial_prestamo.departamento,historial_prestamo.fechaInicio,historial_prestamo.fechaDevolucion\n" +
+            "from historial_prestamo join Persona on historial_prestamo.id_Persona = Persona.id\n" +
+            "join Equipo on historial_prestamo.id_equi = Equipo.idEquipo\n" +
+            "where Equipo.estado = 'prestado';";
                         //"where Equipo.estado = 'disponible'"; /// CAMBIAR AL DE ARRIBA!!!!!!!!!!!
             
             //"where p.estado = 'asignado' AND 'prestado'"; // sino sirve pasar trabajador a minuscula//
@@ -496,8 +511,8 @@ static {
              
 
             String sql="select Equipo.idEquipo,Equipo.marca,Equipo.modelo,Equipo.departamento,Equipo.estado\n" +
-                        "from Prestamo join Persona on Prestamo.id_Persona = Persona.id \n" +
-                        "join Equipo on Prestamo.id_equi = Equipo.idEquipo\n" +
+                        "from historial_prestamo join Persona on historial_prestamo.id_Persona = Persona.id \n" +
+                        "join Equipo on historial_prestamo.id_equi = Equipo.idEquipo\n" +
                          "where Equipo.estado = 'prestado'";
                         //"where Equipo.estado = 'disponible'"; /// CAMBIAR AL DE ARRIBA!!!!!!!!!!!
             
@@ -524,8 +539,8 @@ static {
              
                    ////HACER CONSTRUCTOR DE PERSONA CON ESTOS ATRIBUTOS
             String sql="select Persona.id,Persona.nombre,Persona.apellido\n" +
-                         "from Prestamo join Persona on Prestamo.id_Persona = Persona.id \n" +
-                        "join Equipo on Prestamo.id_equi = Equipo.idEquipo\n" +
+                         "from historial_prestamo join Persona on historial_prestamo.id_Persona = Persona.id \n" +
+                        "join Equipo on historial_prestamo.id_equi = Equipo.idEquipo\n" +
                          "where Equipo.estado = 'prestado'";
                         //"where Equipo.estado = 'disponible'"; /// CAMBIAR AL DE ARRIBA!!!!!!!!!!!
             
