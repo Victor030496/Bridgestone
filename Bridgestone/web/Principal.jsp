@@ -187,6 +187,29 @@
     
   </ul>
                              </a></li>
+                             
+                             
+                                      <li class = "dropdown"><a href=" " class = "dropdown-toggle" data-toggle="dropdown" role = "button">Ayudas
+                                 <span class = "caret"></span>
+      
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+        
+    <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="Ayudas.jsp">Videos</a>
+    </li>
+
+     <li role="presentation" class="divider"></li>
+    <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="ListadoUsuarios.jsp">Usuarios Registrados</a>
+    </li>
+    
+  </ul>
+                             </a></li>                  
+                             
+                 
+                             
+                             
+                             
                      </ul> 
                      
                      <ul class="nav navbar-nav  navbar-right" >

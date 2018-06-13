@@ -90,10 +90,8 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
          
              case "trabajadorListAll":
                 trabajadores = model.getTrabajadores();
-                //System.out.println(trabajadores.get(0));
                 json = gson.toJson(trabajadores);
-                System.out.println("enviando datoooos");
-               // System.out.println(model.getTrabajadores().get(0).toString());
+                System.out.println("enviando datoooos");  
                 out.write(json);
                 System.out.println("enviadosssss");
                 break;
